@@ -219,7 +219,6 @@ const ImageCSS = css`
     height: auto;
     z-index: 0;
     margin: 15px auto 50px;
-    border-radius: 5px;
 
     ${mediaqueries.tablet`
       margin: 10px auto 45px;
