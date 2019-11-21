@@ -233,7 +233,6 @@ const ImageCSS = css`
     height: auto;
     z-index: 0;
     margin: 15px auto 50px;
-    border-radius: 5px;
     width: 100%;
     max-width: 680px;
 
@@ -298,7 +297,7 @@ const ImageCSS = css`
     img {
       border-radius: 0;
     }
-
+ 
     ${mediaqueries.desktop`
       left: -53px;
     `};
