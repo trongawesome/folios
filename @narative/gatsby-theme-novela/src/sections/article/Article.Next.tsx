@@ -99,7 +99,7 @@ const Grid = styled.div<{ numberOfArticles: number }>`
     `;
     } else {
       return `
-      grid-template-columns: ${wide} ${narrow};
+      grid-template-columns: ${wide} ${wide};
       grid-template-rows: 2;
       `;
     }
@@ -161,7 +161,7 @@ const Title = styled(Headings.h3)`
   line-height: 1.4;
   margin-bottom: ${p => (p.hasOverflow ? "45px" : "10px")};
   color: ${p => p.theme.colors.primary};
-  font-family: ${p => p.theme.fonts.serif};
+  font-family: ${p => p.theme.fonts.title};
   transition: color 0.3s ease-in-out;
   ${limitToTwoLines};
 
@@ -181,6 +181,7 @@ const Excerpt = styled.p<{ narrow: boolean; hasOverflow: boolean }>`
   margin-bottom: 10px;
   color: ${p => p.theme.colors.grey};
   display: ${p => (p.hasOverflow ? "none" : "box")};
+  font-family: ${p => p.theme.fonts.body};
   max-width: ${p => (p.narrow ? "415px" : "515px")};
 
   ${mediaqueries.desktop`

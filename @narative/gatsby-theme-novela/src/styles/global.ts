@@ -5,6 +5,9 @@ export const globalStyles = css`
    * Thanks to Benjamin De Cock
    * https://gist.github.com/bendc/ac03faac0bf2aee25b49e5fd260a727d
    */
+  
+  @import url('https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700|Poppins:600&display=swap');
+
   :root {
     --ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
     --ease-in-quart: cubic-bezier(0.895, 0.03, 0.685, 0.22);

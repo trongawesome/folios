@@ -84,9 +84,9 @@ const Article: Template = ({ pageContext, location }) => {
     <Layout>
       <ArticleSEO article={article} authors={authors} location={location} />
       <ArticleHero article={article} authors={authors} />
-      <ArticleAside contentHeight={contentHeight}>
+      {/* <ArticleAside contentHeight={contentHeight}>
         <Progress contentHeight={contentHeight} />
-      </ArticleAside>
+      </ArticleAside> */}
       <MobileControls>
         <ArticleControls />
       </MobileControls>

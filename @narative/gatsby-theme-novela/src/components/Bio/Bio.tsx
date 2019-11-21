@@ -75,9 +75,10 @@ const BioAvatarInner = styled.div`
 
 const BioText = styled.p`
   max-width: 430px;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.45;
   color: ${p => p.theme.colors.grey};
+  font-family: ${p => p.theme.fonts.body};
 
   a {
     color: ${p => p.theme.colors.grey};
