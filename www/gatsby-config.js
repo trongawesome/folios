@@ -4,18 +4,18 @@ const siteMetadata = {
   title: `Trong Nguyen's Desk`,
   name: `Trong Nguyen`,
   siteUrl: `https://trongnguyen.co`,
-  description: `This is my description that will be used in the meta tags and important for search results`,
+  description: `Product Designer who's learning to write and express thoughts`,
   hero: {
-    heading: `Hi, I’m Trong, product designer at Carousell, previouslly at Leflair & Code Engine Studio.`,
+    heading: `Hi, I’m Trong, product designer at Carousell.`,
     maxWidth: 800,
   },
   social: [
     {
-      url: `https://twitter.com/narative`,
+      url: `https://twitter.com/trongtnt92`,
     },
     {
-      name: 'stackoverflow',
-      url: `https://bit.ly/1x0885j`,
+      name: 'medium',
+      url: `https://medium.com/@trongtnt92`,
     },
   ],
 };
@@ -51,14 +51,14 @@ const plugins = [
   {
     resolve: `gatsby-plugin-google-analytics`,
     options: {
-      trackingId: "UA-118232427-3",
+      trackingId: "UA-55380266-4",
     },
   },
   {
     resolve: "gatsby-plugin-mailchimp",
     options: {
       endpoint:
-        "https://narative.us19.list-manage.com/subscribe/post?u=65ef169332a03669b9538f6ef&amp;id=c55c426282",
+        "https://medium.us16.list-manage.com/subscribe/post?u=bd56b6b313e273cdd466f5abc&amp;id=736a1779cd",
     },
   },
 ];

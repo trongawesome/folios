@@ -218,8 +218,8 @@ const ArticleLink = styled(Link)<{ narrow: string }>`
 
   &:hover ${ImageContainer} {
     transform: translateY(-1px);
-    box-shadow: 0 50px 80px -20px rgba(0, 0, 0, 0.27),
-      0 30px 50px -30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 30px 40px -20px rgba(41, 65, 69, 0.32),
+      0 30px 30px -30px rgba(41, 65, 69, 0.52);
   }
 
   &:hover h2,
