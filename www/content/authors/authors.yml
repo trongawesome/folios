@@ -1,48 +1,15 @@
-- name: Dennis Brotzky
+- name: Trong Nguyen
   bio: |
-    Written by You. This is where your author bio lives. Share your work, your
-    joys and of course, your Twitter handle.
-  avatar: ./avatars/dennis-brotzky.jpg
+    Write to practice. Write to find ideas
+  avatar: ./avatars/trong-nguyen.jpg
   featured: true
   social:
-    - url: https://unsplash.com
-    - url: https://stackoverflow.com
-    - url: https://github.com
-    - url: https://github.com
     - url: https://github.com
 
-- name: Thiago Costa
+- name: Jolie Happy
   bio: |
-    Written by You. This is where your author bio lives. Share your work, your
-    joys and of course, your Twitter handle.
-  avatar: ./avatars/thiago-costa.jpg
+    I'm Jolie Happy. Jolie is cute, and Happy is happy.
+  avatar: ./avatars/jolie-2.JPG
+  featured: true
   social:
-    - url: https://github.com
-    - url: https://github.com
-    - url: https://github.com
-    - url: https://github.com
-    - url: https://github.com
-
-- name: Brad Tiller
-  bio: |
-    Written by You. This is where your author bio lives. Share your work, your
-    joys and of course, your Twitter handle.
-  avatar: ./avatars/brad-tiller.jpg
-  social:
-    - url: https://github.com
-    - url: https://github.com
-    - url: https://github.com
-    - url: https://github.com
-    - url: https://github.com
-
-- name: Mack Mansouri
-  bio: |
-    Written by You. This is where your author bio lives. Share your work, your
-    joys and of course, your Twitter handle.
-  avatar: ./avatars/mack-mansouri.jpg
-  social:
-    - url: https://github.com
-    - url: https://github.com
-    - url: https://github.com
-    - url: https://github.com
     - url: https://github.com

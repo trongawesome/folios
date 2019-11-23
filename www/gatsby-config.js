@@ -1,45 +1,21 @@
 require("dotenv").config();
 
 const siteMetadata = {
-  title: `Novela by Narative`,
-  name: `Narative`,
-  siteUrl: `https://novela.narative.co`,
+  title: `Trong Nguyen's Desk`,
+  name: `Trong Nguyen`,
+  siteUrl: `https://trongnguyen.co`,
   description: `This is my description that will be used in the meta tags and important for search results`,
   hero: {
-    heading: `Welcome to Novela, the simplest way to start publishing with Gatsby.`,
-    maxWidth: 652,
+    heading: `Hi, I’m Trong, product designer at Carousell, previouslly at Leflair & Code Engine Studio.`,
+    maxWidth: 800,
   },
   social: [
     {
       url: `https://twitter.com/narative`,
     },
     {
-      url: `https://behance.com/narative`,
-    },
-    {
-      url: `https://github.com/narative`,
-    },
-    {
-      url: `https://instagram.com/narative.co`,
-    },
-    {
-      url: `https://www.linkedin.com/company/narative/`,
-    },
-    {
-      url: `https://dribbble.com/narativestudio`,
-    },
-    {
-      url: `https://youtube.com`,
-    },
-    {
-      url: `https://stackoverflow.com`,
-    },
-    {
       name: 'stackoverflow',
       url: `https://bit.ly/1x0885j`,
-    },
-    {
-      url: `https://digitalocean.com`,
     },
   ],
 };

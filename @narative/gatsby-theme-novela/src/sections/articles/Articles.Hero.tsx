@@ -51,28 +51,6 @@ const ArticlesHero: React.FC<IAuthor> = ({ authors }) => {
       </HeadingContainer>
       <SubheadingContainer>
         <Bio author={featuredAuthor} />
-        
-        {/* <GridControlsContainer>
-          <GridButton
-            onClick={() => setGridLayout('tiles')}
-            active={tilesIsActive}
-            data-a11y="false"
-            title="Show articles in Tile grid"
-            aria-label="Show articles in Tile grid"
-          >
-            <Icons.Tiles />
-          </GridButton>
-          <GridButton
-            onClick={() => setGridLayout('rows')}
-            active={!tilesIsActive}
-            data-a11y="false"
-            title="Show articles in Row grid"
-            aria-label="Show articles in Row grid"
-          >
-            <Icons.Rows />
-          </GridButton>
-        </GridControlsContainer> */}
-
       </SubheadingContainer>
     </Section>
   );
@@ -84,14 +62,14 @@ const SubheadingContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 100px;
+  margin-bottom: 48px;
 
   ${mediaqueries.desktop`
-    margin-bottom: 80px;
+    margin-bottom: 48px;
   `};
 
   ${mediaqueries.tablet`
-    margin-bottom: 60px;
+    margin-bottom: 32px;
   `};
 
   ${mediaqueries.phablet`
@@ -110,6 +88,7 @@ const GridControlsContainer = styled.div`
 
 const HeadingContainer = styled.div`
   margin: 100px 0;
+  font-family: ${p => p.theme.fonts.title};
 
   ${mediaqueries.desktop`
     width: 80%;

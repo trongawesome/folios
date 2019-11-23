@@ -87,9 +87,9 @@ const Article: Template = ({ pageContext, location }) => {
       {/* <ArticleAside contentHeight={contentHeight}>
         <Progress contentHeight={contentHeight} />
       </ArticleAside> */}
-      <MobileControls>
+      {/* <MobileControls>
         <ArticleControls />
-      </MobileControls>
+      </MobileControls> */}
       <ArticleBody ref={contentSectionRef}>
         <MDXRenderer content={article.body}>
           <ArticleShare />
@@ -98,7 +98,7 @@ const Article: Template = ({ pageContext, location }) => {
       {mailchimp && article.subscription && <Subscription />}
       {next.length > 0 && (
         <NextArticle narrow>
-          <FooterNext>More articles from {name}</FooterNext>
+          <FooterNext>More from {name}</FooterNext>
           <ArticlesNext articles={next} />
           <FooterSpacer />
         </NextArticle>
@@ -122,7 +122,7 @@ const MobileControls = styled.div`
 
 const ArticleBody = styled.article`
   position: relative;
-  padding: 160px 0 35px;
+  padding: 56px 0 35px;
   padding-left: 68px;
   transition: background 0.2s linear;
 

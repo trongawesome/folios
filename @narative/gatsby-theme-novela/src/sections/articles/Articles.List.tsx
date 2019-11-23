@@ -206,9 +206,7 @@ const listItemRow = p => css`
   }
 
   ${mediaqueries.phablet`
-    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.2);
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
+    
   `}
 `;
 
@@ -225,9 +223,6 @@ const listItemTile = p => css`
 
   ${mediaqueries.phablet`
     margin-bottom: 40px;
-    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.2);
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
   `}
 `;
 
@@ -252,8 +247,6 @@ const Item = styled.div<{ gridLayout: string }>`
 const ImageContainer = styled.div<{ narrow: boolean; gridLayout: string }>`
   position: relative;
   height: ${p => (p.gridLayout === 'tiles' ? '280px' : '220px')};
-  box-shadow: 0 30px 60px -10px rgba(0, 0, 0, ${p => (p.narrow ? 0.22 : 0.3)}),
-    0 18px 36px -18px rgba(0, 0, 0, ${p => (p.narrow ? 0.25 : 0.33)});
   margin-bottom: ${p => (p.gridLayout === 'tiles' ? '30px' : 0)};
   transition: transform 0.3s var(--ease-out-quad),
     box-shadow 0.3s var(--ease-out-quad);
@@ -271,8 +264,6 @@ const ImageContainer = styled.div<{ narrow: boolean; gridLayout: string }>`
     overflow: hidden;
     margin-bottom: 0;
     box-shadow: none;
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
   `}
 `;
 
@@ -330,8 +321,8 @@ const Excerpt = styled.p<{
 `;
 
 const MetaData = styled.div`
-  font-weight: 600;
-  font-size: 16px;
+  font-weight: 400;
+  font-size: 14px;
   color: ${p => p.theme.colors.grey};
   opacity: 0.33;
 

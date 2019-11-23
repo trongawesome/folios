@@ -120,8 +120,6 @@ const Grid = styled.div<{ numberOfArticles: number }>`
 const ImageContainer = styled.div`
   position: relative;
   height: 280px;
-  box-shadow: 0 30px 60px -10px rgba(0, 0, 0, ${p => (p.narrow ? 0.22 : 0.3)}),
-    0 18px 36px -18px rgba(0, 0, 0, ${p => (p.narrow ? 0.25 : 0.33)});
   margin-bottom: 30px;
   transition: transform 0.3s var(--ease-out-quad),
     box-shadow 0.3s var(--ease-out-quad);
@@ -140,8 +138,6 @@ const ImageContainer = styled.div`
     margin-bottom: 0;
     box-shadow: none;
     overflow: hidden;
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
   `}
 `;
 
@@ -149,9 +145,6 @@ const Item = styled.div`
   position: relative;
 
   @media (max-width: 540px) {
-    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.2);
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
     background: ${p => p.theme.colors.card};
   }
 `;
@@ -201,8 +194,8 @@ const Excerpt = styled.p<{ narrow: boolean; hasOverflow: boolean }>`
 `;
 
 const MetaData = styled.div`
-  font-weight: 600;
-  font-size: 16px;
+  font-weight: 400;
+  font-size: 14px;
   color: ${p => p.theme.colors.grey};
   opacity: 0.33;
 

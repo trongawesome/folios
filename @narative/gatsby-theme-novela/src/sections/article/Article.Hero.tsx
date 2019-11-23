@@ -84,7 +84,7 @@ const ArticleMeta = styled.div<{ hasCoAUthors: boolean }>`
 const Header = styled.header`
   position: relative;
   z-index: 10;
-  margin:100px auto 120px;
+  margin:100px auto 56px;
   padding-left: 68px;
   max-width: 749px;
 
@@ -101,12 +101,12 @@ const Header = styled.header`
   `}
 
   ${mediaqueries.phablet`
-    margin: 170px auto 180px;
+    margin: 64px auto 64px;
     padding: 0 40px;
   `}
 
   @media screen and (max-height: 700px) {
-    margin: 100px auto;
+    margin: 100px auto 48px;
   }
 `;
 
@@ -168,8 +168,6 @@ const HeroImage = styled.div`
   max-width: 944px;
   overflow: hidden;
   margin: 0 auto;
-  box-shadow: 0 30px 60px -10px rgba(0, 0, 0, 0.2),
-    0 18px 36px -18px rgba(0, 0, 0, 0.22);
 
   ${mediaqueries.tablet`
     max-width: 100%;
