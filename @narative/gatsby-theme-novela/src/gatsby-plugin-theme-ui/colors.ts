@@ -9,7 +9,7 @@ export default {
   background: "#D1E8EB",
   accent: "#3A5C21",
   hover: "rgba(0, 0, 0, 0.07)",
-  gradient: "linear-gradient(180deg, rgba(217, 219, 224, 0) 0%, #D9DBE0 100%)",
+  gradient: "linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%)",
   articleText: "#294145",
   track: "rgba(8, 8, 11, 0.3)",
   progress: "#000",

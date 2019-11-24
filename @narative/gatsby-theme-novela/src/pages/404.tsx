@@ -1,29 +1,21 @@
 import React from "react";
 import styled from "@emotion/styled";
+import mediaqueries from "@styles/media";
 
 import Section from "@components/Section";
 import SEO from "@components/SEO";
 import Layout from "@components/Layout";
-import Paginator from "@components/Navigation/Navigation.Paginator";
-
-import ArticlesHero from "../sections/articles/Articles.Hero";
-import ArticlesList from "../sections/articles/Articles.List";
 
 import { Template } from "@types";
 
 const ArticlesPage: Template = ({ location, pageContext }) => {
-  const articles = pageContext.group;
-  const authors = pageContext.additionalContext.authors;
 
   return (
     <Layout>
       <SEO pathname={location.pathname} />
-      <ArticlesHero authors={authors} />
-      <Section narrow>
-        <ArticlesList articles={articles} />
-        <ArticlesPaginator show={pageContext.pageCount > 1}>
-          <Paginator {...pageContext} />
-        </ArticlesPaginator>
+      <Section>
+        <Heading>Page not found</Heading>
+        <Subheading>hhe</Subheading>
       </Section>
       <ArticlesGradient />
     </Layout>
@@ -44,6 +36,30 @@ const ArticlesGradient = styled.div`
   transition: ${p => p.theme.colorModeTransition};
 `;
 
-const ArticlesPaginator = styled.div<{ show: boolean }>`
-  ${p => p.show && `margin-top: 64px;`}
+const Heading = styled.h1`
+  font-size: 38px;
+  font-family: ${p => p.theme.fonts.title};
+  color: ${p => p.theme.colors.primary};
+  margin-bottom: 15px;
+  font-weight: 600;
+
+  ${mediaqueries.tablet`
+  `}
+
+  ${mediaqueries.phablet`
+  `}
+`;
+
+const Subheading = styled.p`
+  margin: 0 auto;
+  max-width: 450px;
+  color: ${p => p.theme.colors.grey};
+  font-size: 18px;
+  font-family: ${p => p.theme.fonts.body};
+  line-height: 1.4;
+  text-align: center;
+
+  ${mediaqueries.phablet`
+    font-size: 14px;
+  `}
 `;
