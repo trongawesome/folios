@@ -43,11 +43,10 @@ const Subscription: React.FC<{}> = () => {
       <SubscriptionContainer>
         <Content>
           <Heading>
-            Join our email list and get notified about new content
+            Sign up to my email list for updates
           </Heading>
           <Text>
-            Be the first to receive our latest content with the ability to
-            opt-out at anytime. We promise to not spam your inbox or share your
+            Be the first to receive my latest updates. No spam or share your
             email with any third parties.
           </Text>
           <Form onSubmit={handleSubmit} hasError={error}>
@@ -86,6 +85,7 @@ const SubscriptionContainer = styled.div`
   background: ${p => p.theme.colors.card};
   box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.05);
   z-index: 1;
+  // max-width: 680px;
 
   ${mediaqueries.tablet`
     padding: 50px 0 0;
