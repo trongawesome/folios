@@ -39,8 +39,8 @@ const plugins = [
   {
     resolve: `gatsby-plugin-manifest`,
     options: {
-      name: `Novela by Narative`,
-      short_name: `Novela`,
+      name: `Trong Nguyen's Desk`,
+      short_name: `Trong`,
       start_url: `/`,
       background_color: `#fff`,
       theme_color: `#fff`,
