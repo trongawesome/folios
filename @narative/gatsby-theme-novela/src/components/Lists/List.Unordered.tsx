@@ -25,6 +25,7 @@ const UnorderedList = styled.ul`
 
   ${mediaqueries.phablet`
     padding-left: 20px;
+    padding-right: 20px;
   `};
 
   li {

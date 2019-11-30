@@ -10,6 +10,7 @@ import { useColorMode } from "theme-ui";
 import Anchor from "@components/Anchor";
 import Blockquote from "@components/Blockquote";
 import Code from "@components/Code";
+import Figcaption from "@components/Figcaption"
 import Headings from "@components/Headings";
 import HorizontalRule from "@components/HorizontalRule";
 import Lists from "@components/Lists";
@@ -24,6 +25,7 @@ const components = {
   img: ImageZoom,
   a: Anchor,
   blockquote: Blockquote,
+  figcaption: Figcaption,
   h1: Headings.h2, // h1 reserved article title
   h2: Headings.h2,
   h3: Headings.h3,
