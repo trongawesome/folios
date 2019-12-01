@@ -29,6 +29,26 @@ function normalizeHero(article) {
   return hero;
 }
 
+function normalizeThumnail(article) {
+  let thumbnail = {
+    full: {},
+    regular: {},
+    narrow: {},
+  };
+
+  if (article.thumbnail) {
+    thumbnail = {
+      full: article.thumbnail.full.fluid,
+      regular: article.thumbnail.regular.fluid,
+      narrow: article.thumbnail.narrow.fluid,
+    };
+  } else {
+    console.log('\u001B[33m', `Missing thumbnail for "${article.title}"`);
+  }
+
+  return thumbnail;
+}
+
 function normalizeAvatar(author) {
   let avatar = {
     small: {},
@@ -56,6 +76,13 @@ module.exports.local = {
       hero: normalizeHero(article),
     };
   },
+  portfolios: ({ node: portfolio }) => {
+    return {
+      ...portfolio,
+      hero: normalizeHero(portfolio),
+      thumbnail: normalizeThumnail(portfolio),
+    };
+  },
   authors: ({ node: author }) => {
     return {
       ...author,
@@ -79,6 +106,22 @@ module.exports.contentful = {
       author,
       body: article.body.childMdx.body,
       timeToRead: article.body.childMdx.timeToRead,
+    };
+  },
+  portfolios: ({ node: portfolio }) => {
+    const author = portfolio.author.reduce((curr, next, index, array) => {
+      if (array.length === 1) {
+        return next.name;
+      }
+
+      return `${curr + next.name}, `;
+    }, ``);
+
+    return {
+      ...portfolio,
+      author,
+      body: portfolio.body.childMdx.body,
+      timeToRead: portfolio.body.childMdx.timeToRead,
     };
   },
   authors: ({ node: author }) => {

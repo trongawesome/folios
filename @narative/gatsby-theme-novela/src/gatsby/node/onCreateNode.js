@@ -7,6 +7,7 @@ const crypto = require(`crypto`);
 module.exports = ({ node, actions, getNode, createNodeId }, themeOptions) => {
   const { createNode, createNodeField, createParentChildLink } = actions;
   const contentPath = themeOptions.contentPath || 'content/posts';
+  const portfoliosPath = themeOptions.portfoliosPath || 'content/portfolios';
   const basePath = themeOptions.basePath || '/';
   const articlePermalinkFormat = themeOptions.articlePermalinkFormat || ':slug';
 
@@ -117,6 +118,45 @@ module.exports = ({ node, actions, getNode, createNodeId }, themeOptions) => {
           .digest(`hex`),
         content: JSON.stringify(fieldData),
         description: `Article Posts`,
+      },
+    });
+
+    createParentChildLink({ parent: fileNode, child: node });
+  }
+
+  // Portfolio
+  if (node.internal.type === `Mdx` && source === portfoliosPath) {
+    const fieldData = {
+      author: node.frontmatter.author,
+      date: node.frontmatter.date,
+      hero: node.frontmatter.hero,
+      thumbnail: node.frontmatter.thumbnail,
+      secret: node.frontmatter.secret || false,
+      slug: generateSlug(
+        basePath,
+        generateArticlePermalink(
+          slugify(node.frontmatter.slug || node.frontmatter.title),
+          node.frontmatter.date,
+        ),
+      ),
+      title: node.frontmatter.title,
+      subscription: node.frontmatter.subscription !== false,
+    };
+
+    createNode({
+      ...fieldData,
+      // Required fields.
+      id: createNodeId(`${node.id} >>> Portfolio`),
+      parent: node.id,
+      children: [],
+      internal: {
+        type: `Portfolio`,
+        contentDigest: crypto
+          .createHash(`md5`)
+          .update(JSON.stringify(fieldData))
+          .digest(`hex`),
+        content: JSON.stringify(fieldData),
+        description: `Portfolio Posts`,
       },
     });
 

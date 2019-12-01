@@ -7,6 +7,7 @@ const siteMetadata = {
   description: `Product Designer who's learning to write and express thoughts`,
   hero: {
     heading: `Hi, I’m Trong, product designer at Carousell.`,
+    writingHeading: `Writing is designing.`,
     maxWidth: 800,
   },
   social: [
@@ -26,6 +27,7 @@ const plugins = [
     options: {
       contentPosts: "content/posts",
       contentAuthors: "content/authors",
+      contentPortfolios: "content/portfolios",
       rootPath: "/",
       basePath: "/",
       authorsPage: true,

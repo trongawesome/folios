@@ -17,7 +17,7 @@ const authorQuery = graphql`
         node {
           siteMetadata {
             hero {
-              heading
+              writingHeading
               maxWidth
             }
           }
@@ -47,7 +47,7 @@ const ArticlesHero: React.FC<IAuthor> = ({ authors }) => {
   return (
     <Section relative id="Articles__Hero">
       <HeadingContainer style={{ maxWidth: `${hero.maxWidth}px` }}>
-        <HeroHeading dangerouslySetInnerHTML={{ __html: hero.heading }} />
+        <HeroHeading dangerouslySetInnerHTML={{ __html: hero.writingHeading }} />
       </HeadingContainer>
       <SubheadingContainer>
         <Bio author={featuredAuthor} />

@@ -13,6 +13,7 @@ const siteQuery = graphql`
           siteMetadata {
             name
             siteUrl
+            title
           }
         }
       }
@@ -33,6 +34,7 @@ const ArticleSEO: React.FC<ArticleSEOProps> = ({
 }) => {
   const results = useStaticQuery(siteQuery);
   const name = results.allSite.edges[0].node.siteMetadata.name;
+  const title = results.allSite.edges[0].node.siteMetadata.title;
   const siteUrl = results.allSite.edges[0].node.siteMetadata.siteUrl;
 
   const authorsData = authors.map(author => ({
@@ -80,7 +82,7 @@ const ArticleSEO: React.FC<ArticleSEOProps> = ({
 
   return (
     <SEO
-      title={article.title}
+      title={article.title + " | " + title}
       description={article.excerpt}
       image={article.hero.seo.src}
       timeToRead={article.timeToRead}

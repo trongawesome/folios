@@ -57,6 +57,68 @@ module.exports.local = {
       }
     }
   }`,
+
+  portfolios: `{
+    portfolios: allPortfolio(
+      sort: { fields: [date, title], order: DESC }
+      limit: 1000
+    ) {
+      edges {
+        node {
+          id
+          slug
+          secret
+          title
+          author
+          date(formatString: "MMMM Do, YYYY")
+          dateForSEO: date
+          timeToRead
+          excerpt
+          subscription
+          body
+          hero {
+            full: childImageSharp {
+              fluid(maxWidth: 1000, quality: 100) {
+                ${GatsbyFluid_withWebp}
+              }
+            }
+            regular: childImageSharp {
+              fluid(maxWidth: 653, quality: 100) {
+                ${GatsbyFluid_withWebp}
+              }
+            }
+            narrow: childImageSharp {
+              fluid(maxWidth: 457, quality: 100) {
+                ${GatsbyFluid_withWebp}
+              }
+            }
+            seo: childImageSharp {
+              fixed(width: 1200, quality: 100) {
+                src
+              }
+            }
+          }
+          thumbnail {
+            full: childImageSharp {
+              fluid(maxWidth: 944, quality: 100) {
+                ${GatsbyFluid_withWebp}
+              }
+            }
+            regular: childImageSharp {
+              fluid(maxWidth: 653, quality: 100) {
+                ${GatsbyFluid_withWebp}
+              }
+            }
+            narrow: childImageSharp {
+              fluid(maxWidth: 457, quality: 100) {
+                ${GatsbyFluid_withWebp}
+              }
+            }
+          }
+        }
+      }
+    }
+  }`,
   authors: `{
     authors: allAuthor {
       edges {
@@ -96,6 +158,45 @@ module.exports.local = {
 module.exports.contentful = {
   articles: `{
     articles: allContentfulPost(sort: {fields: [date, title], order: DESC}, limit: 1000) {
+      edges {
+        node {
+          body {
+            childMdx {
+              body
+              timeToRead
+            }
+          }
+          excerpt
+          title
+          slug
+          secret
+          date(formatString: "MMMM Do, YYYY")
+          dateForSEO: date
+          hero {
+            full: fluid(maxWidth: 944, quality: 100) {
+              ${GatsbyFluid_withWebp}
+            }
+            regular: fluid(maxWidth: 653, quality: 100) {
+              ${GatsbyFluid_withWebp}
+            }
+            narrow: fluid(maxWidth: 457, quality: 100) {
+              ${GatsbyFluid_withWebp}
+            }
+            seo: fixed(width: 1200, quality: 100) {
+              src
+            }
+          }
+          id
+          author {
+            name
+          }
+        }
+      }
+    }
+  }
+  `,
+  portfolios: `{
+    portfolios: allContentfulPost(sort: {fields: [date, title], order: DESC}, limit: 1000) {
       edges {
         node {
           body {

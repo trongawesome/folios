@@ -13,6 +13,8 @@ const templates = {
   articles: path.resolve(templatesDirectory, 'articles.template.tsx'),
   article: path.resolve(templatesDirectory, 'article.template.tsx'),
   author: path.resolve(templatesDirectory, 'author.template.tsx'),
+  portfolios: path.resolve(templatesDirectory, 'portfolios.template.tsx'),
+  portfolio: path.resolve(templatesDirectory, 'portfolio.template.tsx'),
 };
 
 const query = require('../data/data.query');
@@ -52,6 +54,8 @@ module.exports = async ({ actions: { createPage }, graphql }, themeOptions) => {
     basePath = '/',
     authorsPath = '/authors',
     authorsPage = true,
+    portfolioPath = '/portfolios',
+    postsPath = '/writing',
     pageLength = 10,
     sources = {},
     mailchimp = '',
@@ -62,11 +66,12 @@ module.exports = async ({ actions: { createPage }, graphql }, themeOptions) => {
 
   let authors;
   let articles;
+  let portfolios;
 
   const dataSources = {
-    local: { authors: [], articles: [] },
-    contentful: { authors: [], articles: [] },
-    netlify: { authors: [], articles: [] },
+    local: { authors: [], articles: [], portfolios: [] },
+    contentful: { authors: [], articles: [], portfolios: [] },
+    netlify: { authors: [], articles: [], portfolios: [] },
   };
 
   if (rootPath) {
@@ -76,13 +81,15 @@ module.exports = async ({ actions: { createPage }, graphql }, themeOptions) => {
   }
 
   log('Config basePath', basePath);
+  log('Config portfolioPath', portfolioPath);
   if (authorsPage) log('Config authorsPath', authorsPath);
 
   if (local) {
     try {
-      log('Querying Authors & Articles source:', 'Local');
+      log('Querying Authors & Articles, Portfolio source:', 'Local');
       const localAuthors = await graphql(query.local.authors);
       const localArticles = await graphql(query.local.articles);
+      const localPortfolios = await graphql(query.local.portfolios);
 
       dataSources.local.authors = localAuthors.data.authors.edges.map(
         normalize.local.authors,
@@ -91,6 +98,11 @@ module.exports = async ({ actions: { createPage }, graphql }, themeOptions) => {
       dataSources.local.articles = localArticles.data.articles.edges.map(
         normalize.local.articles,
       );
+
+      dataSources.local.portfolios = localPortfolios.data.portfolios.edges.map(
+        normalize.local.portfolios,
+      );
+      
     } catch (error) {
       console.error(error);
     }
@@ -101,6 +113,7 @@ module.exports = async ({ actions: { createPage }, graphql }, themeOptions) => {
       log('Querying Authors & Articles source:', 'Contentful');
       const contentfulAuthors = await graphql(query.contentful.authors);
       const contentfulArticles = await graphql(query.contentful.articles);
+      const contentfulPortfolios = await graphql(query.contentful.portfolios);
 
       dataSources.contentful.authors = contentfulAuthors.data.authors.edges.map(
         normalize.contentful.authors,
@@ -108,6 +121,10 @@ module.exports = async ({ actions: { createPage }, graphql }, themeOptions) => {
 
       dataSources.contentful.articles = contentfulArticles.data.articles.edges.map(
         normalize.contentful.articles,
+      );
+
+      dataSources.contentful.portfolios = contentfulportfolios.data.portfolios.edges.map(
+        normalize.contentful.portfolios,
       );
     } catch (error) {
       console.error(error);
@@ -122,6 +139,15 @@ module.exports = async ({ actions: { createPage }, graphql }, themeOptions) => {
   ].sort(byDate);
 
   const articlesThatArentSecret = articles.filter(article => !article.secret);
+  
+  // Combining together all the articles from different sources
+  portfolios = [
+    ...dataSources.local.portfolios,
+    ...dataSources.contentful.portfolios,
+    ...dataSources.netlify.portfolios,
+  ].sort(byDate);
+  
+  const portfoliosThatArentSecret = portfolios.filter(portfolio => !portfolio.secret);
 
   // Combining together all the authors from different sources
   authors = getUniqueListBy(
@@ -133,7 +159,7 @@ module.exports = async ({ actions: { createPage }, graphql }, themeOptions) => {
     'name',
   );
 
-  if (articles.length === 0 || authors.length === 0) {
+  if (articles.length === 0 || authors.length === 0|| portfolios.length === 0) {
     throw new Error(`
     You must have at least one Author and Post. As reference you can view the
     example repository. Look at the content folder in the example repo.
@@ -152,7 +178,7 @@ module.exports = async ({ actions: { createPage }, graphql }, themeOptions) => {
   log('Creating', 'articles page');
   createPaginatedPages({
     edges: articlesThatArentSecret,
-    pathPrefix: basePath,
+    pathPrefix: postsPath,
     createPage,
     pageLength,
     pageTemplate: templates.articles,
@@ -213,6 +239,93 @@ module.exports = async ({ actions: { createPage }, graphql }, themeOptions) => {
         slug: article.slug,
         id: article.id,
         title: article.title,
+        mailchimp,
+        next,
+      },
+    });
+  });
+
+  // Portfolio page
+  if (portfolios.length === 0 || authors.length === 0|| portfolios.length === 0) {
+    throw new Error(`
+    You must have at least one Author and Post. As reference you can view the
+    example repository. Look at the content folder in the example repo.
+    https://github.com/narative/gatsby-theme-novela-example
+  `);
+  }
+
+  /**
+   * Once we've queried all our data sources and normalized them to the same structure
+   * we can begin creating our pages. First, we'll want to create all main articles pages
+   * that have pagination.
+   * /articles
+   * /articles/page/1
+   * ...
+   */
+  log('Creating', 'portfolios page');
+  createPaginatedPages({
+    edges: portfoliosThatArentSecret,
+    pathPrefix: basePath,
+    createPage,
+    pageLength,
+    pageTemplate: templates.portfolios,
+    buildPath: buildPaginatedPath,
+    context: {
+      authors,
+      basePath,
+      skip: pageLength,
+      limit: pageLength,
+    },
+  });
+
+  // All portfolio pages
+  log('Creating', 'portfolio');
+  portfolios.forEach((portfolio, index) => {
+    // Match the Author to the one specified in the article
+    let authorsThatWroteThePortfolio;
+    try {
+      authorsThatWroteThePortfolio = authors.filter(author => {
+        const allAuthors = portfolio.author
+          .split(',')
+          .map(a => a.trim().toLowerCase());
+
+        return allAuthors.some(a => a === author.name.toLowerCase());
+      });
+    } catch (error) {
+      throw new Error(`
+        We could not find the Author for: "${portfolio.title}".
+        Double check the author field is specified in your post and the name
+        matches a specified author.
+        Provided author: ${portfolio.author}
+        ${error}
+      `);
+    }
+
+    /**
+     * We need a way to find the next artiles to suggest at the bottom of the articles page.
+     * To accomplish this there is some special logic surrounding what to show next.
+     */
+    let next = portfoliosThatArentSecret.slice(index + 1, index + 3);
+    // If it's the last item in the list, there will be no articles. So grab the first 2
+    if (next.length === 0) next = portfoliosThatArentSecret.slice(0, 2);
+    // If there's 1 item in the list, grab the first article
+    if (next.length === 1 && portfoliosThatArentSecret.length !== 2)
+      next = [...next, portfoliosThatArentSecret[0]];
+    if (portfoliosThatArentSecret.length === 1) next = [];
+
+    const path = slugify(portfolio.slug, portfolioPath);
+
+    createPage({
+      path: portfolio.slug,
+      component: templates.portfolio,
+
+      context: {
+        portfolio,
+        authors: authorsThatWroteThePortfolio,
+        basePath,
+        slug: portfolio.slug,
+        id: portfolio.id,
+        title: portfolio.title,
         mailchimp,
         next,
       },

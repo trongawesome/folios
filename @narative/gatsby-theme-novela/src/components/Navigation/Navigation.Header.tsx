@@ -9,7 +9,6 @@ import Logo from "@components/Logo";
 import Icons from "@icons";
 import mediaqueries from "@styles/media";
 import {
-  copyToClipboard,
   getWindowDimensions,
   getBreakpointFromTheme,
 } from "@utils";
@@ -44,39 +43,6 @@ const DarkModeToggle: React.FC<{}> = () => {
     >
       <MoonOrSun isDark={isDark} />
       <MoonMask isDark={isDark} />
-    </IconWrapper>
-  );
-};
-
-const SharePageButton: React.FC<{}> = () => {
-  const [hasCopied, setHasCopied] = useState<boolean>(false);
-  const [colorMode] = useColorMode();
-  const isDark = colorMode === `dark`;
-  const fill = isDark ? "#fff" : "#000";
-
-  function copyToClipboardOnClick() {
-    if (hasCopied) return;
-
-    copyToClipboard(window.location.href);
-    setHasCopied(true);
-
-    setTimeout(() => {
-      setHasCopied(false);
-    }, 1000);
-  }
-
-  return (
-    <IconWrapper
-      isDark={isDark}
-      onClick={copyToClipboardOnClick}
-      data-a11y="false"
-      aria-label="Copy URL to clipboard"
-      title="Copy URL to clipboard"
-    >
-      {/* <Icons.Link fill={fill} /> */}
-      <ToolTip isDark={isDark} hasCopied={hasCopied}>
-        Copied
-      </ToolTip>
     </IconWrapper>
   );
 };
@@ -124,20 +90,13 @@ const NavigationHeader: React.FC<{}> = () => {
           <Hidden>Navigate back to the homepage</Hidden>
         </LogoLink>
         <NavControls>
-          {showBackArrow ? (
-            <button
-              onClick={() => navigate(previousPath)}
-              title="Navigate back to the homepage"
-              aria-label="Navigate back to the homepage"
-            >
-              <Icons.Ex fill={fill} />
-            </button>
-          ) : (
-            <>
-              <SharePageButton />
-              <DarkModeToggle />
-            </>
-          )}
+          <NavLink to={`/writing`} title={`All articles`} activeClassName="active" >
+            Writing
+          </NavLink>
+          <NavLink to={`/about`} title={`About me`} activeClassName="active" >
+            About
+          </NavLink>
+          <DarkModeToggle />
         </NavControls>
       </NavContainer>
     </Section>
@@ -176,6 +135,58 @@ const NavContainer = styled.div`
 
   @media screen and (max-height: 800px) {
     padding-top: 50px;
+  }
+`;
+
+const NavLink = styled(Link)`
+  font-weight: bold;
+  font-family: ${p => p.theme.fonts.title};
+  font-size: 14px;
+  color: ${p => p.theme.colors.grey};
+  transition: color 0.25s var(--ease-in-out-quad);
+  display: inline-block;
+  position: relative;
+  margin-left: 40px;
+
+  ${mediaqueries.phone`
+    margin-left: 32px;
+  `}
+
+  &::after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: -8px;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: ${p => p.theme.colors.accent};
+    transition: width 0.25s ease 0s, left 0.25s ease 0s;
+    width: 0;
+  }
+
+  &:hover {
+    color: ${p => p.theme.colors.accent};
+
+    &::after {
+      width: 100%; 
+      left: 0; 
+    }
+  }
+
+  &.active {
+    &::after {
+      background: none repeat scroll 0 0 transparent;
+      bottom: -8px;
+      content: "";
+      display: block;
+      height: 2px;
+      left: calc(50% - 10px);
+      position: absolute;
+      background: ${p => p.theme.colors.accent};
+      transition: width 0.25s ease 0s, left 0.25s ease 0s;
+      width: 20px;
+    }
   }
 `;
 
@@ -218,31 +229,8 @@ const NavControls = styled.div`
   `}
 `;
 
-const ToolTip = styled.div<{ isDark: boolean; hasCopied: boolean }>`
-  position: absolute;
-  padding: 4px 13px;
-  background: ${p => (p.isDark ? "#000" : "rgba(0,0,0,0.1)")};
-  color: ${p => (p.isDark ? "#fff" : "#000")};
-  border-radius: 5px;
-  font-size: 14px;
-  top: -35px;
-  opacity: ${p => (p.hasCopied ? 1 : 0)};
-  transform: ${p => (p.hasCopied ? "translateY(-3px)" : "none")};
-  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-
-  &::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: -6px;
-    margin: 0 auto;
-    width: 0;
-    height: 0;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    border-top: 6px solid ${p => (p.isDark ? "#000" : "rgba(0,0,0,0.1)")};
-  }
+const ButtonExit = styled.button`
+  margin-left: 10px;
 `;
 
 const IconWrapper = styled.button<{ isDark: boolean }>`

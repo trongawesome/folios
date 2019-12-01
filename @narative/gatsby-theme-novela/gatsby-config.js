@@ -3,6 +3,7 @@
 module.exports = ({
   contentAuthors = 'content/authors',
   contentPosts = 'content/posts',
+  contentPortfolios = 'content/portfolios',
   pathPrefix = '',
   sources: { local, contentful } = { local: true, contentful: false },
 }) => ({
@@ -178,6 +179,13 @@ module.exports = ({
       options: {
         path: contentPosts,
         name: contentPosts,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: contentPortfolios,
+        name: contentPortfolios,
       },
     },
     {

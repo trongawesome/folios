@@ -3,19 +3,17 @@ import styled from '@emotion/styled';
 
 import Headings from '@components/Headings';
 import Image, { ImagePlaceholder } from '@components/Image';
+import Section from "@components/Section";
 
 import mediaqueries from '@styles/media';
 import { IArticle, IAuthor } from '@types';
-
-import ArticleAuthors from './Article.Authors';
 
 interface ArticleHeroProps {
   article: IArticle;
   authors: IAuthor[];
 }
 
-const ArticleHero: React.FC<ArticleHeroProps> = ({ article, authors }) => {
-  const hasCoAUthors = authors.length > 1;
+const ArticleHeroFull: React.FC<ArticleHeroProps> = ({ article, authors }) => {
   const hasHeroImage =
     article.hero &&
     Object.keys(article.hero.full).length !== 0 &&
@@ -23,29 +21,29 @@ const ArticleHero: React.FC<ArticleHeroProps> = ({ article, authors }) => {
 
   return (
     <Hero>
-      <Header>
-        <HeroHeading>{article.title}</HeroHeading>
-        <HeroSubtitle hasCoAUthors={hasCoAUthors}>
-          <ArticleAuthors authors={authors} />
-          <ArticleMeta hasCoAUthors={hasCoAUthors}>
-            {article.date} · {article.timeToRead} min read
-          </ArticleMeta>
-        </HeroSubtitle>
-      </Header>
       <HeroImage id="ArticleImage__Hero">
-        {hasHeroImage ? (
+      {hasHeroImage ? (
           <Image src={article.hero.full} />
-        ) : (
+      ) : (
           <ImagePlaceholder />
-        )}
+      )}
       </HeroImage>
+      <Section>
+        <Header>
+          <HeroHeading>{article.title}</HeroHeading>
+          <HeroSubtitle>{article.excerpt}</HeroSubtitle>
+        </Header>
+      </Section>
+      
     </Hero>
   );
 };
 
-export default ArticleHero;
+export default ArticleHeroFull;
 
 const Hero = styled.div`
+    margin-top: -96px;
+    position: relative;
   ${p => mediaqueries.phablet`
     &::before {
       content: "";
@@ -73,24 +71,15 @@ const Hero = styled.div`
   `}
 `;
 
-const ArticleMeta = styled.div<{ hasCoAUthors: boolean }>`
-  margin-left: ${p => (p.hasCoAUthors ? '10px' : '0')};
-
-  ${mediaqueries.phablet`
-    margin-left: 0;
-  `}
-`;
-
 const Header = styled.header`
-  position: relative;
+  position: absolute;
+  top: 150px;
   z-index: 10;
   margin:100px auto 56px;
-  padding-left: 68px;
-  max-width: 749px;
+  max-width: 510px;
 
   ${mediaqueries.desktop`
-    padding-left: 53px;
-    max-width: calc(507px + 53px);
+    max-width: 385px;
     margin: 100px auto 70px;
   `}
 
@@ -102,7 +91,6 @@ const Header = styled.header`
 
   ${mediaqueries.phablet`
     margin: 64px auto 64px;
-    padding: 0 40px;
   `}
 
   @media screen and (max-height: 700px) {
@@ -113,9 +101,11 @@ const Header = styled.header`
 const HeroHeading = styled(Headings.h1)`
   font-size: 48px;
   font-family: ${p => p.theme.fonts.title};
+  color: ${p => p.theme.colors.textTitle};
   margin-bottom: 25px;
   font-weight: bold;
   line-height: 1.32;
+  opacity: .9;
 
   ${mediaqueries.tablet`
     margin-bottom: 20px;
@@ -127,61 +117,43 @@ const HeroHeading = styled(Headings.h1)`
   `}
 `;
 
-const HeroSubtitle = styled.div<{ hasCoAUthors: boolean }>`
+const HeroSubtitle = styled.div`
   position: relative;
-  display: flex;
-  font-size: 14px;
-  color: ${p => p.theme.colors.grey};
+  font-size: 18px;
+  color: ${p => p.theme.colors.textTitle};
   align-items: center;
-
-  ${p => mediaqueries.phablet`
-    font-size: 14px;
-    flex-direction: column;
-    align-items: left;
-
-    ${p.hasCoAUthors &&
-      `
-        &::before {
-          content: '';
-          position: absolute;
-          left: -20px;
-          right: -20px;
-          top: -10px;
-          bottom: -10px;
-          border: 1px solid ${p.theme.colors.horizontalRule};
-          opacity: 0.5;
-          border-radius: 5px;
-        }
-    `}
-
-
-    strong {
-      display: block;
-      font-weight: 500;
-      margin-bottom: 5px;
-    }
-  `}
+  opacity: .8;
 `;
 
 const HeroImage = styled.div`
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 944px;
   overflow: hidden;
   margin: 0 auto;
+  height: 100vh;
+
+    & > div {
+      height: 100vh;
+    }
+
 
   ${mediaqueries.tablet`
     max-width: 100%;
+    height: 70vh;
+
+    & > div {
+      height: 70vh;
+    }
   `}
 
   ${mediaqueries.phablet`
-    margin: 0 auto;
-    width: calc(100vw - 40px);
-    height: 220px;
+    margin-top: 24px;
+    height: 500px;
+    border-radius: 10px 10px 0 0;
 
     & > div {
-      height: 220px;
+      height: 500px;
     }
 `}
 `;
