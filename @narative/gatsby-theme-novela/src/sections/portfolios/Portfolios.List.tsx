@@ -275,7 +275,7 @@ const ContentContainer = styled.div`
 const Title = styled(Headings.h2)`
   font-size: 28px;
   font-family: ${p => p.theme.fonts.title};
-  color: ${p => p.theme.colors.textTitle};
+  color: #111111;
   opacity: .8;
   margin-bottom: ${p =>
     p.hasOverflow && p.gridLayout === 'tiles' ? '35px' : '16px'};
@@ -305,7 +305,7 @@ const Excerpt = styled.p<{
   ${limitToTwoLines};
   font-size: 14px;
   margin-bottom: 10px;
-  color: ${p => p.theme.colors.textTitle};
+  color: #111111;
   opacity: .7;
   font-family: ${p => p.theme.fonts.body};
   display: ${p => (p.hasOverflow && p.gridLayout === 'tiles' ? 'none' : 'box')};
@@ -329,7 +329,7 @@ const Excerpt = styled.p<{
 
 const SeeMore = styled.div`
   font-size: 14px;
-  color: ${p => p.theme.colors.accent};
+  color: #111111;
   font-family: ${p => p.theme.fonts.title};
   margin-top: 8px;
   opacity: .8;

@@ -63,7 +63,7 @@ const ArticlesGradient = styled.div`
 `;
 
 const HeadingContainer = styled.div`
-  margin: 120px 0;
+  margin: 100px 0;
   font-family: ${p => p.theme.fonts.title};
 
   ${mediaqueries.desktop`
@@ -92,7 +92,7 @@ const HeroHeading = styled.h2`
   `}
 
   ${mediaqueries.phablet`
-    font-size: 56px;
+    font-size: 54px;
   `}
 `;
 

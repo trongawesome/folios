@@ -52,7 +52,7 @@ const Hero = styled.div`
       background: ${p.theme.colors.primary};
       position: absolute;
       left: 0;
-      top: 0;
+      top: -10px;;
       transition: ${p.theme.colorModeTransition};
     }
 
@@ -91,6 +91,7 @@ const Header = styled.header`
 
   ${mediaqueries.phablet`
     margin: 64px auto 64px;
+    top: 100px;
   `}
 
   @media screen and (max-height: 700px) {

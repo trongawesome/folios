@@ -82,6 +82,6 @@ const HeroHeading = styled.h1`
   `}
 
   ${mediaqueries.phablet`
-    font-size: 32px;
+    font-size: 48px;
   `}
 `;
