@@ -32,7 +32,7 @@ const AboutPage: Template = ({ location, pageContext }) => {
               Trong is a Singapore-Based Product Designer, currently building Carousell classified marketplace that inspires people to start to sell and buy.
             </InfoText>
             <InfoText>
-              PPreviously, he built the e-commerce Leflair Viet Nam, an online retailer that focuses on beauty, fashion and home living products.
+              Previously, he built the e-commerce Leflair Viet Nam, an online retailer that focuses on beauty, fashion and home living products.
             </InfoText>
             <InfoText>
               He spent 5 years in a tech university to learn IT, but he soon realized design is his passion. He hated coding, but his gut told him to finish the engineering diploma while learning to design in his free time. And when he met the UX term, basic knowledge in IT became an important foundation in his career.

@@ -84,15 +84,8 @@ const Article: Template = ({ pageContext, location }) => {
     <Layout>
       <ArticleSEO article={article} authors={authors} location={location} />
       <ArticleHero article={article} authors={authors} />
-      {/* <ArticleAside contentHeight={contentHeight}>
-        <Progress contentHeight={contentHeight} />
-      </ArticleAside> */}
-      {/* <MobileControls>
-        <ArticleControls />
-      </MobileControls> */}
       <ArticleBody ref={contentSectionRef}>
         <MDXRenderer content={article.body}>
-          <ArticleShare />
         </MDXRenderer>
       </ArticleBody>
       {mailchimp && article.subscription && <Subscription />}
