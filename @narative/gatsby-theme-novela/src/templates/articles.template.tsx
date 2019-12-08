@@ -5,6 +5,7 @@ import Section from "@components/Section";
 import SEO from "@components/SEO";
 import Layout from "@components/Layout";
 import Paginator from "@components/Navigation/Navigation.Paginator";
+import NavCategory from '@components/Navigation/Navigation.Categories';
 
 import ArticlesHero from "../sections/articles/Articles.Hero";
 import ArticlesList from "../sections/articles/Articles.List";
@@ -12,7 +13,8 @@ import ArticlesList from "../sections/articles/Articles.List";
 import { Template } from "@types";
 
 const ArticlesPage: Template = ({ location, pageContext }) => {
-  const articles = pageContext.group;
+  // const articles = pageContext.group;
+  const { group: articles, category } = pageContext;
   const authors = pageContext.additionalContext.authors;
 
   return (
@@ -20,6 +22,7 @@ const ArticlesPage: Template = ({ location, pageContext }) => {
       <SEO pathname={location.pathname} />
       <ArticlesHero authors={authors} />
       <Section narrow>
+        <NavCategory category={category} />
         <ArticlesList articles={articles} />
         <ArticlesPaginator show={pageContext.pageCount > 1}>
           <Paginator {...pageContext} />

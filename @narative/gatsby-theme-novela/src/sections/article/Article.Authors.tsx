@@ -260,7 +260,7 @@ const CoAuthorsContainer = styled.div<{ isOpen: boolean }>`
   display: flex;
   align-items: center;
 
-  color: ${p => p.theme.colors.grey};
+  color: ${p => p.theme.colors.secondary};
   cursor: pointer;
 
   &::before {

@@ -299,7 +299,7 @@ const Excerpt = styled.p<{
   ${limitToTwoLines};
   font-size: 16px;
   margin-bottom: 10px;
-  color: ${p => p.theme.colors.grey};
+  color: ${p => p.theme.colors.secondary};
   font-family: ${p => p.theme.fonts.body};
   display: ${p => (p.hasOverflow && p.gridLayout === 'tiles' ? 'none' : 'box')};
   max-width: ${p => (p.narrow ? '415px' : '515px')};
@@ -323,8 +323,8 @@ const Excerpt = styled.p<{
 const MetaData = styled.div`
   font-weight: 400;
   font-size: 14px;
-  color: ${p => p.theme.colors.grey};
-  opacity: 0.33;
+  color: ${p => p.theme.colors.secondary};
+  opacity: 0.6;
 
   ${mediaqueries.phablet`
     max-width: 100%;

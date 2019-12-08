@@ -5,7 +5,7 @@ export default {
 
   primary: "#294145",
   secondary: "#3D6066",
-  grey: "#3D6066",
+  grey: "#75959A",
   background: "#D1E8EB",
   accent: "#3A5C21",
   hover: "rgba(0, 0, 0, 0.07)",

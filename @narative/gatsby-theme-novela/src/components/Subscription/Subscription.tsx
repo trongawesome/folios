@@ -125,7 +125,7 @@ const Heading = styled(Headings.h3)`
 
 const Text = styled.p`
   margin: 0 auto 30px;
-  color: ${p => p.theme.colors.grey};
+  color: ${p => p.theme.colors.secondary};
   line-height: 1.75;
 
   ${mediaqueries.tablet`

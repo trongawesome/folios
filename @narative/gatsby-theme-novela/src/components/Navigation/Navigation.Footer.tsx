@@ -72,7 +72,7 @@ const FooterContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   padding-bottom: 40px;
-  color: ${p => p.theme.colors.grey};
+  color: ${p => p.theme.colors.secondary};
 
   ${mediaqueries.tablet`
     flex-direction: column;
