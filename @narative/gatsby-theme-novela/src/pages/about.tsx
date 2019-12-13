@@ -26,7 +26,7 @@ const AboutPage: Template = ({ location, pageContext }) => {
           <MyImage><Image src={image} /></MyImage>
           <MyText>
             <InfoHeading>
-              Born and raised in a small village in Viet Nam, been hard at work since 2013.
+              Born and raised in a small village in Viet Nam, been hard at work since 2015.
             </InfoHeading>
             <InfoText>
               Trong is a Singapore-Based Product Designer, currently building Carousell classified marketplace that inspires people to start to sell and buy.
@@ -100,7 +100,7 @@ const ContentContainer = styled.div`
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  column-gap: 56px;
+  column-gap: 64px;
   z-index: 1;
 
   ${mediaqueries.desktop`
@@ -118,12 +118,12 @@ const InfoHeading = styled.h1`
   color: ${p => p.theme.colors.primary};
 
   ${mediaqueries.phablet`
-    font-size: 24px;
+    font-size: 32px;
   `}
 `;
 
 const InfoText = styled.p`
-  font-size: 16px;
+  font-size: 18px;
   margin-top: 24px;
   line-height: 1.7;
   color: ${p => p.theme.colors.primary};

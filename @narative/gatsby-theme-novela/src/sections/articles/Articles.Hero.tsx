@@ -47,6 +47,9 @@ const ArticlesHero: React.FC<IAuthor> = ({ authors }) => {
     <Section relative id="Articles__Hero">
       <HeadingContainer style={{ maxWidth: `${hero.maxWidth}px` }}>
         <HeroHeading dangerouslySetInnerHTML={{ __html: hero.writingHeading }} />
+        <InfoText>
+          Without words, apps would be an unusable jumble of shapes and icons. That’s why I’m learning to write.
+        </InfoText>
       </HeadingContainer>
       {/* <SubheadingContainer> */}
         {/* <Bio author={featuredAuthor} /> */}
@@ -57,43 +60,24 @@ const ArticlesHero: React.FC<IAuthor> = ({ authors }) => {
 
 export default ArticlesHero;
 
-const SubheadingContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 48px;
-
-  ${mediaqueries.desktop`
-    margin-bottom: 48px;
-  `};
-
-  ${mediaqueries.tablet`
-    margin-bottom: 32px;
-  `};
-
-  ${mediaqueries.phablet`
-    display: none;
-  `};
-`;
-
 const HeadingContainer = styled.div`
   margin: 100px 0;
-  font-family: ${p => p.theme.fonts.title};
-
+  
   ${mediaqueries.desktop`
-    width: 80%;
+  width: 80%;
   `}
-
+  
   ${mediaqueries.tablet`
-    width: 100%;
+  width: 100%;
   `}
-`;
-
-const HeroHeading = styled.h1`
+  `;
+  
+  const HeroHeading = styled.h1`
   font-style: normal;
   font-weight: 600;
   font-size: 52px;
-  line-height: 1.15;
+  line-height: 1.25;
+  font-family: ${p => p.theme.fonts.title};
   color: ${p => p.theme.colors.primary};
 
   a {
@@ -108,3 +92,12 @@ const HeroHeading = styled.h1`
     font-size: 54px;
   `}
 `;
+
+const InfoText = styled.p`
+  font-size: 18px;
+  margin-top: 24px;
+  line-height: 1.8;
+  font-family: ${p => p.theme.fonts.body};
+  color: ${p => p.theme.colors.secondary};
+`;
+
