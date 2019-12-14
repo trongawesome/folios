@@ -92,7 +92,7 @@ const ListItem: React.FC<ArticlesListItemProps> = ({ article, narrow }) => {
 
   const { gridLayout } = useContext(GridLayoutContext);
   const hasOverflow = narrow && article.title.length > 35;
-  const imageSource = narrow ? article.hero.narrow : article.hero.regular;
+  const imageSource = article.hero.narrow;
   const hasHeroImage =
     imageSource &&
     Object.keys(imageSource).length !== 0 &&
@@ -116,7 +116,7 @@ const ListItem: React.FC<ArticlesListItemProps> = ({ article, narrow }) => {
             {article.excerpt}
           </Excerpt>
           <MetaData>
-            {article.date} · {article.timeToRead} min read
+            {article.date}
           </MetaData>
         </div>
       </Item>
@@ -271,7 +271,7 @@ const Title = styled(Headings.h2)`
   font-size: 21px;
   font-family: ${p => p.theme.fonts.title};
   margin-bottom: ${p =>
-    p.hasOverflow && p.gridLayout === 'tiles' ? '35px' : '10px'};
+    p.hasOverflow && p.gridLayout === 'tiles' ? '10px' : '10px'};
   transition: color 0.3s ease-in-out;
   ${limitToTwoLines};
 
@@ -301,8 +301,8 @@ const Excerpt = styled.p<{
   margin-bottom: 10px;
   color: ${p => p.theme.colors.secondary};
   font-family: ${p => p.theme.fonts.body};
-  display: ${p => (p.hasOverflow && p.gridLayout === 'tiles' ? 'none' : 'box')};
-  max-width: ${p => (p.narrow ? '415px' : '515px')};
+  display: ${p => (p.hasOverflow && p.gridLayout === 'tiles' ? 'box' : 'box')};
+  max-width: ${p => (p.narrow ? '515px' : '515px')};
 
   ${mediaqueries.desktop`
     display: -webkit-box;

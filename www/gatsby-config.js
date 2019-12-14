@@ -6,9 +6,9 @@ const siteMetadata = {
   siteUrl: `https://trongnguyen.co`,
   description: `Product Designer who's learning to write and express thoughts`,
   hero: {
-    heading: `Hi, I’m Trong, product designer at Carousell.`,
+    heading: `Hi, I’m Trong, <br/>product designer.`,
     writingHeading: `Writing is designing.`,
-    maxWidth: 800,
+    maxWidth: 776,
   },
   social: [
     {
