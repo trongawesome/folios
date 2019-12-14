@@ -86,17 +86,15 @@ const Header = styled.header`
   `}
 
   ${mediaqueries.tablet`
-    padding-left: 0;
-    margin: 100px auto 70px;
-    max-width: 480px;
-  `}
-
-  ${mediaqueries.phablet`
+    max-width: 486px;
     margin: 64px auto 8px;
-    padding-right: 4rem;
     bottom: 0;
     top: auto;
     text-align: center;
+    `}
+    
+  ${mediaqueries.phablet`
+    padding-right: 4rem;
   `}
 `;
 
@@ -167,7 +165,7 @@ const OverlayCover = styled.div`
 
     display: none; // hide on desktop
 
-    ${mediaqueries.phablet`
+    ${mediaqueries.tablet`
       display: block;
     `}
 `;
