@@ -48,12 +48,9 @@ const ArticlesHero: React.FC<IAuthor> = ({ authors }) => {
       <HeadingContainer style={{ maxWidth: `${hero.maxWidth}px` }}>
         <HeroHeading dangerouslySetInnerHTML={{ __html: hero.writingHeading }} />
         <InfoText>
-          Without words, apps would be an unusable jumble of shapes and icons. That’s why I’m learning to write.
+          Without words, apps would be an unusable jumble of shapes and icons.
         </InfoText>
       </HeadingContainer>
-      {/* <SubheadingContainer> */}
-        {/* <Bio author={featuredAuthor} /> */}
-      {/* </SubheadingContainer> */}
     </Section>
   );
 };
