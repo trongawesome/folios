@@ -34,6 +34,8 @@ const ArticleHeroFull: React.FC<ArticleHeroProps> = ({ article, authors }) => {
           <HeroSubtitle>{article.excerpt}</HeroSubtitle>
         </Header>
       </Section>
+
+      <OverlayCover />
       
     </Hero>
   );
@@ -75,7 +77,7 @@ const Header = styled.header`
   position: absolute;
   top: 150px;
   z-index: 10;
-  margin:100px auto 56px;
+  margin: 100px auto 56px;
   max-width: 510px;
 
   ${mediaqueries.desktop`
@@ -90,13 +92,12 @@ const Header = styled.header`
   `}
 
   ${mediaqueries.phablet`
-    margin: 64px auto 64px;
-    top: 100px;
+    margin: 64px auto 8px;
+    padding-right: 4rem;
+    bottom: 0;
+    top: auto;
+    text-align: center;
   `}
-
-  @media screen and (max-height: 700px) {
-    margin: 100px auto 48px;
-  }
 `;
 
 const HeroHeading = styled(Headings.h1)`
@@ -112,10 +113,6 @@ const HeroHeading = styled(Headings.h1)`
     margin-bottom: 20px;
     font-size: 36px;
   `}
-
-  ${mediaqueries.phablet`
-    font-size: 32px;
-  `}
 `;
 
 const HeroSubtitle = styled.div`
@@ -123,7 +120,7 @@ const HeroSubtitle = styled.div`
   font-size: 18px;
   color: ${p => p.theme.colors.textTitle};
   align-items: center;
-  opacity: .8;
+  opacity: .7;
 `;
 
 const HeroImage = styled.div`
@@ -157,4 +154,20 @@ const HeroImage = styled.div`
       height: 500px;
     }
 `}
+`;
+
+const OverlayCover = styled.div`
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60%;
+    background: ${p => p.theme.colors.gradientImage};
+    transition: ${p => p.theme.colorModeTransition};
+    z-index: 1;
+
+    display: none; // hide on desktop
+
+    ${mediaqueries.phablet`
+      display: block;
+    `}
 `;
