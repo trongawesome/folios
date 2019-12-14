@@ -145,6 +145,5 @@ const MyImage = styled.div`
     height: 100%;
     object-fit: cover;
     object-position: center;
-
   }
 `;

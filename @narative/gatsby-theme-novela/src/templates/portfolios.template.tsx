@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import { graphql, useStaticQuery } from "gatsby";
 
 import PortfoliosHero from "../sections/portfolios/Portfolios.Hero";
+import Testimonial from "../sections/portfolios/Testimonial";
 import Section from "@components/Section";
 import SEO from "@components/SEO";
 import Layout from "@components/Layout";
@@ -45,6 +46,9 @@ const PortfoliosPage: Template = ({ location, pageContext }) => {
         <ArticlesPaginator show={pageContext.pageCount > 1}>
           <Paginator {...pageContext} />
         </ArticlesPaginator>
+      </Section>
+      <Section>
+        <Testimonial />
       </Section>
       <ArticlesGradient />
     </Layout>
