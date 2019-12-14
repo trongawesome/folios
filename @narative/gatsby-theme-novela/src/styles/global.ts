@@ -134,4 +134,17 @@ export const globalStyles = css`
   img.Image__Zoom ~ div {
     background: transparent !important;
   }
+
+  p.dropcap:first-letter {
+    font-family: "Poppins", Serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 6em;
+    float: left;
+    margin-right: 4px;
+    margin-top: 22px;
+    line-height: .5;
+    text-transform: uppercase;
+    color: #3A5C21;
+  }
 `;
