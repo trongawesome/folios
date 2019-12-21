@@ -5,10 +5,11 @@ import { graphql, useStaticQuery } from "gatsby";
 import ReadingsHero from "../sections/readings/Readings.Hero";
 import Section from "@components/Section";
 import SEO from "@components/SEO";
-import Layout from "@components/Layout";
+// import Layout from "@components/Layout";
+import { LayoutBase } from "@components/Layout";
 import Paginator from "@components/Navigation/Navigation.Paginator";
 
-import PortfolioList from "../sections/portfolios/Portfolios.List";
+import ReaddingsList from "../sections/readings/Readings.List";
 
 import { Template } from "@types";
 
@@ -34,20 +35,20 @@ const ReadingsPage: Template = ({ location, pageContext }) => {
   const name = results.allSite.edges[0].node.siteMetadata.name;
 
   return (
-    <Layout>
+    <LayoutBase>
       <SEO
         pathname={location.pathname}
         title={name}
       />
       <ReadingsHero authors={authors} />
       <Section narrow>
-        <PortfolioList articles={reading} />
+        <ReaddingsList articles={reading} />
         <ArticlesPaginator show={pageContext.pageCount > 1}>
           <Paginator {...pageContext} />
         </ArticlesPaginator>
       </Section>
       <ArticlesGradient />
-    </Layout>
+    </LayoutBase>
   );
 };
 

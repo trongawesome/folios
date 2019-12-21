@@ -35,7 +35,7 @@ interface ArticlesListItemProps {
   narrow?: boolean;
 }
 
-const PortfolioList: React.FC<ArticlesListProps> = ({
+const ReaddingsList: React.FC<ArticlesListProps> = ({
   articles,
   alwaysShowAllDetails,
 }) => {
@@ -85,7 +85,7 @@ const PortfolioList: React.FC<ArticlesListProps> = ({
   );
 };
 
-export default PortfolioList;
+export default ReaddingsList;
 
 const ListItem: React.FC<ArticlesListItemProps> = ({ article, narrow }) => {
   if (!article) return null;
