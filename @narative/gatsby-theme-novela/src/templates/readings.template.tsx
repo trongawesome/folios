@@ -2,8 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import { graphql, useStaticQuery } from "gatsby";
 
-import PortfoliosHero from "../sections/portfolios/Portfolios.Hero";
-import Testimonial from "../sections/portfolios/Testimonial";
+import ReadingsHero from "../sections/readings/Readings.Hero";
 import Section from "@components/Section";
 import SEO from "@components/SEO";
 import Layout from "@components/Layout";
@@ -28,7 +27,7 @@ const siteQuery = graphql`
 `;
 
 const ReadingsPage: Template = ({ location, pageContext }) => {
-  const portfolio = pageContext.group;
+  const reading = pageContext.group;
   const authors = pageContext.additionalContext.authors;
 
   const results = useStaticQuery(siteQuery);
@@ -40,9 +39,9 @@ const ReadingsPage: Template = ({ location, pageContext }) => {
         pathname={location.pathname}
         title={name}
       />
-      <PortfoliosHero authors={authors} />
+      <ReadingsHero authors={authors} />
       <Section narrow>
-        <PortfolioList articles={portfolio} />
+        <PortfolioList articles={reading} />
         <ArticlesPaginator show={pageContext.pageCount > 1}>
           <Paginator {...pageContext} />
         </ArticlesPaginator>

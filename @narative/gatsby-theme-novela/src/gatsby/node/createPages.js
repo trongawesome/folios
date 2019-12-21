@@ -17,6 +17,7 @@ const templates = {
   portfolios: path.resolve(templatesDirectory, 'portfolios.template.tsx'),
   portfolio: path.resolve(templatesDirectory, 'portfolio.template.tsx'),
   readings: path.resolve(templatesDirectory, 'readings.template.tsx'),
+  reading: path.resolve(templatesDirectory, 'reading.template.tsx'),
 };
 
 const query = require('../data/data.query');
@@ -440,7 +441,8 @@ module.exports = async ({ actions: { createPage }, graphql }, themeOptions) => {
 
     createPage({
       path: reading.slug,
-      component: templates.portfolio,
+      pathPrefix: path,
+      component: templates.reading,
 
       context: {
         reading,

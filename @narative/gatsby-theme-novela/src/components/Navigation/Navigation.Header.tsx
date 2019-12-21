@@ -90,11 +90,14 @@ const NavigationHeader: React.FC<{}> = () => {
           <Hidden>Navigate back to the homepage</Hidden>
         </LogoLink>
         <NavControls>
+          <NavLink to={`/reading`} title={`All books`} activeClassName="active" >
+            Read
+          </NavLink>
           <NavLink to={`/writing`} title={`All articles`} activeClassName="active" >
-            Writing
+            Write
           </NavLink>
           <NavLink to={`/about`} title={`About me`} activeClassName="active" >
-            About
+            Me
           </NavLink>
           <DarkModeToggle />
         </NavControls>
