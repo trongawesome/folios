@@ -4,12 +4,11 @@ import { graphql, useStaticQuery } from "gatsby";
 
 import Layout from "@components/Layout";
 import MDXRenderer from "@components/MDX";
-import Progress from "@components/Progress";
 import Section from "@components/Section";
 
 import mediaqueries from "@styles/media";
 
-import PortfolioHero from "../sections/portfolio/Portfolio.Hero";
+import ReadingHero from "../sections/reading/Reading.Hero";
 import ArticleSEO from "../sections/article/Article.SEO";
 
 import { Template } from "@types";
@@ -39,7 +38,7 @@ const ReadingBook: Template = ({ pageContext, location }) => {
   return (
     <Layout>
       <ArticleSEO article={reading} authors={authors} location={location} />
-      <PortfolioHero article={reading} authors={authors} />
+      <ReadingHero article={reading} />
       <ArticleBody ref={contentSectionRef}>
         <MDXRenderer content={reading.body}>
         </MDXRenderer>

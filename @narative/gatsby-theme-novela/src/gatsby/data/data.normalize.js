@@ -87,7 +87,6 @@ module.exports.local = {
     return {
       ...reading,
       hero: normalizeHero(reading),
-      thumbnail: normalizeThumnail(reading),
     };
   },
   authors: ({ node: author }) => {

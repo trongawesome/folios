@@ -302,7 +302,7 @@ const ContentContainer = styled.div`
 `;
 
 const Title = styled(Headings.h2)`
-  font-size: 28px;
+  font-size: 24px;
   font-family: ${p => p.theme.fonts.title};
   color: ${p => p.theme.colors.textTitle};
   opacity: .8;
@@ -331,8 +331,8 @@ const Excerpt = styled.p<{
   gridLayout: string;
 }>`
   ${limitToTwoLines};
-  font-size: 14px;
-  margin-bottom: 10px;
+  font-size: 16px;
+  margin-bottom: 8px;
   color: ${p => p.theme.colors.textTitle};
   opacity: .7;
   font-family: ${p => p.theme.fonts.body};
@@ -385,40 +385,6 @@ const ArticleLink = styled(Link)`
   z-index: 1;
   transition: transform 0.33s var(--ease-out-quart);
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-
-  &::after, &::before {
-    background: none repeat scroll 0 0 transparent;
-    content: "";
-    display: block;
-    height: 4px;
-    left: 50%;
-    position: absolute;
-    background: ${p => p.theme.colors.secondary};
-    transition: width 0.3s ease 0s, left 0.3s ease 0s;
-    width: 0;
-    z-index: 1;
-  }
-
-  ::after {
-    top: -1px;
-  }
-
-  ::before {
-    bottom: 0px;
-  }
-
-  &:hover {
-    &::after {
-      width: 100%; 
-      left: 0; 
-    }
-
-    ::before {
-      width: 100%; 
-      left: 0; 
-    }
-  }
-
 
   &[data-a11y='true']:focus::after {
     content: '';
