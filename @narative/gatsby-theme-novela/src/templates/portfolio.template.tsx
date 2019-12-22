@@ -12,7 +12,7 @@ import mediaqueries from "@styles/media";
 import { debounce } from "@utils";
 
 import ArticleAside from "../sections/article/Article.Aside";
-import ArticleHeroFull from "../sections/article/Article.HeroFull";
+import PortfolioHero from "../sections/portfolio/Portfolio.Hero";
 import ArticleSEO from "../sections/article/Article.SEO";
 
 import { Template } from "@types";
@@ -79,7 +79,7 @@ const Article: Template = ({ pageContext, location }) => {
   return (
     <Layout>
       <ArticleSEO article={portfolio} authors={authors} location={location} />
-      <ArticleHeroFull article={portfolio} authors={authors} />
+      <PortfolioHero article={portfolio} authors={authors} />
       <ArticleAside contentHeight={contentHeight}>
         <Progress contentHeight={contentHeight} />
       </ArticleAside>

@@ -13,7 +13,7 @@ interface ArticleHeroProps {
   authors: IAuthor[];
 }
 
-const ArticleHeroFull: React.FC<ArticleHeroProps> = ({ article, authors }) => {
+const PortfolioHero: React.FC<ArticleHeroProps> = ({ article, authors }) => {
   const hasHeroImage =
     article.hero &&
     Object.keys(article.hero.full).length !== 0 &&
@@ -21,7 +21,7 @@ const ArticleHeroFull: React.FC<ArticleHeroProps> = ({ article, authors }) => {
 
   return (
     <Hero>
-      <HeroImage id="ArticleImage__Hero">
+      <HeroImage id="PortfolioImage__Hero">
       {hasHeroImage ? (
           <Image src={article.hero.full} />
       ) : (
@@ -41,7 +41,7 @@ const ArticleHeroFull: React.FC<ArticleHeroProps> = ({ article, authors }) => {
   );
 };
 
-export default ArticleHeroFull;
+export default PortfolioHero;
 
 const Hero = styled.div`
     margin-top: -96px;

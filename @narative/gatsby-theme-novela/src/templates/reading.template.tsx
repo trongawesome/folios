@@ -9,8 +9,7 @@ import Section from "@components/Section";
 
 import mediaqueries from "@styles/media";
 
-import ArticleAside from "../sections/article/Article.Aside";
-import ArticleHeroFull from "../sections/article/Article.HeroFull";
+import PortfolioHero from "../sections/portfolio/Portfolio.Hero";
 import ArticleSEO from "../sections/article/Article.SEO";
 
 import { Template } from "@types";
@@ -40,7 +39,7 @@ const ReadingBook: Template = ({ pageContext, location }) => {
   return (
     <Layout>
       <ArticleSEO article={reading} authors={authors} location={location} />
-      <ArticleHeroFull article={reading} authors={authors} />
+      <PortfolioHero article={reading} authors={authors} />
       <ArticleBody ref={contentSectionRef}>
         <MDXRenderer content={reading.body}>
         </MDXRenderer>
