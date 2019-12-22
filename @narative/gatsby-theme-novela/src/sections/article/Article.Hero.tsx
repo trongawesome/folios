@@ -25,6 +25,7 @@ const ArticleHero: React.FC<ArticleHeroProps> = ({ article, authors }) => {
     <Hero>
       <Header>
         <HeroHeading>{article.title}</HeroHeading>
+        <Excerpt>{article.excerpt}</Excerpt>
         <HeroSubtitle hasCoAUthors={hasCoAUthors}>
           <ArticleAuthors authors={authors} />
           <ArticleMeta hasCoAUthors={hasCoAUthors}>
@@ -124,6 +125,23 @@ const HeroHeading = styled(Headings.h1)`
 
   ${mediaqueries.phablet`
     font-size: 32px;
+  `}
+`;
+
+const Excerpt = styled(Headings.h3)`
+  font-size: 28px;
+  font-family: ${p => p.theme.fonts.body};
+  color: ${p => p.theme.colors.secondary};
+  margin-bottom: 24px;
+  margin-top: 24px;
+  font-weight: normal;
+  line-height: 1.5;
+
+  ${mediaqueries.tablet`
+  `}
+
+  ${mediaqueries.phablet`
+    font-size: 22px;
   `}
 `;
 
