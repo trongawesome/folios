@@ -105,6 +105,7 @@ const ListItem: React.FC<ArticlesListItemProps> = ({ article, narrow }) => {
           {hasHeroImage ? <Image src={imageSource} /> : <ImagePlaceholder />}
         </ImageContainer>
         <TextContainer>
+          <SeeMore>{article.author}</SeeMore>
           <Title dark hasOverflow={hasOverflow} gridLayout={gridLayout}>
             {article.title}
           </Title>
