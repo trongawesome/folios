@@ -137,12 +137,12 @@ const MyImage = styled.div`
   position: relative;
   display: block;
   width: 100%;
-  box-shadow: 0 22px 44px 0 rgba(0,0,0,0.22);
   margin-bottom: 56px;
-
+  
   img {
     width: 100%;
-    height: 100%;
+    height: auto;
+    box-shadow: 0 22px 44px 0 rgba(0,0,0,0.22);
     object-fit: cover;
     object-position: center;
   }

@@ -32,7 +32,7 @@ const ReadingsHero: React.FC<IAuthor> = ({ authors }) => {
       <HeadingContainer style={{ maxWidth: `${hero.maxWidth}px` }}>
         <HeroHeading dangerouslySetInnerHTML={{ __html: hero.readingHeading }} />
         <InfoText>
-          Inspired books by Trong Nguyen
+          My personal bookshelf on design and creativity. I figured out you might get some ideas for your next reading.
         </InfoText>
       </HeadingContainer>
     </Section>
