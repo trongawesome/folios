@@ -213,7 +213,7 @@ module.exports = ({
             options: {
               maxWidth: 10000,
               linkImagesToOriginal: false,
-              quality: 80,
+              quality: 90,
               withWebp: true,
             },
           },
