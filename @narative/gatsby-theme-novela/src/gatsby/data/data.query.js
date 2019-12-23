@@ -49,7 +49,7 @@ module.exports.local = {
               }
             }
             seo: childImageSharp {
-              fixed(width: 1200, quality: 100) {
+              fixed(width: 1200, quality: 80) {
                 src
               }
             }
