@@ -11,20 +11,6 @@ import { IArticle } from '@types';
 
 import { GridLayoutContext } from '../articles/Articles.List.Context';
 
-/**
- * Tiles
- * [LONG], [SHORT]
- * [SHORT], [LONG]
- * [SHORT], [LONG]
- *
- * or ------------
- *
- * Rows
- * [LONG]
- * [LONG]
- * [LONG]
- */
-
 interface ArticlesListProps {
   articles: IArticle[];
   alwaysShowAllDetails?: boolean;
@@ -35,7 +21,7 @@ interface ArticlesListItemProps {
   narrow?: boolean;
 }
 
-const PortfolioList: React.FC<ArticlesListProps> = ({
+const ReaddingsList: React.FC<ArticlesListProps> = ({
   articles,
   alwaysShowAllDetails,
 }) => {
@@ -85,14 +71,14 @@ const PortfolioList: React.FC<ArticlesListProps> = ({
   );
 };
 
-export default PortfolioList;
+export default ReaddingsList;
 
 const ListItem: React.FC<ArticlesListItemProps> = ({ article, narrow }) => {
   if (!article) return null;
 
   const { gridLayout } = useContext(GridLayoutContext);
   const hasOverflow = narrow && article.title.length > 35;
-  const imageSource = narrow ? article.thumbnail.narrow : article.thumbnail.regular;
+  const imageSource = narrow ? article.hero.narrow : article.hero.regular;
   const hasHeroImage =
     imageSource &&
     Object.keys(imageSource).length !== 0 &&
@@ -105,6 +91,7 @@ const ListItem: React.FC<ArticlesListItemProps> = ({ article, narrow }) => {
           {hasHeroImage ? <Image src={imageSource} /> : <ImagePlaceholder />}
         </ImageContainer>
         <TextContainer>
+          <Author>{article.author}</Author>
           <Title dark hasOverflow={hasOverflow} gridLayout={gridLayout}>
             {article.title}
           </Title>
@@ -115,7 +102,6 @@ const ListItem: React.FC<ArticlesListItemProps> = ({ article, narrow }) => {
           >
             {article.excerpt}
           </Excerpt>
-          <SeeMore>Read case study →</SeeMore>
         </TextContainer>
         <ContentContainer>
         </ContentContainer>
@@ -139,6 +125,16 @@ const limitToTwoLines = css`
   ${mediaqueries.phablet`
     -webkit-line-clamp: 3;
   `}
+`;
+
+const limitToOneLines = css`
+  text-overflow: ellipsis;
+  overflow-wrap: normal;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  white-space: normal;
+  overflow: hidden;
 `;
 
 const showDetails = css`
@@ -208,10 +204,7 @@ const listItemRow = p => css`
 
 const listItemTile = p => css`
   position: relative;
-
-  @media (max-width: 540px) {
-    background: ${p.theme.colors.card};
-  }
+  background: ${p.theme.colors.card};
 `;
 
 // If only 1 article, dont create 2 rows.
@@ -229,17 +222,54 @@ const List = styled.div<{
 `;
 
 const Item = styled.div<{ gridLayout: string }>`
+  height: 680px;
+  padding-top: 48px;
   ${p => (p.gridLayout === 'rows' ? listItemRow : listItemTile)}
 `;
 
 const ImageContainer = styled.div<{ narrow: boolean; gridLayout: string }>`
   position: relative;
-  height: ${p => (p.gridLayout === 'tiles' ? '680px' : '220px')};
+  margin: 0 auto 32px auto;
+  box-shadow: 8px 12px 32px rgba(0, 0, 0, 0.16);
+  width: 320px;
+  height: 438px;
   transition: transform 0.3s var(--ease-out-quad),
     box-shadow 0.3s var(--ease-out-quad);
 
   & > div {
     height: 100%;
+
+    ::before {
+      background: linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 90%);
+      box-shadow: 1px 0 rgba(0, 0, 0, 0.1), 2px 0 0px rgba(255, 255, 255, 0.1);
+      content: "";
+      display: block;
+      height: 100%;
+      position: absolute;
+      width: 6px;
+      z-index: 2;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      border-top-right-radius: 2px;
+      border-bottom-right-radius: 2px;
+    }
+  }
+
+  ::before {
+    background-image: url(/utils/shadow.png);
+    background-size: contain;
+    background-position: right;
+    background-repeat: no-repeat;
+    content: " ";
+    display: block;
+    height: 100%;
+    right: 99%;
+    position: absolute;
+    top: 0;
+    transform-origin: center right;
+    width: 100%;
+    z-index: 0;
+    pointer-events: none;
   }
 
   ${mediaqueries.desktop`
@@ -258,10 +288,9 @@ const ImageContainer = styled.div<{ narrow: boolean; gridLayout: string }>`
 `;
 
 const TextContainer = styled.div`
-  position: absolute;
-  left: 0;
-  top: 0;
-  padding: 48px 40px;
+  position: relative;
+  padding: 0 40px 32px;
+  text-align: center;
 
   ${mediaqueries.phablet`
     padding: 40px 32px;
@@ -273,14 +302,13 @@ const ContentContainer = styled.div`
 `;
 
 const Title = styled(Headings.h2)`
-  font-size: 28px;
+  font-size: 24px;
   font-family: ${p => p.theme.fonts.title};
   color: ${p => p.theme.colors.textTitle};
   opacity: .8;
-  margin-bottom: ${p =>
-    p.hasOverflow && p.gridLayout === 'tiles' ? '35px' : '16px'};
+  margin-bottom: 8px;
   transition: color 0.3s ease-in-out;
-  ${limitToTwoLines};
+  ${limitToOneLines};
 
   ${mediaqueries.desktop`
     margin-bottom: 15px;
@@ -303,13 +331,13 @@ const Excerpt = styled.p<{
   gridLayout: string;
 }>`
   ${limitToTwoLines};
-  font-size: 14px;
-  margin-bottom: 10px;
+  font-size: 16px;
+  margin-bottom: 8px;
   color: ${p => p.theme.colors.textTitle};
   opacity: .7;
   font-family: ${p => p.theme.fonts.body};
   display: ${p => (p.hasOverflow && p.gridLayout === 'tiles' ? 'none' : 'box')};
-  max-width: ${p => (p.narrow ? '415px' : '515px')};
+  max-width: 515px;
   line-height: 22px;
 
   ${mediaqueries.desktop`
@@ -327,12 +355,12 @@ const Excerpt = styled.p<{
   `}
 `;
 
-const SeeMore = styled.div`
+const Author = styled.div`
   font-size: 14px;
   color: ${p => p.theme.colors.textTitle};
   font-family: ${p => p.theme.fonts.title};
-  margin-top: 8px;
   opacity: .8;
+  margin-bottom: 8px;
 `;
 
 const MetaData = styled.div`
@@ -357,40 +385,6 @@ const ArticleLink = styled(Link)`
   z-index: 1;
   transition: transform 0.33s var(--ease-out-quart);
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-
-  &::after, &::before {
-    background: none repeat scroll 0 0 transparent;
-    content: "";
-    display: block;
-    height: 4px;
-    left: 50%;
-    position: absolute;
-    background: ${p => p.theme.colors.secondary};
-    transition: width 0.3s ease 0s, left 0.3s ease 0s;
-    width: 0;
-    z-index: 1;
-  }
-
-  ::after {
-    top: -1px;
-  }
-
-  ::before {
-    bottom: 0px;
-  }
-
-  &:hover {
-    &::after {
-      width: 100%; 
-      left: 0; 
-    }
-
-    ::before {
-      width: 100%; 
-      left: 0; 
-    }
-  }
-
 
   &[data-a11y='true']:focus::after {
     content: '';

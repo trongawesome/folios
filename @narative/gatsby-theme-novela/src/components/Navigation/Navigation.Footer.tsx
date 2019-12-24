@@ -76,22 +76,22 @@ const FooterContainer = styled.div`
 
   ${mediaqueries.tablet`
     flex-direction: column;
-    padding-bottom: 100px;
+    padding-bottom: 88px;
   `}
 
   ${mediaqueries.phablet`
-    padding-bottom: 50px;
-    padding-top: 80px;
+    padding-bottom: 48px;
+    padding-top: 0;
   `}
 `;
 
 const HoritzontalRule = styled.div`
   position: relative;
-  margin: 240px auto 32px;
+  margin: 128px auto 32px;
   border-bottom: 1px solid ${p => p.theme.colors.horizontalRule};
 
   ${mediaqueries.tablet`
-    margin: 160px auto 60px;
+    margin: 92px auto 32px;
   `}
 
   ${mediaqueries.phablet`

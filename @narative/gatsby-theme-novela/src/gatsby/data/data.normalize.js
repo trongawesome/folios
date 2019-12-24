@@ -83,6 +83,12 @@ module.exports.local = {
       thumbnail: normalizeThumnail(portfolio),
     };
   },
+  readings: ({ node: reading }) => {
+    return {
+      ...reading,
+      hero: normalizeHero(reading),
+    };
+  },
   authors: ({ node: author }) => {
     return {
       ...author,
@@ -124,6 +130,24 @@ module.exports.contentful = {
       timeToRead: portfolio.body.childMdx.timeToRead,
     };
   },
+
+  readings: ({ node: reading }) => {
+    const author = reading.author.reduce((curr, next, index, array) => {
+      if (array.length === 1) {
+        return next.name;
+      }
+
+      return `${curr + next.name}, `;
+    }, ``);
+
+    return {
+      ...reading,
+      author,
+      body: reading.body.childMdx.body,
+      timeToRead: reading.body.childMdx.timeToRead,
+    };
+  },
+
   authors: ({ node: author }) => {
     return {
       ...author,

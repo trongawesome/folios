@@ -136,19 +136,6 @@ const Text = styled.p`
 
 const Form = styled.form<{ hasError: string }>`
   position: relative;
-
-  &::after {
-    content: ">";
-    position: absolute;
-    left: 21px;
-    top: 10px;
-    color: ${p => (p.hasError ? p.theme.colors.error : p.theme.colors.accent)};
-
-    ${mediaqueries.tablet`
-    left: 34px;
-    top: 11px;
-  `}
-  }
 `;
 
 const Input = styled.input<{ hasError: string }>`
@@ -157,9 +144,8 @@ const Input = styled.input<{ hasError: string }>`
     p.hasError
       ? p.theme.colors.errorBackground
       : p.theme.colors.inputBackground};
-  border-radius: 35px;
   border: none;
-  padding: 13px 21px 13px 35px;
+  padding: 12px 20px 12px 20px;
   width: 471px;
   color: ${p => p.theme.colors.primary};
 
@@ -197,8 +183,8 @@ const Button = styled.button<{ hasError: string; subscribed: boolean }>`
     ${p => (p.hasError ? p.theme.colors.error : p.theme.colors.accent)};
   color: ${p => (p.hasError ? p.theme.colors.error : p.theme.colors.accent)};
   background: ${p => (p.subscribed ? p.theme.colors.accent : "transparent")};
+  font-family: ${p => p.theme.fonts.title};
   font-weight: 600;
-  border-radius: 35px;
   letter-spacing: 0.42px;
   transition: border-color 0.2s var(--ease-in-out-quad),
     background 0.2s var(--ease-in-out-quad), color 0.2s var(--ease-in-out-quad);

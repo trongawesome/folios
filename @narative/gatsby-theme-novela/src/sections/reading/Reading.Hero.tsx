@@ -7,15 +7,11 @@ import Image, { ImagePlaceholder } from '@components/Image';
 import mediaqueries from '@styles/media';
 import { IArticle, IAuthor } from '@types';
 
-import ArticleAuthors from './Article.Authors';
-
 interface ArticleHeroProps {
   article: IArticle;
-  authors: IAuthor[];
 }
 
-const ArticleHero: React.FC<ArticleHeroProps> = ({ article, authors }) => {
-  const hasCoAUthors = authors.length > 1;
+const ReadingHero: React.FC<ArticleHeroProps> = ({ article }) => {
   const hasHeroImage =
     article.hero &&
     Object.keys(article.hero.full).length !== 0 &&
@@ -26,14 +22,8 @@ const ArticleHero: React.FC<ArticleHeroProps> = ({ article, authors }) => {
       <Header>
         <HeroHeading>{article.title}</HeroHeading>
         <Excerpt>{article.excerpt}</Excerpt>
-        <HeroSubtitle hasCoAUthors={hasCoAUthors}>
-          <ArticleAuthors authors={authors} />
-          <ArticleMeta hasCoAUthors={hasCoAUthors}>
-            {article.date} · {article.timeToRead} min read
-          </ArticleMeta>
-        </HeroSubtitle>
       </Header>
-      <HeroImage id="ArticleImage__Hero">
+      <HeroImage id="ReadingImage__Hero">
         {hasHeroImage ? (
           <Image src={article.hero.full} />
         ) : (
@@ -44,7 +34,7 @@ const ArticleHero: React.FC<ArticleHeroProps> = ({ article, authors }) => {
   );
 };
 
-export default ArticleHero;
+export default ReadingHero;
 
 const Hero = styled.div`
   ${p => mediaqueries.phablet`
@@ -71,14 +61,6 @@ const Hero = styled.div`
       border-top-right-radius: 25px;
       transition: ${p.theme.colorModeTransition};
     }
-  `}
-`;
-
-const ArticleMeta = styled.div<{ hasCoAUthors: boolean }>`
-  margin-left: ${p => (p.hasCoAUthors ? '10px' : '0')};
-
-  ${mediaqueries.phablet`
-    margin-left: 0;
   `}
 `;
 
@@ -142,42 +124,6 @@ const Excerpt = styled(Headings.h3)`
 
   ${mediaqueries.phablet`
     font-size: 22px;
-  `}
-`;
-
-const HeroSubtitle = styled.div<{ hasCoAUthors: boolean }>`
-  position: relative;
-  display: flex;
-  font-size: 14px;
-  color: ${p => p.theme.colors.secondary};
-  align-items: center;
-  
-  ${p => mediaqueries.phablet`
-    flex-direction: column;
-    align-items: left;
-    align-items: flex-start;
-
-    ${p.hasCoAUthors &&
-      `
-        &::before {
-          content: '';
-          position: absolute;
-          left: -20px;
-          right: -20px;
-          top: -10px;
-          bottom: -10px;
-          border: 1px solid ${p.theme.colors.horizontalRule};
-          opacity: 0.5;
-          border-radius: 5px;
-        }
-    `}
-
-
-    strong {
-      display: block;
-      font-weight: 500;
-      margin-bottom: 5px;
-    }
   `}
 `;
 
