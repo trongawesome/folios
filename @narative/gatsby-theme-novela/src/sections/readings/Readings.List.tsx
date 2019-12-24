@@ -256,7 +256,7 @@ const ImageContainer = styled.div<{ narrow: boolean; gridLayout: string }>`
   }
 
   ::before {
-    background-image: url(./utils/shadow.png);
+    background-image: url(/utils/shadow.png);
     background-size: contain;
     background-position: right;
     background-repeat: no-repeat;

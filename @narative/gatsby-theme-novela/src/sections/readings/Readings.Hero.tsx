@@ -1,7 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import styled from '@emotion/styled';
 
+import Icons from "@icons";
 import Section from '@components/Section';
 import mediaqueries from '@styles/media';
 import { IAuthor } from '@types';
@@ -28,36 +29,94 @@ const ReadingsHero: React.FC<IAuthor> = ({ authors }) => {
   const hero = results.site.edges[0].node.siteMetadata.hero;
 
   return (
-    <Section relative id="Portfolios__Hero">
-      <HeadingContainer style={{ maxWidth: `${hero.maxWidth}px` }}>
-        <HeroHeading dangerouslySetInnerHTML={{ __html: hero.readingHeading }} />
-        <InfoText>
-          My personal bookshelf on design and creativity. I figured out you might get some ideas for your next reading.
-        </InfoText>
-      </HeadingContainer>
-    </Section>
+    <Container>
+      <Section relative>
+        <HeadingContainer>
+          <HeroHeading dangerouslySetInnerHTML={{ __html: hero.readingHeading }} />
+          <InfoText>
+            My personal bookshelf on design and creativity. I figured out you might get some ideas for your next reading.
+          </InfoText>
+        </HeadingContainer>
+      </Section>
+      <HeroImage>
+        <Icons.Bookmark />
+      </HeroImage>
+    </Container>
   );
 };
 
 export default ReadingsHero;
 
+const Container = styled.div`
+  position: relative;
+  height: 816px;
+  overflow: hidden;
+  margin-bottom: 80px;
+
+  ${mediaqueries.tablet`
+    height: 496px;
+  `}
+
+`;
+
+const HeroImage = styled.div`
+  position: absolute;
+  right: -88px;
+  top: -32px;
+  display: flex;
+  align-items: center;
+
+  ${mediaqueries.desktop`
+    top: 32px;
+  `}
+
+  ${mediaqueries.tablet`
+    top: 100px;
+  `}
+
+  svg {
+    width: 848px;
+    height: auto;
+
+    ${mediaqueries.desktop`
+      width: 600px;
+    `}
+
+    ${mediaqueries.phablet`
+      width: 500px;
+    `}
+
+    ${mediaqueries.tablet`
+      width: 328px;
+      opacity: .4;
+    `}
+  }
+`;
+
 const HeadingContainer = styled.div`
   margin: 100px 0;
+  z-index: 1;
+  position: absolute;
+  bottom: 80px;
+  max-width: 560px;
+  padding-right: 40px;
   
   ${mediaqueries.desktop`
-  width: 80%;
+    max-width: 360px;
   `}
   
   ${mediaqueries.tablet`
-  width: 100%;
+    width: 100%;
+    bottom: auto;
   `}
-  `;
+`;
   
-  const HeroHeading = styled.h1`
+const HeroHeading = styled.h1`
   font-style: normal;
   font-weight: 600;
-  font-size: 52px;
-  line-height: 1.25;
+  font-size: 104px;
+  line-height: 98%;
+  letter-spacing: -1px;
   font-family: ${p => p.theme.fonts.title};
   color: ${p => p.theme.colors.primary};
 
@@ -66,11 +125,11 @@ const HeadingContainer = styled.div`
   }
 
   ${mediaqueries.desktop`
-    font-size: 38px
+    font-size: 80px
   `}
 
   ${mediaqueries.phablet`
-    font-size: 48px;
+    font-size: 64px;
   `}
 `;
 

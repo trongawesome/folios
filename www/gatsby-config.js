@@ -8,7 +8,7 @@ const siteMetadata = {
   hero: {
     heading: `Hi, I’m Trong, <br/>product designer.`,
     writingHeading: `Writing is designing.`,
-    readingHeading: `Reading to design better.`,
+    readingHeading: `Read to design better.`,
     maxWidth: 776,
   },
   social: [

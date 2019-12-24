@@ -26,6 +26,9 @@ import Rows from './ui/Rows.Icon';
 import Tiles from './ui/Tiles.Icon';
 import NotFound from './ui/NotFound';
 
+// SVG
+import Bookmark from './svg/Bookmark';
+
 export default {
   Behance,
   Dribbble,
@@ -52,4 +55,6 @@ export default {
   Rows,
   Tiles,
   NotFound,
+
+  Bookmark,
 };
