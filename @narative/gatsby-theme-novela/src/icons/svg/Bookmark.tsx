@@ -5,7 +5,6 @@ import { Icon } from '@types';
 const Bookmark: Icon = ({ fill = "#3D6066" }) => (
     <svg
       viewBox="0 0 793 847"
-      fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <rect opacity=".5" x="423.71" y="71.5554" width="474.194" height="567.742" rx="56" transform="rotate(40 423.71 71.5554)" fill="#75959A" />

@@ -24,7 +24,7 @@ import ToggleOpen from './ui/ToggleOpen.Icon';
 import ToggleClose from './ui/ToggleClose.Icon';
 import Rows from './ui/Rows.Icon';
 import Tiles from './ui/Tiles.Icon';
-import NotFound from './ui/NotFound';
+import NotFound from './svg/NotFound';
 
 // SVG
 import Bookmark from './svg/Bookmark';
