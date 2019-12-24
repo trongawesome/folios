@@ -6,13 +6,29 @@ import Section from "@components/Section";
 import SEO from "@components/SEO";
 import Image from '@components/Image';
 import Layout from "@components/Layout";
+import { graphql, useStaticQuery } from "gatsby";
 
 import { Template } from "@types";
 
-const image = '/trong-avatar.jpg';
+const image = 'trong-avatar.jpg';
+
+const siteQuery = graphql`
+{
+  file(relativePath: {eq: "trong-avatar.jpg"}) {
+    id
+    childImageSharp {
+      fluid {
+        ...GatsbyImageSharpFluid
+      }
+    }
+  }
+}
+`;
 
 const AboutPage: Template = ({ location, pageContext }) => {
-
+  
+  const avatarResult = useStaticQuery(siteQuery);
+  
   return (
     <Layout>
       <SEO pathname={location.pathname} title={"About me"}/>
@@ -23,7 +39,7 @@ const AboutPage: Template = ({ location, pageContext }) => {
       </Section>
       <Section>
         <ContentContainer>
-          <MyImage><Image src={image} /></MyImage>
+          <MyImage><Image src={avatarResult.file.childImageSharp.fluid} /></MyImage>
           <MyText>
             <InfoHeading>
               Born and raised in a small village in Viet Nam, been hard at work since 2015.
@@ -103,7 +119,7 @@ const ContentContainer = styled.div`
   column-gap: 64px;
   z-index: 1;
 
-  ${mediaqueries.desktop`
+  ${mediaqueries.tablet`
     grid-template-columns: 1fr;
   `}
 `;
@@ -139,10 +155,13 @@ const MyImage = styled.div`
   width: 100%;
   margin-bottom: 56px;
   
+  .gatsby-image-wrapper {
+    box-shadow: 0 22px 44px 0 rgba(0,0,0,0.22);
+  }
+
   img {
     width: 100%;
     height: auto;
-    box-shadow: 0 22px 44px 0 rgba(0,0,0,0.22);
     object-fit: cover;
     object-position: center;
   }

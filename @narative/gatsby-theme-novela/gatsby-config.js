@@ -204,6 +204,13 @@ module.exports = ({
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `src/images`,
+        name: `imagesStatic`,
+      },
+    },
+    {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.mdx`, `.md`],
