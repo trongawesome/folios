@@ -93,9 +93,9 @@ const NavigationHeader: React.FC<{}> = () => {
           <NavLink to={`/writing`} title={`All articles`} activeClassName="active" >
             Write
           </NavLink>
-          {/* <NavLink to={`/reading`} title={`All books`} activeClassName="active" >
+          <NavLink to={`/reading`} title={`All books`} activeClassName="active" >
             Read
-          </NavLink> */}
+          </NavLink>
           <NavLink to={`/about`} title={`About me`} activeClassName="active" >
             Me
           </NavLink>
@@ -267,7 +267,7 @@ const IconWrapper = styled.button<{ isDark: boolean }>`
   ${mediaqueries.tablet`
     display: inline-flex;
     transform: scale(0.708);
-    margin-left: 10px;
+    margin-left: 16px;
 
 
     &:hover {

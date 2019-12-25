@@ -73,12 +73,10 @@ const ReaddingsList: React.FC<ArticlesListProps> = ({
 
 export default ReaddingsList;
 
-const ListItem: React.FC<ArticlesListItemProps> = ({ article, narrow }) => {
+const ListItem: React.FC<ArticlesListItemProps> = ({ article }) => {
   if (!article) return null;
 
-  const { gridLayout } = useContext(GridLayoutContext);
-  const hasOverflow = narrow && article.title.length > 35;
-  const imageSource = narrow ? article.hero.narrow : article.hero.regular;
+  const imageSource = article.hero.regular;
   const hasHeroImage =
     imageSource &&
     Object.keys(imageSource).length !== 0 &&
@@ -86,20 +84,16 @@ const ListItem: React.FC<ArticlesListItemProps> = ({ article, narrow }) => {
 
   return (
     <ArticleLink to={article.slug} data-a11y="false">
-      <Item gridLayout={gridLayout}>
-        <ImageContainer narrow={narrow} gridLayout={gridLayout}>
+      <Item>
+        <ImageContainer>
           {hasHeroImage ? <Image src={imageSource} /> : <ImagePlaceholder />}
         </ImageContainer>
         <TextContainer>
           <Author>{article.author}</Author>
-          <Title dark hasOverflow={hasOverflow} gridLayout={gridLayout}>
+          <Title> 
             {article.title}
           </Title>
-          <Excerpt
-            narrow={narrow}
-            hasOverflow={hasOverflow}
-            gridLayout={gridLayout}
-          >
+          <Excerpt>
             {article.excerpt}
           </Excerpt>
         </TextContainer>
@@ -111,7 +105,6 @@ const ListItem: React.FC<ArticlesListItemProps> = ({ article, narrow }) => {
 };
 
 const wide = '1fr';
-const narrow = '457px';
 
 const limitToTwoLines = css`
   text-overflow: ellipsis;
@@ -227,7 +220,7 @@ const Item = styled.div<{ gridLayout: string }>`
   ${p => (p.gridLayout === 'rows' ? listItemRow : listItemTile)}
 `;
 
-const ImageContainer = styled.div<{ narrow: boolean; gridLayout: string }>`
+const ImageContainer = styled.div`
   position: relative;
   margin: 0 auto 32px auto;
   box-shadow: 8px 12px 32px rgba(0, 0, 0, 0.16);
@@ -304,8 +297,7 @@ const ContentContainer = styled.div`
 const Title = styled(Headings.h2)`
   font-size: 24px;
   font-family: ${p => p.theme.fonts.title};
-  color: ${p => p.theme.colors.textTitle};
-  opacity: .8;
+  color: ${p => p.theme.colors.primary};
   margin-bottom: 8px;
   transition: color 0.3s ease-in-out;
   ${limitToOneLines};
@@ -325,20 +317,15 @@ const Title = styled(Headings.h2)`
   `}
 `;
 
-const Excerpt = styled.p<{
-  hasOverflow: boolean;
-  narrow: boolean;
-  gridLayout: string;
-}>`
+const Excerpt = styled.p`
   ${limitToTwoLines};
   font-size: 16px;
   margin-bottom: 8px;
-  color: ${p => p.theme.colors.textTitle};
-  opacity: .7;
+  color: ${p => p.theme.colors.secondary};
   font-family: ${p => p.theme.fonts.body};
   display: ${p => (p.hasOverflow && p.gridLayout === 'tiles' ? 'none' : 'box')};
   max-width: 515px;
-  line-height: 22px;
+  line-height: 1.6;
 
   ${mediaqueries.desktop`
     display: -webkit-box;
@@ -357,22 +344,9 @@ const Excerpt = styled.p<{
 
 const Author = styled.div`
   font-size: 14px;
-  color: ${p => p.theme.colors.textTitle};
+  color: ${p => p.theme.colors.primary};
   font-family: ${p => p.theme.fonts.title};
-  opacity: .8;
   margin-bottom: 8px;
-`;
-
-const MetaData = styled.div`
-  font-weight: 400;
-  font-size: 14px;
-  color: ${p => p.theme.colors.grey};
-  opacity: 0.33;
-
-  ${mediaqueries.phablet`
-    max-width: 100%;
-    padding:  0 20px 30px;
-  `}
 `;
 
 const ArticleLink = styled(Link)`
