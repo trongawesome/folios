@@ -62,6 +62,7 @@ module.exports = async ({ actions: { createPage }, graphql }, themeOptions) => {
     postsPath = '/writing',
     readingPath = '/reading',
     pageLength = 16,
+    pageLengthReadings = 32,
     sources = {},
     mailchimp = '',
   } = themeOptions;
@@ -391,7 +392,7 @@ module.exports = async ({ actions: { createPage }, graphql }, themeOptions) => {
     edges: readingsThatArentSecret,
     pathPrefix: readingPath,
     createPage,
-    pageLength,
+    pageLength: pageLengthReadings,
     pageTemplate: templates.readings,
     buildPath: buildPaginatedPath,
     context: {
