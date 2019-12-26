@@ -73,12 +73,10 @@ const ReaddingsList: React.FC<ArticlesListProps> = ({
 
 export default ReaddingsList;
 
-const ListItem: React.FC<ArticlesListItemProps> = ({ article, narrow }) => {
+const ListItem: React.FC<ArticlesListItemProps> = ({ article }) => {
   if (!article) return null;
 
-  const { gridLayout } = useContext(GridLayoutContext);
-  const hasOverflow = narrow && article.title.length > 35;
-  const imageSource = narrow ? article.hero.narrow : article.hero.regular;
+  const imageSource = article.hero.regular;
   const hasHeroImage =
     imageSource &&
     Object.keys(imageSource).length !== 0 &&
@@ -86,20 +84,16 @@ const ListItem: React.FC<ArticlesListItemProps> = ({ article, narrow }) => {
 
   return (
     <ArticleLink to={article.slug} data-a11y="false">
-      <Item gridLayout={gridLayout}>
-        <ImageContainer narrow={narrow} gridLayout={gridLayout}>
+      <Item>
+        <ImageContainer>
           {hasHeroImage ? <Image src={imageSource} /> : <ImagePlaceholder />}
         </ImageContainer>
         <TextContainer>
           <Author>{article.author}</Author>
-          <Title dark hasOverflow={hasOverflow} gridLayout={gridLayout}>
+          <Title> 
             {article.title}
           </Title>
-          <Excerpt
-            narrow={narrow}
-            hasOverflow={hasOverflow}
-            gridLayout={gridLayout}
-          >
+          <Excerpt>
             {article.excerpt}
           </Excerpt>
         </TextContainer>
@@ -111,7 +105,6 @@ const ListItem: React.FC<ArticlesListItemProps> = ({ article, narrow }) => {
 };
 
 const wide = '1fr';
-const narrow = '457px';
 
 const limitToTwoLines = css`
   text-overflow: ellipsis;
@@ -121,10 +114,6 @@ const limitToTwoLines = css`
   display: -webkit-box;
   white-space: normal;
   overflow: hidden;
-
-  ${mediaqueries.phablet`
-    -webkit-line-clamp: 3;
-  `}
 `;
 
 const limitToOneLines = css`
@@ -174,37 +163,8 @@ const listTile = p => css`
   `}
 `;
 
-const listItemRow = p => css`
-  display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: 1fr 488px;
-  grid-column-gap: 96px;
-  grid-template-rows: 1;
-  align-items: center;
-  position: relative;
-  margin-bottom: 50px;
-
-  ${mediaqueries.desktop`
-    grid-column-gap: 24px;
-    grid-template-columns: 1fr 380px;
-  `}
-
-  ${mediaqueries.tablet`
-    grid-template-columns: 1fr;
-  `}
-
-  @media (max-width: 540px) {
-    background: ${p.theme.colors.card};
-  }
-
-  ${mediaqueries.phablet`
-    
-  `}
-`;
-
 const listItemTile = p => css`
   position: relative;
-  background: ${p.theme.colors.card};
 `;
 
 // If only 1 article, dont create 2 rows.
@@ -222,19 +182,30 @@ const List = styled.div<{
 `;
 
 const Item = styled.div<{ gridLayout: string }>`
-  height: 680px;
-  padding-top: 48px;
-  ${p => (p.gridLayout === 'rows' ? listItemRow : listItemTile)}
-`;
+  height: 624px;
+  ${listItemTile}
 
-const ImageContainer = styled.div<{ narrow: boolean; gridLayout: string }>`
+  ${mediaqueries.desktop`
+    height: 536px;
+  `}
+
+  ${mediaqueries.tablet`
+    height: 600px;
+  `}
+
+  ${mediaqueries.phone`
+    height: 536px;
+  `}
+`;
+  
+const ImageContainer = styled.div`
   position: relative;
-  margin: 0 auto 32px auto;
+  margin: 56px auto 32px auto;
   box-shadow: 8px 12px 32px rgba(0, 0, 0, 0.16);
-  width: 320px;
-  height: 438px;
+  height: auto;
   transition: transform 0.3s var(--ease-out-quad),
-    box-shadow 0.3s var(--ease-out-quad);
+  box-shadow 0.3s var(--ease-out-quad);
+  width: 320px;
 
   & > div {
     height: 100%;
@@ -273,27 +244,29 @@ const ImageContainer = styled.div<{ narrow: boolean; gridLayout: string }>`
   }
 
   ${mediaqueries.desktop`
-    height: 500px;
+    width: 264px;
   `}
 
   ${mediaqueries.tablet`
-    height: 480px;
+    width: 304px;
   `}
 
-  ${mediaqueries.phablet`
-    overflow: hidden;
-    margin-bottom: 0;
-    box-shadow: none;
+  ${mediaqueries.phone`
+    width: 264px;
+    margin-top: 32px;
   `}
+
 `;
 
 const TextContainer = styled.div`
   position: relative;
-  padding: 0 40px 32px;
+  padding-left: 40px;
+  padding-right: 40px;
   text-align: center;
 
-  ${mediaqueries.phablet`
-    padding: 40px 32px;
+  ${mediaqueries.desktop`
+    padding-left: 24px;
+    padding-right: 24px;
   `}
 `;
 
@@ -304,14 +277,13 @@ const ContentContainer = styled.div`
 const Title = styled(Headings.h2)`
   font-size: 24px;
   font-family: ${p => p.theme.fonts.title};
-  color: ${p => p.theme.colors.textTitle};
-  opacity: .8;
+  color: ${p => p.theme.colors.primary};
   margin-bottom: 8px;
   transition: color 0.3s ease-in-out;
   ${limitToOneLines};
 
   ${mediaqueries.desktop`
-    margin-bottom: 15px;
+    font-size: 22px;
   `}
 
   ${mediaqueries.tablet`
@@ -319,60 +291,34 @@ const Title = styled(Headings.h2)`
   `}
 
   ${mediaqueries.phablet`
-    font-size: 22px;  
-    margin-bottom: 10px;
-    -webkit-line-clamp: 3;
+    font-size: 22px;
   `}
 `;
 
-const Excerpt = styled.p<{
-  hasOverflow: boolean;
-  narrow: boolean;
-  gridLayout: string;
-}>`
+const Excerpt = styled.p`
   ${limitToTwoLines};
   font-size: 16px;
   margin-bottom: 8px;
-  color: ${p => p.theme.colors.textTitle};
-  opacity: .7;
+  color: ${p => p.theme.colors.secondary};
   font-family: ${p => p.theme.fonts.body};
   display: ${p => (p.hasOverflow && p.gridLayout === 'tiles' ? 'none' : 'box')};
   max-width: 515px;
-  line-height: 22px;
+  line-height: 1.6;
 
   ${mediaqueries.desktop`
     display: -webkit-box;
   `}
 
   ${mediaqueries.phablet`
-    margin-bottom; 15px;
-  `}
-
-  ${mediaqueries.phablet`
     max-width: 100%;
-    margin-bottom: 20px;
-    -webkit-line-clamp: 3;
   `}
 `;
 
 const Author = styled.div`
   font-size: 14px;
-  color: ${p => p.theme.colors.textTitle};
+  color: ${p => p.theme.colors.primary};
   font-family: ${p => p.theme.fonts.title};
-  opacity: .8;
   margin-bottom: 8px;
-`;
-
-const MetaData = styled.div`
-  font-weight: 400;
-  font-size: 14px;
-  color: ${p => p.theme.colors.grey};
-  opacity: 0.33;
-
-  ${mediaqueries.phablet`
-    max-width: 100%;
-    padding:  0 20px 30px;
-  `}
 `;
 
 const ArticleLink = styled(Link)`
@@ -382,6 +328,7 @@ const ArticleLink = styled(Link)`
   top: 0;
   left: 0;
   margin-bottom: 30px;
+  background: ${p => p.theme.colors.card};
   z-index: 1;
   transition: transform 0.33s var(--ease-out-quart);
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);

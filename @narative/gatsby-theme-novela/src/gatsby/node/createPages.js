@@ -62,6 +62,7 @@ module.exports = async ({ actions: { createPage }, graphql }, themeOptions) => {
     postsPath = '/writing',
     readingPath = '/reading',
     pageLength = 16,
+    pageLengthReadings = 32,
     sources = {},
     mailchimp = '',
   } = themeOptions;
@@ -391,7 +392,7 @@ module.exports = async ({ actions: { createPage }, graphql }, themeOptions) => {
     edges: readingsThatArentSecret,
     pathPrefix: readingPath,
     createPage,
-    pageLength,
+    pageLength: pageLengthReadings,
     pageTemplate: templates.readings,
     buildPath: buildPaginatedPath,
     context: {
@@ -437,11 +438,11 @@ module.exports = async ({ actions: { createPage }, graphql }, themeOptions) => {
       next = [...next, readingsThatArentSecret[0]];
     if (readingsThatArentSecret.length === 1) next = [];
 
-    const path = slugify(reading.slug, readingPath);
+    const pathPrefix = slugify(reading.slug, readingPath);
 
     createPage({
       path: reading.slug,
-      pathPrefix: path,
+      pathPrefix: pathPrefix,
       component: templates.reading,
 
       context: {

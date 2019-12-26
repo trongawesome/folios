@@ -2,22 +2,18 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import styled from '@emotion/styled';
 
-import Icons from "@icons";
+import Image from '@components/Image';
 import Section from '@components/Section';
 import mediaqueries from '@styles/media';
 import { IAuthor } from '@types';
 
-const authorQuery = graphql`
+const siteQuery = graphql`
   {
-    site: allSite {
-      edges {
-        node {
-          siteMetadata {
-            hero {
-              readingHeading
-              maxWidth
-            }
-          }
+    file(relativePath: {eq: "reading-hero.png"}) {
+      id
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
         }
       }
     }
@@ -25,23 +21,26 @@ const authorQuery = graphql`
 `;
 
 const ReadingsHero: React.FC<IAuthor> = ({ authors }) => {
-  const results = useStaticQuery(authorQuery);
-  const hero = results.site.edges[0].node.siteMetadata.hero;
+
+  const heroImage = useStaticQuery(siteQuery);
 
   return (
-    <Container>
-      <Section relative>
-        <HeadingContainer>
-          <HeroHeading dangerouslySetInnerHTML={{ __html: hero.readingHeading }} />
-          <InfoText>
-            My personal bookshelf on design and creativity. I figured out you might get some ideas for your next reading.
-          </InfoText>
-        </HeadingContainer>
-      </Section>
-      <HeroImage>
-        <Icons.Bookmark />
-      </HeroImage>
-    </Container>
+    <Section narrow>
+      <Container>
+        <HeroTextContainer>
+            <HeroHeading>Read to design better.</HeroHeading>
+            <InfoText>
+              My bookshelf on design and creativity. I figured out you might get some ideas for your next reading experience.
+            </InfoText>
+        </HeroTextContainer>
+        <HeroImage>
+          <Image
+            src={heroImage.file.childImageSharp.fluid}
+            imgStyle={{ objectFit: 'contain', objectPosition: 'bottom' }}
+          />
+        </HeroImage>
+      </Container>
+    </Section>
   );
 };
 
@@ -49,87 +48,67 @@ export default ReadingsHero;
 
 const Container = styled.div`
   position: relative;
-  height: 816px;
+  display: grid;
+  grid-template-columns: 1fr 600px;
+  column-gap: 0;
   overflow: hidden;
-  margin-bottom: 80px;
+  margin-top: 56px;
+  margin-bottom: 30px;
+  background: ${p => p.theme.colors.card};
 
-  ${mediaqueries.tablet`
-    height: 496px;
+  ${mediaqueries.desktop`
+    grid-template-columns: 1fr 416px;
   `}
 
+  ${mediaqueries.tablet`
+    grid-template-columns: 1fr;
+    background: none;
+    margin-bottom: 0;
+  `}
+
+`;
+
+const HeroTextContainer = styled.div`
+  position: relative;
+  align-self: end;
+  margin: 40px 0 80px 64px;
+
+  ${mediaqueries.tablet`
+    margin: 40px 0 0;
+  `}
 `;
 
 const HeroImage = styled.div`
-  position: absolute;
-  right: -88px;
-  top: -32px;
-  display: flex;
-  align-items: center;
-
-  ${mediaqueries.desktop`
-    top: 32px;
-  `}
+  position: relative;
+  align-self: end;
 
   ${mediaqueries.tablet`
-    top: 100px;
+    margin-left: 32px;
+    margin-right: 32px;
   `}
 
-  svg {
-    width: 848px;
-    height: auto;
-
-    ${mediaqueries.desktop`
-      width: 600px;
-    `}
-
-    ${mediaqueries.phablet`
-      width: 500px;
-    `}
-
-    ${mediaqueries.tablet`
-      width: 328px;
-      opacity: .4;
-    `}
-  }
-`;
-
-const HeadingContainer = styled.div`
-  margin: 100px 0;
-  z-index: 1;
-  position: absolute;
-  bottom: 80px;
-  max-width: 560px;
-  padding-right: 40px;
-  
-  ${mediaqueries.desktop`
-    max-width: 360px;
-  `}
-  
-  ${mediaqueries.tablet`
-    width: 100%;
-    bottom: auto;
-  `}
 `;
   
 const HeroHeading = styled.h1`
   font-style: normal;
   font-weight: 600;
-  font-size: 104px;
+  font-size: 94px;
   line-height: 98%;
   letter-spacing: -1px;
   font-family: ${p => p.theme.fonts.title};
   color: ${p => p.theme.colors.primary};
 
-  a {
-    color: ${p => p.theme.colors.accent};
-  }
-
   ${mediaqueries.desktop`
-    font-size: 80px
+    font-size: 56px
+  `}
+
+  ${mediaqueries.tablet`
+    font-size: 48px;
   `}
 
   ${mediaqueries.phablet`
-    font-size: 64px;
+    font-size: 44px;
+    line-height: 1.25;
   `}
 `;
 
@@ -139,16 +118,9 @@ const InfoText = styled.p`
   line-height: 1.8;
   font-family: ${p => p.theme.fonts.body};
   color: ${p => p.theme.colors.secondary};
-`;
 
-const Anchor = styled.a`
-  color: ${p => p.theme.colors.secondary};
-  border-bottom: 1px solid ${p => p.theme.colors.secondary};
-  margin-left: 6px;
-  
-  &:hover,
-  &:focus {
-    color: ${p => p.theme.colors.accent};
-    border-bottom-color: ${p => p.theme.colors.accent};
-  }
+  ${mediaqueries.tablet`
+    font-size: 16px;
+  `}
+
 `;
