@@ -71,7 +71,8 @@ const Container = styled.div`
 const HeroTextContainer = styled.div`
   position: relative;
   align-self: end;
-  margin: 40px 0 80px 64px;
+  margin: 40px 0 40px 64px;
+  align-self: center;
 
   ${mediaqueries.tablet`
     margin: 40px 0 0;
