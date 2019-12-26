@@ -11,7 +11,7 @@ import { IImg } from "@types";
  */
 const StyledGatsbyImag = styled(GatsbyImg)`
   & > img {
-    filter: blur(10px);
+    filter: blur(15px);
     top: -10% !important;
     left: -10% !important;
     width: 120% !important;

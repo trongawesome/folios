@@ -19,7 +19,10 @@ const siteQuery = graphql`
       edges {
         node {
           siteMetadata {
-            name
+            hero {
+              readingHeading
+            }
+            title
           }
         }
       }
@@ -32,13 +35,13 @@ const ReadingsPage: Template = ({ location, pageContext }) => {
   const authors = pageContext.additionalContext.authors;
 
   const results = useStaticQuery(siteQuery);
-  const name = results.allSite.edges[0].node.siteMetadata.name;
+  const site = results.allSite.edges[0].node.siteMetadata;
 
   return (
     <LayoutBase>
       <SEO
         pathname={location.pathname}
-        title={name}
+        title={site.hero.readingHeading + " | " + site.title}
       />
       <ReadingsHero authors={authors} />
       <Section narrow>

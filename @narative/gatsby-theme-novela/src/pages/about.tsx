@@ -10,8 +10,6 @@ import { graphql, useStaticQuery } from "gatsby";
 
 import { Template } from "@types";
 
-const image = 'trong-avatar.jpg';
-
 const siteQuery = graphql`
 {
   file(relativePath: {eq: "trong-avatar.jpg"}) {

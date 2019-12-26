@@ -48,7 +48,7 @@ const HeroContainer = styled.div`
   grid-template-columns: 1fr 1fr;
   column-gap: 64px;
   z-index: 1;
-  margin-top: 100px;
+  margin-top: 96px;
   margin-bottom: 80px;
 
   ${mediaqueries.tablet`
@@ -59,7 +59,7 @@ const HeroContainer = styled.div`
 const HeroTextContainer = styled.header`
   position: relative;
   z-index: 10;
-  margin-top: 100px;
+  margin-top: 96px;
   align-self: start;
 
 `;
