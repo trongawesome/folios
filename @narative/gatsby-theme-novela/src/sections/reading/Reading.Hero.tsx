@@ -20,7 +20,7 @@ const ReadingHero: React.FC<ArticleHeroProps> = ({ article }) => {
     article.hero.full.constructor === Object;
 
   return (
-    <Section>
+    <Section narrow>
       <HeroContainer>
         <HeroImage id="ReadingImage__Hero">
           {hasHeroImage ? (
@@ -50,30 +50,34 @@ const HeroContainer = styled.div`
   z-index: 1;
   margin-top: 96px;
   margin-bottom: 80px;
-
+  
   ${mediaqueries.tablet`
     grid-template-columns: 1fr;
+    margin-top: 48px;
   `}
 `;
 
 const HeroTextContainer = styled.header`
   position: relative;
   z-index: 10;
-  margin-top: 96px;
-  align-self: start;
+  align-self: center;
 
+  ${mediaqueries.tablet`
+    margin-top: 40px;
+  `}
 `;
 
 const Author = styled(Headings.h4)`
   margin-bottom: 8px;
+  color: ${p => p.theme.colors.secondary};
 `;
 
 const HeroHeading = styled(Headings.h1)`
   font-size: 56px;
   font-family: ${p => p.theme.fonts.title};
-  margin-bottom: 25px;
+  margin-bottom: 24px;
   font-weight: bold;
-  line-height: 1.32;
+  line-height: 1.2;
 
   ${mediaqueries.tablet`
     margin-bottom: 20px;
@@ -95,16 +99,15 @@ const Excerpt = styled(Headings.h3)`
   line-height: 1.65;
 
   ${mediaqueries.tablet`
-  `}
-
-  ${mediaqueries.phablet`
-    font-size: 22px;
+    font-size: 18px;
   `}
 `;
 
 const HeroImage = styled.div`
   position: relative;
   height: auto;
+  align-self: start;
+  justify-self: center;
   transition: transform 0.3s var(--ease-out-quad),
   box-shadow 0.3s var(--ease-out-quad);
   box-shadow:
@@ -115,6 +118,11 @@ const HeroImage = styled.div`
     0px 16px 32px rgba(0, 0, 0, 0.07),
     0px 32px 64px rgba(0, 0, 0, 0.07);
   width: 100%;
+
+  ${mediaqueries.phone`
+    width: 200px;
+  `}
+
 
   & > div {
     height: 100%;

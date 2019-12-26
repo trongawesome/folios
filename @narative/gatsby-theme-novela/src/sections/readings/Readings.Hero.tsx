@@ -30,7 +30,7 @@ const ReadingsHero: React.FC<IAuthor> = ({ authors }) => {
         <HeroTextContainer>
             <HeroHeading>Read to design better.</HeroHeading>
             <InfoText>
-              My personal bookshelf on design and creativity. I figured out you might get some ideas for your next reading.
+              My bookshelf on design and creativity. I figured out you might get some ideas for your next reading experience.
             </InfoText>
         </HeroTextContainer>
         <HeroImage>
@@ -71,7 +71,7 @@ const Container = styled.div`
 const HeroTextContainer = styled.div`
   position: relative;
   align-self: end;
-  margin: 40px 0 64px 64px;
+  margin: 40px 0 80px 64px;
 
   ${mediaqueries.tablet`
     margin: 40px 0 0;
@@ -107,7 +107,8 @@ const HeroHeading = styled.h1`
   `}
 
   ${mediaqueries.phablet`
-    font-size: 40px;
+    font-size: 44px;
+    line-height: 1.25;
   `}
 `;
 

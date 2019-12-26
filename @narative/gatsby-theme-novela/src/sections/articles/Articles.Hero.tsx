@@ -44,7 +44,7 @@ const ArticlesHero: React.FC<IAuthor> = ({ authors }) => {
   // }
 
   return (
-    <Section relative id="Articles__Hero">
+    <Section narrow id="Articles__Hero">
       <HeadingContainer style={{ maxWidth: `${hero.maxWidth}px` }}>
         <HeroHeading dangerouslySetInnerHTML={{ __html: hero.writingHeading }} />
         <InfoText>
@@ -86,7 +86,7 @@ const HeadingContainer = styled.div`
   `}
 
   ${mediaqueries.phablet`
-    font-size: 54px;
+    font-size: 44px;
   `}
 `;
 

@@ -72,7 +72,7 @@ const NavigationHeader: React.FC<{}> = () => {
   }, []);
 
   return (
-    <Section>
+    <Section narrow>
       <NavContainer>
         <LogoLink
           to={rootPath || basePath}

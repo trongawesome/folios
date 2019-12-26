@@ -30,12 +30,12 @@ const AboutPage: Template = ({ location, pageContext }) => {
   return (
     <Layout>
       <SEO pathname={location.pathname} title={"About me"}/>
-      <Section relative>
+      <Section narrow >
         <HeadingContainer>
           <HeroHeading>Nice to meet you!</HeroHeading>
         </HeadingContainer>
       </Section>
-      <Section>
+      <Section narrow >
         <ContentContainer>
           <MyImage><Image src={avatarResult.file.childImageSharp.fluid} /></MyImage>
           <MyText>
@@ -106,7 +106,7 @@ const HeroHeading = styled.h2`
   `}
 
   ${mediaqueries.phablet`
-    font-size: 54px;
+    font-size: 44px;
   `}
 `;
 
