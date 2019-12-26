@@ -2,7 +2,6 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import styled from '@emotion/styled';
 
-import Icons from "@icons";
 import Image from '@components/Image';
 import Section from '@components/Section';
 import mediaqueries from '@styles/media';
