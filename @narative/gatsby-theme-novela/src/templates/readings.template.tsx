@@ -13,6 +13,8 @@ import ReaddingsList from "../sections/readings/Readings.List";
 
 import { Template } from "@types";
 
+const seoImage = '/seo-readings.jpg';
+
 const siteQuery = graphql`
   {
     allSite {
@@ -42,6 +44,7 @@ const ReadingsPage: Template = ({ location, pageContext }) => {
       <SEO
         pathname={location.pathname}
         title={site.hero.readingHeading + " | " + site.title}
+        image={seoImage}
       />
       <ReadingsHero authors={authors} />
       <Section narrow>
