@@ -290,7 +290,6 @@ const ImageCSS = css`
 
   div.Image__Large {
     position: relative;
-    left: -68px;
     width: ${IMAGE_WIDTHS.full};
     margin: 25px auto 60px;
     pointer-events: none;
