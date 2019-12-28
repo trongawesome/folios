@@ -127,10 +127,10 @@ const HeroImage = styled.div`
   width: 100%;
   overflow: hidden;
   margin: 0 auto;
-  height: 100vh;
+  height: 840px;
 
     & > div {
-      height: 100vh;
+      height: 100%;
     }
 
 

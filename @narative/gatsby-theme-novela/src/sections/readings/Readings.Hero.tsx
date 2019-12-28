@@ -53,9 +53,7 @@ const Container = styled.div`
   column-gap: 0;
   overflow: hidden;
   margin-top: 56px;
-  margin-bottom: 30px;
-  background: ${p => p.theme.colors.card};
-
+  
   ${mediaqueries.desktop`
     grid-template-columns: 1fr 416px;
   `}
@@ -71,7 +69,8 @@ const Container = styled.div`
 const HeroTextContainer = styled.div`
   position: relative;
   align-self: end;
-  margin: 40px 0 80px 64px;
+  margin: 24px 0 40px 0;
+  align-self: center;
 
   ${mediaqueries.tablet`
     margin: 40px 0 0;

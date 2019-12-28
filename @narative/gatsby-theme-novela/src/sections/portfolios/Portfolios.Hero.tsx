@@ -60,10 +60,10 @@ const PortfoliosHero: React.FC<IAuthor> = ({ authors }) => {
 export default PortfoliosHero;
 
 const HeadingContainer = styled.div`
-  margin: 100px 0;
+    margin: 100px 0;
   
   ${mediaqueries.desktop`
-  width: 80%;
+    width: 80%;
   `}
   
   ${mediaqueries.tablet`

@@ -62,6 +62,7 @@
     "gatsby-remark-images": "^3.1.7",
     "gatsby-remark-numbered-footnotes": "^1.0.0",
     "gatsby-remark-prismjs": "^3.3.3",
+    "gatsby-remark-responsive-iframe": "^2.2.30",
     "gatsby-remark-smartypants": "^2.1.2",
     "gatsby-remark-typescript": "^0.0.12",
     "gatsby-source-filesystem": "^2.1.6",
