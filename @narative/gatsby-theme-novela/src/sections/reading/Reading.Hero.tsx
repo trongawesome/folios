@@ -121,6 +121,13 @@ const HeroImage = styled.div`
 
   ${mediaqueries.phone`
     width: 200px;
+
+    & > div {
+      ::before {
+          width: 5px !important;
+          box-shadow: 1px 0 rgba(0, 0, 0, 0.1), 2px 0 0px rgba(255, 255, 255, 0.1) !important;
+        }
+    }
   `}
 
 
