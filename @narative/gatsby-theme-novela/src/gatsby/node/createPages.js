@@ -60,7 +60,7 @@ module.exports = async ({ actions: { createPage }, graphql }, themeOptions) => {
     categoryPath = '/categories',
     portfolioPath = '/portfolios',
     postsPath = '/writing',
-    readingPath = '/book-collection-for-designers',
+    readingPath = '/books-for-product-designers',
     pageLength = 16,
     pageLengthReadings = 32,
     sources = {},
