@@ -149,6 +149,7 @@ const SEO: React.FC<HelmetProps> = ({
       script={themeUIDarkModeWorkaroundScript}
       meta={metaTags}
     >
+      <link rel="icon" type="image/png" href="/icon-72x72.png"></link>
       {children}
     </Helmet>
   );
