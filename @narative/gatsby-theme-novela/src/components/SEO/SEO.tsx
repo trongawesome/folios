@@ -149,10 +149,7 @@ const SEO: React.FC<HelmetProps> = ({
       script={themeUIDarkModeWorkaroundScript}
       meta={metaTags}
     >
-      <link
-        href="https://fonts.googleapis.com/css?family=Merriweather:700,700i&display=swap"
-        rel="stylesheet"
-      />
+      <link rel="icon" type="image/png" href="/icon-72x72.png"></link>
       {children}
     </Helmet>
   );

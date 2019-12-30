@@ -32,6 +32,22 @@ const Blockquote = styled.blockquote`
       padding: 0 20px 0 40px;
     `};
   }
+
+  cite {
+    display: block;
+    font-size: 20px;
+    margin-top: 8px;
+    
+    ${mediaqueries.tablet`
+      padding-left: 180px;
+      font-size: 16px;
+    `};
+
+    ${mediaqueries.phablet`
+      padding-left: 40px;
+    `};
+
+  }
 `;
 
 export default Blockquote;

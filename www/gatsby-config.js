@@ -49,6 +49,7 @@ const plugins = [
       theme_color: `#fff`,
       display: `standalone`,
       icon: `src/assets/favicon.png`,
+      include_favicon: false,
     },
   },
   {
