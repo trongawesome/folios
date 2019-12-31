@@ -36,7 +36,7 @@ const ImageGallery = ({ location }) => {
     <Layout>
       <SEO pathname={location.pathname} title={"Photo Gallery"}/>
       <ArticlesHero />
-      <Section>
+      <Section narrow>
         <Gallery data={result} />
       </Section>
       <ArticlesGradient />

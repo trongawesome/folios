@@ -53,12 +53,34 @@ export default Gallery;
 
 const ImageGrid = styled.div`
   display: grid;
-  grid-gap: 10px;
+  grid-gap: 8px;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   grid-auto-rows: minmax(50px, auto);
   z-index: 1;
   position: relative;
 
+  ${mediaqueries.tablet`
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  `};
+    
+  ${mediaqueries.phone`
+    // grid-template-columns: repeat(auto-fill, 100%);
+    grid-template-columns: 1fr;
+  `};
+
+`;
+
+const ImageItem = styled.div`
+
+  cursor: zoom-in;
+
+  &:nth-child(5n){
+    grid-column-end: span 2;
+  }
+
+  & > div {
+    height: 100%;
+  }
 `;
   
 const Wrap = styled.div`
@@ -81,17 +103,4 @@ const Wrap = styled.div`
     }
   }
 
-`;
-
-const ImageItem = styled.div`
-
-  cursor: zoom-in;
-
-  &:nth-child(5n){
-    grid-column-end: span 2;
-  }
-
-  & > div {
-    height: 100%;
-  }
 `;
