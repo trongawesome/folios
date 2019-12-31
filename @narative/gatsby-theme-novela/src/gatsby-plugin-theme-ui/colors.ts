@@ -7,6 +7,7 @@ export default {
   secondary: "#3D6066",
   grey: "#75959A",
   background: "#D1E8EB",
+  backgroundModal: "rgba(209, 232, 235, 0.98)",
   cleanBackground: "#FFFFFF",
   accent: "#3A5C21",
   hover: "rgba(0, 0, 0, 0.07)",
@@ -29,6 +30,7 @@ export default {
       secondary: "#fff",
       accent: "#E9DAAC",
       background: "#111216",
+      backgroundModal: "rgba(17, 18, 22, 0.95)",
       cleanBackground: "#111216",
       hover: "rgba(255, 255, 255, 0.07)",
       gradient:
