@@ -34,7 +34,7 @@ const ImageGallery = ({ location }) => {
 
   return (
     <Layout>
-      <SEO pathname={location.pathname} title={"Image Gallery"}/>
+      <SEO pathname={location.pathname} title={"Photo Gallery"}/>
       <ArticlesHero />
       <Section>
         <Gallery data={result} />
