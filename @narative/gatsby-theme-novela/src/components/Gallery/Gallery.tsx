@@ -63,7 +63,7 @@ const ImageGrid = styled.div`
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   `};
     
-  ${mediaqueries.phone`
+  ${mediaqueries.phablet`
     // grid-template-columns: repeat(auto-fill, 100%);
     grid-template-columns: 1fr;
   `};
@@ -71,12 +71,17 @@ const ImageGrid = styled.div`
 `;
 
 const ImageItem = styled.div`
-
   cursor: zoom-in;
 
   &:nth-child(5n){
     grid-column-end: span 2;
   }
+
+  ${mediaqueries.phablet`
+    &:nth-child(5n){
+      grid-column-end: auto;
+    }
+  `};
 
   & > div {
     height: 100%;
