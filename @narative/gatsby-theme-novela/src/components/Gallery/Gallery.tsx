@@ -64,7 +64,6 @@ const ImageGrid = styled.div`
   `};
     
   ${mediaqueries.phablet`
-    // grid-template-columns: repeat(auto-fill, 100%);
     grid-template-columns: 1fr;
   `};
 
