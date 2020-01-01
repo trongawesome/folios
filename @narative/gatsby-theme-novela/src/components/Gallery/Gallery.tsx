@@ -7,7 +7,7 @@ import Image from '@components/Image';
 
 const Gallery = ({data}) => {
   
-  const { edges } = data.allImageGalleryYaml;
+  const { edges } = data;
 
   const [showImageIndex, setShowImageIndex] = React.useState<
     number | undefined

@@ -9,6 +9,8 @@ const siteMetadata = {
     heading: `Hi, I’m Trong, <br/>product designer.`,
     writingHeading: `Writing is designing.`,
     readingHeading: `Books for product designers`,
+    littleGalleryHeading: `Little big grid.`,
+    littleGallerySubtitle: `Little works and experiments but a big pride for me. I pour them all in this grid. When I look back, I'll feel pleased. © Trong Nguyen`,
     maxWidth: 776,
   },
   social: [

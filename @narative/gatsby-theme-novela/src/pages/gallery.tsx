@@ -7,6 +7,9 @@ import Layout from "@components/Layout";
 import Gallery from "@components/Gallery";
 import ArticlesGradient from "@components/ArticlesGradient";
 import ArticlesHero from "../sections/articles/Articles.Hero";
+import PageHero from "../sections/others";
+
+const seoImage = '/seo-readings.jpg';
 
 const siteQuery = graphql`
 {
@@ -28,19 +31,44 @@ const siteQuery = graphql`
       }
     }
   }
+  allSite {
+    edges {
+      node {
+        siteMetadata {
+          hero {
+            littleGalleryHeading
+            littleGallerySubtitle
+            maxWidth
+          }
+          title
+        }
+      }
+    }
+  }
 }
 `;
 
 const ImageGallery = ({ location }) => {
 
   const result = useStaticQuery(siteQuery);
+  const images = result.allImageGalleryYaml;
+  const siteSEO = result.allSite.edges[0].node.siteMetadata;
 
   return (
     <Layout>
-      <SEO pathname={location.pathname} title={"My Moodboard"}/>
-      <ArticlesHero />
+      <SEO
+        pathname={location.pathname} 
+        title={siteSEO.hero.littleGalleryHeading + " - " + siteSEO.title}
+        description={siteSEO.hero.littleGallerySubtitle}
+        image={seoImage}
+      />
+      <PageHero
+        heading={siteSEO.hero.littleGalleryHeading}
+        subtitle={siteSEO.hero.littleGallerySubtitle}
+        maxWidth={siteSEO.hero.maxWidth}
+      />
       <Section narrow>
-        <Gallery data={result} />
+        <Gallery data={images} />
       </Section>
       <ArticlesGradient />
     </Layout>

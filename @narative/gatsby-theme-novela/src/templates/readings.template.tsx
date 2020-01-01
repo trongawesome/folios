@@ -43,7 +43,7 @@ const ReadingsPage: Template = ({ location, pageContext }) => {
     <LayoutBase>
       <SEO
         pathname={location.pathname}
-        title={site.hero.readingHeading}
+        title={site.hero.readingHeading + " - " +  site.title}
         image={seoImage}
       />
       <ReadingsHero authors={authors} />
