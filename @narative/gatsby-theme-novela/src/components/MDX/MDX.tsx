@@ -17,6 +17,7 @@ import Lists from "@components/Lists";
 import Paragraph from "@components/Paragraph";
 import Tables from "@components/Tables";
 import { ImageZoom } from "@components/Image";
+// import Grid from "@components/Grid";
 
 import mediaqueries from "@styles/media";
 import { toKebabCase } from "@utils";
@@ -41,7 +42,7 @@ const components = {
   table: Tables.Table,
   thead: Tables.Head,
   th: Tables.HeadCell,
-  td: Tables.Cell
+  td: Tables.Cell,
 };
 
 interface MDXProps {
@@ -309,6 +310,44 @@ const ImageCSS = css`
   }
 `;
 
+const Grid = css`
+  .Grid {
+    display: grid;
+    grid-gap: 8px;
+    position: relative;
+    margin: 15px auto 50px;
+    
+    &.Col2 {
+      grid-template-columns: 1fr 1fr;
+      
+      ${mediaqueries.phone`
+        grid-template-columns: 1fr;
+      `};
+    }
+    
+    &.Col3 {
+      grid-template-columns: 1fr 1fr 1fr;
+      
+      ${mediaqueries.phone`
+        grid-template-columns: 1fr;
+      `};
+    }
+
+
+    &.Small {
+      max-width: ${IMAGE_WIDTHS.regular};
+    }
+    
+    &.Medium {
+      max-width: ${IMAGE_WIDTHS.large};
+    }
+    
+    &.Large {
+      width: ${IMAGE_WIDTHS.full};
+    }
+  }
+`;
+
 /**
  * MDXBody
  * Here we're applying "global" selectors to make sure we maintain an article
@@ -325,4 +364,5 @@ const MDXBody = styled.div`
   ${HeadingsCSS}
   ${PrismCSS}
   ${ImageCSS}
+  ${Grid}
 `;
