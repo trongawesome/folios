@@ -113,10 +113,6 @@ const ArticleBody = styled.article`
   position: relative;
   padding: 56px 0 35px;
   transition: background 0.2s linear;
-
-  ${mediaqueries.desktop`
-    padding-left: 53px;
-  `}
   
   ${mediaqueries.tablet`
     padding: 70px 0 80px;

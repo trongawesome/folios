@@ -74,6 +74,7 @@
     "react-helmet": "^5.2.1",
     "react-live": "^2.2.0",
     "react-medium-image-zoom": "^3.1.1",
+    "react-modal-image": "^2.5.0",
     "react-outside-click-handler": "^1.2.4",
     "remark-slug": "^5.1.2",
     "request": "^2.88.0",

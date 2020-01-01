@@ -13,7 +13,7 @@ const ArticlesPage: Template = ({ location, pageContext }) => {
 
   return (
     <Layout>
-      <SEO pathname={location.pathname} />
+      <SEO pathname={location.pathname} title={"Page not found"} />
       <Section>
         <ImageWrapper>
           <Icons.NotFound />
