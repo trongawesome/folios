@@ -20,6 +20,9 @@ const siteQuery = graphql`
               ...GatsbyImageSharpFluid
               src
             }
+            original {
+              src
+            }
           }
         }
       }

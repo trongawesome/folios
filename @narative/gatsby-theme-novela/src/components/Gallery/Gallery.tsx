@@ -39,7 +39,7 @@ const Gallery = ({data}) => {
         <Lightbox
           hideDownload={true}
           imageBackgroundColor="#D1E8EB"
-          large={edges[showImageIndex].node.image.childImageSharp.fluid.src}
+          large={edges[showImageIndex].node.image.childImageSharp.original.src}
           onClose={() => {
             setShowImageIndex(undefined);
           }}
