@@ -20,6 +20,12 @@ const fonts = {
   monospace: `"Operator Mono", Consolas, Menlo, Monaco, source-code-pro, Courier New, monospace`,
 };
 
+const fontsWeight = {
+  regular: "300",
+  semi_bold: "600",
+  bold: "700"
+};
+
 const colorModeTransition =
   'background 0.25s var(--ease-in-out-quad), color 0.25s var(--ease-in-out-quad)';
 
@@ -29,6 +35,7 @@ export default merge({
   colorModeTransition,
   colors,
   fonts,
+  fontsWeight,
   breakpoints,
   tags,
 });
