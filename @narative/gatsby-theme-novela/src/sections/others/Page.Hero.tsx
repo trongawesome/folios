@@ -83,5 +83,9 @@ const InfoText = styled.p`
   line-height: 1.8;
   font-family: ${p => p.theme.fonts.body};
   color: ${p => p.theme.colors.secondary};
+
+  ${mediaqueries.phablet`
+    font-size:18px;
+  `}
 `;
 
