@@ -48,7 +48,6 @@ const plugins = [
       short_name: `Trong`,
       start_url: `/`,
       background_color: `#fff`,
-      theme_color: `#fff`,
       display: `standalone`,
       icon: `src/assets/favicon.png`,
       include_favicon: false,

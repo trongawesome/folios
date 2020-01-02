@@ -105,7 +105,11 @@ const SEO: React.FC<HelmetProps> = ({
     },
     {
       name: 'theme-color',
-      content: '#fff',
+      content: '#D1E8EB',
+    },
+    {
+      name: 'apple-mobile-web-app-status-bar-style',
+      content: 'black-translucent',
     },
     {
       rel: 'canonical',
@@ -150,7 +154,6 @@ const SEO: React.FC<HelmetProps> = ({
       meta={metaTags}
     >
       <link rel="icon" type="image/png" href="/icon-72x72.png"></link>
-      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"></meta>
       {children}
     </Helmet>
   );
