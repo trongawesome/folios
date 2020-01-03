@@ -1,5 +1,4 @@
 import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
 import styled from '@emotion/styled';
 
 import Section from '@components/Section';
@@ -10,23 +9,6 @@ interface HeroProps {
     subtitle: string;
     maxWidth: string;
   }
-
-const dataQuery = graphql`
-  {
-    site: allSite {
-      edges {
-        node {
-          siteMetadata {
-            hero {
-              writingHeading
-              maxWidth
-            }
-          }
-        }
-      }
-    }
-  }
-`;
 
 const PageHero: React.FC<HeroProps> = ({ heading, subtitle, maxWidth }) => {
 
@@ -78,7 +60,7 @@ const HeadingContainer = styled.div`
 `;
 
 const InfoText = styled.p`
-  font-size: 20px;
+  font-size: 18px;
   margin-top: 24px;
   line-height: 1.8;
   font-family: ${p => p.theme.fonts.body};

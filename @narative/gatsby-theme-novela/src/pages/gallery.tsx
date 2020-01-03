@@ -6,7 +6,6 @@ import SEO from "@components/SEO";
 import Layout from "@components/Layout";
 import Gallery from "@components/Gallery";
 import ArticlesGradient from "@components/ArticlesGradient";
-import ArticlesHero from "../sections/articles/Articles.Hero";
 import PageHero from "../sections/others";
 
 const seoImage = '/seo-readings.jpg';
