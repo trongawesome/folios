@@ -62,7 +62,7 @@ const ImageGallery = ({ location }) => {
         image={seoImage}
       />
       <PageHero
-        heading={siteSEO.hero.littleGalleryHeading}
+        heading={siteSEO.hero.littleGalleryHeading + "."}
         subtitle={siteSEO.hero.littleGallerySubtitle}
         maxWidth={siteSEO.hero.maxWidth}
       />
