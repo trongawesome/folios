@@ -14,7 +14,7 @@ const breakpoints = [
 ];
 
 const fonts = {
-  title: "'Poppins', 'Helvetica Neue', 'Arial', sans-serif",
+  title: "'Recoleta', 'Libre Baskerville', 'Helvetica Neue', 'Arial', sans-serif",
   body:
     "'Libre Baskerville', Georgia, Serif",
   monospace: `"Operator Mono", Consolas, Menlo, Monaco, source-code-pro, Courier New, monospace`,
@@ -22,8 +22,7 @@ const fonts = {
 
 const fontsWeight = {
   regular: "300",
-  semi_bold: "600",
-  bold: "700"
+  bold: "600",
 };
 
 const colorModeTransition =

@@ -45,7 +45,7 @@ const NavControls = styled.div`
 `;
 
 const NavLink = styled(Link)`
-  font-weight: bold;
+  font-weight: ${p => p.theme.fontsWeight.bold};
   font-family: ${p => p.theme.fonts.title};
   font-size: 16px;
   color: ${p => p.theme.colors.grey};
@@ -111,7 +111,7 @@ const Heading = styled.h1`
   font-family: ${p => p.theme.fonts.sansSerif};
   color: ${p => p.theme.colors.primary};
   margin-bottom: 15px;
-  font-weight: 600;
+  font-weight: ${p => p.theme.fontsWeight.bold};
   text-transform: capitalize;
   ${mediaqueries.tablet`
   `}

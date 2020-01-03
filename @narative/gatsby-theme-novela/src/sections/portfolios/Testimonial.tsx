@@ -99,6 +99,7 @@ const WriteContainer = styled.div`
 
 const Text = styled.p`
 	margin-bottom: 16px;
+	line-height: 1.8;
 `;
 
 const Separator = styled.div`
@@ -118,7 +119,7 @@ const WriteTitle = styled(Headings.h2)`
 `;
 
 const ViewLink = styled(Link)`
-  font-weight: bold;
+  font-weight: ${p => p.theme.fontsWeight.bold};
   font-family: ${p => p.theme.fonts.title};
   font-size: 14px;
   color: ${p => p.theme.colors.secondary};

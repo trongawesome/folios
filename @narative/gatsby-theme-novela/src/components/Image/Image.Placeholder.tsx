@@ -12,7 +12,7 @@ const Container = styled.div`
   background: #ccc;
   color: #898989;
   font-size: 32px;
-  font-weight: 600;
+  font-weight: ${p => p.theme.fontsWeight.bold};
 
   ${mediaqueries.phablet`
     font-size: 28px;

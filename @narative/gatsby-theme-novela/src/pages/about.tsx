@@ -91,7 +91,7 @@ const HeadingContainer = styled.div`
 
 const HeroHeading = styled.h2`
   font-style: normal;
-  font-weight: 600;
+  font-weight: ${p => p.theme.fontsWeight.bold};
   font-size: 100px;
   line-height: 1.1;
   max-width: 600px;
@@ -123,7 +123,7 @@ const ContentContainer = styled.div`
 `;
 
 const InfoHeading = styled.h1`
-  font-weight: 600;
+  font-weight: ${p => p.theme.fontsWeight.bold};
   font-family: ${p => p.theme.fonts.title};
   font-size: 32px;
   line-height: 1.35;

@@ -253,7 +253,7 @@ const MenuFloat = styled.div<{ isDark: boolean }>`
   background: ${p => (p.isDark ? "#fafafa" : "#000")};
   border-radius: 5px;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: ${p => p.theme.fontsWeight.bold};
   transition: left 75ms ease-out, right 75ms ease-out, background 200ms;
   animation: ${popUpwards} 200ms forwards;
 

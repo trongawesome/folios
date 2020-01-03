@@ -115,7 +115,7 @@ const HeroHeading = styled(Headings.h1)`
   font-size: 48px;
   font-family: ${p => p.theme.fonts.title};
   margin-bottom: 25px;
-  font-weight: bold;
+  font-weight: ${p => p.theme.fontsWeight.bold};
   line-height: 1.32;
 
   ${mediaqueries.tablet`

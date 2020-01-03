@@ -67,7 +67,7 @@ const Heading = styled.h1`
   font-family: ${p => p.theme.fonts.title};
   color: ${p => p.theme.colors.primary};
   margin-bottom: 15px;
-  font-weight: 600;
+  font-weight: ${p => p.theme.fontsWeight.bold};
 
   ${mediaqueries.tablet`
   `}

@@ -90,11 +90,12 @@ const HeroImage = styled.div`
   
 const HeroHeading = styled.h1`
   font-style: normal;
-  font-weight: 600;
+  font-weight: ${p => p.theme.fontsWeight.bold};
   font-size: 94px;
   line-height: 98%;
   letter-spacing: -1px;
   font-family: ${p => p.theme.fonts.title};
+  font-weight: ${p => p.theme.fontsWeight.bold};
   color: ${p => p.theme.colors.primary};
 
   ${mediaqueries.desktop`

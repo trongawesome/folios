@@ -103,7 +103,7 @@ const HeroHeading = styled(Headings.h1)`
   font-family: ${p => p.theme.fonts.title};
   color: ${p => p.theme.colors.textTitle};
   margin-bottom: 25px;
-  font-weight: bold;
+  font-weight: ${p => p.theme.fontsWeight.bold};
   line-height: 1.32;
   opacity: .9;
 

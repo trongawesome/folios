@@ -62,7 +62,7 @@ const Heading = styled.h1`
   color: ${p => p.theme.colors.secondary};
   opacity: .5;
   margin-bottom: 15px;
-  font-weight: 600;
+  font-weight: ${p => p.theme.fontsWeight.bold};
   text-align: center;
   margin-top: 24px;
 

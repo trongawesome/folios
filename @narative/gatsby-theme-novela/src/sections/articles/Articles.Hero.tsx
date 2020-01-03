@@ -71,7 +71,7 @@ const HeadingContainer = styled.div`
   
   const HeroHeading = styled.h1`
   font-style: normal;
-  font-weight: 600;
+  font-weight: ${p => p.theme.fontsWeight.bold};
   font-size: 52px;
   line-height: 1.25;
   font-family: ${p => p.theme.fonts.title};
