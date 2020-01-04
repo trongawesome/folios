@@ -14,7 +14,7 @@ const breakpoints = [
 ];
 
 const fonts = {
-  title: "'Recoleta', 'Libre Baskerville', 'Helvetica Neue', 'Arial', sans-serif",
+  title: "'Recoleta', Georgia, Serif",
   body:
     "'Libre Baskerville', Georgia, Serif",
   monospace: `"Operator Mono", Consolas, Menlo, Monaco, source-code-pro, Courier New, monospace`,
