@@ -23,6 +23,7 @@ export default {
   horizontalRule: "rgba(8, 8, 11, 0.15)",
   inputBackground: "rgba(0, 0, 0, 0.05)",
   textTitle: "#111111",
+  neumorphismShadown: "12px 12px 18px rgba(156, 192, 197, 0.28), -10px -10px 16px rgba(240, 249, 250, 0.45)",
   modes: {
     dark: {
       grey: "#73737D",
@@ -34,7 +35,7 @@ export default {
       cleanBackground: "#111216",
       hover: "rgba(255, 255, 255, 0.07)",
       gradient:
-        "linear-gradient(180deg, #111216 0%, rgba(66, 81, 98, 0.36) 100%)",
+      "linear-gradient(180deg, #111216 0%, rgba(66, 81, 98, 0.36) 100%)",
       articleText: "#fff",
       track: "rgba(255, 255, 255, 0.3)",
       progress: "#fff",
@@ -45,6 +46,7 @@ export default {
       horizontalRule: "rgba(255, 255, 255, 0.15)",
       inputBackground: "rgba(255, 255, 255, 0.07)",
       textTitle: "#fff",
+      neumorphismShadown: "12px 12px 22px rgba(156, 192, 197, 0.33), -10px -10px 18px rgba(240, 249, 250, 0.45)",
     },
   },
 };

@@ -52,7 +52,7 @@ const GridContainer = styled.div`
 	column-gap: 48px;
 	row-gap: 128px;
 	margin-top: 128px;
-	margin-bottom: 180px;
+	margin-bottom: 128px;
 	color: ${p => p.theme.colors.secondary};
 	
 	${mediaqueries.tablet`

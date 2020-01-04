@@ -6,6 +6,7 @@ module.exports = ({
   contentPortfolios = 'content/portfolios',
   contentReadings = 'content/readings',
   imageGallery = 'content/image-gallery',
+  contentSideProjects = 'content/side-projects',
   pathPrefix = '',
   sources: { local, contentful } = { local: true, contentful: false },
 }) => ({
@@ -209,6 +210,13 @@ module.exports = ({
       options: {
         path: imageGallery,
         name: imageGallery,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: contentSideProjects,
+        name: contentSideProjects,
       },
     },
     {

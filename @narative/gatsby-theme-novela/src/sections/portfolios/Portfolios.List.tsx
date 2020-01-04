@@ -376,17 +376,8 @@ const ArticleLink = styled(Link)`
     top: -1px;
   }
 
-  ::before {
-    bottom: 0px;
-  }
-
   &:hover {
     &::after {
-      width: 100%; 
-      left: 0; 
-    }
-
-    ::before {
       width: 100%; 
       left: 0; 
     }
