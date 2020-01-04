@@ -27,7 +27,7 @@ const PageHero: React.FC<HeroProps> = ({ heading, subtitle, maxWidth }) => {
 export default PageHero;
 
 const HeadingContainer = styled.div`
-  margin: 100px 0;
+  margin: 104px 0 72px;
   
   ${mediaqueries.desktop`
     width: 80%;

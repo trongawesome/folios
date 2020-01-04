@@ -23,7 +23,7 @@ export default {
   horizontalRule: "rgba(8, 8, 11, 0.15)",
   inputBackground: "rgba(0, 0, 0, 0.05)",
   textTitle: "#111111",
-  neumorphismShadown: "12px 12px 18px rgba(156, 192, 197, 0.28), -10px -10px 16px rgba(240, 249, 250, 0.45)",
+  neumorphismShadown: "10px 10px 22px rgba(156, 192, 197, 0.28), -10px -10px 24px rgba(240, 249, 250, 0.65)",
   modes: {
     dark: {
       grey: "#73737D",
@@ -46,7 +46,7 @@ export default {
       horizontalRule: "rgba(255, 255, 255, 0.15)",
       inputBackground: "rgba(255, 255, 255, 0.07)",
       textTitle: "#fff",
-      neumorphismShadown: "12px 12px 22px rgba(156, 192, 197, 0.33), -10px -10px 18px rgba(240, 249, 250, 0.45)",
+      neumorphismShadown: "none",
     },
   },
 };

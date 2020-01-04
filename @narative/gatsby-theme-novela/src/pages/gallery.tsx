@@ -18,7 +18,7 @@ const siteQuery = graphql`
         title
         image {
           childImageSharp {
-            fluid(maxWidth: 800, quality: 100) {
+            fluid(maxWidth: 400, quality: 100) {
               ...GatsbyImageSharpFluid
               src
             }

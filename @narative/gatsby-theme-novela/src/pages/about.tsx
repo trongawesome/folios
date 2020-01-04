@@ -77,7 +77,7 @@ const ArticlesGradient = styled.div`
 `;
 
 const HeadingContainer = styled.div`
-  margin: 100px 0;
+  margin: 100px 0 76px;
   font-family: ${p => p.theme.fonts.title};
 
   ${mediaqueries.desktop`
@@ -92,8 +92,8 @@ const HeadingContainer = styled.div`
 const HeroHeading = styled.h2`
   font-style: normal;
   font-weight: ${p => p.theme.fontsWeight.bold};
-  font-size: 100px;
-  line-height: 1.1;
+  font-size: 108px;
+  line-height: 1;
   max-width: 600px;
   color: ${p => p.theme.colors.primary};
 
@@ -106,7 +106,7 @@ const HeroHeading = styled.h2`
   `}
 
   ${mediaqueries.phablet`
-    font-size: 44px;
+    font-size: 60px;
   `}
 `;
 

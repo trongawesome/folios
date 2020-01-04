@@ -55,11 +55,12 @@ const GridWrapper = styled.div`
   z-index: 1;
   grid-template-columns: 1fr 1fr 1fr;
   column-gap: 30px;
-  row-gap: 30px;
-  margin-bottom: 320px;
-
+  row-gap: 16px;
+  margin-bottom: 240px;
+  
   ${mediaqueries.tablet`
-		grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
+    margin-bottom: 88px;
   `}
 `;
   
