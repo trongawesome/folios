@@ -92,7 +92,7 @@ const ListItem: React.FC<ArticlesListItemProps> = ({ article, narrow }) => {
 
   const { gridLayout } = useContext(GridLayoutContext);
   const hasOverflow = narrow && article.title.length > 35;
-  const imageSource = narrow ? article.thumbnail.narrow : article.thumbnail.regular;
+  const imageSource = article.thumbnail.regular;
   const hasHeroImage =
     imageSource &&
     Object.keys(imageSource).length !== 0 &&

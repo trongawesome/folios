@@ -29,18 +29,34 @@ function normalizeHero(article) {
   return hero;
 }
 
+function normalizeHeroBook(article) {
+  let hero = {
+    full: {},
+    narrow: {},
+    seo: {},
+  };
+
+  if (article.hero) {
+    hero = {
+      full: article.hero.full.fluid,
+      narrow: article.hero.narrow.fluid,
+      seo: article.hero.seo.fixed,
+    };
+  } else {
+    console.log('\u001B[33m', `Missing hero for "${article.title}"`);
+  }
+
+  return hero;
+}
+
 function normalizeThumnail(article) {
   let thumbnail = {
-    full: {},
     regular: {},
-    narrow: {},
   };
 
   if (article.thumbnail) {
     thumbnail = {
-      full: article.thumbnail.full.fluid,
       regular: article.thumbnail.regular.fluid,
-      narrow: article.thumbnail.narrow.fluid,
     };
   } else {
     console.log('\u001B[33m', `Missing thumbnail for "${article.title}"`);
@@ -86,7 +102,7 @@ module.exports.local = {
   readings: ({ node: reading }) => {
     return {
       ...reading,
-      hero: normalizeHero(reading),
+      hero: normalizeHeroBook(reading),
     };
   },
   authors: ({ node: author }) => {

@@ -12,7 +12,7 @@ const siteQuery = graphql`
     file(relativePath: {eq: "reading-hero.png"}) {
       id
       childImageSharp {
-        fluid {
+        fluid(maxWidth: 640, quality: 100) {
           ...GatsbyImageSharpFluid
         }
       }
