@@ -76,7 +76,7 @@ export default ReaddingsList;
 const ListItem: React.FC<ArticlesListItemProps> = ({ article }) => {
   if (!article) return null;
 
-  const imageSource = article.hero.regular;
+  const imageSource = article.hero.narrow;
   const hasHeroImage =
     imageSource &&
     Object.keys(imageSource).length !== 0 &&

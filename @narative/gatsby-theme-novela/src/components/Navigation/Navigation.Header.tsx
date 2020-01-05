@@ -142,7 +142,7 @@ const NavContainer = styled.div`
 `;
 
 const NavLink = styled(Link)`
-  font-weight: bold;
+  font-weight: ${p => p.theme.fontsWeight.bold};
   font-family: ${p => p.theme.fonts.title};
   font-size: 14px;
   color: ${p => p.theme.colors.secondary};

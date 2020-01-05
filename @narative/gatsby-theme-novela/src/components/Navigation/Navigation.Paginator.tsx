@@ -181,7 +181,7 @@ const paginationItemMixin = p => css`
 `;
 
 const PageButton = styled(Link)`
-  font-weight: 600;
+  font-weight: ${p => p.theme.fontsWeight.bold};
   font-size: 18px;
   text-decoration: none;
   color: ${p => p.theme.colors.primary};

@@ -92,7 +92,7 @@ const ListItem: React.FC<ArticlesListItemProps> = ({ article, narrow }) => {
 
   const { gridLayout } = useContext(GridLayoutContext);
   const hasOverflow = narrow && article.title.length > 35;
-  const imageSource = narrow ? article.thumbnail.narrow : article.thumbnail.regular;
+  const imageSource = article.thumbnail.regular;
   const hasHeroImage =
     imageSource &&
     Object.keys(imageSource).length !== 0 &&
@@ -303,7 +303,7 @@ const Excerpt = styled.p<{
   gridLayout: string;
 }>`
   ${limitToTwoLines};
-  font-size: 14px;
+  font-size: 16px;
   margin-bottom: 10px;
   color: ${p => p.theme.colors.textTitle};
   opacity: .7;
@@ -323,6 +323,7 @@ const Excerpt = styled.p<{
   ${mediaqueries.phablet`
     max-width: 100%;
     margin-bottom: 20px;
+    font-size: 14px;
     -webkit-line-clamp: 3;
   `}
 `;
@@ -375,17 +376,8 @@ const ArticleLink = styled(Link)`
     top: -1px;
   }
 
-  ::before {
-    bottom: 0px;
-  }
-
   &:hover {
     &::after {
-      width: 100%; 
-      left: 0; 
-    }
-
-    ::before {
       width: 100%; 
       left: 0; 
     }

@@ -184,7 +184,7 @@ const Button = styled.button<{ hasError: string; subscribed: boolean }>`
   color: ${p => (p.hasError ? p.theme.colors.error : p.theme.colors.accent)};
   background: ${p => (p.subscribed ? p.theme.colors.accent : "transparent")};
   font-family: ${p => p.theme.fonts.title};
-  font-weight: 600;
+  font-weight: ${p => p.theme.fontsWeight.bold};
   letter-spacing: 0.42px;
   transition: border-color 0.2s var(--ease-in-out-quad),
     background 0.2s var(--ease-in-out-quad), color 0.2s var(--ease-in-out-quad);

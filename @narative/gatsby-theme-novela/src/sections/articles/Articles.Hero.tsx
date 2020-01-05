@@ -58,7 +58,7 @@ const ArticlesHero: React.FC<IAuthor> = ({ authors }) => {
 export default ArticlesHero;
 
 const HeadingContainer = styled.div`
-  margin: 100px 0;
+  margin: 104px 0 72px;
   
   ${mediaqueries.desktop`
   width: 80%;
@@ -71,7 +71,7 @@ const HeadingContainer = styled.div`
   
   const HeroHeading = styled.h1`
   font-style: normal;
-  font-weight: 600;
+  font-weight: ${p => p.theme.fontsWeight.bold};
   font-size: 52px;
   line-height: 1.25;
   font-family: ${p => p.theme.fonts.title};

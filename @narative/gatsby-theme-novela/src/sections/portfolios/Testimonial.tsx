@@ -52,7 +52,7 @@ const GridContainer = styled.div`
 	column-gap: 48px;
 	row-gap: 128px;
 	margin-top: 128px;
-	margin-bottom: 180px;
+	margin-bottom: 128px;
 	color: ${p => p.theme.colors.secondary};
 	
 	${mediaqueries.tablet`
@@ -99,6 +99,7 @@ const WriteContainer = styled.div`
 
 const Text = styled.p`
 	margin-bottom: 16px;
+	line-height: 1.8;
 `;
 
 const Separator = styled.div`
@@ -118,7 +119,7 @@ const WriteTitle = styled(Headings.h2)`
 `;
 
 const ViewLink = styled(Link)`
-  font-weight: bold;
+  font-weight: ${p => p.theme.fontsWeight.bold};
   font-family: ${p => p.theme.fonts.title};
   font-size: 14px;
   color: ${p => p.theme.colors.secondary};

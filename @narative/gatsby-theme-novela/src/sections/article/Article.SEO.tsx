@@ -82,7 +82,7 @@ const ArticleSEO: React.FC<ArticleSEOProps> = ({
 
   return (
     <SEO
-      title={article.title + " | " + title}
+      title={article.title + " - " + title}
       description={article.excerpt}
       image={article.hero.seo.src}
       timeToRead={article.timeToRead}

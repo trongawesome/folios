@@ -13,7 +13,7 @@ import ReaddingsList from "../sections/readings/Readings.List";
 
 import { Template } from "@types";
 
-const seoImage = '/seo-readings.jpg';
+const seoImage = '/trongnguyen.co-seo-reading.jpg';
 
 const siteQuery = graphql`
   {

@@ -6,10 +6,9 @@ import SEO from "@components/SEO";
 import Layout from "@components/Layout";
 import Gallery from "@components/Gallery";
 import ArticlesGradient from "@components/ArticlesGradient";
-import ArticlesHero from "../sections/articles/Articles.Hero";
 import PageHero from "../sections/others";
 
-const seoImage = '/seo-readings.jpg';
+const seoImage = '/trongnguyen.co-seo-little-big-grid.jpg';
 
 const siteQuery = graphql`
 {
@@ -19,7 +18,7 @@ const siteQuery = graphql`
         title
         image {
           childImageSharp {
-            fluid(maxWidth: 800, quality: 100) {
+            fluid(maxWidth: 400, quality: 100) {
               ...GatsbyImageSharpFluid
               src
             }
@@ -63,7 +62,7 @@ const ImageGallery = ({ location }) => {
         image={seoImage}
       />
       <PageHero
-        heading={siteSEO.hero.littleGalleryHeading}
+        heading={siteSEO.hero.littleGalleryHeading + "."}
         subtitle={siteSEO.hero.littleGallerySubtitle}
         maxWidth={siteSEO.hero.maxWidth}
       />

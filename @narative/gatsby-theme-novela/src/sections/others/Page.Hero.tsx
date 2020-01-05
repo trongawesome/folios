@@ -1,5 +1,4 @@
 import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
 import styled from '@emotion/styled';
 
 import Section from '@components/Section';
@@ -10,23 +9,6 @@ interface HeroProps {
     subtitle: string;
     maxWidth: string;
   }
-
-const dataQuery = graphql`
-  {
-    site: allSite {
-      edges {
-        node {
-          siteMetadata {
-            hero {
-              writingHeading
-              maxWidth
-            }
-          }
-        }
-      }
-    }
-  }
-`;
 
 const PageHero: React.FC<HeroProps> = ({ heading, subtitle, maxWidth }) => {
 
@@ -45,7 +27,7 @@ const PageHero: React.FC<HeroProps> = ({ heading, subtitle, maxWidth }) => {
 export default PageHero;
 
 const HeadingContainer = styled.div`
-  margin: 100px 0;
+  margin: 104px 0 72px;
   
   ${mediaqueries.desktop`
     width: 80%;
@@ -58,7 +40,7 @@ const HeadingContainer = styled.div`
   
   const HeroHeading = styled.h1`
   font-style: normal;
-  font-weight: 600;
+  font-weight: ${p => p.theme.fontsWeight.bold};
   font-size: 52px;
   line-height: 1.25;
   font-family: ${p => p.theme.fonts.title};
@@ -78,10 +60,14 @@ const HeadingContainer = styled.div`
 `;
 
 const InfoText = styled.p`
-  font-size: 20px;
+  font-size: 18px;
   margin-top: 24px;
   line-height: 1.8;
   font-family: ${p => p.theme.fonts.body};
   color: ${p => p.theme.colors.secondary};
+
+  ${mediaqueries.phablet`
+    font-size:18px;
+  `}
 `;
 

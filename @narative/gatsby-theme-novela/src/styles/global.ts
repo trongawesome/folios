@@ -6,7 +6,7 @@ export const globalStyles = css`
    * https://gist.github.com/bendc/ac03faac0bf2aee25b49e5fd260a727d
    */
   
-  @import url('https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700|Poppins:600&display=swap');
+  @import url('https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700&display=swap');
 
   :root {
     --ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
@@ -15,12 +15,6 @@ export const globalStyles = css`
     --ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
     --ease-in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
     --ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
-  }
-
-  @font-face {
-    font-family: "Libre Baskerville", Serif;
-    font-weight: 400;
-    font-style: normal;
   }
 
   *,
@@ -136,7 +130,7 @@ export const globalStyles = css`
   }
 
   p.dropcap:first-letter {
-    font-family: "Poppins", Serif;
+    font-family: "Recoleta", Serif;
     font-weight: 600;
     font-style: normal;
     font-size: 6em;
