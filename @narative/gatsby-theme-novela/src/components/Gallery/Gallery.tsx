@@ -72,6 +72,7 @@ const ImageGrid = styled.div`
 const ImageItem = styled.div`
   cursor: zoom-in;
 
+  /**------- Temporary hide this layout
   &:nth-child(5n){
     grid-column-end: span 2;
   }
@@ -81,6 +82,7 @@ const ImageItem = styled.div`
       grid-column-end: auto;
     }
   `};
+  -----------*/
 
   & > div {
     height: 100%;
