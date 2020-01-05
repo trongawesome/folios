@@ -8,7 +8,7 @@ import Gallery from "@components/Gallery";
 import ArticlesGradient from "@components/ArticlesGradient";
 import PageHero from "../sections/others";
 
-const seoImage = '/seo-readings.jpg';
+const seoImage = '/trongnguyen.co-seo-little-big-grid.jpg';
 
 const siteQuery = graphql`
 {
