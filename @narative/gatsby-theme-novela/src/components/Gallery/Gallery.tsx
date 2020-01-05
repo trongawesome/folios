@@ -53,7 +53,7 @@ export default Gallery;
 
 const ImageGrid = styled.div`
   display: grid;
-  grid-gap: 8px;
+  grid-gap: 30px;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   grid-auto-rows: minmax(50px, auto);
   z-index: 1;
