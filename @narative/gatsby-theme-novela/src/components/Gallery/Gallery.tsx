@@ -53,7 +53,7 @@ export default Gallery;
 
 const ImageGrid = styled.div`
   display: grid;
-  grid-gap: 8px;
+  grid-gap: 30px;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   grid-auto-rows: minmax(50px, auto);
   z-index: 1;
@@ -72,6 +72,7 @@ const ImageGrid = styled.div`
 const ImageItem = styled.div`
   cursor: zoom-in;
 
+  /**------- Temporary hide this layout
   &:nth-child(5n){
     grid-column-end: span 2;
   }
@@ -81,6 +82,7 @@ const ImageItem = styled.div`
       grid-column-end: auto;
     }
   `};
+  -----------*/
 
   & > div {
     height: 100%;
