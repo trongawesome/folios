@@ -47,7 +47,7 @@ const plugins = [
       name: `Trong Nguyen's Desk`,
       short_name: `Trong`,
       start_url: `/`,
-      background_color: `#fff`,
+      background_color: `#D1E8EB`,
       display: `standalone`,
       icon: `src/assets/favicon.png`,
       include_favicon: false,
