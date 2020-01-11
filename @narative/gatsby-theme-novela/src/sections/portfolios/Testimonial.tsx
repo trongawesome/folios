@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { Link } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
 
 import Headings from '@components/Headings';
 import Image from '@components/Image';
@@ -9,7 +10,23 @@ import mediaqueries from '@styles/media';
 
 const image = '/sakura.jpg';
 
+const siteQuery = graphql`
+{
+  allArticle(limit: 1, sort: {order: DESC, fields: date}) {
+    edges {
+      node {
+        title
+        date(formatString: "DD MMMM")
+        slug
+      }
+    }
+  }
+}`;
+
+
 const Testimonial: React.FC<{}> = () => {
+
+  const result = useStaticQuery(siteQuery).allArticle.edges[0].node;
 
   return (
     <GridContainer>
@@ -26,17 +43,19 @@ const Testimonial: React.FC<{}> = () => {
 
 			<WriteContainer>
 				<WriteTitle>
-					I’m practicing to write
+					Writing is designing.
 				</WriteTitle>
 				<Text>
-					Because writing is designing. Without words, apps would be an unusable jumble of shapes and icons. 
+					Because without words, apps would be an unusable jumble of shapes and icons. And more importantly, I write to get ideas, to inspire myself and to learn something new.
 				</Text>
-				<Text>
-					And more importantly, I write to get ideas, to inspire myself and to learn something new.
-				</Text>
-				<ViewLink to={`/writing`} title={`See all articles`}>
-					See all writings →
-				</ViewLink>
+        <LatestArticle to={result.slug} title={result.title}>
+          <ArticleDate>Latest article - {result.date}</ArticleDate>
+          <ArticleTitle>{result.title}</ArticleTitle>
+
+        </LatestArticle>
+				{/* <ViewLink to={`/writing`} title={`See all articles`}>
+					View all articles →
+				</ViewLink> */}
 			</WriteContainer>
     </GridContainer>
   );
@@ -62,7 +81,6 @@ const GridContainer = styled.div`
 `;
 
 const TestiContainer = styled.div`
-	// grid-column: 1;
 	text-align: right;
 	display: grid;
 `;
@@ -94,7 +112,7 @@ const AuthorName = styled.p`
 `;
 
 const WriteContainer = styled.div`
-	// grid-column: 3;
+
 `;
 
 const Text = styled.p`
@@ -103,7 +121,6 @@ const Text = styled.p`
 `;
 
 const Separator = styled.div`
-	// grid-column: 2;
 	background-image: url("/separator-vertical.svg");
 	background-repeat: no-repeat;
 	background-position: center top;
@@ -118,6 +135,25 @@ const WriteTitle = styled(Headings.h2)`
 	margin-bottom: 16px;
 `;
 
+const LatestArticle = styled(Link)`
+  margin-top: 40px;
+  display: block;
+`;
+
+const ArticleDate = styled.div`
+  font-family: ${p => p.theme.fonts.title};
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  color: ${p => p.theme.colors.grey};
+`;
+
+const ArticleTitle = styled(Headings.h3)`
+	color: ${p => p.theme.colors.secondary};
+  margin-bottom: 16px;
+  text-decoration: underline;
+`;
+
 const ViewLink = styled(Link)`
   font-weight: ${p => p.theme.fontsWeight.bold};
   font-family: ${p => p.theme.fonts.title};
@@ -126,7 +162,7 @@ const ViewLink = styled(Link)`
   transition: color 0.25s var(--ease-in-out-quad);
   display: inline-block;
 	position: relative;
-	margin-top: 32px;
+	margin-top: 24px;
 
   &::after {
     background: none repeat scroll 0 0 transparent;
