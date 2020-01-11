@@ -18,7 +18,7 @@ const ArticlesPage: Template = ({ location, pageContext }) => {
         <ImageWrapper>
           <Icons.NotFound />
           <Heading>Page not found</Heading>
-          <Subheading>The link you clicked may be broken or the page may have been removed.</Subheading>
+          <Subheading>The link you clicked may be broken or the project hasn't been completed yet :D</Subheading>
         </ImageWrapper>
       </Section>
       <ArticlesGradient />
