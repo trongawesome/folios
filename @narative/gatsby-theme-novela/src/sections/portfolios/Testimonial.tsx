@@ -26,10 +26,10 @@ const Testimonial: React.FC<{}> = () => {
 
 			<WriteContainer>
 				<WriteTitle>
-					I’m practicing to write
+					Writing is designing.
 				</WriteTitle>
 				<Text>
-					Because writing is designing. Without words, apps would be an unusable jumble of shapes and icons. 
+					Because without words, apps would be an unusable jumble of shapes and icons. 
 				</Text>
 				<Text>
 					And more importantly, I write to get ideas, to inspire myself and to learn something new.
