@@ -75,7 +75,7 @@ const HeadingContainer = styled.div`
     font-style: normal;
     font-weight: ${p => p.theme.fontsWeight.bold};
     font-size: 64px;
-    line-height: 1.25;
+    line-height: 1.15;
     font-family: ${p => p.theme.fonts.title};
     color: ${p => p.theme.colors.primary};
 
@@ -86,16 +86,12 @@ const HeadingContainer = styled.div`
   ${mediaqueries.desktop`
     font-size: 56px
   `}
-
-  ${mediaqueries.phablet`
-    font-size: 48px;
-  `}
 `;
 
 const InfoText = styled.p`
   font-size: 20px;
   margin-top: 16px;
-  line-height: 1.8;
+  line-height: 1.5;
   font-family: ${p => p.theme.fonts.body};
   color: ${p => p.theme.colors.secondary};
 `;
