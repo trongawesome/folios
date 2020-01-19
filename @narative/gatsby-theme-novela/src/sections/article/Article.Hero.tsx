@@ -112,19 +112,12 @@ const Header = styled.header`
 `;
 
 const HeroHeading = styled(Headings.h1)`
-  font-size: 48px;
   font-family: ${p => p.theme.fonts.title};
   margin-bottom: 25px;
   font-weight: ${p => p.theme.fontsWeight.bold};
-  line-height: 1.32;
 
   ${mediaqueries.tablet`
     margin-bottom: 20px;
-    font-size: 36px;
-  `}
-
-  ${mediaqueries.phablet`
-    font-size: 32px;
   `}
 `;
 

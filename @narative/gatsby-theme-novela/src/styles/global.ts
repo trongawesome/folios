@@ -6,7 +6,7 @@ export const globalStyles = css`
    * https://gist.github.com/bendc/ac03faac0bf2aee25b49e5fd260a727d
    */
   
-  @import url('https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700&display=swap');
+  // @import url('https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700&display=swap');
 
   :root {
     --ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
@@ -39,7 +39,7 @@ export const globalStyles = css`
   }
 
   body {
-    font-family: "Libre Baskerville", Serif;
+    font-family: "Text", Serif;
     font-size: 1.6rem;
     margin: 0;
     font-weight: 400;
@@ -69,7 +69,7 @@ export const globalStyles = css`
   textarea,
   select,
   button {
-    font-family: "Libre Baskerville", Serif;
+    font-family: "Text", Serif;
   }
 
   .underline {
