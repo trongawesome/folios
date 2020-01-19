@@ -72,12 +72,12 @@ const HeadingContainer = styled.div`
   `;
   
   const HeroHeading = styled.h1`
-  font-style: normal;
-  font-weight: ${p => p.theme.fontsWeight.bold};
-  font-size: 52px;
-  line-height: 1.25;
-  font-family: ${p => p.theme.fonts.title};
-  color: ${p => p.theme.colors.primary};
+    font-style: normal;
+    font-weight: ${p => p.theme.fontsWeight.bold};
+    font-size: 64px;
+    line-height: 1.25;
+    font-family: ${p => p.theme.fonts.title};
+    color: ${p => p.theme.colors.primary};
 
   a {
     color: ${p => p.theme.colors.accent};
@@ -93,8 +93,8 @@ const HeadingContainer = styled.div`
 `;
 
 const InfoText = styled.p`
-  font-size: 18px;
-  margin-top: 24px;
+  font-size: 20px;
+  margin-top: 16px;
   line-height: 1.8;
   font-family: ${p => p.theme.fonts.body};
   color: ${p => p.theme.colors.secondary};

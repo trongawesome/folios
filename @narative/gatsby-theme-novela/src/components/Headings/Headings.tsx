@@ -15,8 +15,8 @@ const commonStyles = p => css`
 `;
 
 const h1 = styled.h1`
-  font-size: 52px;
-  line-height: 1.35;
+  font-size: 64px;
+  line-height: 1.15;
   ${commonStyles};
 
   ${mediaqueries.desktop`
@@ -31,7 +31,7 @@ const h1 = styled.h1`
 `;
 
 const h2 = styled.h2`
-  font-size: 32px;
+  font-size: 36px;
   line-height: 1.333;
   ${commonStyles};
 
