@@ -107,20 +107,16 @@ const HeroHeading = styled.h1`
   `}
 
   ${mediaqueries.phablet`
-    font-size: 44px;
-    line-height: 1.25;
+    font-size: 56px;
+    line-height: 1.15;
   `}
 `;
 
 const InfoText = styled.p`
-  font-size: 18px;
+  font-size: 20px;
   margin-top: 24px;
-  line-height: 1.8;
+  line-height: 1.5;
   font-family: ${p => p.theme.fonts.body};
   color: ${p => p.theme.colors.secondary};
-
-  ${mediaqueries.tablet`
-    font-size: 16px;
-  `}
 
 `;

@@ -323,7 +323,7 @@ const Excerpt = styled.p<{
   ${mediaqueries.phablet`
     max-width: 100%;
     margin-bottom: 20px;
-    font-size: 14px;
+    font-size: 16px;
     -webkit-line-clamp: 3;
   `}
 `;

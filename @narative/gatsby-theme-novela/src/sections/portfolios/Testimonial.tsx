@@ -107,7 +107,7 @@ const AuthorImage = styled.div`
 `;
 
 const AuthorName = styled.p`
-	font-size: 14px;
+	font-size: 16px;
 	margin-bottom: 4px;
 `;
 
@@ -117,7 +117,8 @@ const WriteContainer = styled.div`
 
 const Text = styled.p`
 	margin-bottom: 16px;
-	line-height: 1.8;
+	font-size: 18px;
+	line-height: 1.5;
 `;
 
 const Separator = styled.div`
