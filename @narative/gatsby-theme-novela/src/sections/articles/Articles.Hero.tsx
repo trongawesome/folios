@@ -82,7 +82,7 @@ const HeadingContainer = styled.div`
   }
 
   ${mediaqueries.desktop`
-    font-size: 38px
+    font-size: 56px
   `}
 
   ${mediaqueries.phablet`

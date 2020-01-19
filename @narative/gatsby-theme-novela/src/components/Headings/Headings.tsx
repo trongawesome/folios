@@ -20,12 +20,12 @@ const h1 = styled.h1`
   ${commonStyles};
 
   ${mediaqueries.desktop`
-    font-size: 38px;
+    font-size: 48px;
     line-height: 1.2;
   `};
 
   ${mediaqueries.phablet`
-    font-size: 32px;
+    font-size: 40px;
     line-height: 1.3;
   `};
 `;
