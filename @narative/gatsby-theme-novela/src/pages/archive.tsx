@@ -96,9 +96,9 @@ const Date = styled.div`
 `;
 
 const Title = styled.h2`
-font-size: 18px;
-color: ${p => p.theme.colors.secondary};
-text-decoration: underline;
+  font-size: 18px;
+  color: ${p => p.theme.colors.secondary};
+  text-decoration: underline;
 `;
 
 const Wrapper = styled.div`
