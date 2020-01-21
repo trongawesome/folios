@@ -93,6 +93,7 @@ const Date = styled.div`
   font-size: 16px;
   color: ${p => p.theme.colors.secondary};
   margin-bottom: 4px;
+  padding-top: 3px;
 `;
 
 const Title = styled.h2`
