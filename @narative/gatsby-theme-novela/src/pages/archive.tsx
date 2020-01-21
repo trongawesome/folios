@@ -22,6 +22,7 @@ const siteQuery = graphql`
         slug
       }
     }
+    totalCount
   }
   allSite {
     edges {
@@ -48,12 +49,13 @@ const Archive = ({ location }) => {
     <Layout>
       <SEO
         pathname={location.pathname} 
-        title={siteSEO.title + " - " + siteSEO.title}
+        title={"Archive - " + siteSEO.title}
         description={siteSEO.description}
         image={seoImage}
       />
       <PageHero
         heading="Archive"
+        subtitle={result.allArticle.totalCount + " Articles."}
         maxWidth={siteSEO.hero.maxWidth}
       />
       <Section narrow>
