@@ -6,7 +6,7 @@ import mediaqueries from '@styles/media';
 
 interface HeroProps {
     heading: string;
-    subtitle: string;
+    subtitle?: string;
     maxWidth: string;
   }
 
