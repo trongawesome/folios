@@ -55,7 +55,7 @@ const Archive = ({ location }) => {
       />
       <PageHero
         heading="Archive"
-        subtitle={result.allArticle.totalCount + " Articles."}
+        subtitle={result.allArticle.totalCount + " articles."}
         maxWidth={siteSEO.hero.maxWidth}
       />
       <Section narrow>
