@@ -51,7 +51,7 @@ const ArticlesHero: React.FC<IAuthor> = ({ authors }) => {
         <InfoText>
           Without words, apps would be an unusable jumble of shapes and icons.
           <Anchor to="/archive" data-a11y="false">
-            Archive
+            Archives
           </Anchor>
         </InfoText>
       </HeadingContainer>
