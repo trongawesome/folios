@@ -13,6 +13,7 @@ import YouTube from './social/YouTube.Icon';
 import Patreon from './social/Patreon.Icon';
 import Paypal from './social/Paypal.Icon';
 import DigitalOcean from './social/DigitalOcean.Icon';
+import Email from './social/Email.Icon';
 
 // UI
 import ChevronLeft from './ui/ChevronLeft.Icon';

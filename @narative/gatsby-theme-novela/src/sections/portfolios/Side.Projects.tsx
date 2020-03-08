@@ -94,9 +94,9 @@ const ProjectLink = styled(Link)`
     }
   }
   
-  &:nth-child(3n){
-    box-shadow: ${p => p.theme.colors.neumorphismShadown};
-  }
+  // &:nth-child(3n){
+  //   box-shadow: ${p => p.theme.colors.neumorphismShadown};
+  // }
 `;
 
 

@@ -53,7 +53,7 @@ const Footer: React.FC<{}> = () => {
         <HoritzontalRule />
         <FooterContainer>
           <FooterText>
-            © {copyrightDate} {name}
+            © {copyrightDate} {name}: <span>tantrongtt@gmail.com</span>
           </FooterText>
           <div>
             <SocialLinks links={social} />
@@ -106,6 +106,7 @@ const FooterText = styled.div`
 
   ${mediaqueries.phablet`
     margin: 64px auto 24px;
+    text-align: center;
   `}
 `;
 

@@ -27,6 +27,7 @@ const icons = {
   patreon: Icons.Patreon,
   paypal: Icons.Paypal,
   digitalocean: Icons.DigitalOcean,
+  email: Icons.Email,
 };
 
 const getHostname = url => {
