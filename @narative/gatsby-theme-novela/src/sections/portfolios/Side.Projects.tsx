@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql, useStaticQuery } from "gatsby";
 import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 import { Link } from "gatsby";
 
 import Image from '@components/Image';
@@ -11,6 +12,7 @@ const siteQuery = graphql`
   allProjectsYaml {
     edges {
       node {
+        external
         title
         url
         image {
@@ -33,14 +35,28 @@ const SideProjects: React.FC<{}> = () => {
   return (
     <GridWrapper>
       {result.map((project, index) =>(
-        <ProjectLink to={project.node.url} data-a11y="false" key={index} >
-            <ImageWrap>
-              <Image
-                src={project.node.image.childImageSharp.fluid}
-                atl={project.node.title}
-              />
-            </ImageWrap>
-        </ProjectLink>
+        project.node.external ?
+        (
+          <ProjectLinkExternal href={project.node.url} data-a11y="false" key={index} >
+              <ImageWrap>
+                <Image
+                  src={project.node.image.childImageSharp.fluid}
+                  atl={project.node.title}
+                />
+              </ImageWrap>
+          </ProjectLinkExternal>
+        )
+        :
+        (
+          <ProjectLink to={project.node.url} data-a11y="false" key={index} >
+              <ImageWrap>
+                <Image
+                  src={project.node.image.childImageSharp.fluid}
+                  atl={project.node.title}
+                />
+              </ImageWrap>
+          </ProjectLink>
+        )
       ))
       }
     </GridWrapper>
@@ -63,10 +79,9 @@ const GridWrapper = styled.div`
     margin-bottom: 88px;
   `}
 `;
-  
-const ProjectLink = styled(Link)`
-  position: relative;
 
+const cardLink = p => css`
+  position: relative;
   transition: transform 0.33s var(--ease-out-quart);
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 
@@ -77,28 +92,32 @@ const ProjectLink = styled(Link)`
     height: 4px;
     left: 50%;
     position: absolute;
-    background: ${p => p.theme.colors.secondary};
+    background: ${p.theme.colors.secondary};
     transition: width 0.3s ease 0s, left 0.3s ease 0s;
     width: 0;
     z-index: 1;
   }
-  
+
   ::after {
     top: -1px;
   }
-  
+
   &:hover {
     &::after {
       width: 100%; 
       left: 0; 
     }
   }
-  
-  // &:nth-child(3n){
-  //   box-shadow: ${p => p.theme.colors.neumorphismShadown};
-  // }
+
 `;
 
+const ProjectLink = styled(Link)`
+  ${cardLink};
+`;
+
+const ProjectLinkExternal = styled.a`
+  ${cardLink};
+`;
 
 const ImageWrap = styled.div`
 
