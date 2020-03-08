@@ -210,6 +210,22 @@ const PrismCSS = p => css`
   }
 `;
 
+const VideoCSS = css`
+  .video {
+    ${ARTICLE_WIDTH};
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 32px;
+  }
+  video {
+    display: inline-block;
+    position: relative;
+    max-width: 100%;
+    height: auto;
+    z-index: 0;
+  }
+`;
+
 const ImageCSS = css`
   .gatsby-resp-image-background-image {
     display: none !important;
@@ -369,4 +385,5 @@ const MDXBody = styled.div`
   ${PrismCSS}
   ${ImageCSS}
   ${Grid}
+  ${VideoCSS}
 `;
