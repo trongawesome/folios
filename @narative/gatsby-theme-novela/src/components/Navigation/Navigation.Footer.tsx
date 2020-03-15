@@ -52,8 +52,8 @@ const Footer: React.FC<{}> = () => {
     <>
       <FooterGradient />
       <Section narrow>
-        <SideProjects />
         <HoritzontalRule />
+        <SideProjects />
         <FooterContainer>
           <FooterText>
             © {copyrightDate} {name}: <span>tantrongtt@gmail.com</span>
@@ -90,7 +90,7 @@ const FooterContainer = styled.div`
 
 const HoritzontalRule = styled.div`
   position: relative;
-  margin: 96px auto 32px;
+  margin: 128px auto 32px;
   border-bottom: 1px solid ${p => p.theme.colors.horizontalRule};
 
   ${mediaqueries.tablet`
@@ -98,7 +98,7 @@ const HoritzontalRule = styled.div`
   `}
 
   ${mediaqueries.phablet`
-    display: none;
+    // display: none;
   `}
 `;
 
