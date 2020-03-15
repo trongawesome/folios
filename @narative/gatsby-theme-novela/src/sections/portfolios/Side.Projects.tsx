@@ -72,7 +72,8 @@ const GridWrapper = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   column-gap: 30px;
   row-gap: 16px;
-  margin-bottom: 240px;
+  margin-bottom: 80px;
+  margin-top: 144px;
   
   ${mediaqueries.tablet`
     grid-template-columns: 1fr;

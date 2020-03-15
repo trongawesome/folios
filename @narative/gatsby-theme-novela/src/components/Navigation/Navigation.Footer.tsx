@@ -4,8 +4,10 @@ import { graphql, useStaticQuery } from "gatsby";
 
 import Section from "@components/Section";
 import SocialLinks from "@components/SocialLinks";
-
 import mediaqueries from "@styles/media";
+import ArticlesGradient from "@components/ArticlesGradient";
+
+import SideProjects from "../../sections/portfolios/Side.Projects";
 
 const siteQuery = graphql`
   {
@@ -50,6 +52,7 @@ const Footer: React.FC<{}> = () => {
     <>
       <FooterGradient />
       <Section narrow>
+        <SideProjects />
         <HoritzontalRule />
         <FooterContainer>
           <FooterText>
@@ -87,7 +90,7 @@ const FooterContainer = styled.div`
 
 const HoritzontalRule = styled.div`
   position: relative;
-  margin: 128px auto 32px;
+  margin: 96px auto 32px;
   border-bottom: 1px solid ${p => p.theme.colors.horizontalRule};
 
   ${mediaqueries.tablet`
