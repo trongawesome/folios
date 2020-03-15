@@ -80,56 +80,51 @@ const SubscriptionContainer = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
+  z-index: 1;
+  border-top: solid 1px ${p => p.theme.colors.horizontalRule};
+
   padding: 64px 0 55px;
   margin: 10px auto 100px;
-  background: ${p => p.theme.colors.card};
-  box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.05);
-  z-index: 1;
-  // max-width: 680px;
+
+  width: 100%;
+  max-width: 680px;
+
+  ${mediaqueries.desktop`
+    max-width: 507px;
+  `}
 
   ${mediaqueries.tablet`
-    padding: 50px 0 0;
-    text-align: center;
-  `}
-
-  ${mediaqueries.phablet`
-    margin: -20px auto 80px;
-  `}
+    max-width: 486px;
+  `};
 `;
 
 const Content = styled.div`
   margin: 0 auto;
   width: 100%;
-  max-width: 640px;
 
-  ${mediaqueries.tablet`
-    h3 {
-      padding: 0 50px;
-    }
-  `}
+  // ${mediaqueries.tablet`
+  //   h3 {
+  //     padding: 0 50px;
+  //   }
+  // `}
 
-  ${mediaqueries.phone`
-    h3 {
-      padding: 0 24px;
-    }
-  `}
+  // ${mediaqueries.phone`
+  //   h3 {
+  //     padding: 0 24px;
+  //   }
+  // `}
 `;
 
 const Heading = styled(Headings.h3)`
-  margin-bottom: 20px;
-
-  ${mediaqueries.tablet`
-    margin-bottom: 15px;
-  `}
+  margin-bottom: 8px;
 `;
 
 const Text = styled.p`
-  margin: 0 auto 30px;
+  margin: 0 auto 24px;
   color: ${p => p.theme.colors.secondary};
   line-height: 1.75;
 
   ${mediaqueries.tablet`
-    padding: 0 26px;
     margin: 0 auto 25px;
   `}
 `;
@@ -163,17 +158,15 @@ const Input = styled.input<{ hasError: string }>`
   }
 
   ${mediaqueries.tablet`
-    width: calc(100% - 36px);
-    margin: 0 18px;
-    padding: 14px 14px 14px 30px;
-    margin-bottom: 30px;
+    width: 100%;
+    margin-bottom: 24px;
   `}
 `;
 
 const Button = styled.button<{ hasError: string; subscribed: boolean }>`
   position: absolute;
   left: 306px;
-  top: 3px;
+  top: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -205,13 +198,13 @@ const Button = styled.button<{ hasError: string; subscribed: boolean }>`
 
   ${p => mediaqueries.tablet`
     position: relative;
-    height: 60px;
+    height: 48px;
     width: 100%;
     top: 0;
     left: 0;
     border: none;
     border-radius: 0;
-    border-top: 1px solid ${p.theme.colors.horizontalRule};
+    border: 1px solid ${p.theme.colors.accent};
 
     &:hover {
       color: initial;
@@ -222,7 +215,7 @@ const Button = styled.button<{ hasError: string; subscribed: boolean }>`
 
 const Error = styled.div`
   position: absolute;
-  left: 35px;
+  left: 0;
   bottom: -20px;
   color: ${p => p.theme.colors.error};
   font-size: 12px;
@@ -233,7 +226,7 @@ const Error = styled.div`
   }
 
   ${mediaqueries.tablet`
-    left: 50px;
+    left: 0;
     top: 50px;
   `}
 `;
