@@ -72,11 +72,12 @@ const GridWrapper = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   column-gap: 30px;
   row-gap: 16px;
-  margin-bottom: 240px;
+  margin-bottom: 64px;
+  margin-top: 64px;
   
   ${mediaqueries.tablet`
     grid-template-columns: 1fr;
-    margin-bottom: 88px;
+    margin-bottom: 40px;
   `}
 `;
 

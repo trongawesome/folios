@@ -50,7 +50,7 @@ const PortfoliosPage: Template = ({ location, pageContext }) => {
       </Section>
       <Section>
         <Testimonial />
-        <SideProjects />
+        {/* <SideProjects /> */}
       </Section>
     </Layout>
   );
