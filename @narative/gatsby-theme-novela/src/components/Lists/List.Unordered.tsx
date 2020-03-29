@@ -9,7 +9,7 @@ const UnorderedList = styled.ul`
   padding: 15px 0 30px 30px;
   transition: ${p => p.theme.colorModeTransition};
   margin: 0 auto;
-  font-size: 18px;
+  font-size: 20px;
 
   width: 100%;
   max-width: 680px;
