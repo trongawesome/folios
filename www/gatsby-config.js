@@ -15,11 +15,15 @@ const siteMetadata = {
   },
   social: [
     {
-      url: `https://twitter.com/trongtnt92`,
+      url: `https://twitter.com/trongmaker`,
     },
     {
       name: 'medium',
-      url: `https://medium.com/@trongtnt92`,
+      url: `https://medium.com/@trongmaker`,
+    },
+    {
+      name: 'instagram',
+      url: `https://www.instagram.com/trongmaker`,
     },
   ],
 };
