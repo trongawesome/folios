@@ -51,6 +51,12 @@ const PortfoliosHero: React.FC<IAuthor> = ({ authors }) => {
           <Anchor target="_blank" href="http://carousell.com">
             Carousell.
           </Anchor>
+          <p>
+            And the maker of
+            <Anchor target="_blank" href="https://awesomefigmatips.com">
+              Awesome Figma Tips
+            </Anchor>
+          </p>
         </InfoText>
       </HeadingContainer>
     </Section>
