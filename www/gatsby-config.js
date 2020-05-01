@@ -15,15 +15,15 @@ const siteMetadata = {
   },
   social: [
     {
-      url: `https://twitter.com/trongmaker`,
+      url: `https://twitter.com/trongawesome`,
     },
     {
       name: 'medium',
-      url: `https://medium.com/@trongmaker`,
+      url: `https://medium.com/@trongawesome`,
     },
     {
       name: 'instagram',
-      url: `https://www.instagram.com/trongmaker`,
+      url: `https://www.instagram.com/trongawesome`,
     },
   ],
 };
