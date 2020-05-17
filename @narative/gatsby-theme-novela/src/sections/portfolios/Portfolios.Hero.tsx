@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
+import { Link, graphql, useStaticQuery } from 'gatsby';
 import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 
 import Section from '@components/Section';
 import mediaqueries from '@styles/media';
@@ -52,9 +53,15 @@ const PortfoliosHero: React.FC<IAuthor> = ({ authors }) => {
             Carousell.
           </Anchor>
           <p>
-            And the maker of
+            In the free time, I share my love for design in
+            <InternalLink to={`/design-tips`} title={`Visual storytelling`}>
+              the visual language.
+            </InternalLink>
+          </p>
+          <p>
+            And making stuff for my side project
             <Anchor target="_blank" href="https://awesomefigmatips.com">
-              Awesome Figma Tips
+              Awesome Figma Tips.
             </Anchor>
           </p>
         </InfoText>
@@ -102,14 +109,31 @@ const InfoText = styled.p`
   color: ${p => p.theme.colors.secondary};
 `;
 
+const linkCSS = p => css`
+  color: ${p.theme.colors.secondary};
+    border-bottom: 1px solid ${p.theme.colors.secondary};
+    margin-left: 6px;
+    
+    &:hover,
+    &:focus {
+      color: ${p.theme.colors.accent};
+      border-bottom-color: ${p.theme.colors.accent};
+    }
+`;
+
 const Anchor = styled.a`
-  color: ${p => p.theme.colors.secondary};
-  border-bottom: 1px solid ${p => p.theme.colors.secondary};
-  margin-left: 6px;
+  // color: ${p => p.theme.colors.secondary};
+  // border-bottom: 1px solid ${p => p.theme.colors.secondary};
+  // margin-left: 6px;
   
-  &:hover,
-  &:focus {
-    color: ${p => p.theme.colors.accent};
-    border-bottom-color: ${p => p.theme.colors.accent};
-  }
+  // &:hover,
+  // &:focus {
+  //   color: ${p => p.theme.colors.accent};
+  //   border-bottom-color: ${p => p.theme.colors.accent};
+  // }
+  ${linkCSS};
+`;
+
+const InternalLink = styled(Link)`
+  ${linkCSS};
 `;
