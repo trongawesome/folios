@@ -54,7 +54,7 @@ const PortfoliosHero: React.FC<IAuthor> = ({ authors }) => {
           </Anchor>
           <p>
             In the free time, I share my love for design in
-            <InternalLink to={`/instagram-posts`} title={`Visual storytelling`}>
+            <InternalLink to={`/design-tips`} title={`Visual storytelling`}>
               the visual language.
             </InternalLink>
           </p>

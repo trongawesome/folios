@@ -99,7 +99,7 @@ const Header = styled.header`
 `;
 
 const HeroHeading = styled(Headings.h1)`
-  font-size: 48px;
+  // font-size: 48px;
   font-family: ${p => p.theme.fonts.title};
   color: ${p => p.theme.colors.textTitle};
   margin-bottom: 25px;
@@ -115,7 +115,7 @@ const HeroHeading = styled(Headings.h1)`
 
 const HeroSubtitle = styled.div`
   position: relative;
-  font-size: 18px;
+  font-size: 24px;
   color: ${p => p.theme.colors.textTitle};
   align-items: center;
   opacity: .7;
