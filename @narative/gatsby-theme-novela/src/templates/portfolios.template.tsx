@@ -4,7 +4,6 @@ import { graphql, useStaticQuery } from "gatsby";
 
 import PortfoliosHero from "../sections/portfolios/Portfolios.Hero";
 import Testimonial from "../sections/portfolios/Testimonial";
-import SideProjects from "../sections/portfolios/Side.Projects";
 import Section from "@components/Section";
 import SEO from "@components/SEO";
 import Layout from "@components/Layout";
@@ -21,6 +20,7 @@ const siteQuery = graphql`
         node {
           siteMetadata {
             name
+            description
           }
         }
       }
@@ -34,12 +34,14 @@ const PortfoliosPage: Template = ({ location, pageContext }) => {
 
   const results = useStaticQuery(siteQuery);
   const name = results.allSite.edges[0].node.siteMetadata.name;
+  const desc = results.allSite.edges[0].node.siteMetadata.description;
 
   return (
     <Layout>
       <SEO
         pathname={location.pathname}
-        title={name}
+        title={name + " - Product Designer"}
+        description={desc}
       />
       <PortfoliosHero authors={authors} />
       <Section narrow>
@@ -50,7 +52,6 @@ const PortfoliosPage: Template = ({ location, pageContext }) => {
       </Section>
       <Section>
         <Testimonial />
-        {/* <SideProjects /> */}
       </Section>
     </Layout>
   );
