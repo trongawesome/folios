@@ -21,6 +21,7 @@ const siteQuery = graphql`
         node {
           siteMetadata {
             name
+            description
           }
         }
       }
