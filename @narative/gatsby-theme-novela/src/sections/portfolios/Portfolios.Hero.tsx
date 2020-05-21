@@ -101,12 +101,19 @@ const HeadingContainer = styled.div`
   `}
 `;
 
-const InfoText = styled.p`
+const InfoText = styled.div`
   font-size: 20px;
   margin-top: 16px;
   line-height: 1.5;
   font-family: ${p => p.theme.fonts.body};
   color: ${p => p.theme.colors.secondary};
+
+  p {
+    margin-top: 8px;
+    ${mediaqueries.phablet`
+      margin-top: 16px;
+    `}
+  }
 `;
 
 const linkCSS = p => css`
@@ -122,15 +129,6 @@ const linkCSS = p => css`
 `;
 
 const Anchor = styled.a`
-  // color: ${p => p.theme.colors.secondary};
-  // border-bottom: 1px solid ${p => p.theme.colors.secondary};
-  // margin-left: 6px;
-  
-  // &:hover,
-  // &:focus {
-  //   color: ${p => p.theme.colors.accent};
-  //   border-bottom-color: ${p => p.theme.colors.accent};
-  // }
   ${linkCSS};
 `;
 

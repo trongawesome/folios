@@ -4,7 +4,6 @@ import { graphql, useStaticQuery } from "gatsby";
 
 import PortfoliosHero from "../sections/portfolios/Portfolios.Hero";
 import Testimonial from "../sections/portfolios/Testimonial";
-import SideProjects from "../sections/portfolios/Side.Projects";
 import Section from "@components/Section";
 import SEO from "@components/SEO";
 import Layout from "@components/Layout";
@@ -53,7 +52,6 @@ const PortfoliosPage: Template = ({ location, pageContext }) => {
       </Section>
       <Section>
         <Testimonial />
-        {/* <SideProjects /> */}
       </Section>
     </Layout>
   );
