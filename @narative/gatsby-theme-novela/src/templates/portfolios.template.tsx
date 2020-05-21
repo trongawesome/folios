@@ -34,12 +34,14 @@ const PortfoliosPage: Template = ({ location, pageContext }) => {
 
   const results = useStaticQuery(siteQuery);
   const name = results.allSite.edges[0].node.siteMetadata.name;
+  const desc = results.allSite.edges[0].node.siteMetadata.description;
 
   return (
     <Layout>
       <SEO
         pathname={location.pathname}
-        title={name}
+        title={name + " - Product Designer"}
+        description={desc}
       />
       <PortfoliosHero authors={authors} />
       <Section narrow>
