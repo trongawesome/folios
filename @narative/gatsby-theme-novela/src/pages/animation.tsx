@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createRef, useEffect } from "react";
 import styled from "@emotion/styled";
 import mediaqueries from "@styles/media";
 
@@ -6,56 +6,35 @@ import Section from "@components/Section";
 import SEO from "@components/SEO";
 import Image from '@components/Image';
 import Layout from "@components/Layout";
-import { graphql, useStaticQuery } from "gatsby";
-
 import { Template } from "@types";
+import { graphql, useStaticQuery } from "gatsby";
+import lottie from 'lottie-web';
 
-const siteQuery = graphql`
-{
-  file(relativePath: {eq: "trong-avatar.jpg"}) {
-    id
-    childImageSharp {
-      fluid {
-        ...GatsbyImageSharpFluid
-      }
-    }
-  }
-}
-`;
+import animationData from '../asset-animation/city.json';
+
 
 const AboutPage: Template = ({ location, pageContext }) => {
   
-  const avatarResult = useStaticQuery(siteQuery);
+  let animationContainer = createRef();
+
+  useEffect(() => {
+    const anim = lottie.loadAnimation({
+      container: animationContainer.current,
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+      animationData: animationData
+    });
+    return () => anim.destroy(); // optional clean up for unmounting
+  }, []);
   
   return (
     <Layout>
       <SEO pathname={location.pathname} title={"About me"}/>
       <Section narrow >
         <HeadingContainer>
-          <HeroHeading>Nice to meet you!</HeroHeading>
+          <HeroHeading ref={animationContainer}></HeroHeading>
         </HeadingContainer>
-      </Section>
-      <Section narrow >
-        <ContentContainer>
-          <MyImage><Image src={avatarResult.file.childImageSharp.fluid} /></MyImage>
-          <MyText>
-            <InfoHeading>
-              Born and raised in a small village in Viet Nam, been hard at work since 2015.
-            </InfoHeading>
-            <InfoText>
-              Trong is a Singapore-Based Product Designer, currently building Carousell classified marketplace that inspires people to start to sell and buy.
-            </InfoText>
-            <InfoText>
-              Previously, he built the e-commerce Leflair Viet Nam, an online retailer that focuses on beauty, fashion and home living products.
-            </InfoText>
-            <InfoText>
-              He spent 5 years in a tech university to learn IT, but he soon realized design is his passion. He hated coding, but his gut told him to finish the engineering diploma while learning to design in his free time. And when he met the UX term, basic knowledge in IT became an important foundation in his career.
-            </InfoText>
-            <InfoText>
-              One of the greatest things about being a designer with an engineering background is that not only he can take care of the graphical aspects of a project, but can also fully understand, participate and even take care of the technical aspects of those projects.
-            </InfoText>
-          </MyText>
-        </ContentContainer>
       </Section>
       <ArticlesGradient />
     </Layout>
