@@ -11,11 +11,14 @@ import { graphql, useStaticQuery } from "gatsby";
 import lottie from 'lottie-web';
 
 import animationData from '../asset-animation/city.json';
+import animationData2 from '../asset-animation/animation.json';
 
 
 const AboutPage: Template = ({ location, pageContext }) => {
   
   let animationContainer = createRef();
+  let animationContainer2 = createRef();
+  const [anim, anim2] = null;
 
   useEffect(() => {
     const anim = lottie.loadAnimation({
@@ -25,35 +28,32 @@ const AboutPage: Template = ({ location, pageContext }) => {
       autoplay: true,
       animationData: animationData
     });
+
+    const anim2 = lottie.loadAnimation({
+      container: animationContainer2.current,
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+      animationData: animationData2
+    });
+
     return () => anim.destroy(); // optional clean up for unmounting
   }, []);
-  
+
   return (
     <Layout>
       <SEO pathname={location.pathname} title={"About me"}/>
       <Section narrow >
         <HeadingContainer>
           <HeroHeading ref={animationContainer}></HeroHeading>
+          <HeroHeading ref={animationContainer2}></HeroHeading>
         </HeadingContainer>
       </Section>
-      <ArticlesGradient />
     </Layout>
   );
 };
 
 export default AboutPage;
-
-const ArticlesGradient = styled.div`
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 590px;
-  z-index: 0;
-  pointer-events: none;
-  background: ${p => p.theme.colors.gradient};
-  transition: ${p => p.theme.colorModeTransition};
-`;
 
 const HeadingContainer = styled.div`
   margin: 100px 0 76px;
