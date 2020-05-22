@@ -18,7 +18,6 @@ const AboutPage: Template = ({ location, pageContext }) => {
   
   let animationContainer = createRef();
   let animationContainer2 = createRef();
-  const [anim, anim2] = null;
 
   useEffect(() => {
     const anim = lottie.loadAnimation({
@@ -46,7 +45,7 @@ const AboutPage: Template = ({ location, pageContext }) => {
       <Section narrow >
         <HeadingContainer>
           <HeroHeading ref={animationContainer}></HeroHeading>
-          <HeroHeading ref={animationContainer2}></HeroHeading>
+          {/* <HeroHeading ref={animationContainer2}></HeroHeading> */}
         </HeadingContainer>
       </Section>
     </Layout>
@@ -87,59 +86,4 @@ const HeroHeading = styled.h2`
   ${mediaqueries.phablet`
     font-size: 60px;
   `}
-`;
-
-const ContentContainer = styled.div`
-  position: relative;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 64px;
-  z-index: 1;
-
-  ${mediaqueries.tablet`
-    grid-template-columns: 1fr;
-  `}
-`;
-
-const InfoHeading = styled.h1`
-  font-weight: ${p => p.theme.fontsWeight.bold};
-  font-family: ${p => p.theme.fonts.title};
-  font-size: 32px;
-  line-height: 1.35;
-  max-width: 100%;
-  margin-bottom: 32px;
-  color: ${p => p.theme.colors.primary};
-
-  ${mediaqueries.phablet`
-    font-size: 32px;
-  `}
-`;
-
-const InfoText = styled.p`
-  font-size: 18px;
-  margin-top: 24px;
-  line-height: 1.7;
-  color: ${p => p.theme.colors.primary};
-`;
-
-const MyText = styled.div`
-  position: relative;
-`;
-
-const MyImage = styled.div`
-  position: relative;
-  display: block;
-  width: 100%;
-  margin-bottom: 56px;
-  
-  .gatsby-image-wrapper {
-    box-shadow: 0 22px 44px 0 rgba(0,0,0,0.22);
-  }
-
-  img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    object-position: center;
-  }
 `;
