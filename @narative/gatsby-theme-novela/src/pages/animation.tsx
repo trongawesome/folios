@@ -18,13 +18,14 @@ const AboutPage: Template = ({ location, pageContext }) => {
   
   let animationContainer = createRef();
   let animationContainer2 = createRef();
+  let anim = null;
 
   useEffect(() => {
-    const anim = lottie.loadAnimation({
+    anim = lottie.loadAnimation({
       container: animationContainer.current,
       renderer: "svg",
       loop: true,
-      autoplay: true,
+      autoplay: false,
       animationData: animationData
     });
 
@@ -39,13 +40,22 @@ const AboutPage: Template = ({ location, pageContext }) => {
     return () => anim.destroy(); // optional clean up for unmounting
   }, []);
 
+  function handleStop() {
+    anim.pause();
+  }
+  function handleStart() {
+    anim.play();
+  }
+
   return (
     <Layout>
       <SEO pathname={location.pathname} title={"About me"}/>
       <Section narrow >
         <HeadingContainer>
-          <HeroHeading ref={animationContainer}></HeroHeading>
-          {/* <HeroHeading ref={animationContainer2}></HeroHeading> */}
+          <div onMouseEnter={handleStart} onMouseLeave={handleStop}>
+            Hover me
+            <HeroHeading ref={animationContainer}></HeroHeading>
+          </div>
         </HeadingContainer>
       </Section>
     </Layout>
