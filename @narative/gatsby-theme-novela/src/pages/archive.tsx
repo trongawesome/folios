@@ -49,12 +49,12 @@ const Archive = ({ location }) => {
     <Layout>
       <SEO
         pathname={location.pathname} 
-        title={"Archive - " + siteSEO.title}
+        title={"Archives - " + siteSEO.title}
         description={siteSEO.description}
         image={seoImage}
       />
       <PageHero
-        heading="Archive"
+        heading="Archives"
         subtitle={result.allArticle.totalCount + " articles."}
         maxWidth={siteSEO.hero.maxWidth}
       />
@@ -80,6 +80,7 @@ const ArticlesItem = styled(Link)`
   position: relative;
   display: grid;
   grid-template-columns: 160px 1fr;
+  // grid-template-columns: 1fr;
   column-gap: 16px;
   margin-bottom: 24px;
 
@@ -99,7 +100,8 @@ const Date = styled.div`
 const Title = styled.h2`
   font-size: 18px;
   color: ${p => p.theme.colors.secondary};
-  text-decoration: underline;
+  font-family: ${p => p.theme.fonts.title};
+  font-weight: ${p => p.theme.fontsWeight.bold};
 `;
 
 const Wrapper = styled.div`
