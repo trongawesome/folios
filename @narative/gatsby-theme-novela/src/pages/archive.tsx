@@ -49,12 +49,12 @@ const Archive = ({ location }) => {
     <Layout>
       <SEO
         pathname={location.pathname} 
-        title={"Archive - " + siteSEO.title}
+        title={"Archives - " + siteSEO.title}
         description={siteSEO.description}
         image={seoImage}
       />
       <PageHero
-        heading="Archive"
+        heading="Archives"
         subtitle={result.allArticle.totalCount + " articles."}
         maxWidth={siteSEO.hero.maxWidth}
       />
@@ -99,7 +99,10 @@ const Date = styled.div`
 const Title = styled.h2`
   font-size: 18px;
   color: ${p => p.theme.colors.secondary};
-  text-decoration: underline;
+
+  &:hover {
+    color: ${p => p.theme.colors.accent};
+  }
 `;
 
 const Wrapper = styled.div`
