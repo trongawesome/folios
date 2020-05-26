@@ -32,6 +32,9 @@ const ReadingsHero: React.FC<IAuthor> = ({ authors }) => {
             <InfoText>
               My bookshelf on design and creativity. I figured out you might get some ideas for your next reading experience.
             </InfoText>
+            <InfoText>
+              PS: The majority of the book covers you see below are just little artworks I did myself some time ago. They're not the original covers of these books.
+            </InfoText>
         </HeroTextContainer>
         <HeroImage>
           <Image
