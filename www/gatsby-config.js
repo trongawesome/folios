@@ -4,7 +4,7 @@ const siteMetadata = {
   title: `Trong Nguyen's Desk`,
   name: `Trong Nguyen`,
   siteUrl: `https://trongnguyen.co`,
-  description: `Product Designer who's learning to write and express thoughts`,
+  description: `Product Designer who's learning to write and express thoughts. Currently, I'm building Design System and improving Web Experience at Carousell.`,
   hero: {
     heading: `Hi, I’m Trong, <br/>product designer.`,
     writingHeading: `Writing is designing.`,
