@@ -102,6 +102,10 @@ const Title = styled.h2`
   color: ${p => p.theme.colors.secondary};
   font-family: ${p => p.theme.fonts.title};
   font-weight: ${p => p.theme.fontsWeight.bold};
+
+  &:hover {
+    color: ${p => p.theme.colors.accent};
+  }
 `;
 
 const Wrapper = styled.div`
