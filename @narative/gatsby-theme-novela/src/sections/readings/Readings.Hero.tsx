@@ -92,7 +92,6 @@ const HeroImage = styled.div`
   
 const HeroHeading = styled.h1`
   font-style: normal;
-  font-weight: ${p => p.theme.fontsWeight.bold};
   font-size: 94px;
   line-height: 98%;
   letter-spacing: -1px;

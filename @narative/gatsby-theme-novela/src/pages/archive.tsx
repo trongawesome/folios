@@ -80,6 +80,7 @@ const ArticlesItem = styled(Link)`
   position: relative;
   display: grid;
   grid-template-columns: 160px 1fr;
+  // grid-template-columns: 1fr;
   column-gap: 16px;
   margin-bottom: 24px;
 
@@ -99,6 +100,8 @@ const Date = styled.div`
 const Title = styled.h2`
   font-size: 18px;
   color: ${p => p.theme.colors.secondary};
+  font-family: ${p => p.theme.fonts.title};
+  font-weight: ${p => p.theme.fontsWeight.bold};
 
   &:hover {
     color: ${p => p.theme.colors.accent};
