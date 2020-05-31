@@ -49,7 +49,7 @@ const AboutPage: Template = ({ location, pageContext }) => {
 
   return (
     <Layout>
-      <SEO pathname={location.pathname} title={"About me"}/>
+      <SEO title={"Test Lottie Animation"}/>
       <Section narrow >
         <HeadingContainer>
           <div onMouseEnter={handleStop} onMouseLeave={handleStart}>
