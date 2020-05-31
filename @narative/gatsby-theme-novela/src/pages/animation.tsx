@@ -25,7 +25,7 @@ const AboutPage: Template = ({ location, pageContext }) => {
       container: animationContainer.current,
       renderer: "svg",
       loop: true,
-      autoplay: false,
+      autoplay: true,
       animationData: animationData
     });
 
@@ -52,10 +52,11 @@ const AboutPage: Template = ({ location, pageContext }) => {
       <SEO pathname={location.pathname} title={"About me"}/>
       <Section narrow >
         <HeadingContainer>
-          <div onMouseEnter={handleStart} onMouseLeave={handleStop}>
-            Hover me
-            <HeroHeading ref={animationContainer}></HeroHeading>
+          <div onMouseEnter={handleStop} onMouseLeave={handleStart}>
+            <HeroHeading> Hover me </HeroHeading>
+            To pause the animation
           </div>
+          <AnimationContainer ref={animationContainer}></AnimationContainer>
         </HeadingContainer>
       </Section>
     </Layout>
@@ -96,4 +97,8 @@ const HeroHeading = styled.h2`
   ${mediaqueries.phablet`
     font-size: 60px;
   `}
+`;
+
+const AnimationContainer = styled.div`
+  position: relative;
 `;

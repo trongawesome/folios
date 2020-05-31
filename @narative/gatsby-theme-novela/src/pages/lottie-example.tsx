@@ -43,7 +43,7 @@ const Lottie = () => {
       <Section narrow >
         <HeadingContainer>
           <div onMouseEnter={handleStart} onMouseLeave={handleStop}>
-            Hover me
+            Hover me to trigger animation
             <HeroHeading ref={animationContainer}></HeroHeading>
           </div>
         </HeadingContainer>
