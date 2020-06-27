@@ -24,7 +24,7 @@ const Blockquote = styled.blockquote`
 
     ${mediaqueries.tablet`
       font-size: 26px;
-      padding: 0 180px;
+      padding: 0 80px;
     `};
 
     ${mediaqueries.phablet`
