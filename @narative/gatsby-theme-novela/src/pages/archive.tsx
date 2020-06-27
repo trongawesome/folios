@@ -86,7 +86,7 @@ const ArticlesItem = styled(Link)`
 
   ${mediaqueries.tablet`
     grid-template-columns: 1fr;
-    margin-bottom: 40px;
+    margin-bottom: 56px;
   `};
 `;
 
@@ -98,7 +98,7 @@ const Date = styled.div`
 `;
 
 const Title = styled.h2`
-  font-size: 18px;
+  font-size: 20px;
   color: ${p => p.theme.colors.secondary};
   font-family: ${p => p.theme.fonts.title};
   font-weight: ${p => p.theme.fontsWeight.bold};
@@ -106,6 +106,12 @@ const Title = styled.h2`
   &:hover {
     color: ${p => p.theme.colors.accent};
   }
+
+  ${mediaqueries.tablet`
+    font-size: 28px;
+    padding-top: 8px;
+  `};
+
 `;
 
 const Wrapper = styled.div`

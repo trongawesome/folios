@@ -14,6 +14,7 @@ import { debounce } from "@utils";
 import ArticleHero from "../sections/article/Article.Hero";
 import ArticlesNext from "../sections/article/Article.Next";
 import ArticleSEO from "../sections/article/Article.SEO";
+import AuthorsList from '../sections/article/Authors.List';
 
 import { Template } from "@types";
 
@@ -84,6 +85,7 @@ const Article: Template = ({ pageContext, location }) => {
         <MDXRenderer content={article.body}>
         </MDXRenderer>
       </ArticleBody>
+      <AuthorsList authors={authors} />
       {mailchimp && article.subscription && <Subscription />}
       {next.length > 0 && (
         <NextArticle narrow>
@@ -97,17 +99,6 @@ const Article: Template = ({ pageContext, location }) => {
 };
 
 export default Article;
-
-const MobileControls = styled.div`
-  position: relative;
-  padding-top: 60px;
-  transition: background 0.2s linear;
-  text-align: center;
-
-  ${mediaqueries.tablet_up`
-    display: none;
-  `}
-`;
 
 const ArticleBody = styled.article`
   position: relative;
