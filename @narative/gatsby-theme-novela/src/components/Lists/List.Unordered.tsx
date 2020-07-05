@@ -62,7 +62,7 @@ const UnorderedList = styled.ul`
     content: '';
     position: absolute;
     left: -30px;
-    top: 8px;
+    top: 11px;
     height: 8px;
     width: 8px;
     background: ${p => p.theme.colors.articleText};
