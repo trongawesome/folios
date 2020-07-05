@@ -94,6 +94,13 @@ export const globalStyles = css`
     font-family: monospace;
   }
 
+  code {
+    font-size: 18px;
+    padding: 2px 8px;
+    background-color: #F0FFFF;
+    border-radius: 4px;
+  }
+
   fieldset,
   button {
     appearance: none;
