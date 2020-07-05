@@ -60,12 +60,12 @@ const h3 = styled.h3`
 `;
 
 const h4 = styled.h4`
-  font-size: 20px;
+  font-size: 22px;
   line-height: 1.45;
   ${commonStyles};
 
   ${mediaqueries.phablet`
-    font-size: 20px;
+    font-size: 22px;
   `};
 `;
 
