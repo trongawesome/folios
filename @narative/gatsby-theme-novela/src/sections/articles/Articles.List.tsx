@@ -11,20 +11,6 @@ import { IArticle } from '@types';
 
 import { GridLayoutContext } from './Articles.List.Context';
 
-/**
- * Tiles
- * [LONG], [SHORT]
- * [SHORT], [LONG]
- * [SHORT], [LONG]
- *
- * or ------------
- *
- * Rows
- * [LONG]
- * [LONG]
- * [LONG]
- */
-
 interface ArticlesListProps {
   articles: IArticle[];
   alwaysShowAllDetails?: boolean;
@@ -65,22 +51,13 @@ const ArticlesList: React.FC<ArticlesListProps> = ({
       style={{ opacity: hasSetGridLayout ? 1 : 0 }}
       alwaysShowAllDetails={alwaysShowAllDetails}
     >
-      {articlePairs.map((ap, index) => {
-        const isEven = index % 2 !== 0;
-        const isOdd = index % 2 !== 1;
-
-        return (
-          <List
-            key={index}
-            gridLayout={gridLayout}
-            hasOnlyOneArticle={hasOnlyOneArticle}
-            reverse={isEven}
-          >
-            <ListItem article={ap[0]} narrow={isEven} />
-            <ListItem article={ap[1]} narrow={isOdd} />
-          </List>
-        );
-      })}
+      <List>
+        {articles.map((ap, index) => {
+          return (
+            <ListItem key={index} article={ap} />
+          );
+        })}
+      </List>
     </ArticlesListContainer>
   );
 };
@@ -100,7 +77,7 @@ const ListItem: React.FC<ArticlesListItemProps> = ({ article, narrow }) => {
 
   return (
     <ArticleLink to={article.slug} data-a11y="false">
-      <Item gridLayout={gridLayout}>
+      <Item>
         <ImageContainer narrow={narrow} gridLayout={gridLayout}>
           {hasHeroImage ? <Image src={imageSource} /> : <ImagePlaceholder />}
         </ImageContainer>
@@ -123,9 +100,6 @@ const ListItem: React.FC<ArticlesListItemProps> = ({ article, narrow }) => {
     </ArticleLink>
   );
 };
-
-const wide = '1fr';
-const narrow = '457px';
 
 const limitToTwoLines = css`
   text-overflow: ellipsis;
@@ -156,23 +130,18 @@ const ArticlesListContainer = styled.div<{ alwaysShowAllDetails?: boolean }>`
   ${p => p.alwaysShowAllDetails && showDetails}
 `;
 
-const listTile = p => css`
+
+const List = styled.div`
   position: relative;
   display: grid;
-  grid-template-columns: ${p.reverse
-    ? `${wide} ${wide}`
-    : `${wide} ${wide}`};
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: 2;
   column-gap: 30px;
-
+  
   &:not(:last-child) {
     margin-bottom: 75px;
   }
-
-  ${mediaqueries.desktop_medium`
-    grid-template-columns: 1fr 1fr;
-  `}
-
+  
   ${mediaqueries.tablet`
     grid-template-columns: 1fr;
     
@@ -182,66 +151,17 @@ const listTile = p => css`
   `}
 `;
 
-const listItemRow = p => css`
-  display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: 1fr 488px;
-  grid-column-gap: 96px;
-  grid-template-rows: 1;
-  align-items: center;
+const Item = styled.div`
   position: relative;
-  margin-bottom: 50px;
-
-  ${mediaqueries.desktop`
-    grid-column-gap: 24px;
-    grid-template-columns: 1fr 380px;
-  `}
-
-  ${mediaqueries.tablet`
-    grid-template-columns: 1fr;
-  `}
+  margin-bottom: 64px;
 
   @media (max-width: 540px) {
-    background: ${p.theme.colors.card};
-  }
-
-  ${mediaqueries.phablet`
-    
-  `}
-`;
-
-const listItemTile = p => css`
-  position: relative;
-
-  ${mediaqueries.tablet`
-    margin-bottom: 60px;
-  `}
-
-  @media (max-width: 540px) {
-    background: ${p.theme.colors.card};
+    background: ${p => p.theme.colors.card};
   }
 
   ${mediaqueries.phablet`
     margin-bottom: 40px;
   `}
-`;
-
-// If only 1 article, dont create 2 rows.
-const listRow = p => css`
-  display: grid;
-  grid-template-rows: ${p.hasOnlyOneArticle ? '1fr' : '1fr 1fr'};
-`;
-
-const List = styled.div<{
-  reverse: boolean;
-  gridLayout: string;
-  hasOnlyOneArticle: boolean;
-}>`
-  ${p => (p.gridLayout === 'tiles' ? listTile : listRow)}
-`;
-
-const Item = styled.div<{ gridLayout: string }>`
-  ${p => (p.gridLayout === 'rows' ? listItemRow : listItemTile)}
 `;
 
 const ImageContainer = styled.div<{ narrow: boolean; gridLayout: string }>`
