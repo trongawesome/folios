@@ -233,6 +233,33 @@ const iFrame = css`
   }
 `;
 
+const LongQuote = p => css`
+  .longquote {
+    ${ARTICLE_WIDTH};
+    padding: 32px 64px 24px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: ${p.theme.colors.primary};
+    box-shadow: inset 0px 6px 0px ${p.theme.colors.accent};
+    margin-bottom: 32px;
+    border-radius: 0 0 160px 0;
+
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: ${p.theme.colors.card};
+    }
+
+    ${mediaqueries.tablet`
+      
+    `};
+  }
+`;
+
 const VideoCSS = css`
   .video {
     ${ARTICLE_WIDTH};
@@ -410,4 +437,5 @@ const MDXBody = styled.div`
   ${Grid}
   ${VideoCSS}
   ${iFrame}
+  ${LongQuote}
 `;
