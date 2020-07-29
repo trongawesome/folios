@@ -193,7 +193,7 @@ module.exports = async ({ actions: { createPage }, graphql }, themeOptions) => {
   log('Creating', 'articles page');
   createPaginatedPages({
     edges: articlesThatArentSecret,
-    pathPrefix: postsPath,
+    pathPrefix: basePath,
     createPage,
     pageLength,
     pageTemplate: templates.articles,
@@ -281,7 +281,7 @@ module.exports = async ({ actions: { createPage }, graphql }, themeOptions) => {
   log('Creating', 'portfolios page');
   createPaginatedPages({
     edges: portfoliosThatArentSecret,
-    pathPrefix: basePath,
+    pathPrefix: portfolioPath,
     createPage,
     pageLength,
     pageTemplate: templates.portfolios,
