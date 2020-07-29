@@ -94,15 +94,9 @@ const NavigationHeader: React.FC<{}> = () => {
           <NavLink to={`/writing`} title={`All articles`} activeClassName="active" >
             Write
           </NavLink>
-          <NavLink to={`/books-for-product-designers`} title={`Book collection to read`} activeClassName="active" >
-            Read
-          </NavLink>
           <NavLink to={`/about`} title={`About me`} activeClassName="active" >
             Me
           </NavLink>
-          <LinkExternal data-a11y="false" aria-label={`Blog Tiếng Việt`} href={`https://vi.trongnguyen.co`} >
-            ★ VN
-          </LinkExternal>
           <DarkModeToggle />
         </NavControls>
       </NavContainer>
