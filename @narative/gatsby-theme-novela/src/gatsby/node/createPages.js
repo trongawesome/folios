@@ -16,8 +16,6 @@ const templates = {
   category: path.resolve(templatesDirectory, 'category.template.tsx'),
   portfolios: path.resolve(templatesDirectory, 'portfolios.template.tsx'),
   portfolio: path.resolve(templatesDirectory, 'portfolio.template.tsx'),
-  readings: path.resolve(templatesDirectory, 'readings.template.tsx'),
-  reading: path.resolve(templatesDirectory, 'reading.template.tsx'),
 };
 
 const query = require('../data/data.query');

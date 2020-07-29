@@ -42,17 +42,5 @@ module.exports = ({ createResolvers }) => {
         resolve: mdxResolverPassthrough(`timeToRead`),
       },
     },
-
-    Reading: {
-      excerpt: {
-        resolve: mdxResolverPassthrough(`excerpt`),
-      },
-      body: {
-        resolve: mdxResolverPassthrough(`body`),
-      },
-      timeToRead: {
-        resolve: mdxResolverPassthrough(`timeToRead`),
-      },
-    },
   });
 };

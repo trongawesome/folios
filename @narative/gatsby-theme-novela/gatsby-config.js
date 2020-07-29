@@ -4,9 +4,6 @@ module.exports = ({
   contentAuthors = 'content/authors',
   contentPosts = 'content/posts',
   contentPortfolios = 'content/portfolios',
-  contentReadings = 'content/readings',
-  imageGallery = 'content/image-gallery',
-  contentSideProjects = 'content/side-projects',
   pathPrefix = '',
   sources: { local, contentful } = { local: true, contentful: false },
 }) => ({
@@ -194,29 +191,8 @@ module.exports = ({
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: contentReadings,
-        name: contentReadings,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
         path: contentAuthors,
         name: contentAuthors,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: imageGallery,
-        name: imageGallery,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: contentSideProjects,
-        name: contentSideProjects,
       },
     },
     {
