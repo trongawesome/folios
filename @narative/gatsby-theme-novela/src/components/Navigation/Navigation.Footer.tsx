@@ -7,8 +7,6 @@ import SocialLinks from "@components/SocialLinks";
 import mediaqueries from "@styles/media";
 import ArticlesGradient from "@components/ArticlesGradient";
 
-import SideProjects from "../../sections/portfolios/Side.Projects";
-
 const siteQuery = graphql`
   {
     allSite {
@@ -53,7 +51,6 @@ const Footer: React.FC<{}> = () => {
       <FooterGradient />
       <Section narrow>
         <HoritzontalRule />
-        <SideProjects />
         <FooterContainer>
           <FooterText>
             © {copyrightDate} {name}: <span>tantrongtt@gmail.com</span>
