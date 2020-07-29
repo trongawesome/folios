@@ -3,10 +3,10 @@ import prism from "./prism";
 export default {
   prism,
 
-  primary: "#294145",
-  secondary: "#3D6066",
-  grey: "#75959A",
-  background: "#D1E8EB",
+  primary: "#0A0A0A",
+  secondary: "#515151",
+  grey: "#B6B6B6",
+  background: "#FFFFFF",
   backgroundModal: "rgba(209, 232, 235, 0.98)",
   cleanBackground: "#FFFFFF",
   // accent: "#3A5C21",

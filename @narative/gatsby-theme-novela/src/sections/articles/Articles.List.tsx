@@ -134,9 +134,9 @@ const ArticlesListContainer = styled.div<{ alwaysShowAllDetails?: boolean }>`
 const List = styled.div`
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 2;
-  column-gap: 30px;
+  column-gap: 32px;
   
   &:not(:last-child) {
     margin-bottom: 75px;
@@ -166,8 +166,8 @@ const Item = styled.div`
 
 const ImageContainer = styled.div<{ narrow: boolean; gridLayout: string }>`
   position: relative;
-  height: ${p => (p.gridLayout === 'tiles' ? '280px' : '220px')};
-  margin-bottom: ${p => (p.gridLayout === 'tiles' ? '30px' : 0)};
+  height: 528px;
+  margin-bottom: 32px;
   transition: transform 0.3s var(--ease-out-quad),
     box-shadow 0.3s var(--ease-out-quad);
 
