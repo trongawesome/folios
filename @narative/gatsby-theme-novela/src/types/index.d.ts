@@ -42,6 +42,7 @@ export interface IArticle {
   authors: IAuthor[];
   excerpt: string;
   body: string;
+  categories: string[];
   id: string;
   hero: {
     full: IGatsbyImageFluid;
@@ -57,6 +58,7 @@ export interface IArticle {
   };
   timeToRead: number;
   date: string;
+  // siteLink: string;
 }
 
 interface IArticleQuery {

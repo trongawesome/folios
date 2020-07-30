@@ -26,7 +26,7 @@ module.exports.local = {
           title
           author
           categories
-          date(formatString: "MMMM Do, YYYY")
+          date(formatString: "MMM Do, YYYY")
           dateForSEO: date
           timeToRead
           excerpt
