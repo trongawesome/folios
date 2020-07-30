@@ -1,13 +1,13 @@
 require("dotenv").config();
 
 const siteMetadata = {
-  title: `Trong Nguyen's Desk`,
-  name: `Trong Nguyen`,
+  title: `Portfolio Inspration`,
+  name: `Folios`,
   siteUrl: `https://trongnguyen.co`,
-  description: `Product Designer who's learning to write and express thoughts. Currently, I'm building Design System and improving Web Experience at Carousell.`,
+  description: `Explore colors, ideas & inspiration from topics our community loves.`,
   hero: {
     heading: `Hi, I’m Trong, <br/>product designer.`,
-    writingHeading: `Writing is designing.`,
+    writingHeading: `Portfolio Inspiration`,
     readingHeading: `Books for product designers`,
     littleGalleryHeading: `Little big grid`,
     littleGallerySubtitle: `Little works and experiments but my big pride. I pour them all in this grid.`,

@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 
 import Section from '@components/Section';
+import Headings from "@components/Headings";
 import mediaqueries from '@styles/media';
 import { IAuthor } from '@types';
 
@@ -47,12 +48,9 @@ const ArticlesHero: React.FC<IAuthor> = ({ authors }) => {
   return (
     <Section narrow id="Articles__Hero">
       <HeadingContainer style={{ maxWidth: `${hero.maxWidth}px` }}>
-        <HeroHeading dangerouslySetInnerHTML={{ __html: hero.writingHeading }} />
+        <Headings.h1 dangerouslySetInnerHTML={{ __html: hero.writingHeading }} />
         <InfoText>
-          Without words, apps would be an unusable jumble of shapes and icons.
-          <Anchor to="/archive" data-a11y="false">
-            Archives
-          </Anchor>
+          Explore colors, ideas & inspiration from topics our community loves.
         </InfoText>
       </HeadingContainer>
     </Section>
@@ -72,32 +70,11 @@ const HeadingContainer = styled.div`
   width: 100%;
   `}
   `;
-  
-  const HeroHeading = styled.h1`
-  font-style: normal;
-  font-weight: ${p => p.theme.fontsWeight.bold};
-  font-size: 64px;
-  line-height: 1.15;
-  font-family: ${p => p.theme.fonts.title};
-  color: ${p => p.theme.colors.primary};
-
-  a {
-    color: ${p => p.theme.colors.accent};
-  }
-
-  ${mediaqueries.desktop`
-    font-size: 56px
-  `}
-
-  ${mediaqueries.phablet`
-    font-size: 56px;
-  `}
-`;
 
 const InfoText = styled.p`
-  font-size: 20px;
+  font-size: 22px;
+  line-height: 36px;
   margin-top: 16px;
-  line-height: 1.5;
   font-family: ${p => p.theme.fonts.body};
   color: ${p => p.theme.colors.secondary};
 `;

@@ -15,77 +15,75 @@ const commonStyles = p => css`
 `;
 
 const h1 = styled.h1`
-  font-size: 64px;
-  line-height: 1.15;
+  font-size: 72px;
+  line-height: 72px;
+  letter-spacing: -3px;
   ${commonStyles};
 
   ${mediaqueries.desktop`
-    font-size: 48px;
+    font-size: 56px;
     line-height: 1.2;
-  `};
-
-  ${mediaqueries.phablet`
-    font-size: 40px;
-    line-height: 1.3;
   `};
 `;
 
 const h2 = styled.h2`
-  font-size: 36px;
-  line-height: 1.333;
+  font-size:64px;
+  line-height: 64px;
+  letter-spacing: -3px;
   ${commonStyles};
 
   ${mediaqueries.desktop`
-    font-size: 28px;
+    font-size: 48px;
   `};
 
   ${mediaqueries.tablet`
-    font-size: 28px;
+    font-size: 48px;
     line-height: 1.45;
   `};
 `;
 
 const h3 = styled.h3`
-  font-size: 24px;
-  line-height: 1.45;
+  font-size:48px;
+  line-height: 56px;
+  letter-spacing: -2px;
   ${commonStyles};
 
   ${mediaqueries.tablet`
-    font-size: 22px;
+    font-size: 32px;
   `};
+
+  ${mediaqueries.phablet`
+    font-size: 32px;
+  `};
+`;
+
+const h4 = styled.h4`
+  font-size: 32px;
+  line-height: 48px;
+  ${commonStyles};
+
+  ${mediaqueries.phablet`
+    font-size: 28px;
+  `};
+`;
+
+const h5 = styled.h5`
+  font-size: 22px;
+  line-height: 36px;
+  ${commonStyles};
 
   ${mediaqueries.phablet`
     font-size: 20px;
   `};
 `;
 
-const h4 = styled.h4`
-  font-size: 22px;
-  line-height: 1.45;
-  ${commonStyles};
-
-  ${mediaqueries.phablet`
-    font-size: 22px;
-  `};
-`;
-
-const h5 = styled.h5`
-  font-size: 18px;
-  line-height: 1.45;
-  ${commonStyles};
-
-  ${mediaqueries.phablet`
-    font-size: 16px;
-  `};
-`;
-
 const h6 = styled.h6`
-  font-size: 16px;
-  line-height: 1.45;
+  font-size: 22px;
+  line-height: 36px;
   ${commonStyles};
 
   ${mediaqueries.phablet`
-    font-size: 14px;
+    font-size: 20px;
   `};
 `;
 

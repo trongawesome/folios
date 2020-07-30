@@ -6,6 +6,7 @@ export default {
   primary: "#0A0A0A",
   secondary: "#515151",
   grey: "#B6B6B6",
+  greyLight: "#F3F3F3",
   background: "#FFFFFF",
   backgroundModal: "rgba(209, 232, 235, 0.98)",
   cleanBackground: "#FFFFFF",
