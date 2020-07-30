@@ -14,9 +14,9 @@ const breakpoints = [
 ];
 
 const fonts = {
-  title: "'Title', Georgia, Serif",
+  title: "'Title',system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto",
   body:
-    "'Text','Libre Baskerville', Georgia, Serif",
+    "'Text',system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto",
   monospace: `"Operator Mono", Consolas, Menlo, Monaco, source-code-pro, Courier New, monospace`,
 };
 

@@ -8,9 +8,6 @@ import Headings from "@components/Headings";
 import mediaqueries from '@styles/media';
 import { IAuthor } from '@types';
 
-import { GridLayoutContext } from './Articles.List.Context';
-import NavCategory from '@components/Navigation/Navigation.Categories';
-
 const authorQuery = graphql`
   {
     site: allSite {
@@ -28,34 +25,26 @@ const authorQuery = graphql`
   }
 `;
 
-const ArticlesHero: React.FC<IAuthor> = ({ authors }) => {
-  const { gridLayout = 'tiles', hasSetGridLayout, setGridLayout } = useContext(
-    GridLayoutContext,
-  );
-
+const CategoryHero: React.FC<IAuthor> = ({ category }) => {
   const results = useStaticQuery(authorQuery);
   const hero = results.site.edges[0].node.siteMetadata.hero;
 
   return (
     <Section narrow id="Articles__Hero">
-      <HeadingContainer>
-        <TextWrap style={{ maxWidth: `${hero.maxWidth}px` }}>
-          <Headings.h1 dangerouslySetInnerHTML={{ __html: hero.writingHeading }} />
-          <InfoText>
-            Explore colors, ideas & inspiration from topics our community loves.
-          </InfoText>
-        </TextWrap>
-        <NavCategory/>
+      <HeadingContainer style={{ maxWidth: `${hero.maxWidth}px` }}>
+        <NavLink to={`/`} title={`All portfolios `} activeClassName="active" >
+          All portfolios 
+        </NavLink>
+        <Headings.h1>{category}</Headings.h1>
+        <InfoText>
+            Here is a short description for ProductDesigners. They have many names, but truely the same.
+        </InfoText>
       </HeadingContainer>
     </Section>
   );
 };
 
-export default ArticlesHero;
-
-const TextWrap = styled.div`
-
-`;
+export default CategoryHero;
 
 const HeadingContainer = styled.div`
   margin: 176px 0 112px;
@@ -87,4 +76,22 @@ const Anchor = styled(Link)`
     color: ${p => p.theme.colors.accent};
     border-bottom-color: ${p => p.theme.colors.accent};
   }
+`;
+
+const NavLink = styled(Link)`
+  font-weight: ${p => p.theme.fontsWeight.bold};
+  font-family: ${p => p.theme.fonts.title};
+  font-size: 32px;
+  line-height: 48px;
+  color: ${p => p.theme.colors.grey};
+  margin-bottom: 16px;
+  border-bottom: solid 1px ${p => p.theme.colors.grey};
+  transition: all 0.25s var(--ease-in-out-quad);
+  display: inline-block;
+
+  &:hover {
+    color: ${p => p.theme.colors.accent};
+    border-color: ${p => p.theme.colors.accent};
+  }
+
 `;

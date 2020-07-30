@@ -167,7 +167,7 @@ const LinkButton = styled.a`
   box-shadow: inset 0px 0px 0px 1px ${p => p.theme.colors.secondary};
   padding: 4px 16px;
   transition: all 0.3s var(--ease-out-quad);
-  border-radius: 8px;
+  border-radius: 4px;
 
   &:hover {
     background-color: ${p => p.theme.colors.primary};
