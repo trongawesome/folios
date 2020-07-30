@@ -7,15 +7,12 @@ import Image, { ImagePlaceholder } from '@components/Image';
 import mediaqueries from '@styles/media';
 import { IArticle, IAuthor } from '@types';
 
-import ArticleAuthors from './Article.Authors';
-
 interface ArticleHeroProps {
   article: IArticle;
   authors: IAuthor[];
 }
 
 const ArticleHero: React.FC<ArticleHeroProps> = ({ article, authors }) => {
-  const hasCoAUthors = authors.length > 1;
   const hasHeroImage =
     article.hero &&
     Object.keys(article.hero.full).length !== 0 &&
@@ -37,22 +34,19 @@ const ArticleHero: React.FC<ArticleHeroProps> = ({ article, authors }) => {
         </DesignerType>
         <HeroHeading>{article.title}</HeroHeading>
         <HeroSubtitle>Portfolio of the Day ・ {article.date}</HeroSubtitle>
-        <HeroSubtitle>Fonts: Flareserif 821, Favorit, Adieu</HeroSubtitle>
+        <HeroSubtitle>Fonts: {article.font}</HeroSubtitle>
         <Excerpt>{article.excerpt}</Excerpt>
-        {/* <HeroSubtitle hasCoAUthors={hasCoAUthors}>
-          <ArticleAuthors authors={authors} />
-          <ArticleMeta hasCoAUthors={hasCoAUthors}>
-            {article.date}
-          </ArticleMeta>
-        </HeroSubtitle> */}
+        <LinkButton href={article.siteLink + "?ref=folios"} target="_blank">Visit site → </LinkButton>
       </Header>
-      <HeroImage id="ArticleImage__Hero">
-        {hasHeroImage ? (
-          <Image src={article.hero.full} />
-        ) : (
-          <ImagePlaceholder />
-        )}
-      </HeroImage>
+      <Link href={article.siteLink + "?ref=folios"} target="_blank">
+        <HeroImage id="ArticleImage__Hero">
+          {hasHeroImage ? (
+            <Image src={article.hero.full} />
+          ) : (
+            <ImagePlaceholder />
+          )}
+        </HeroImage>
+      </Link>
     </Hero>
   );
 };
@@ -99,8 +93,8 @@ const Header = styled.header`
   position: relative;
   z-index: 10;
   margin:160px auto 56px;
-  padding-left: 68px;
   max-width: 749px;
+  text-align: center;
 
   ${mediaqueries.desktop`
     padding-left: 53px;
@@ -126,7 +120,6 @@ const Header = styled.header`
 
 const HeroHeading = styled(Headings.h1)`
   margin-bottom: 24px;
-  text-align: center;
 
   ${mediaqueries.tablet`
     margin-bottom: 20px;
@@ -139,7 +132,6 @@ const DesignerType = styled.p`
   line-height: 48px;
   color: ${p => p.theme.colors.secondary};
   font-weight: ${p => p.theme.fontsWeight.regular};
-  text-align: center;
 
 `;
 
@@ -152,7 +144,6 @@ const Excerpt = styled(Headings.h3)`
   font-weight: normal;
   line-height: 32px;
   letter-spacing: 0;
-  text-align: center;
 
   ${mediaqueries.tablet`
   `}
@@ -167,42 +158,6 @@ const HeroSubtitle = styled(Headings.h5)`
   color: ${p => p.theme.colors.secondary};
 
 `;
-
-// const HeroSubtitle = styled.div<{ hasCoAUthors: boolean }>`
-//   position: relative;
-//   display: flex;
-//   font-size: 14px;
-//   color: ${p => p.theme.colors.secondary};
-//   align-items: center;
-  
-//   ${p => mediaqueries.phablet`
-//     flex-direction: column;
-//     align-items: left;
-//     align-items: flex-start;
-
-//     ${p.hasCoAUthors &&
-//       `
-//         &::before {
-//           content: '';
-//           position: absolute;
-//           left: -20px;
-//           right: -20px;
-//           top: -10px;
-//           bottom: -10px;
-//           border: 1px solid ${p.theme.colors.horizontalRule};
-//           opacity: 0.5;
-//           border-radius: 5px;
-//         }
-//     `}
-
-
-//     strong {
-//       display: block;
-//       font-weight: 500;
-//       margin-bottom: 5px;
-//     }
-//   `}
-// `;
 
 const HeroImage = styled.div`
   position: relative;
@@ -226,4 +181,20 @@ const HeroImage = styled.div`
       height: 220px;
     }
 `}
+`;
+
+const LinkButton = styled.a`
+  position: relative;
+  font-size: 18px;
+  line-height: 32px;
+  color: ${p => p.theme.colors.primary};
+  transition: color 0.25s var(--ease-in-out-quad);
+  display: inline-block;
+  margin: 0 auto;
+  box-shadow: inset 0px 0px 0px 1px ${p => p.theme.colors.secondary};
+  padding: 8px 16px
+`;
+
+const Link = styled.a`
+  position: relative;
 `;

@@ -6,6 +6,8 @@ module.exports = ({ actions }) => {
       title: String!
       date: Date! @dateformat
       author: String!
+      siteLink: String
+      font: String
       excerpt(pruneLength: Int = 140): String!
       body: String!
       hero: File @fileByRelativePath
@@ -19,6 +21,7 @@ module.exports = ({ actions }) => {
       title: String!
       date: Date! @dateformat
       author: String!
+      siteLink: String
       excerpt(pruneLength: Int = 140): String!
       body: String!
       hero: File @fileByRelativePath

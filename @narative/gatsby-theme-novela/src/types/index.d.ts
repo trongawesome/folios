@@ -58,7 +58,7 @@ export interface IArticle {
   };
   timeToRead: number;
   date: string;
-  // siteLink: string;
+  siteLink: string;
 }
 
 interface IArticleQuery {
