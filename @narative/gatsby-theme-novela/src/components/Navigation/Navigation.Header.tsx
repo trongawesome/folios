@@ -73,69 +73,64 @@ const NavigationHeader: React.FC<{}> = () => {
   }, []);
 
   return (
-    <Section narrow>
-      <NavContainer>
-        <LogoLink
-          to={rootPath || basePath}
-          data-a11y="false"
-          title="Navigate back to the homepage"
-          aria-label="Navigate back to the homepage"
-          back={showBackArrow ? "true" : "false"}
-        >
-          {showBackArrow && (
-            <BackArrowIconContainer>
-              <Icons.ChevronLeft fill={fill} />
-            </BackArrowIconContainer>
-          )}
-          <Logo fill={fill} />
-          <Hidden>Navigate back to the homepage</Hidden>
-        </LogoLink>
-        <NavControls>
-          <NavLink to={`/portfolios`} title={`All articles`} activeClassName="active" >
-            Portfolios
-          </NavLink>
-          <NavLink to={`/about`} title={`About me`} activeClassName="active" >
-            Me
-          </NavLink>
-          <DarkModeToggle />
-        </NavControls>
-      </NavContainer>
-    </Section>
+    <Container>
+      <Section narrow>
+        <NavContainer>
+          <LogoLink
+            to={rootPath || basePath}
+            data-a11y="false"
+            title="Navigate back to the homepage"
+            aria-label="Navigate back to the homepage"
+            back={showBackArrow ? "true" : "false"}
+          >
+            {showBackArrow && (
+              <BackArrowIconContainer>
+                <Icons.ChevronLeft fill={fill} />
+              </BackArrowIconContainer>
+            )}
+            <Logo fill={fill} />
+            <Hidden>Navigate back to the homepage</Hidden>
+          </LogoLink>
+          <NavControls>
+            <NavLink to={`/portfolios`} title={`All articles`} activeClassName="active" >
+              Portfolios
+            </NavLink>
+            <NavLink to={`/about`} title={`About me`} activeClassName="active" >
+              Me
+            </NavLink>
+            <DarkModeToggle />
+          </NavControls>
+        </NavContainer>
+      </Section>
+    </Container>
   );
 };
 
 export default NavigationHeader;
 
-const BackArrowIconContainer = styled.div`
-  transition: 0.2s transform var(--ease-out-quad);
-  opacity: 0;
-  padding-right: 30px;
-  animation: fadein 0.3s linear forwards;
-
-  @keyframes fadein {
-    to {
-      opacity: 1;
-    }
-  }
-
-  ${mediaqueries.desktop_medium`
-    display: none;
-  `}
+const Container = styled.div`
+  width: 100%;
+  position: fixed;
+  background-color: ${p => p.theme.colors.header};
+  top: 0;
+  backdrop-filter: saturate(180%) blur(20px);
+  z-index: 1000;
 `;
 
 const NavContainer = styled.div`
   position: relative;
-  z-index: 100;
-  padding-top: 64px;
+  padding: 16px 0;
   display: flex;
   justify-content: space-between;
-
-  ${mediaqueries.desktop_medium`
-    padding-top: 50px;
-  `};
-
-  @media screen and (max-height: 800px) {
-    padding-top: 50px;
+  
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%; 
+    display: block;
+    height: 2px;
+    background: ${p => p.theme.colors.primary};
+    bottom: 0;
   }
 `;
 
@@ -211,12 +206,6 @@ const LogoLink = styled(Link)<{ back: string }>`
     border: 2px solid ${p => p.theme.colors.accent};
     background: rgba(255, 255, 255, 0.01);
     border-radius: 5px;
-  }
-
-  &:hover {
-    ${BackArrowIconContainer} {
-      transform: translateX(-3px);
-    }
   }
 `;
 
@@ -349,4 +338,21 @@ const Hidden = styled.span`
   height: 0px;
   visibility: hidden;
   overflow: hidden;
+`;
+
+const BackArrowIconContainer = styled.div`
+  transition: 0.2s transform var(--ease-out-quad);
+  opacity: 0;
+  padding-right: 30px;
+  animation: fadein 0.3s linear forwards;
+
+  @keyframes fadein {
+    to {
+      opacity: 1;
+    }
+  }
+
+  ${mediaqueries.desktop_medium`
+    display: none;
+  `}
 `;
