@@ -55,17 +55,6 @@ export default ArticleHero;
 
 const Hero = styled.div`
   ${p => mediaqueries.phablet`
-    &::before {
-      content: "";
-      width: 100%;
-      height: 20px;
-      background: ${p.theme.colors.primary};
-      position: absolute;
-      left: 0;
-      top: 0;
-      transition: ${p.theme.colorModeTransition};
-    }
-
     &::after {
       content: "";
       width: 100%;
@@ -163,38 +152,36 @@ const HeroImage = styled.div`
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 1200px;
   overflow: hidden;
-  margin: 0 auto;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.12);
-
-  ${mediaqueries.tablet`
-    max-width: 100%;
-  `}
-
-  ${mediaqueries.phablet`
-    margin: 0 auto;
-    width: calc(100vw - 40px);
-    height: 220px;
-
-    & > div {
-      height: 220px;
-    }
-`}
 `;
 
 const LinkButton = styled.a`
   position: relative;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 32px;
   color: ${p => p.theme.colors.primary};
   transition: color 0.25s var(--ease-in-out-quad);
   display: inline-block;
   margin: 0 auto;
   box-shadow: inset 0px 0px 0px 1px ${p => p.theme.colors.secondary};
-  padding: 8px 16px
+  padding: 4px 16px;
+  transition: all 0.3s var(--ease-out-quad);
+
+  &:hover {
+    background-color: ${p => p.theme.colors.primary};
+    color: ${p => p.theme.colors.background};
+    box-shadow: inset 0px 0px 0px 1px ${p => p.theme.colors.primary};
+  }
 `;
 
 const Link = styled.a`
   position: relative;
+  display: block;
+  margin: 0 auto;
+  max-width: 1296px;
+  padding: 0 48px;
+  ${mediaqueries.tablet`
+    padding: 0 0;
+  `}
 `;

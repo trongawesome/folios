@@ -193,8 +193,8 @@ const ImageContainer = styled.div<{ narrow: boolean; gridLayout: string }>`
     height: 100%;
     opacity: 0;
     transition: all 0.3s var(--ease-out-quad);
-    box-shadow: 0 30px 40px -20px rgba(0, 0, 0, 0.24),
-      0 30px 30px -30px rgba(0, 0, 0, 0.48);
+    box-shadow: 0 30px 40px -20px rgba(0, 0, 0, 0.12),
+      0 30px 30px -30px rgba(0, 0, 0, 0.32);
   }
   ${mediaqueries.tablet`
     height: 200px;

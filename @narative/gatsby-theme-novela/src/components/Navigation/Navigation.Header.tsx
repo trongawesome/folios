@@ -92,8 +92,11 @@ const NavigationHeader: React.FC<{}> = () => {
             <Hidden>Navigate back to the homepage</Hidden>
           </LogoLink>
           <NavControls>
-            <NavLink to={`/portfolios`} title={`All articles`} activeClassName="active" >
+            <NavLink to={`/`} title={`All articles`} activeClassName="active" >
               Portfolios
+            </NavLink>
+            <NavLink to={`/portfolios`} title={`All articles`} activeClassName="active" >
+              Blog
             </NavLink>
             <NavLink to={`/about`} title={`About me`} activeClassName="active" >
               Me
@@ -148,41 +151,12 @@ const NavLink = styled(Link)`
     margin-left: 24px;
   `}
 
-  &::after {
-    background: none repeat scroll 0 0 transparent;
-    bottom: -8px;
-    content: "";
-    display: block;
-    height: 2px;
-    left: 50%;
-    position: absolute;
-    background: ${p => p.theme.colors.accent};
-    transition: width 0.25s ease 0s, left 0.25s ease 0s;
-    width: 0;
-  }
-
   &:hover {
-    color: ${p => p.theme.colors.secondary};
-
-    &::after {
-      width: 100%; 
-      left: 0; 
-    }
+    color: ${p => p.theme.colors.accent};
   }
-
+  
   &.active {
-    &::after {
-      background: none repeat scroll 0 0 transparent;
-      bottom: -8px;
-      content: "";
-      display: block;
-      height: 2px;
-      left: calc(50% - 10px);
-      position: absolute;
-      background: ${p => p.theme.colors.accent};
-      transition: width 0.25s ease 0s, left 0.25s ease 0s;
-      width: 20px;
-    }
+    color: ${p => p.theme.colors.accent};
   }
 `;
 
