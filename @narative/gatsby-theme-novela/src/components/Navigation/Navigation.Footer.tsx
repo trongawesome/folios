@@ -53,7 +53,7 @@ const Footer: React.FC<{}> = () => {
         <HoritzontalRule />
         <FooterContainer>
           <FooterText>
-            © {copyrightDate} {name}: <span>tantrongtt@gmail.com</span>
+            © {copyrightDate} {name}
           </FooterText>
           <div>
             <SocialLinks links={social} />

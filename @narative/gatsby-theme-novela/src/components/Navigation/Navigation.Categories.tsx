@@ -1,28 +1,34 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { Link } from "gatsby";
+import { Link, graphql, useStaticQuery } from "gatsby";
 
 import mediaqueries from '@styles/media';
 
+const siteQuery = graphql`
+{
+  allCategoriesYaml {
+    edges {
+      node {
+        name
+        url
+      }
+    }
+  }
+}
+`;
+
 const NavCategory = ({ }) => {
+  
+  const result = useStaticQuery(siteQuery).allCategoriesYaml.edges;
+
   return (
     <NavContainer>
       <NavControls>
-          <NavLink to={`/categories/creative-designer`} title={`Design category`} activeClassName="active" >
-            Creative Designer
+        {result.map((category, index) => (
+          <NavLink to={category.node.url} title={category.node.name} data-a11y="false" key={index}>
+            {category.node.name}
           </NavLink>
-          <NavLink to={`/categories/product-designer`} title={`Code category`} activeClassName="active" >
-            Product Designer
-          </NavLink>
-          <NavLink to={`/categories/product-designer`} title={`Code category`} activeClassName="active" >
-            Product Designer
-          </NavLink>
-          <NavLink to={`/categories/product-designer`} title={`Code category`} activeClassName="active" >
-            Product Designer
-          </NavLink>
-          <NavLink to={`/categories/lavida`} title={`Lavida category`} activeClassName="active" >
-            LaVida
-          </NavLink>
+        ))}
       </NavControls>
     </NavContainer>
   );
