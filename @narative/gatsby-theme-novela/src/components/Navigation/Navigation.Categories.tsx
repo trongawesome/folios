@@ -8,7 +8,7 @@ const NavCategory = ({ category }) => {
   return (
     <NavContainer>
       <NavControls>
-          <NavLink to={`/writing`} title={`All articles`} activeClassName="active" >
+          <NavLink to={`/`} title={`All articles`} activeClassName="active" >
           All
           </NavLink>
           <NavLink to={`/categories/design`} title={`Design category`} activeClassName="active" >
