@@ -167,6 +167,7 @@ const LinkButton = styled.a`
   box-shadow: inset 0px 0px 0px 1px ${p => p.theme.colors.secondary};
   padding: 4px 16px;
   transition: all 0.3s var(--ease-out-quad);
+  border-radius: 8px;
 
   &:hover {
     background-color: ${p => p.theme.colors.primary};
@@ -182,6 +183,6 @@ const Link = styled.a`
   max-width: 1296px;
   padding: 0 48px;
   ${mediaqueries.tablet`
-    padding: 0 0;
+    padding: 0;
   `}
 `;

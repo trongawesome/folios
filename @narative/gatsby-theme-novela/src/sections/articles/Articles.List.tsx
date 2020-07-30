@@ -197,8 +197,7 @@ const ImageContainer = styled.div<{ narrow: boolean; gridLayout: string }>`
       0 30px 30px -30px rgba(0, 0, 0, 0.32);
   }
   ${mediaqueries.tablet`
-    height: 200px;
-    margin-bottom: 35px;
+    height: 480px;
   `}
 
   ${mediaqueries.phablet`
@@ -216,21 +215,19 @@ const RowTitle = styled.div`
   justify-content: space-between;  
 `;
 
-const Title = styled(Headings.h2)`
+const Title = styled.h2`
   font-size: 18px;
   line-height: 24px;
   font-family: ${p => p.theme.fonts.title};
   letter-spacing: 0;
   transition: color 0.3s ease-in-out;
+  color: ${p => p.theme.colors.primary};
   ${limitToOneLines};
 
   ${mediaqueries.tablet`
-    font-size: 18px;
+    
   `}
 
-  ${mediaqueries.phablet`
-    font-size: 18px;
-  `}
 `;
 
 const Excerpt = styled.p`
