@@ -82,19 +82,17 @@ const ListItem: React.FC<ArticlesListItemProps> = ({ article, narrow }) => {
           {hasHeroImage ? <Image src={imageSource} /> : <ImagePlaceholder />}
         </ImageContainer>
         <div>
-          <Title dark hasOverflow={hasOverflow} gridLayout={gridLayout}>
-            {article.title}
-          </Title>
-          <Excerpt
-            narrow={narrow}
-            hasOverflow={hasOverflow}
-            gridLayout={gridLayout}
-          >
-            {article.excerpt}
+          <RowTitle>
+            <Title dark hasOverflow={hasOverflow} gridLayout={gridLayout}>
+              {article.title}
+            </Title>
+            <MetaData>
+              {article.date}
+            </MetaData>
+          </RowTitle>
+          <Excerpt>
+            {article.categories.join(', ')}
           </Excerpt>
-          <MetaData>
-            {article.date}
-          </MetaData>
         </div>
       </Item>
     </ArticleLink>
@@ -113,6 +111,16 @@ const limitToTwoLines = css`
   ${mediaqueries.phablet`
     -webkit-line-clamp: 3;
   `}
+`;
+
+const limitToOneLines = css`
+  text-overflow: ellipsis;
+  overflow-wrap: normal;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  white-space: normal;
+  overflow: hidden;
 `;
 
 const showDetails = css`
@@ -137,6 +145,7 @@ const List = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 2;
   column-gap: 32px;
+  row-gap: 40px;
   
   &:not(:last-child) {
     margin-bottom: 75px;
@@ -153,31 +162,42 @@ const List = styled.div`
 
 const Item = styled.div`
   position: relative;
-  margin-bottom: 64px;
+  // margin-bottom: 64px;
 
   @media (max-width: 540px) {
     background: ${p => p.theme.colors.card};
   }
 
   ${mediaqueries.phablet`
-    margin-bottom: 40px;
+    // margin-bottom: 40px;
   `}
 `;
 
 const ImageContainer = styled.div<{ narrow: boolean; gridLayout: string }>`
   position: relative;
   height: 528px;
-  margin-bottom: 32px;
-  transition: transform 0.3s var(--ease-out-quad),
-    box-shadow 0.3s var(--ease-out-quad);
+  margin-bottom: 8px;
+  transition: all 0.3s var(--ease-out-quad);
 
   & > div {
     height: 100%;
   }
 
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: all 0.3s var(--ease-out-quad);
+    box-shadow: 0 30px 40px -20px rgba(0, 0, 0, 0.12),
+      0 30px 30px -30px rgba(0, 0, 0, 0.32);
+  }
   ${mediaqueries.tablet`
-    height: 200px;
-    margin-bottom: 35px;
+    height: 480px;
   `}
 
   ${mediaqueries.phablet`
@@ -187,64 +207,43 @@ const ImageContainer = styled.div<{ narrow: boolean; gridLayout: string }>`
   `}
 `;
 
-const Title = styled(Headings.h2)`
-  font-size: 21px;
-  font-family: ${p => p.theme.fonts.title};
-  margin-bottom: ${p =>
-    p.hasOverflow && p.gridLayout === 'tiles' ? '10px' : '10px'};
-  transition: color 0.3s ease-in-out;
-  ${limitToTwoLines};
-
-  ${mediaqueries.desktop`
-    margin-bottom: 15px;
-  `}
-
-  ${mediaqueries.tablet`
-    font-size: 24px;  
-  `}
-
-  ${mediaqueries.phablet`
-    font-size: 22px;  
-    padding: 30px 20px 0;
-    margin-bottom: 10px;
-    -webkit-line-clamp: 3;
-  `}
+const RowTitle = styled.div`
+  position: relative;
+  display: grid;
+  grid-template-columns: 70% 30%;
+  align-items: start;
+  justify-content: space-between;  
 `;
 
-const Excerpt = styled.p<{
-  hasOverflow: boolean;
-  narrow: boolean;
-  gridLayout: string;
-}>`
-  ${limitToTwoLines};
-  font-size: 16px;
-  margin-bottom: 10px;
+const Title = styled.h2`
+  font-size: 18px;
+  line-height: 24px;
+  font-family: ${p => p.theme.fonts.title};
+  letter-spacing: 0;
+  transition: color 0.3s ease-in-out;
+  color: ${p => p.theme.colors.primary};
+  ${limitToOneLines};
+
+  ${mediaqueries.tablet`
+    
+  `}
+
+`;
+
+const Excerpt = styled.p`
+  ${limitToOneLines};
+  font-size: 14px;
+  line-height: 24px;
   color: ${p => p.theme.colors.secondary};
-  font-family: ${p => p.theme.fonts.body};
-  display: ${p => (p.hasOverflow && p.gridLayout === 'tiles' ? 'box' : 'box')};
-  max-width: ${p => (p.narrow ? '515px' : '515px')};
-
-  ${mediaqueries.desktop`
-    display: -webkit-box;
-  `}
-
-  ${mediaqueries.phablet`
-    margin-bottom; 15px;
-  `}
-
-  ${mediaqueries.phablet`
-    max-width: 100%;
-    padding:  0 20px;
-    margin-bottom: 20px;
-    -webkit-line-clamp: 3;
-  `}
 `;
 
 const MetaData = styled.div`
   font-weight: 400;
   font-size: 14px;
-  color: ${p => p.theme.colors.secondary};
-  opacity: 0.6;
+  line-height: 24px;
+  color: ${p => p.theme.colors.grey};
+  text-align: right;
+  ${limitToOneLines};
 
   ${mediaqueries.phablet`
     max-width: 100%;
@@ -265,14 +264,15 @@ const ArticleLink = styled(Link)`
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 
   &:hover ${ImageContainer}, &:focus ${ImageContainer} {
+    &::after {
+      opacity: 1;
+    }
     transform: translateY(-1px);
-    box-shadow: 0 30px 40px -20px rgba(41, 65, 69, 0.32),
-      0 30px 30px -30px rgba(41, 65, 69, 0.52);
   }
 
   &:hover h2,
   &:focus h2 {
-    color: ${p => p.theme.colors.accent};
+    // color: ${p => p.theme.colors.accent};
   }
 
   &[data-a11y='true']:focus::after {

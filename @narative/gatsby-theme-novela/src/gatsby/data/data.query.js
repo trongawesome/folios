@@ -26,10 +26,12 @@ module.exports.local = {
           title
           author
           categories
-          date(formatString: "MMMM Do, YYYY")
+          date(formatString: "MMM DD, YYYY")
           dateForSEO: date
           timeToRead
           excerpt
+          siteLink
+          font
           subscription
           body
           hero {

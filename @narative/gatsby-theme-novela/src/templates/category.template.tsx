@@ -10,6 +10,7 @@ import NavCategory from '@components/Navigation/Navigation.Categories';
 
 import ArticlesList from "../sections/articles/Articles.List";
 import ArticlesHero from "../sections/articles/Articles.Hero";
+import CategoryHero from "../sections/category/Category.Hero";
 
 const siteQuery = graphql`
   {
@@ -35,9 +36,8 @@ function CategoryPage({ location, pageContext }) {
     return (
       <Layout>
         <SEO pathname={location.pathname} title={category + " | " + title} />
-        <ArticlesHero authors={authors} />
+        <CategoryHero category={category} />
         <Section narrow>
-          <NavCategory category={category} />
           <ArticlesList articles={articles} />
           <ArticlesPaginator show={pageContext.pageCount > 1}>
             <Paginator {...pageContext} />
