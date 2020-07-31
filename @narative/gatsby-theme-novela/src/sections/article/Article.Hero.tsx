@@ -73,24 +73,21 @@ const Hero = styled.div`
 const Header = styled.header`
   position: relative;
   z-index: 10;
-  margin:160px auto 56px;
+  margin: 160px auto 56px;
   max-width: 749px;
   text-align: center;
 
   ${mediaqueries.desktop`
-    padding-left: 53px;
-    max-width: calc(507px + 53px);
-    margin: 100px auto 70px;
+    margin: 140px auto 70px;
   `}
 
   ${mediaqueries.tablet`
-    padding-left: 0;
     margin: 100px auto 70px;
     max-width: 480px;
   `}
 
   ${mediaqueries.phablet`
-    margin: 64px auto 64px;
+    margin: 128px auto 64px;
     padding: 0 40px;
   `}
 

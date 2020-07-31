@@ -71,6 +71,10 @@ const Container = styled.div`
   font-size: 18px;
   padding: 80px 0;
   margin-top: 160px;
+
+  ${mediaqueries.tablet`
+    margin-top: 0;
+  `}
 `;
 
 const FooterContainer = styled.div`
