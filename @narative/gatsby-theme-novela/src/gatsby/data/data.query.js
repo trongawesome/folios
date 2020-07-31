@@ -36,7 +36,7 @@ module.exports.local = {
           body
           hero {
             full: childImageSharp {
-              fluid(maxWidth: 944, quality: 100) {
+              fluid(maxWidth: 1200, quality: 100) {
                 ${GatsbyFluid_withWebp}
               }
             }
@@ -46,7 +46,7 @@ module.exports.local = {
               }
             }
             narrow: childImageSharp {
-              fluid(maxWidth: 457, quality: 100) {
+              fluid(maxWidth: 400, quality: 100) {
                 ${GatsbyFluid_withWebp}
               }
             }
@@ -82,11 +82,6 @@ module.exports.local = {
           hero {
             full: childImageSharp {
               fluid(maxWidth: 1000, quality: 100) {
-                ${GatsbyFluid_withWebp}
-              }
-            }
-            regular: childImageSharp {
-              fluid(maxWidth: 653, quality: 100) {
                 ${GatsbyFluid_withWebp}
               }
             }

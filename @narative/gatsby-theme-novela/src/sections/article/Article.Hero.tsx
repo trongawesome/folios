@@ -145,7 +145,7 @@ const HeroImage = styled.div`
   z-index: 1;
   width: 100%;
   overflow: hidden;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.12);
+  // box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.12);
 `;
 
 const LinkButton = styled.a`

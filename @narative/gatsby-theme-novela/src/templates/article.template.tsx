@@ -85,15 +85,7 @@ const Article: Template = ({ pageContext, location }) => {
         <MDXRenderer content={article.body}>
         </MDXRenderer>
       </ArticleBody>
-      <AuthorsList authors={authors} />
       {mailchimp && article.subscription && <Subscription />}
-      {next.length > 0 && (
-        <NextArticle narrow>
-          <FooterNext>More from {name}</FooterNext>
-          <ArticlesNext articles={next} />
-          <FooterSpacer />
-        </NextArticle>
-      )}
     </Layout>
   );
 };

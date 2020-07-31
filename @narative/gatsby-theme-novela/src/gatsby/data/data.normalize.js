@@ -10,7 +10,6 @@
 function normalizeHero(article) {
   let hero = {
     full: {},
-    regular: {},
     narrow: {},
     seo: {},
   };
@@ -18,7 +17,6 @@ function normalizeHero(article) {
   if (article.hero) {
     hero = {
       full: article.hero.full.fluid,
-      regular: article.hero.regular.fluid,
       narrow: article.hero.narrow.fluid,
       seo: article.hero.seo.fixed,
     };
