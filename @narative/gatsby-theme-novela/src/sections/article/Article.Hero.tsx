@@ -70,14 +70,6 @@ const Hero = styled.div`
   `}
 `;
 
-const ArticleMeta = styled.div<{ hasCoAUthors: boolean }>`
-  margin-left: ${p => (p.hasCoAUthors ? '10px' : '0')};
-
-  ${mediaqueries.phablet`
-    margin-left: 0;
-  `}
-`;
-
 const Header = styled.header`
   position: relative;
   z-index: 10;

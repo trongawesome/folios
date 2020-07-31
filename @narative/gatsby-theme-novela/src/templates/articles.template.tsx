@@ -5,7 +5,6 @@ import Section from "@components/Section";
 import SEO from "@components/SEO";
 import Layout from "@components/Layout";
 import Paginator from "@components/Navigation/Navigation.Paginator";
-import NavCategory from '@components/Navigation/Navigation.Categories';
 
 import ArticlesHero from "../sections/articles/Articles.Hero";
 import ArticlesList from "../sections/articles/Articles.List";

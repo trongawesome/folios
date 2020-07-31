@@ -5,7 +5,6 @@ import { graphql, useStaticQuery } from "gatsby";
 import Section from "@components/Section";
 import SocialLinks from "@components/SocialLinks";
 import mediaqueries from "@styles/media";
-import ArticlesGradient from "@components/ArticlesGradient";
 
 const siteQuery = graphql`
   {
