@@ -48,12 +48,7 @@ const NavContainer = styled.div`
 
 const NavControls = styled.div`
   position: relative;
-  display: flex;
   align-items: center;
-
-  ${mediaqueries.phablet`
-    right: -5px;
-  `}
 `;
 
 const NavLink = styled(Link)`
@@ -68,11 +63,17 @@ const NavLink = styled(Link)`
   padding: 4px 16px;
   border-radius: 4px;
   margin-right: 16px;
+  margin-bottom: 16px;
 
   &:hover {
     color: ${p => p.theme.colors.primary};
     background-color: ${p => p.theme.colors.grey};
   }
+
+  ${mediaqueries.tablet`
+    margin-right: 8px;
+    margin-bottom: 8px;
+  `}
 `;
 
 const Hero = styled.div`

@@ -1,7 +1,7 @@
 require("dotenv").config();
 
 const siteMetadata = {
-  title: `Portfolio Inspration`,
+  title: `Portfolio Insprations`,
   name: `Folios`,
   siteUrl: `https://trongnguyen.co`,
   description: `Explore colors, ideas & inspiration from topics our community loves.`,
