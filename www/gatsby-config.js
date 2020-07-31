@@ -7,7 +7,7 @@ const siteMetadata = {
   description: `Explore colors, ideas & inspiration from topics our community loves.`,
   hero: {
     heading: `Hi, I’m Trong, <br/>product designer.`,
-    writingHeading: `Portfolio Inspiration`,
+    writingHeading: `Portfolio Inspirations`,
     readingHeading: `Books for product designers`,
     littleGalleryHeading: `Little big grid`,
     littleGallerySubtitle: `Little works and experiments but my big pride. I pour them all in this grid.`,
