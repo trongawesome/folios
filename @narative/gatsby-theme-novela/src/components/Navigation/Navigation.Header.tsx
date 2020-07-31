@@ -156,7 +156,7 @@ const NavLink = styled(Link)`
   }
   
   &.active {
-    color: ${p => p.theme.colors.accent};
+    color: ${p => p.theme.colors.primary};
   }
 `;
 
