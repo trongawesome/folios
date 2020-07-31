@@ -3,9 +3,9 @@ import mediaqueries from "@styles/media";
 
 
 const LinkExternal = styled.a`
-  font-weight: ${p => p.theme.fontsWeight.bold};
-  font-family: ${p => p.theme.fonts.title};
-  font-size: 14px;
+  font-family: ${p => p.theme.fonts.body};
+  font-size: 18px;
+  line-height: 32px;
   color: ${p => p.theme.colors.secondary};
   transition: color 0.25s var(--ease-in-out-quad);
   display: inline-block;

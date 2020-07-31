@@ -5,7 +5,8 @@ import { graphql, useStaticQuery } from "gatsby";
 import Section from "@components/Section";
 import SocialLinks from "@components/SocialLinks";
 import mediaqueries from "@styles/media";
-import ArticlesGradient from "@components/ArticlesGradient";
+import Subscription from "@components/Subscription";
+import LinkExternal from "@components/LinkExternal";
 
 const siteQuery = graphql`
   {
@@ -47,30 +48,37 @@ const Footer: React.FC<{}> = () => {
   })();
 
   return (
-    <>
-      <FooterGradient />
+    <Container>
       <Section narrow>
-        <HoritzontalRule />
+        <Subscription />
         <FooterContainer>
           <FooterText>
-            © {copyrightDate} {name}
+            © {copyrightDate} Trong Nguyen. Made in Singapore. Update daily.
           </FooterText>
-          <div>
-            <SocialLinks links={social} />
-          </div>
+          <FooterLink href="https://twitter.com/trongawesome" target="_blank"> Follow on Twitter </FooterLink>
+          <FooterLink href="/rss.xml" target="_blank"> Portfolio of the Day RSS </FooterLink>
         </FooterContainer>
       </Section>
-    </>
+    </Container>
   );
 };
 
 export default Footer;
 
+const Container = styled.div`
+  background-color: ${p => p.theme.colors.black};
+  text-align: center;
+  font-size: 18px;
+  padding: 80px 0;
+  margin-top: 160px;
+
+  ${mediaqueries.tablet`
+    margin-top: 0;
+  `}
+`;
+
 const FooterContainer = styled.div`
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   padding-bottom: 40px;
   color: ${p => p.theme.colors.secondary};
 
@@ -85,21 +93,10 @@ const FooterContainer = styled.div`
   `}
 `;
 
-const HoritzontalRule = styled.div`
-  position: relative;
-  margin: 128px auto 32px;
-  border-bottom: 1px solid ${p => p.theme.colors.horizontalRule};
-
-  ${mediaqueries.tablet`
-    margin: 92px auto 32px;
-  `}
-
-  ${mediaqueries.phablet`
-    // display: none;
-  `}
-`;
-
 const FooterText = styled.div`
+  color: ${p => p.theme.colors.white};
+  font-weight: ${p => p.theme.fontsWeight.bold};
+  margin-bottom: 8px;
   ${mediaqueries.tablet`
     margin-bottom: 80px;
   `}
@@ -110,14 +107,17 @@ const FooterText = styled.div`
   `}
 `;
 
-const FooterGradient = styled.div`
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 590px;
-  z-index: 0;
-  pointer-events: none;
-  background: ${p => p.theme.colors.gradient};
-  transition: ${p => p.theme.colorModeTransition};
+const FooterLink = styled.a`
+  font-family: ${p => p.theme.fonts.body};
+  font-size: 18px;
+  line-height: 32px;
+  margin-bottom: 4px;
+  color: ${p => p.theme.colors.grey};
+  transition: color 0.25s var(--ease-in-out-quad);
+  display: block;
+  position: relative;
+
+  &:hover {
+    color: ${p => p.theme.colors.white};
+  }
 `;

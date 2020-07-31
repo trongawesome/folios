@@ -59,7 +59,7 @@ const h3 = styled.h3`
 
 const h4 = styled.h4`
   font-size: 32px;
-  line-height: 48px;
+  line-height: 40px;
   ${commonStyles};
 
   ${mediaqueries.phablet`

@@ -48,7 +48,7 @@ const GridItem: React.FC<GridItemProps> = ({ article, narrow }) => {
   if (!article) return null;
 
   const hasOverflow = narrow && article.title.length > 35;
-  const imageSource = narrow ? article.hero.narrow : article.hero.regular;
+  const imageSource = article.hero.narrow;
 
   return (
     <ArticleLink
