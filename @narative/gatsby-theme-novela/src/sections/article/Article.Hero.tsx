@@ -41,7 +41,7 @@ const ArticleHero: React.FC<ArticleHeroProps> = ({ article, authors }) => {
       <Link href={article.siteLink + "?ref=folios"} target="_blank">
         <HeroImage id="ArticleImage__Hero">
           {hasHeroImage ? (
-            <Image src={article.hero.full} />
+            <Image src={article.hero.full} alt={article.title}/>
           ) : (
             <ImagePlaceholder />
           )}

@@ -79,7 +79,7 @@ const ListItem: React.FC<ArticlesListItemProps> = ({ article, narrow }) => {
     <ArticleLink to={article.slug} data-a11y="false">
       <Item>
         <ImageContainer narrow={narrow} gridLayout={gridLayout}>
-          {hasHeroImage ? <Image src={imageSource} /> : <ImagePlaceholder />}
+          {hasHeroImage ? <Image src={imageSource}  alt={article.title} imgStyle={{ objectFit: 'cover', objectPosition: 'center top' }} /> : <ImagePlaceholder />}
         </ImageContainer>
         <div>
           <RowTitle>
