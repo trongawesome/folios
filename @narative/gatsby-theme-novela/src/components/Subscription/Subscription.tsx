@@ -39,38 +39,36 @@ const Subscription: React.FC<{}> = () => {
   }
 
   return (
-    <Section narrow>
-      <SubscriptionContainer>
-        <Content>
-          <Heading>
-            Sign up to my email list for updates
-          </Heading>
-          <Text>
-            Be the first to receive my latest updates. No spam or share your
-            email with any third parties.
-          </Text>
-          <Form onSubmit={handleSubmit} hasError={error}>
-            <Input
-              placeholder="your@email.com"
-              name="email"
-              type="email"
-              value={email}
-              onChange={handleEmailChange}
-              hasError={error}
-            />
-            <Button
-              type="submit"
-              hasError={error}
-              subscribed={subscribed}
-              disabled={subscribed}
-            >
-              {subscribed ? <CheckMarkIcon /> : "Subscribe"}
-            </Button>
-            {error && <Error dangerouslySetInnerHTML={{ __html: error }} />}
-          </Form>
-        </Content>
-      </SubscriptionContainer>
-    </Section>
+    <SubscriptionContainer>
+      <Content>
+        <Heading>
+          Curated design portfolio inspirations and case studies. Delivered every Monday.
+        </Heading>
+        {/* <Text>
+          Be the first to receive my latest updates. No spam or share your
+          email with any third parties.
+        </Text> */}
+        <Form onSubmit={handleSubmit} hasError={error}>
+          <Input
+            placeholder="Enter your email address"
+            name="email"
+            type="email"
+            value={email}
+            onChange={handleEmailChange}
+            hasError={error}
+          />
+          <Button
+            type="submit"
+            hasError={error}
+            subscribed={subscribed}
+            disabled={subscribed}
+          >
+            {subscribed ? <CheckMarkIcon /> : "Just do it!"}
+          </Button>
+          {error && <Error dangerouslySetInnerHTML={{ __html: error }} />}
+        </Form>
+      </Content>
+    </SubscriptionContainer>
   );
 };
 
@@ -81,9 +79,6 @@ const SubscriptionContainer = styled.div`
   display: flex;
   flex-direction: column;
   z-index: 1;
-  border-top: solid 1px ${p => p.theme.colors.horizontalRule};
-
-  padding: 64px 0 55px;
   margin: 10px auto 100px;
 
   width: 100%;
@@ -101,22 +96,13 @@ const SubscriptionContainer = styled.div`
 const Content = styled.div`
   margin: 0 auto;
   width: 100%;
-
-  // ${mediaqueries.tablet`
-  //   h3 {
-  //     padding: 0 50px;
-  //   }
-  // `}
-
-  // ${mediaqueries.phone`
-  //   h3 {
-  //     padding: 0 24px;
-  //   }
-  // `}
 `;
 
-const Heading = styled(Headings.h3)`
+const Heading = styled(Headings.h4)`
   margin-bottom: 8px;
+  text-align: center;
+  margin-bottom: 40px;
+  color: ${p => p.theme.colors.white};
 `;
 
 const Text = styled.p`
@@ -131,61 +117,66 @@ const Text = styled.p`
 
 const Form = styled.form<{ hasError: string }>`
   position: relative;
+  display: grid;
+  width: 100%;
+  grid-template-columns: 60% auto;
+  column-gap: 24px;
+  row-gap: 24px;
+  font-size: 18px;
+  line-height: 32px;
+
+  ${mediaqueries.tablet`
+    grid-template-columns: 1fr;
+  `}
 `;
 
 const Input = styled.input<{ hasError: string }>`
   position: relative;
-  background: ${p =>
-    p.hasError
-      ? p.theme.colors.errorBackground
-      : p.theme.colors.inputBackground};
-  border: none;
-  padding: 12px 20px 12px 20px;
-  width: 471px;
-  color: ${p => p.theme.colors.primary};
+  padding: 8px 0;
+  color: ${p => p.theme.colors.white};
+  background-color: transparent;
+  border-style: none none solid;
+  border-bottom-width: 2px;
+  border-bottom-color: ${p => (p.hasError ? p.theme.colors.error : p.theme.colors.grey)};
+  transition: border-color 0.2s var(--ease-in-out-quad);
 
+  &:focus, &:hover {
+    border-bottom-color: ${p => p.theme.colors.greyLight};
+  }
   ::placeholder {
-    color: ${p => p.theme.colors.track};
+    color: ${p => p.theme.colors.grey};
     opacity: 1;
   }
 
   :-ms-input-placeholder {
-    color: ${p => p.theme.colors.track};
+    color: ${p => p.theme.colors.grey};
   }
 
   ::-ms-input-placeholder {
-    color: ${p => p.theme.colors.track};
+    color: ${p => p.theme.colors.grey};
   }
 
   ${mediaqueries.tablet`
     width: 100%;
-    margin-bottom: 24px;
   `}
 `;
 
 const Button = styled.button<{ hasError: string; subscribed: boolean }>`
-  position: absolute;
-  left: 306px;
-  top: 4px;
-  display: flex;
   align-items: center;
   justify-content: center;
-  width: 161px;
-  height: 38px;
+  padding: 8px 0;
+  border-radius: 28px;
   border: 1px solid
-    ${p => (p.hasError ? p.theme.colors.error : p.theme.colors.accent)};
-  color: ${p => (p.hasError ? p.theme.colors.error : p.theme.colors.accent)};
-  background: ${p => (p.subscribed ? p.theme.colors.accent : "transparent")};
+    ${p => p.theme.colors.accent};
+  color: ${p => p.theme.colors.white};
+  background: ${p => (p.subscribed ? p.theme.colors.accent : p.theme.colors.accent)};
   font-family: ${p => p.theme.fonts.title};
   font-weight: ${p => p.theme.fontsWeight.bold};
   letter-spacing: 0.42px;
-  transition: border-color 0.2s var(--ease-in-out-quad),
-    background 0.2s var(--ease-in-out-quad), color 0.2s var(--ease-in-out-quad);
+  transition: opacity 0.2s var(--ease-in-out-quad);
 
   &:hover {
-    background: ${p =>
-      p.hasError ? p.theme.colors.error : p.theme.colors.accent};
-    color: ${p => p.theme.colors.background};
+    opacity: .8;
   }
 
   &[disabled] {
@@ -203,20 +194,14 @@ const Button = styled.button<{ hasError: string; subscribed: boolean }>`
     top: 0;
     left: 0;
     border: none;
-    border-radius: 0;
     border: 1px solid ${p.theme.colors.accent};
-
-    &:hover {
-      color: initial;
-      background: initial;
-    }
   `}
 `;
 
 const Error = styled.div`
   position: absolute;
   left: 0;
-  bottom: -20px;
+  top: 48px;
   color: ${p => p.theme.colors.error};
   font-size: 12px;
 
@@ -227,7 +212,7 @@ const Error = styled.div`
 
   ${mediaqueries.tablet`
     left: 0;
-    top: 50px;
+    top: 40px;
   `}
 `;
 

@@ -83,7 +83,7 @@ const Article: Template = ({ pageContext, location }) => {
         <MDXRenderer content={article.body}>
         </MDXRenderer>
       </ArticleBody>
-      {mailchimp && article.subscription && <Subscription />}
+      {/* {mailchimp && article.subscription && <Subscription />} */}
     </Layout>
   );
 };
