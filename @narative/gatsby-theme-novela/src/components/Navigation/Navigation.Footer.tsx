@@ -92,7 +92,7 @@ const FooterContainer = styled.div`
 const FooterText = styled.div`
   color: ${p => p.theme.colors.white};
   font-weight: ${p => p.theme.fontsWeight.bold};
-  margin-bottom: 4px;
+  margin-bottom: 8px;
   ${mediaqueries.tablet`
     margin-bottom: 80px;
   `}
@@ -104,7 +104,7 @@ const FooterText = styled.div`
 `;
 
 const FooterLink = styled.a`
-  font-family: ${p => p.theme.fonts.text};
+  font-family: ${p => p.theme.fonts.body};
   font-size: 18px;
   line-height: 32px;
   margin-bottom: 4px;

@@ -33,9 +33,9 @@ const ArticleHero: React.FC<ArticleHeroProps> = ({ article, authors }) => {
           ))} */}
         </DesignerType>
         <HeroHeading>{article.title}</HeroHeading>
-        <HeroSubtitle>Portfolio of the Day ・ {article.date}</HeroSubtitle>
-        <HeroSubtitle>Fonts: {article.font}</HeroSubtitle>
         <Excerpt>{article.excerpt}</Excerpt>
+        <HeroSubtitle>Portfolio of the Day ・ {article.date}</HeroSubtitle>
+        {article.font && <HeroSubtitle>Fonts: {article.font}</HeroSubtitle>}
         <LinkButton href={article.siteLink + "?ref=folios"} target="_blank">Visit site → </LinkButton>
       </Header>
       <Link href={article.siteLink + "?ref=folios"} target="_blank">
@@ -100,10 +100,10 @@ const Header = styled.header`
 `;
 
 const HeroHeading = styled(Headings.h1)`
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 
   ${mediaqueries.tablet`
-    margin-bottom: 20px;
+    margin-bottom: 16px;
   `}
 `;
 
@@ -116,22 +116,14 @@ const DesignerType = styled.p`
 
 `;
 
-const Excerpt = styled(Headings.h3)`
+const Excerpt = styled.h3`
   font-size: 18px;
+  line-height: 32px;
+  letter-spacing: 0;
   font-family: ${p => p.theme.fonts.body};
   color: ${p => p.theme.colors.secondary};
   margin-bottom: 16px;
-  margin-top: 16px;
   font-weight: normal;
-  line-height: 32px;
-  letter-spacing: 0;
-
-  ${mediaqueries.tablet`
-  `}
-
-  ${mediaqueries.phablet`
-    font-size: 22px;
-  `}
 `;
 
 const HeroSubtitle = styled(Headings.h5)`
@@ -145,17 +137,18 @@ const HeroImage = styled.div`
   z-index: 1;
   width: 100%;
   overflow: hidden;
-  // box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.12);
+  box-shadow: ${p => p.theme.colors.softShadow};
 `;
 
 const LinkButton = styled.a`
   position: relative;
   font-size: 16px;
   line-height: 32px;
+  margin-top: 24px;
   color: ${p => p.theme.colors.primary};
   transition: color 0.25s var(--ease-in-out-quad);
   display: inline-block;
-  margin: 0 auto;
+  // margin: 16px auto;
   box-shadow: inset 0px 0px 0px 1px ${p => p.theme.colors.secondary};
   padding: 4px 16px;
   transition: all 0.3s var(--ease-out-quad);

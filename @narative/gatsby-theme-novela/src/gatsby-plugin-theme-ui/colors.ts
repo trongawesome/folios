@@ -27,7 +27,7 @@ export default {
   horizontalRule: "rgba(61, 96, 102, 0.15)",
   inputBackground: "rgba(0, 0, 0, 0.05)",
   textTitle: "#111111",
-  neumorphismShadown: "10px 10px 22px rgba(156, 192, 197, 0.28), -10px -10px 24px rgba(240, 249, 250, 0.65)",
+  softShadow: "0 20px 36px 0 rgba(233, 233, 233, 0.5)",
   modes: {
     dark: {
       grey: "#73737D",
@@ -50,7 +50,7 @@ export default {
       horizontalRule: "rgba(255, 255, 255, 0.15)",
       inputBackground: "rgba(255, 255, 255, 0.07)",
       textTitle: "#fff",
-      neumorphismShadown: "none",
+      softShadow: "none",
     },
   },
 };

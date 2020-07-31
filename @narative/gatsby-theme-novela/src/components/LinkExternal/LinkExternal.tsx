@@ -3,7 +3,7 @@ import mediaqueries from "@styles/media";
 
 
 const LinkExternal = styled.a`
-  font-family: ${p => p.theme.fonts.text};
+  font-family: ${p => p.theme.fonts.body};
   font-size: 18px;
   line-height: 32px;
   color: ${p => p.theme.colors.secondary};
