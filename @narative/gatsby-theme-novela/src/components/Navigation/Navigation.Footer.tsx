@@ -48,7 +48,6 @@ const Footer: React.FC<{}> = () => {
 
   return (
     <>
-      <FooterGradient />
       <Section narrow>
         <HoritzontalRule />
         <FooterContainer>
