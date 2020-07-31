@@ -12,9 +12,7 @@ import mediaqueries from "@styles/media";
 import { debounce } from "@utils";
 
 import ArticleHero from "../sections/article/Article.Hero";
-import ArticlesNext from "../sections/article/Article.Next";
 import ArticleSEO from "../sections/article/Article.SEO";
-import AuthorsList from '../sections/article/Authors.List';
 
 import { Template } from "@types";
 
