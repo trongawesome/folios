@@ -15,7 +15,6 @@ const authorQuery = graphql`
         node {
           siteMetadata {
             hero {
-              writingHeading
               maxWidth
             }
           }
