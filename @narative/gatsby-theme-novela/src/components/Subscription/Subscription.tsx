@@ -139,6 +139,7 @@ const Input = styled.input<{ hasError: string }>`
   border-bottom-width: 2px;
   border-bottom-color: ${p => (p.hasError ? p.theme.colors.error : p.theme.colors.grey)};
   transition: border-color 0.2s var(--ease-in-out-quad);
+  -webkit-appearance: none;
 
   &:focus, &:hover {
     border-bottom-color: ${p => p.theme.colors.greyLight};

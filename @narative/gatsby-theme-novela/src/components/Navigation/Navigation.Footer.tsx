@@ -63,6 +63,9 @@ const Footer: React.FC<{}> = () => {
           <FooterSpace>
             <LinkExternal href="/rss.xml" target="_blank"> Portfolio of the Day RSS </LinkExternal>
           </FooterSpace>
+          <FooterSpace>
+            <LinkExternal href="https://twitter.com/trongawesome" target="_blank"> Submit your site </LinkExternal>
+          </FooterSpace>
           <FooterNote>All screenshots © of their respective owners.</FooterNote>
         </FooterContainer>
       </Section>
@@ -103,6 +106,7 @@ const FooterContainer = styled.div`
 
 const FooterText = styled.div`
   color: ${p => p.theme.colors.white};
+  font-family: ${p => p.theme.fonts.title};
   font-weight: ${p => p.theme.fontsWeight.bold};
   margin-bottom: 8px;
   ${mediaqueries.tablet`

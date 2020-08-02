@@ -3,17 +3,13 @@ import mediaqueries from "@styles/media";
 
 
 const LinkExternal = styled.a`
-  font-family: ${p => p.theme.fonts.body};
+  font-family: inherit;
   font-size: inherit;
   line-height: inherit;
   color: inherit;
   transition: color 0.25s var(--ease-in-out-quad);
   display: inline-block;
   position: relative;
-
-  ${mediaqueries.phone`
-    margin-left: 24px;
-  `}
 
   &::after {
     background: none repeat scroll 0 0 transparent;

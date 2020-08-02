@@ -21,17 +21,17 @@ const ArticleHero: React.FC<ArticleHeroProps> = ({ article, authors }) => {
   return (
     <Hero>
       <Header>
-        <DesignerType>
+        {/* <DesignerType>
           {article.categories.join(', ')}
-          {/* {article.categories.map((category, index) => (
+          {article.categories.map((category, index) => (
             <span>
               <a href="">{category}</a>
               {index + 1 <  article.categories.length ? (
                 <span>, </span>
               ) : ('')}
             </span>
-          ))} */}
-        </DesignerType>
+          ))} 
+        </DesignerType> */}
         <HeroHeading>{article.title}</HeroHeading>
         <Excerpt>{article.excerpt}</Excerpt>
         <HeroSubtitle>Portfolio of the Day ・ {article.date}</HeroSubtitle>
@@ -126,6 +126,11 @@ const Excerpt = styled.h3`
 const HeroSubtitle = styled(Headings.h5)`
   text-align: center;
   color: ${p => p.theme.colors.secondary};
+
+  ${mediaqueries.phablet`
+    font-size: 18px;
+    line-height: 28px;
+  `}
 
 `;
 
