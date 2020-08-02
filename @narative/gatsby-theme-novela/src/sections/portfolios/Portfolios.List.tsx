@@ -67,9 +67,8 @@ export default PortfolioList;
 const ListItem: React.FC<ArticlesListItemProps> = ({ article, narrow }) => {
   if (!article) return null;
 
-  const { gridLayout } = useContext(GridLayoutContext);
   const hasOverflow = narrow && article.title.length > 35;
-  const imageSource = article.thumbnail.regular;
+  const imageSource = article.hero.narrow;
   const hasHeroImage =
     imageSource &&
     Object.keys(imageSource).length !== 0 &&
@@ -78,24 +77,22 @@ const ListItem: React.FC<ArticlesListItemProps> = ({ article, narrow }) => {
   return (
     <ArticleLink to={article.slug} data-a11y="false">
       <Item>
-        <ImageContainer narrow={narrow} gridLayout={gridLayout}>
-          {hasHeroImage ? <Image src={imageSource} /> : <ImagePlaceholder />}
-        </ImageContainer>
         <TextContainer>
-          <Title dark hasOverflow={hasOverflow} gridLayout={gridLayout}>
+          <Title dark hasOverflow={hasOverflow}>
             {article.title}
           </Title>
-          <Excerpt
-            narrow={narrow}
-            hasOverflow={hasOverflow}
-            gridLayout={gridLayout}
-          >
+          <Excerpt>
             {article.excerpt}
           </Excerpt>
-          <SeeMore>Read case study →</SeeMore>
+          <MetaData>
+            {article.date}
+          </MetaData>
         </TextContainer>
-        <ContentContainer>
-        </ContentContainer>
+        {hasHeroImage && 
+          <ImageContainer >
+            <Image src={imageSource} />
+          </ImageContainer>
+        }
       </Item>
     </ArticleLink>
   );
@@ -131,11 +128,10 @@ const ArticlesListContainer = styled.div<{ alwaysShowAllDetails?: boolean }>`
 `;
 
 const List = styled.div`
-  position: relative;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
+  grid-column-gap: 32px;
   grid-template-rows: 2;
-  column-gap: 30px;
 
   &:not(:last-child) {
     margin-bottom: 75px;
@@ -152,24 +148,41 @@ const List = styled.div`
 
 const Item = styled.div`
   position: relative;
+  margin-bottom: 140px;
+  padding: 0 128px;
+
+  ${mediaqueries.desktop`
+    padding: 0;
+  `}
+  ${mediaqueries.tablet`
+    margin-bottom: 96px;
+  `}
+
+  ${mediaqueries.phablet`
+    // margin-bottom: 40px;
+    // padding: 0;
+  `}
+
 `;
 
-const ImageContainer = styled.div<{ narrow: boolean; gridLayout: string }>`
+const ImageContainer = styled.div`
   position: relative;
-  height: ${p => (p.gridLayout === 'tiles' ? '680px' : '220px')};
+  height: auto;
+  margin-bottom: 24px;
   transition: transform 0.3s var(--ease-out-quad),
     box-shadow 0.3s var(--ease-out-quad);
+
+  padding: 16px;
+  background-color: white;
+
 
   & > div {
     height: 100%;
   }
 
-  ${mediaqueries.desktop`
-    height: 500px;
-  `}
-
   ${mediaqueries.tablet`
-    height: 480px;
+    margin-bottom: 35px;
+    padding: 10px;
   `}
 
   ${mediaqueries.phablet`
@@ -180,59 +193,46 @@ const ImageContainer = styled.div<{ narrow: boolean; gridLayout: string }>`
 `;
 
 const TextContainer = styled.div`
-  position: absolute;
-  left: 0;
-  top: 0;
-  padding: 48px 40px;
-
-  ${mediaqueries.phablet`
-    padding: 40px 32px;
-  `}
-`;
-
-const ContentContainer = styled.div`
-  position: relative;
+  margin-bottom: 24px;
 `;
 
 const Title = styled(Headings.h2)`
-  font-size: 28px;
+  font-size: 56px;
+  line-height: 1.25;
   font-family: ${p => p.theme.fonts.title};
-  color: ${p => p.theme.colors.textTitle};
-  opacity: .8;
-  margin-bottom: ${p =>
-    p.hasOverflow && p.gridLayout === 'tiles' ? '35px' : '16px'};
+  color: ${p => p.theme.colors.primary};
+  margin-bottom: 16px;
+  text-align: center;
   transition: color 0.3s ease-in-out;
   ${limitToTwoLines};
 
   ${mediaqueries.desktop`
-    margin-bottom: 15px;
+    font-size: 48px;  
   `}
 
   ${mediaqueries.tablet`
-    font-size: 24px;  
+    font-size: 40px;  
+    margin-bottom: 12px;
   `}
 
   ${mediaqueries.phablet`
-    font-size: 22px;  
-    margin-bottom: 10px;
+    font-size: 38px;  
+    line-height: 1.2;
+    padding-top: 20px;
+    margin-bottom: 12px;
     -webkit-line-clamp: 3;
   `}
 `;
 
-const Excerpt = styled.p<{
-  hasOverflow: boolean;
-  narrow: boolean;
-  gridLayout: string;
-}>`
+const Excerpt = styled.p`
   ${limitToTwoLines};
-  font-size: 16px;
-  margin-bottom: 10px;
-  color: ${p => p.theme.colors.textTitle};
-  opacity: .7;
+  font-size: 24px;
+  margin-bottom: 16px;
+  color: ${p => p.theme.colors.secondary};
   font-family: ${p => p.theme.fonts.body};
-  display: ${p => (p.hasOverflow && p.gridLayout === 'tiles' ? 'none' : 'box')};
-  max-width: ${p => (p.narrow ? '415px' : '515px')};
-  line-height: 22px;
+  font-weight: ${p => p.theme.fontsWeight.light};
+  display: box;
+  text-align: center;
 
   ${mediaqueries.desktop`
     display: -webkit-box;
@@ -244,29 +244,25 @@ const Excerpt = styled.p<{
 
   ${mediaqueries.phablet`
     max-width: 100%;
-    margin-bottom: 20px;
-    font-size: 16px;
+    padding:  0 20px;
+    font-size: 20px;
+    margin-bottom: 12px;
     -webkit-line-clamp: 3;
   `}
 `;
 
-const SeeMore = styled.div`
-  font-size: 14px;
-  color: ${p => p.theme.colors.textTitle};
-  font-family: ${p => p.theme.fonts.title};
-  margin-top: 8px;
-  opacity: .8;
-`;
-
 const MetaData = styled.div`
-  font-weight: 400;
-  font-size: 14px;
-  color: ${p => p.theme.colors.grey};
-  opacity: 0.33;
+  font-weight: ${p => p.theme.fontsWeight.regular};
+  font-size: 12px;
+  color: ${p => p.theme.colors.secondary};
+  font-family: ${p => p.theme.fonts.body};
+  opacity: 0.6;
+  text-align: center;
+  text-transform: uppercase;
 
   ${mediaqueries.phablet`
     max-width: 100%;
-    padding:  0 20px 30px;
+    padding-top: 0;
   `}
 `;
 
@@ -274,37 +270,22 @@ const ArticleLink = styled(Link)`
   position: relative;
   display: block;
   width: 100%;
+  height: 100%;
   top: 0;
   left: 0;
-  margin-bottom: 30px;
   z-index: 1;
-  transition: transform 0.33s var(--ease-out-quart);
+  transition: transform 0.25s var(--ease-out-quart);
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 
-  &::after, &::before {
-    background: none repeat scroll 0 0 transparent;
-    content: "";
-    display: block;
-    height: 4px;
-    left: 50%;
-    position: absolute;
-    background: ${p => p.theme.colors.secondary};
-    transition: width 0.3s ease 0s, left 0.3s ease 0s;
-    width: 0;
-    z-index: 1;
+  &:hover ${ImageContainer} {
+    // transform: translateY(-2px);
+    // box-shadow: 0 16px 0 -10px rgba(255,255,255,0.71), 0 25px 0 -14px rgba(255,255,255,0.71), 0 25px 0 -14px rgba(240,172,142,0.79);
   }
 
-  ::after {
-    top: -1px;
-  }
 
-  &:hover {
-    &::after {
-      width: 100%; 
-      left: 0; 
-    }
+  &:focus h2 {
+    color: ${p => p.theme.colors.accent};
   }
-
 
   &[data-a11y='true']:focus::after {
     content: '';
