@@ -94,12 +94,9 @@ const ArticleBody = styled.article`
   transition: background 0.2s linear;
   
   ${mediaqueries.tablet`
-    padding: 70px 0 80px;
+    padding: 0;
   `}
 
-  ${mediaqueries.phablet`
-    padding: 60px 0;
-  `}
 `;
 
 const NextArticle = styled(Section)`
