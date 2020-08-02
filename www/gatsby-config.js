@@ -1,8 +1,8 @@
 require("dotenv").config();
 
 const siteMetadata = {
-  title: `Afolios`,
-  name: `Afolios`,
+  title: `Portfolio and Case study inspirations`,
+  name: `Pafolios`,
   siteUrl: `https://trongnguyen.co`,
   description: `Product and UX Designer portfolio and case study inspirations`,
   hero: {
