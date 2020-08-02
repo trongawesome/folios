@@ -100,15 +100,11 @@ export default Article;
 
 const ArticleBody = styled.article`
   position: relative;
-  padding: 56px 0 35px;
+  padding: 40px 0 32px;
   transition: background 0.2s linear;
 
-  ${mediaqueries.tablet`
-    padding: 70px 0 80px;
-  `}
-
   ${mediaqueries.phablet`
-    padding: 60px 0;
+    padding: 32px 0;
   `}
 `;
 

@@ -56,7 +56,7 @@ module.exports = async ({ actions: { createPage }, graphql }, themeOptions) => {
     authorsPath = '/authors',
     authorsPage = true,
     categoryPath = '/categories',
-    portfolioPath = '/portfolios',
+    portfolioPath = '/journal',
     postsPath = '/writing',
     pageLength = 24,
     sources = {},

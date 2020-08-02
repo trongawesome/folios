@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 
 import Headings from '@components/Headings';
 import Image from '@components/Image';
+import HorizontalRule from '@components/HorizontalRule';
 
 import mediaqueries from '@styles/media';
 import { IArticle, IAuthor } from '@types';
@@ -23,14 +24,16 @@ const ArticleHero: React.FC<ArticleHeroProps> = ({ article, authors }) => {
     <Hero>
       <Header>
         <HeroHeading>{article.title}</HeroHeading>
-        <Excerpt>{article.excerpt}</Excerpt>
         <HeroSubtitle hasCoAUthors={hasCoAUthors}>
           <ArticleMeta hasCoAUthors={hasCoAUthors}>
             {article.date}
           </ArticleMeta>
         </HeroSubtitle>
+        <Excerpt>{article.excerpt}</Excerpt>
       </Header>
-      { hasHeroImage && 
+      { !hasHeroImage ?
+        <HorizontalRule />
+        :
         <HeroImage>
           <Image src={article.hero.full} /> 
         </HeroImage>
@@ -57,35 +60,21 @@ const ArticleMeta = styled.div<{ hasCoAUthors: boolean }>`
 const Header = styled.header`
   position: relative;
   z-index: 10;
-  margin: 0px auto 56px;
-  // max-width: 944px;
-  padding: 124px 128px 0px;
-
-  ${mediaqueries.desktop`
-    margin: 0 auto 70px;
-    padding-left: 0;
-    padding-right: 0;
-  `}
+  max-width: 740px;
+  padding: 0 16px;
+  margin-top: 176px;
+  margin-left: auto;
+  margin-right: auto;
 
   ${mediaqueries.tablet`
-    padding-left: 0;
-    margin: 0;
     margin-bottom: 40px;
   `}
-
-  ${mediaqueries.phablet`
-    margin: 0 auto 32px;
-    padding: 96px 0px 0px;
-  `}
-
-  @media screen and (max-height: 700px) {
-    margin: 0 auto 48px;
-  }
+  
 `;
 
 const HeroHeading = styled(Headings.h1)`
   font-family: ${p => p.theme.fonts.title};
-  margin-bottom: 25px;
+  margin-bottom: 16px;
   text-align: center;
   font-weight: ${p => p.theme.fontsWeight.bold};
 
@@ -99,9 +88,9 @@ const Excerpt = styled(Headings.h3)`
   font-family: ${p => p.theme.fonts.body};
   color: ${p => p.theme.colors.secondary};
   text-align: center;
-  margin-bottom: 24px;
-  margin-top: 24px;
-  font-weight: ${p => p.theme.fontsWeight.light};
+  margin-top:8px;
+  margin-bottom: 16px;
+  font-weight: ${p => p.theme.fontsWeight.regular};
   line-height: 1.5;
 
   ${mediaqueries.tablet`
@@ -150,15 +139,14 @@ const HeroSubtitle = styled.div<{ hasCoAUthors: boolean }>`
 const HeroImage = styled.div`
   position: relative;
   z-index: 1;
-  width: 100%;
+  max-width: 944px;
   overflow: hidden;
   margin: 0 auto;
   background-color: white;
-  padding: 32px;
+  padding: 16px 0;
   
   ${mediaqueries.phablet`
     margin: 0 auto;
-    width: calc(100vw - 40px);
-    padding: 16px
+    width: 100%;
   `}
 `;
