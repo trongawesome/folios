@@ -79,7 +79,7 @@ const Container = styled.div`
   margin-top: 160px;
 
   ${mediaqueries.tablet`
-    margin-top: 0;
+    margin-top: 120px;
   `}
 `;
 

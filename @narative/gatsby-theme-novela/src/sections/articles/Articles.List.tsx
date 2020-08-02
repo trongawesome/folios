@@ -99,20 +99,6 @@ const ListItem: React.FC<ArticlesListItemProps> = ({ article, narrow }) => {
   );
 };
 
-const limitToTwoLines = css`
-  text-overflow: ellipsis;
-  overflow-wrap: normal;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  display: -webkit-box;
-  white-space: normal;
-  overflow: hidden;
-
-  ${mediaqueries.phablet`
-    -webkit-line-clamp: 3;
-  `}
-`;
-
 const limitToOneLines = css`
   text-overflow: ellipsis;
   overflow-wrap: normal;

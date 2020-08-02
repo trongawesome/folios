@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
-import { Link, navigate, graphql, useStaticQuery } from "gatsby";
+import { Link, graphql, useStaticQuery } from "gatsby";
 import { useColorMode } from "theme-ui";
 
 import Section from "@components/Section";
 import Logo from "@components/Logo";
-import LinkExternal from "@components/LinkExternal";
 
 import Icons from "@icons";
 import mediaqueries from "@styles/media";
@@ -99,7 +98,7 @@ const NavigationHeader: React.FC<{}> = () => {
               Blog
             </NavLink>
             <NavLink to={`/about`} title={`About me`} activeClassName="active" >
-              Me
+              About
             </NavLink>
             <DarkModeToggle />
           </NavControls>

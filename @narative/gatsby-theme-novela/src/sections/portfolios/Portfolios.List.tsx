@@ -27,22 +27,9 @@ const PortfolioList: React.FC<ArticlesListProps> = ({
 }) => {
   if (!articles) return null;
 
-  const hasOnlyOneArticle = articles.length === 1;
   const { gridLayout = 'tiles', hasSetGridLayout, getGridLayout } = useContext(
     GridLayoutContext,
   );
-
-  /**
-   * We're taking the flat array of articles [{}, {}, {}...]
-   * and turning it into an array of pairs of articles [[{}, {}], [{}, {}], [{}, {}]...]
-   * This makes it simpler to create the grid we want
-   */
-  const articlePairs = articles.reduce((result, value, index, array) => {
-    if (index % 2 === 0) {
-      result.push(array.slice(index, index + 2));
-    }
-    return result;
-  }, []);
 
   useEffect(() => getGridLayout(), []);
 
@@ -67,8 +54,9 @@ export default PortfolioList;
 const ListItem: React.FC<ArticlesListItemProps> = ({ article, narrow }) => {
   if (!article) return null;
 
+  const { gridLayout } = useContext(GridLayoutContext);
   const hasOverflow = narrow && article.title.length > 35;
-  const imageSource = article.hero.full;
+  const imageSource = article.hero.narrow;
   const hasHeroImage =
     imageSource &&
     Object.keys(imageSource).length !== 0 &&
@@ -77,22 +65,24 @@ const ListItem: React.FC<ArticlesListItemProps> = ({ article, narrow }) => {
   return (
     <ArticleLink to={article.slug} data-a11y="false">
       <Item>
-        <TextContainer>
-          <Title dark hasOverflow={hasOverflow}>
+        <ImageContainer narrow={narrow} gridLayout={gridLayout}>
+          {hasHeroImage ? <Image src={imageSource} /> : <ImagePlaceholder />}
+        </ImageContainer>
+        <div>
+          <Title dark hasOverflow={hasOverflow} gridLayout={gridLayout}>
             {article.title}
           </Title>
-          <Excerpt>
+          <Excerpt
+            narrow={narrow}
+            hasOverflow={hasOverflow}
+            gridLayout={gridLayout}
+          >
             {article.excerpt}
           </Excerpt>
           <MetaData>
             {article.date}
           </MetaData>
-        </TextContainer>
-        {hasHeroImage && 
-          <ImageContainer >
-            <Image src={imageSource} />
-          </ImageContainer>
-        }
+        </div>
       </Item>
     </ArticleLink>
   );
@@ -127,62 +117,62 @@ const ArticlesListContainer = styled.div<{ alwaysShowAllDetails?: boolean }>`
   ${p => p.alwaysShowAllDetails && showDetails}
 `;
 
-const List = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-column-gap: 32px;
-  grid-template-rows: 2;
 
+const List = styled.div`
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 32px;
+  row-gap: 56px;
+  
   &:not(:last-child) {
     margin-bottom: 75px;
   }
+  
+  ${mediaqueries.desktop`
+    grid-template-columns: 1fr 1fr;
+  `}
 
-  ${mediaqueries.tablet`
+  ${mediaqueries.phablet`
     grid-template-columns: 1fr;
-    
-    &:not(:last-child) {
-      margin-bottom: 0;
-    }
   `}
 `;
 
 const Item = styled.div`
   position: relative;
-  margin-bottom: 140px;
-  padding: 0 128px;
 
-  ${mediaqueries.desktop`
-    padding: 0;
-  `}
-  ${mediaqueries.tablet`
-    margin-bottom: 96px;
-  `}
-
-  ${mediaqueries.phablet`
-    // margin-bottom: 40px;
-    // padding: 0;
-  `}
-
+  @media (max-width: 540px) {
+    background: ${p => p.theme.colors.card};
+  }
 `;
 
-const ImageContainer = styled.div`
+const ImageContainer = styled.div<{ narrow: boolean; gridLayout: string }>`
   position: relative;
-  height: auto;
-  margin-bottom: 24px;
+  height: 360px;
+  margin-bottom: 16px;
   transition: transform 0.3s var(--ease-out-quad),
     box-shadow 0.3s var(--ease-out-quad);
-
-  padding: 16px;
-  background-color: white;
-
 
   & > div {
     height: 100%;
   }
 
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: all 0.3s var(--ease-out-quad);
+    box-shadow: 0 30px 40px -20px rgba(0, 0, 0, 0.12),
+      0 30px 30px -30px rgba(0, 0, 0, 0.32);
+  }
+
   ${mediaqueries.tablet`
-    margin-bottom: 35px;
-    padding: 10px;
+    height: 300px;
   `}
 
   ${mediaqueries.phablet`
@@ -192,77 +182,52 @@ const ImageContainer = styled.div`
   `}
 `;
 
-const TextContainer = styled.div`
-  margin-bottom: 24px;
-`;
-
-const Title = styled(Headings.h2)`
-  font-size: 56px;
-  line-height: 1.25;
+const Title = styled.h2`
+  font-size: 24px;
   font-family: ${p => p.theme.fonts.title};
   color: ${p => p.theme.colors.primary};
-  margin-bottom: 16px;
-  text-align: center;
+  margin-bottom: 8px;
+  margin-top: 16px;
   transition: color 0.3s ease-in-out;
   ${limitToTwoLines};
 
-  ${mediaqueries.desktop`
-    font-size: 48px;  
-  `}
-
-  ${mediaqueries.tablet`
-    font-size: 40px;  
-    margin-bottom: 12px;
-  `}
-
   ${mediaqueries.phablet`
-    font-size: 38px;  
-    line-height: 1.2;
-    padding-top: 20px;
-    margin-bottom: 12px;
+    font-size: 20px;
     -webkit-line-clamp: 3;
   `}
 `;
 
-const Excerpt = styled.p`
+const Excerpt = styled.p<{
+  hasOverflow: boolean;
+  narrow: boolean;
+  gridLayout: string;
+}>`
   ${limitToTwoLines};
-  font-size: 24px;
-  margin-bottom: 16px;
+  font-size: 16px;
+  margin-bottom: 8px;
   color: ${p => p.theme.colors.secondary};
   font-family: ${p => p.theme.fonts.body};
-  font-weight: ${p => p.theme.fontsWeight.light};
-  display: box;
-  text-align: center;
+  display: ${p => (p.hasOverflow && p.gridLayout === 'tiles' ? 'box' : 'box')};
+  max-width: 100%;
 
   ${mediaqueries.desktop`
     display: -webkit-box;
   `}
 
   ${mediaqueries.phablet`
-    margin-bottom; 15px;
-  `}
-
-  ${mediaqueries.phablet`
     max-width: 100%;
-    padding:  0 20px;
-    font-size: 20px;
-    margin-bottom: 12px;
     -webkit-line-clamp: 3;
   `}
 `;
 
 const MetaData = styled.div`
-  font-weight: ${p => p.theme.fontsWeight.regular};
-  font-size: 12px;
+  font-weight: 400;
+  font-size: 14px;
   color: ${p => p.theme.colors.secondary};
-  font-family: ${p => p.theme.fonts.body};
-  opacity: 0.6;
-  text-align: center;
-  text-transform: uppercase;
+  opacity: 0.7;
 
   ${mediaqueries.phablet`
     max-width: 100%;
-    padding-top: 0;
   `}
 `;
 
@@ -273,16 +238,20 @@ const ArticleLink = styled(Link)`
   height: 100%;
   top: 0;
   left: 0;
+  border-radius: 5px;
   z-index: 1;
-  transition: transform 0.25s var(--ease-out-quart);
+  transition: transform 0.33s var(--ease-out-quart);
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 
-  &:hover ${ImageContainer} {
-    // transform: translateY(-2px);
-    // box-shadow: 0 16px 0 -10px rgba(255,255,255,0.71), 0 25px 0 -14px rgba(255,255,255,0.71), 0 25px 0 -14px rgba(240,172,142,0.79);
+
+  &:hover ${ImageContainer}, &:focus ${ImageContainer} {
+    &::after {
+      opacity: 1;
+    }
+    transform: translateY(-1px);
   }
 
-
+  &:hover h2,
   &:focus h2 {
     color: ${p => p.theme.colors.accent};
   }

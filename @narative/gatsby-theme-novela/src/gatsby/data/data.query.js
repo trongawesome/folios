@@ -73,7 +73,7 @@ module.exports.local = {
           secret
           title
           author
-          date(formatString: "MMMM Do, YYYY")
+          date(formatString: "MMM DD, YYYY")
           dateForSEO: date
           timeToRead
           excerpt
