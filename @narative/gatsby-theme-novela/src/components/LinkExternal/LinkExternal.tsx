@@ -3,22 +3,17 @@ import mediaqueries from "@styles/media";
 
 
 const LinkExternal = styled.a`
-  font-family: ${p => p.theme.fonts.body};
-  font-size: 18px;
-  line-height: 32px;
-  color: ${p => p.theme.colors.secondary};
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
   transition: color 0.25s var(--ease-in-out-quad);
   display: inline-block;
   position: relative;
-  margin-left: 40px;
-
-  ${mediaqueries.phone`
-    margin-left: 24px;
-  `}
 
   &::after {
     background: none repeat scroll 0 0 transparent;
-    bottom: -8px;
+    bottom: 0;
     content: "";
     display: block;
     height: 2px;
@@ -30,7 +25,7 @@ const LinkExternal = styled.a`
   }
 
   &:hover {
-    color: ${p => p.theme.colors.secondary};
+    color: ${p => p.theme.colors.accent};
 
     &::after {
       width: 100%; 
@@ -41,7 +36,7 @@ const LinkExternal = styled.a`
   &.active {
     &::after {
       background: none repeat scroll 0 0 transparent;
-      bottom: -8px;
+      bottom: 0;
       content: "";
       display: block;
       height: 2px;

@@ -5,13 +5,8 @@ const HorizontalRule = styled.hr`
   position: relative;
   width: 100%;
   max-width: 680px;
-  margin: 32px auto 64px auto;
-  border: 0;
-  height: 14px;
-  background-image: url("/separator.svg");
-  background-repeat: no-repeat;
-  box-sizing: border-box;
-  background-position: center;
+  margin: 56px auto 24px auto;
+  border: 1px solid ${p => p.theme.colors.greyLight};
 
   ${mediaqueries.desktop`
     max-width: 507px;

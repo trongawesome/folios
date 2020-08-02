@@ -133,7 +133,6 @@ module.exports = ({ node, actions, getNode, createNodeId }, themeOptions) => {
       author: node.frontmatter.author,
       date: node.frontmatter.date,
       hero: node.frontmatter.hero,
-      thumbnail: node.frontmatter.thumbnail,
       secret: node.frontmatter.secret || false,
       slug: generateSlug(
         basePath,

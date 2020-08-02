@@ -6,7 +6,6 @@ import { graphql, useStaticQuery } from "gatsby";
 import Layout from "@components/Layout";
 import MDXRenderer from "@components/MDX";
 import Section from "@components/Section";
-import Subscription from "@components/Subscription";
 
 import mediaqueries from "@styles/media";
 import { debounce } from "@utils";
@@ -83,7 +82,6 @@ const Article: Template = ({ pageContext, location }) => {
         <MDXRenderer content={article.body}>
         </MDXRenderer>
       </ArticleBody>
-      {/* {mailchimp && article.subscription && <Subscription />} */}
     </Layout>
   );
 };
@@ -96,12 +94,9 @@ const ArticleBody = styled.article`
   transition: background 0.2s linear;
   
   ${mediaqueries.tablet`
-    padding: 70px 0 80px;
+    padding: 0;
   `}
 
-  ${mediaqueries.phablet`
-    padding: 60px 0;
-  `}
 `;
 
 const NextArticle = styled(Section)`

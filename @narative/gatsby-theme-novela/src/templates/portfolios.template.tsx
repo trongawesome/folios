@@ -3,7 +3,6 @@ import styled from "@emotion/styled";
 import { graphql, useStaticQuery } from "gatsby";
 
 import PortfoliosHero from "../sections/portfolios/Portfolios.Hero";
-import Testimonial from "../sections/portfolios/Testimonial";
 import Section from "@components/Section";
 import SEO from "@components/SEO";
 import Layout from "@components/Layout";
@@ -21,6 +20,10 @@ const siteQuery = graphql`
           siteMetadata {
             name
             description
+            hero {
+              blogHeading
+              blogSubtitle
+            }
           }
         }
       }
@@ -33,15 +36,15 @@ const PortfoliosPage: Template = ({ location, pageContext }) => {
   const authors = pageContext.additionalContext.authors;
 
   const results = useStaticQuery(siteQuery);
-  const name = results.allSite.edges[0].node.siteMetadata.name;
-  const desc = results.allSite.edges[0].node.siteMetadata.description;
+  const site = results.allSite.edges[0].node.siteMetadata;
+  const desc = results.allSite.edges[0].node.siteMetadata.blogSubtitle;
 
   return (
     <Layout>
       <SEO
         pathname={location.pathname}
-        title={name + " - Product Designer"}
-        description={desc}
+        title={site.hero.blogHeading + " - " + site.name}
+        description={site.hero.blogSubtitle}
       />
       <PortfoliosHero authors={authors} />
       <Section narrow>
@@ -49,9 +52,6 @@ const PortfoliosPage: Template = ({ location, pageContext }) => {
         <ArticlesPaginator show={pageContext.pageCount > 1}>
           <Paginator {...pageContext} />
         </ArticlesPaginator>
-      </Section>
-      <Section>
-        <Testimonial />
       </Section>
     </Layout>
   );

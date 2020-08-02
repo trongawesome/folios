@@ -29,7 +29,7 @@ const AuthorsList: React.FC<AuthorProps> = ({ authors }) => {
             <Info>
               <Bio>{author.bio}</Bio>
               <LinkInternal to={`/writing`} title={`All articles`}>
-                View all writing →
+                Visit my portfolio →
               </LinkInternal>
             </Info>
           </AuthorWrap>

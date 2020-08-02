@@ -73,7 +73,7 @@ module.exports.local = {
           secret
           title
           author
-          date(formatString: "MMMM Do, YYYY")
+          date(formatString: "MMM DD, YYYY")
           dateForSEO: date
           timeToRead
           excerpt
@@ -93,13 +93,6 @@ module.exports.local = {
             seo: childImageSharp {
               fixed(width: 1200, quality: 100) {
                 src
-              }
-            }
-          }
-          thumbnail {
-            regular: childImageSharp {
-              fluid(maxWidth: 600, quality: 100) {
-                ${GatsbyFluid_withWebp}
               }
             }
           }

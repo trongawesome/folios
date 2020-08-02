@@ -1,16 +1,16 @@
 require("dotenv").config();
 
 const siteMetadata = {
-  title: `Portfolio Insprations`,
-  name: `Folios`,
+  title: `Afolios`,
+  name: `Afolios`,
   siteUrl: `https://trongnguyen.co`,
-  description: `Explore colors, ideas & inspiration from topics our community loves.`,
+  description: `Product and UX Designer portfolio and case study inspirations`,
   hero: {
-    heading: `Hi, I’m Trong, <br/>product designer.`,
-    writingHeading: `Portfolio Inspirations`,
+    portfoliosHeading: `Portfolio Inspirations`,
+    portfoliosSubtitle: `Portfolios and case study inspirations in Product Design & UX Design`,
+    blogHeading: `Journal`,
+    blogSubtitle: `Guides and resources on building your portfolio and UX case studies`,
     readingHeading: `Books for product designers`,
-    littleGalleryHeading: `Little big grid`,
-    littleGallerySubtitle: `Little works and experiments but my big pride. I pour them all in this grid.`,
     maxWidth: 776,
   },
   social: [

@@ -27,22 +27,9 @@ const PortfolioList: React.FC<ArticlesListProps> = ({
 }) => {
   if (!articles) return null;
 
-  const hasOnlyOneArticle = articles.length === 1;
   const { gridLayout = 'tiles', hasSetGridLayout, getGridLayout } = useContext(
     GridLayoutContext,
   );
-
-  /**
-   * We're taking the flat array of articles [{}, {}, {}...]
-   * and turning it into an array of pairs of articles [[{}, {}], [{}, {}], [{}, {}]...]
-   * This makes it simpler to create the grid we want
-   */
-  const articlePairs = articles.reduce((result, value, index, array) => {
-    if (index % 2 === 0) {
-      result.push(array.slice(index, index + 2));
-    }
-    return result;
-  }, []);
 
   useEffect(() => getGridLayout(), []);
 
@@ -69,7 +56,7 @@ const ListItem: React.FC<ArticlesListItemProps> = ({ article, narrow }) => {
 
   const { gridLayout } = useContext(GridLayoutContext);
   const hasOverflow = narrow && article.title.length > 35;
-  const imageSource = article.thumbnail.regular;
+  const imageSource = article.hero.narrow;
   const hasHeroImage =
     imageSource &&
     Object.keys(imageSource).length !== 0 &&
@@ -81,7 +68,7 @@ const ListItem: React.FC<ArticlesListItemProps> = ({ article, narrow }) => {
         <ImageContainer narrow={narrow} gridLayout={gridLayout}>
           {hasHeroImage ? <Image src={imageSource} /> : <ImagePlaceholder />}
         </ImageContainer>
-        <TextContainer>
+        <div>
           <Title dark hasOverflow={hasOverflow} gridLayout={gridLayout}>
             {article.title}
           </Title>
@@ -92,10 +79,10 @@ const ListItem: React.FC<ArticlesListItemProps> = ({ article, narrow }) => {
           >
             {article.excerpt}
           </Excerpt>
-          <SeeMore>Read case study →</SeeMore>
-        </TextContainer>
-        <ContentContainer>
-        </ContentContainer>
+          <MetaData>
+            {article.date}
+          </MetaData>
+        </div>
       </Item>
     </ArticleLink>
   );
@@ -130,33 +117,39 @@ const ArticlesListContainer = styled.div<{ alwaysShowAllDetails?: boolean }>`
   ${p => p.alwaysShowAllDetails && showDetails}
 `;
 
+
 const List = styled.div`
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 2;
-  column-gap: 30px;
-
+  column-gap: 32px;
+  row-gap: 56px;
+  
   &:not(:last-child) {
     margin-bottom: 75px;
   }
+  
+  ${mediaqueries.desktop`
+    grid-template-columns: 1fr 1fr;
+  `}
 
   ${mediaqueries.tablet`
     grid-template-columns: 1fr;
-    
-    &:not(:last-child) {
-      margin-bottom: 0;
-    }
   `}
 `;
 
 const Item = styled.div`
   position: relative;
+
+  @media (max-width: 540px) {
+    background: ${p => p.theme.colors.card};
+  }
 `;
 
 const ImageContainer = styled.div<{ narrow: boolean; gridLayout: string }>`
   position: relative;
-  height: ${p => (p.gridLayout === 'tiles' ? '680px' : '220px')};
+  height: 360px;
+  margin-bottom: 16px;
   transition: transform 0.3s var(--ease-out-quad),
     box-shadow 0.3s var(--ease-out-quad);
 
@@ -164,57 +157,36 @@ const ImageContainer = styled.div<{ narrow: boolean; gridLayout: string }>`
     height: 100%;
   }
 
-  ${mediaqueries.desktop`
-    height: 500px;
-  `}
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: all 0.3s var(--ease-out-quad);
+    box-shadow: 0 30px 40px -20px rgba(0, 0, 0, 0.12),
+      0 30px 30px -30px rgba(0, 0, 0, 0.32);
+  }
 
   ${mediaqueries.tablet`
-    height: 480px;
-  `}
-
-  ${mediaqueries.phablet`
-    overflow: hidden;
-    margin-bottom: 0;
-    box-shadow: none;
+    height: 300px;
   `}
 `;
 
-const TextContainer = styled.div`
-  position: absolute;
-  left: 0;
-  top: 0;
-  padding: 48px 40px;
-
-  ${mediaqueries.phablet`
-    padding: 40px 32px;
-  `}
-`;
-
-const ContentContainer = styled.div`
-  position: relative;
-`;
-
-const Title = styled(Headings.h2)`
-  font-size: 28px;
+const Title = styled.h2`
+  font-size: 24px;
   font-family: ${p => p.theme.fonts.title};
-  color: ${p => p.theme.colors.textTitle};
-  opacity: .8;
-  margin-bottom: ${p =>
-    p.hasOverflow && p.gridLayout === 'tiles' ? '35px' : '16px'};
+  color: ${p => p.theme.colors.primary};
+  margin-bottom: 8px;
+  margin-top: 16px;
   transition: color 0.3s ease-in-out;
   ${limitToTwoLines};
 
-  ${mediaqueries.desktop`
-    margin-bottom: 15px;
-  `}
-
-  ${mediaqueries.tablet`
-    font-size: 24px;  
-  `}
-
   ${mediaqueries.phablet`
-    font-size: 22px;  
-    margin-bottom: 10px;
+    font-size: 20px;
     -webkit-line-clamp: 3;
   `}
 `;
@@ -226,47 +198,30 @@ const Excerpt = styled.p<{
 }>`
   ${limitToTwoLines};
   font-size: 16px;
-  margin-bottom: 10px;
-  color: ${p => p.theme.colors.textTitle};
-  opacity: .7;
+  margin-bottom: 8px;
+  color: ${p => p.theme.colors.secondary};
   font-family: ${p => p.theme.fonts.body};
-  display: ${p => (p.hasOverflow && p.gridLayout === 'tiles' ? 'none' : 'box')};
-  max-width: ${p => (p.narrow ? '415px' : '515px')};
-  line-height: 22px;
+  display: ${p => (p.hasOverflow && p.gridLayout === 'tiles' ? 'box' : 'box')};
+  max-width: 100%;
 
   ${mediaqueries.desktop`
     display: -webkit-box;
   `}
 
   ${mediaqueries.phablet`
-    margin-bottom; 15px;
-  `}
-
-  ${mediaqueries.phablet`
     max-width: 100%;
-    margin-bottom: 20px;
-    font-size: 16px;
     -webkit-line-clamp: 3;
   `}
-`;
-
-const SeeMore = styled.div`
-  font-size: 14px;
-  color: ${p => p.theme.colors.textTitle};
-  font-family: ${p => p.theme.fonts.title};
-  margin-top: 8px;
-  opacity: .8;
 `;
 
 const MetaData = styled.div`
   font-weight: 400;
   font-size: 14px;
-  color: ${p => p.theme.colors.grey};
-  opacity: 0.33;
+  color: ${p => p.theme.colors.secondary};
+  opacity: 0.7;
 
   ${mediaqueries.phablet`
     max-width: 100%;
-    padding:  0 20px 30px;
   `}
 `;
 
@@ -274,37 +229,26 @@ const ArticleLink = styled(Link)`
   position: relative;
   display: block;
   width: 100%;
+  height: 100%;
   top: 0;
   left: 0;
-  margin-bottom: 30px;
+  border-radius: 5px;
   z-index: 1;
   transition: transform 0.33s var(--ease-out-quart);
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 
-  &::after, &::before {
-    background: none repeat scroll 0 0 transparent;
-    content: "";
-    display: block;
-    height: 4px;
-    left: 50%;
-    position: absolute;
-    background: ${p => p.theme.colors.secondary};
-    transition: width 0.3s ease 0s, left 0.3s ease 0s;
-    width: 0;
-    z-index: 1;
-  }
 
-  ::after {
-    top: -1px;
-  }
-
-  &:hover {
+  &:hover ${ImageContainer}, &:focus ${ImageContainer} {
     &::after {
-      width: 100%; 
-      left: 0; 
+      opacity: 1;
     }
+    transform: translateY(-1px);
   }
 
+  &:hover h2,
+  &:focus h2 {
+    color: ${p => p.theme.colors.accent};
+  }
 
   &[data-a11y='true']:focus::after {
     content: '';

@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 const Anchor = styled.a`
   transition: ${p => p.theme.colorModeTransition};
   color: ${p => p.theme.colors.primary};
-  border-bottom: 1px solid ${p => p.theme.colors.primary};
+  border-bottom: 1px solid ${p => p.theme.colors.grey};
   
   &:visited {
     color: ${p => p.theme.colors.primary};

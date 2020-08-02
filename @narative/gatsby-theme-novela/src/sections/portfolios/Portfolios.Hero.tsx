@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 
 import Section from '@components/Section';
+import Headings from "@components/Headings";
 import mediaqueries from '@styles/media';
 import { IAuthor } from '@types';
 
@@ -16,7 +17,8 @@ const authorQuery = graphql`
         node {
           siteMetadata {
             hero {
-              heading
+              blogHeading
+              blogSubtitle
               maxWidth
             }
           }
@@ -33,7 +35,6 @@ const PortfoliosHero: React.FC<IAuthor> = ({ authors }) => {
 
   const results = useStaticQuery(authorQuery);
   const hero = results.site.edges[0].node.siteMetadata.hero;
-  const tilesIsActive = hasSetGridLayout && gridLayout === 'tiles';
   const featuredAuthor = authors.find(author => author.featured);
 
   if (!featuredAuthor) {
@@ -46,24 +47,9 @@ const PortfoliosHero: React.FC<IAuthor> = ({ authors }) => {
   return (
     <Section narrow id="Portfolios__Hero">
       <HeadingContainer style={{ maxWidth: `${hero.maxWidth}px` }}>
-        <HeroHeading dangerouslySetInnerHTML={{ __html: hero.heading }} />
+        <Headings.h1 dangerouslySetInnerHTML={{ __html: hero.blogHeading }} />
         <InfoText>
-          Currently, I'm building Design System and improving Web Experience at 
-          <Anchor target="_blank" href="http://carousell.com">
-            Carousell.
-          </Anchor>
-          <p>
-            In the free time, I share my love for design in
-            <InternalLink to={`/design-tips`} title={`Visual storytelling`}>
-              the visual language.
-            </InternalLink>
-          </p>
-          <p>
-            And making stuff for my side project
-            <Anchor target="_blank" href="https://awesomefigmatips.com">
-              Awesome Figma Tips.
-            </Anchor>
-          </p>
+          {hero.blogSubtitle}
         </InfoText>
       </HeadingContainer>
     </Section>
@@ -73,31 +59,14 @@ const PortfoliosHero: React.FC<IAuthor> = ({ authors }) => {
 export default PortfoliosHero;
 
 const HeadingContainer = styled.div`
-    margin: 104px 0 72px;
+  margin: 176px 0 112px;
   
   ${mediaqueries.desktop`
     width: 80%;
   `}
   
   ${mediaqueries.tablet`
-  width: 100%;
-  `}
-  `;
-  
-  const HeroHeading = styled.h1`
-    font-style: normal;
-    font-weight: ${p => p.theme.fontsWeight.bold};
-    font-size: 64px;
-    line-height: 1.15;
-    font-family: ${p => p.theme.fonts.title};
-    color: ${p => p.theme.colors.primary};
-
-  a {
-    color: ${p => p.theme.colors.accent};
-  }
-
-  ${mediaqueries.desktop`
-    font-size: 56px
+    width: 100%;
   `}
 `;
 
@@ -126,10 +95,6 @@ const linkCSS = p => css`
       color: ${p.theme.colors.accent};
       border-bottom-color: ${p.theme.colors.accent};
     }
-`;
-
-const Anchor = styled.a`
-  ${linkCSS};
 `;
 
 const InternalLink = styled(Link)`

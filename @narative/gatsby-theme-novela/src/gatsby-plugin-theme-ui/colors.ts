@@ -24,7 +24,7 @@ export default {
   error: "#EE565B",
   success: "#46B17B",
   errorBackground: "rgba(238, 86, 91, 0.1)",
-  horizontalRule: "rgba(61, 96, 102, 0.15)",
+  horizontalRule: "rgba(0, 0, 0, 0.15)",
   inputBackground: "rgba(0, 0, 0, 0.05)",
   textTitle: "#111111",
   softShadow: "0 20px 36px 0 rgba(233, 233, 233, 0.5)",
