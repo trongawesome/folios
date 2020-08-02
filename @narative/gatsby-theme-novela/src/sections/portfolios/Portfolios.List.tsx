@@ -68,7 +68,7 @@ const ListItem: React.FC<ArticlesListItemProps> = ({ article, narrow }) => {
   if (!article) return null;
 
   const hasOverflow = narrow && article.title.length > 35;
-  const imageSource = article.hero.narrow;
+  const imageSource = article.hero.full;
   const hasHeroImage =
     imageSource &&
     Object.keys(imageSource).length !== 0 &&

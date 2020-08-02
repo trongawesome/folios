@@ -96,13 +96,6 @@ module.exports.local = {
               }
             }
           }
-          thumbnail {
-            regular: childImageSharp {
-              fluid(maxWidth: 600, quality: 100) {
-                ${GatsbyFluid_withWebp}
-              }
-            }
-          }
         }
       }
     }

@@ -11,7 +11,6 @@ module.exports = ({ actions }) => {
       excerpt(pruneLength: Int = 140): String!
       body: String!
       hero: File @fileByRelativePath
-      thumbnail: File @fileByRelativePath
       timeToRead: Int
     }
 
@@ -25,7 +24,6 @@ module.exports = ({ actions }) => {
       excerpt(pruneLength: Int = 140): String!
       body: String!
       hero: File @fileByRelativePath
-      thumbnail: File @fileByRelativePath
       timeToRead: Int
     }
   `);

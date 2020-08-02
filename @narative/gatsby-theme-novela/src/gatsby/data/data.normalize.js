@@ -47,22 +47,6 @@ function normalizeHeroBook(article) {
   return hero;
 }
 
-function normalizeThumnail(article) {
-  let thumbnail = {
-    regular: {},
-  };
-
-  if (article.thumbnail) {
-    thumbnail = {
-      regular: article.thumbnail.regular.fluid,
-    };
-  } else {
-    console.log('\u001B[33m', `Missing thumbnail for "${article.title}"`);
-  }
-
-  return thumbnail;
-}
-
 function normalizeAvatar(author) {
   let avatar = {
     small: {},
@@ -94,7 +78,6 @@ module.exports.local = {
     return {
       ...portfolio,
       hero: normalizeHero(portfolio),
-      thumbnail: normalizeThumnail(portfolio),
     };
   },
   readings: ({ node: reading }) => {
