@@ -80,9 +80,6 @@ const Article: Template = ({ pageContext, location }) => {
     <Layout>
       <ArticleSEO article={portfolio} authors={authors} location={location} />
       <PortfolioHero article={portfolio} authors={authors} />
-      <ArticleAside contentHeight={contentHeight}>
-        <Progress contentHeight={contentHeight} />
-      </ArticleAside>
       <ArticleBody ref={contentSectionRef}>
         <MDXRenderer content={portfolio.body}>
         </MDXRenderer>
