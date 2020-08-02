@@ -121,7 +121,7 @@ const ArticlesListContainer = styled.div<{ alwaysShowAllDetails?: boolean }>`
 const List = styled.div`
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   column-gap: 32px;
   row-gap: 56px;
   
@@ -133,7 +133,7 @@ const List = styled.div`
     grid-template-columns: 1fr 1fr;
   `}
 
-  ${mediaqueries.phablet`
+  ${mediaqueries.tablet`
     grid-template-columns: 1fr;
   `}
 `;
@@ -173,12 +173,6 @@ const ImageContainer = styled.div<{ narrow: boolean; gridLayout: string }>`
 
   ${mediaqueries.tablet`
     height: 300px;
-  `}
-
-  ${mediaqueries.phablet`
-    overflow: hidden;
-    margin-bottom: 0;
-    box-shadow: none;
   `}
 `;
 
