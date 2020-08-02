@@ -27,7 +27,7 @@ const h1 = styled.h1`
 `;
 
 const h2 = styled.h2`
-  font-size:64px;
+  font-size:56px;
   line-height: 64px;
   letter-spacing: -3px;
   ${commonStyles};
@@ -43,8 +43,8 @@ const h2 = styled.h2`
 `;
 
 const h3 = styled.h3`
-  font-size:48px;
-  line-height: 56px;
+  font-size:40px;
+  line-height: 48px;
   letter-spacing: -2px;
   ${commonStyles};
 
