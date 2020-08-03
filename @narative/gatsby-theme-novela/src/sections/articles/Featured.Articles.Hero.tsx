@@ -15,6 +15,8 @@ const authorQuery = graphql`
         node {
           siteMetadata {
             hero {
+              featuredArticlesHeading
+              featuredArticlesSubtitle
               maxWidth
             }
           }
@@ -24,7 +26,8 @@ const authorQuery = graphql`
   }
 `;
 
-const CategoryHero: React.FC<IAuthor> = ({ category }) => {
+const FeaturedArticlesHero: React.FC<IAuthor> = ({ }) => {
+
   const results = useStaticQuery(authorQuery);
   const hero = results.site.edges[0].node.siteMetadata.hero;
 
@@ -34,26 +37,26 @@ const CategoryHero: React.FC<IAuthor> = ({ category }) => {
         <NavLink to={`/`} title={`All portfolios `} activeClassName="active" >
           All portfolios 
         </NavLink>
-        <Headings.h1>{category}</Headings.h1>
+        <Headings.h1 dangerouslySetInnerHTML={{ __html: hero.featuredArticlesHeading }} />
         <InfoText>
-            Here is a short description for ProductDesigners. They have many names, but truely the same.
+          {hero.featuredArticlesSubtitle}
         </InfoText>
       </HeadingContainer>
     </Section>
   );
 };
 
-export default CategoryHero;
+export default FeaturedArticlesHero;
 
 const HeadingContainer = styled.div`
   margin: 176px 0 112px;
   
   ${mediaqueries.desktop`
-  width: 80%;
+    width: 80%;
   `}
   
   ${mediaqueries.tablet`
-  width: 100%;
+    width: 100%;
   `}
   `;
 
@@ -80,5 +83,4 @@ const NavLink = styled(Link)`
     color: ${p => p.theme.colors.accent};
     border-color: ${p => p.theme.colors.accent};
   }
-
 `;

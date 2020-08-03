@@ -25,6 +25,7 @@ import ToggleOpen from './ui/ToggleOpen.Icon';
 import ToggleClose from './ui/ToggleClose.Icon';
 import Rows from './ui/Rows.Icon';
 import Tiles from './ui/Tiles.Icon';
+import ArrowExternal from './ui/ArrowExternal.Icon';
 
 // SVG
 import NotFound from './svg/NotFound';
@@ -55,6 +56,7 @@ export default {
   ToggleOpen,
   Rows,
   Tiles,
+  ArrowExternal,
 
   NotFound,
 };

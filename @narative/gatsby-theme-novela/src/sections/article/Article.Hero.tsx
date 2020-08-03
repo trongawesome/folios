@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 
 import Headings from '@components/Headings';
 import Image, { ImagePlaceholder } from '@components/Image';
+import Icons from "@icons";
 
 import mediaqueries from '@styles/media';
 import { IArticle, IAuthor } from '@types';
@@ -36,7 +37,7 @@ const ArticleHero: React.FC<ArticleHeroProps> = ({ article, authors }) => {
         <Excerpt>{article.excerpt}</Excerpt>
         <HeroSubtitle>Portfolio of the Day ・ {article.date}</HeroSubtitle>
         {article.font && <HeroSubtitle>Fonts: {article.font}</HeroSubtitle>}
-        <LinkButton href={article.siteLink + "?ref=folios"} target="_blank">Visit site → </LinkButton>
+        <LinkButton href={article.siteLink + "?ref=folios"} target="_blank">Visit site <Icons.ArrowExternal /> </LinkButton>
       </Header>
       <Link href={article.siteLink + "?ref=folios"} target="_blank">
         <HeroImage id="ArticleImage__Hero">
@@ -150,7 +151,6 @@ const LinkButton = styled.a`
   color: ${p => p.theme.colors.primary};
   transition: color 0.25s var(--ease-in-out-quad);
   display: inline-block;
-  // margin: 16px auto;
   box-shadow: inset 0px 0px 0px 1px ${p => p.theme.colors.secondary};
   padding: 4px 16px;
   transition: all 0.3s var(--ease-out-quad);
@@ -158,8 +158,17 @@ const LinkButton = styled.a`
 
   &:hover {
     background-color: ${p => p.theme.colors.primary};
-    color: ${p => p.theme.colors.background};
+    color: ${p => p.theme.colors.white};
     box-shadow: inset 0px 0px 0px 1px ${p => p.theme.colors.primary};
+  }
+
+  svg {
+    margin-left: 4px;  
+  }
+
+  &:hover svg path {
+    transition: all 0.3s var(--ease-out-quad);
+    fill: ${p => p.theme.colors.white};
   }
 `;
 

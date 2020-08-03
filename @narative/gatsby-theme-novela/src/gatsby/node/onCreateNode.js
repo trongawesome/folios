@@ -102,6 +102,7 @@ module.exports = ({ node, actions, getNode, createNodeId }, themeOptions) => {
       ),
       title: node.frontmatter.title,
       subscription: node.frontmatter.subscription !== false,
+      featured: node.frontmatter.featured || false,
       categories: node.frontmatter.categories || [],
       siteLink: node.frontmatter.siteLink,
       font: node.frontmatter.font,

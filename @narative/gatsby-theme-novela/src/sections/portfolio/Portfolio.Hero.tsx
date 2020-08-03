@@ -61,7 +61,7 @@ const Header = styled.header`
   position: relative;
   z-index: 10;
   max-width: 740px;
-  padding: 0 16px;
+  padding: 0 20px;
   margin-top: 176px;
   margin-left: auto;
   margin-right: auto;
@@ -86,6 +86,7 @@ const HeroHeading = styled(Headings.h1)`
 const Excerpt = styled(Headings.h3)`
   font-size: 28px;
   font-family: ${p => p.theme.fonts.body};
+  letter-spacing: -1.3px;
   color: ${p => p.theme.colors.secondary};
   text-align: center;
   margin-top:8px;

@@ -33,6 +33,7 @@ module.exports.local = {
           siteLink
           font
           subscription
+          featured
           body
           hero {
             full: childImageSharp {
@@ -51,7 +52,7 @@ module.exports.local = {
               }
             }
             seo: childImageSharp {
-              fixed(width: 1200, quality: 80) {
+              fixed(cropFocus: NORTH, height: 720, width: 1080, quality: 80) {
                 src
               }
             }
@@ -91,7 +92,7 @@ module.exports.local = {
               }
             }
             seo: childImageSharp {
-              fixed(width: 1200, quality: 100) {
+              fixed(cropFocus: NORTH, height: 720, width: 1080, quality: 80) {
                 src
               }
             }
