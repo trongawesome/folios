@@ -32,8 +32,7 @@ const siteQuery = graphql`
 
 const FeaturedArticlesPage: Template = ({ location, pageContext }) => {
   // const articles = pageContext.group;
-  const { group: articles, category } = pageContext;
-  const authors = pageContext.additionalContext.authors;
+  const { group: articles } = pageContext
 
   const results = useStaticQuery(siteQuery);
   const site = results.allSite.edges[0].node.siteMetadata;

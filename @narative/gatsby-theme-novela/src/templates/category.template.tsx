@@ -33,7 +33,7 @@ function CategoryPage({ location, pageContext }) {
   
     return (
       <Layout>
-        <SEO pathname={location.pathname} title={category + " | " + title} />
+        <SEO pathname={location.pathname} title={category + " - " + title} />
         <CategoryHero category={category} />
         <Section narrow>
           <ArticlesList articles={articles} />
