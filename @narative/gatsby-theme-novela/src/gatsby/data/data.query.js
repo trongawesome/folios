@@ -33,6 +33,7 @@ module.exports.local = {
           siteLink
           font
           subscription
+          featured
           body
           hero {
             full: childImageSharp {

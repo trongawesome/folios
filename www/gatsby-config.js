@@ -8,9 +8,10 @@ const siteMetadata = {
   hero: {
     portfoliosHeading: `Portfolio Inspirations`,
     portfoliosSubtitle: `Awesome portfolios and case studies in Product Design & UX Design`,
-    blogHeading: `Journal`,
+    blogHeading: `Articles`,
     blogSubtitle: `Guides and resources on building your portfolio and UX case studies`,
-    readingHeading: `Books for product designers`,
+    featuredArticlesHeading: `Staff Picks`,
+    featuredArticlesSubtitle: `The best design portfolios on the internet, handpicked by our editors`,
     maxWidth: 776,
   },
   social: [

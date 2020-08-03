@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable no-console, import/no-extraneous-dependencies, prefer-const, no-shadow */
 
 require('dotenv').config();
@@ -16,6 +17,7 @@ const templates = {
   category: path.resolve(templatesDirectory, 'category.template.tsx'),
   portfolios: path.resolve(templatesDirectory, 'portfolios.template.tsx'),
   portfolio: path.resolve(templatesDirectory, 'portfolio.template.tsx'),
+  featuredArticles: path.resolve(templatesDirectory, 'featuredArticles.template.tsx'),
 };
 
 const query = require('../data/data.query');
@@ -57,7 +59,7 @@ module.exports = async ({ actions: { createPage }, graphql }, themeOptions) => {
     authorsPage = true,
     categoryPath = '/categories',
     portfolioPath = '/journal',
-    postsPath = '/writing',
+    featuredArticlesPath = '/staff-picks',
     pageLength = 24,
     sources = {},
     mailchimp = '',
@@ -142,6 +144,9 @@ module.exports = async ({ actions: { createPage }, graphql }, themeOptions) => {
   ].sort(byDate);
 
   const articlesThatArentSecret = articles.filter(article => !article.secret);
+
+  // Fillter articles that are featured
+  const articlesThatAreFeatured = articles.filter(article => article.featured);
   
   // Combining together all the articles from different sources
   portfolios = [
@@ -197,6 +202,22 @@ module.exports = async ({ actions: { createPage }, graphql }, themeOptions) => {
     createPage,
     pageLength,
     pageTemplate: templates.articles,
+    buildPath: buildPaginatedPath,
+    context: {
+      authors,
+      basePath,
+      skip: pageLength,
+      limit: pageLength,
+    },
+  });
+
+  log('Creating', 'featured articles page');
+  createPaginatedPages({
+    edges: articlesThatAreFeatured,
+    pathPrefix: featuredArticlesPath,
+    createPage,
+    pageLength,
+    pageTemplate: templates.featuredArticles,
     buildPath: buildPaginatedPath,
     context: {
       authors,
