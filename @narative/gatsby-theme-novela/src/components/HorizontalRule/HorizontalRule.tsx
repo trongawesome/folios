@@ -6,7 +6,7 @@ const HorizontalRule = styled.hr`
   width: 100%;
   max-width: 680px;
   margin: 56px auto 24px auto;
-  border: 1px solid ${p => p.theme.colors.greyLight};
+  border: 1px solid ${p => p.theme.colors.horizontalRule};
 
   ${mediaqueries.desktop`
     max-width: 507px;
@@ -21,7 +21,7 @@ const HorizontalRule = styled.hr`
   `};
 
   ${mediaqueries.tablet`
-    width: calc(100vw - 40px);
+    width: calc(100% - 40px);
   `};
 `;
 
