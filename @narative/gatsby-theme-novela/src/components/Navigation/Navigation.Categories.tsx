@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import { Link, graphql, useStaticQuery } from "gatsby";
 
 import mediaqueries from '@styles/media';
+import CategoryItem from './Category.Item'
 
 const siteQuery = graphql`
 {
@@ -25,9 +26,7 @@ const NavCategory = ({ }) => {
     <NavContainer>
       <NavControls>
         {result.map((category, index) => (
-          <NavLink to={category.node.url} title={category.node.name} data-a11y="false" key={index}>
-            {category.node.name}
-          </NavLink>
+          <CategoryItem category={category} key={index} />
         ))}
       </NavControls>
     </NavContainer>
@@ -49,50 +48,4 @@ const NavContainer = styled.div`
 const NavControls = styled.div`
   position: relative;
   align-items: center;
-`;
-
-const NavLink = styled(Link)`
-  font-family: ${p => p.theme.fonts.body};
-  font-size: 18px;
-  line-height: 32px;
-  color: ${p => p.theme.colors.secondary};
-  background-color: ${p => p.theme.colors.greyLight};
-  transition: all 0.25s var(--ease-in-out-quad);
-  display: inline-block;
-  position: relative;
-  padding: 4px 16px;
-  border-radius: 4px;
-  margin-right: 16px;
-  margin-bottom: 16px;
-
-  &:hover {
-    color: ${p => p.theme.colors.primary};
-    background-color: ${p => p.theme.colors.grey};
-  }
-
-  ${mediaqueries.tablet`
-    margin-right: 8px;
-    margin-bottom: 8px;
-  `}
-`;
-
-const Hero = styled.div`
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  margin: 35px auto 110px;
-`;
-
-const Heading = styled.h1`
-  font-size: 38px;
-  font-family: ${p => p.theme.fonts.sansSerif};
-  color: ${p => p.theme.colors.primary};
-  margin-bottom: 15px;
-  font-weight: ${p => p.theme.fontsWeight.bold};
-  text-transform: capitalize;
-  
-  ${mediaqueries.tablet`
-
-  `}
 `;
