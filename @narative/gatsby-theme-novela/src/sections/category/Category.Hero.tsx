@@ -65,18 +65,6 @@ const InfoText = styled.p`
   color: ${p => p.theme.colors.secondary};
 `;
 
-const Anchor = styled(Link)`
-  color: ${p => p.theme.colors.secondary};
-  border-bottom: 1px solid ${p => p.theme.colors.secondary};
-  margin-left: 6px;
-
-  &:hover,
-  &:focus {
-    color: ${p => p.theme.colors.accent};
-    border-bottom-color: ${p => p.theme.colors.accent};
-  }
-`;
-
 const NavLink = styled(Link)`
   font-weight: ${p => p.theme.fontsWeight.bold};
   font-family: ${p => p.theme.fonts.title};
@@ -84,7 +72,7 @@ const NavLink = styled(Link)`
   line-height: 48px;
   color: ${p => p.theme.colors.grey};
   margin-bottom: 16px;
-  border-bottom: solid 1px ${p => p.theme.colors.grey};
+  border-bottom: solid 2px ${p => p.theme.colors.grey};
   transition: all 0.25s var(--ease-in-out-quad);
   display: inline-block;
 
