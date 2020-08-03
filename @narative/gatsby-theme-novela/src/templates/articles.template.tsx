@@ -39,7 +39,7 @@ const ArticlesPage: Template = ({ location, pageContext }) => {
     <Layout>
       <SEO 
         pathname={location.pathname}
-        title={site.name + " - " + site.title}
+        title={site.title + " - " + site.name}
       />
       <ArticlesHero authors={authors} />
       <Section narrow>

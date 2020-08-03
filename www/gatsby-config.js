@@ -1,13 +1,13 @@
 require("dotenv").config();
 
 const siteMetadata = {
-  title: `Portfolio and Case study inspirations`,
-  name: `Pafolios`,
+  title: `Pafolios`,
+  name: `Awesome design portfolio ands case studies`,
   siteUrl: `https://trongnguyen.co`,
-  description: `Product and UX Designer portfolio and case study inspirations`,
+  description: `Awesome product and UX design portfolio and case study inspirations`,
   hero: {
     portfoliosHeading: `Portfolio Inspirations`,
-    portfoliosSubtitle: `Portfolios and case study inspirations in Product Design & UX Design`,
+    portfoliosSubtitle: `Awesome portfolios and case studies in Product Design & UX Design`,
     blogHeading: `Journal`,
     blogSubtitle: `Guides and resources on building your portfolio and UX case studies`,
     readingHeading: `Books for product designers`,
