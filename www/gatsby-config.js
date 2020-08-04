@@ -3,7 +3,7 @@ require("dotenv").config();
 const siteMetadata = {
   title: `Pafolios`,
   name: `Awesome design portfolio ands case studies`,
-  siteUrl: `https://trongnguyen.co`,
+  siteUrl: `https://afolios.netlify.app`,
   description: `Awesome product and UX design portfolio and case study inspirations`,
   hero: {
     portfoliosHeading: `Portfolio Inspirations`,
