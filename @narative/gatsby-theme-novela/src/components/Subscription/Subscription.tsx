@@ -63,7 +63,13 @@ const Subscription: React.FC<{}> = () => {
             subscribed={subscribed}
             disabled={subscribed}
           >
-            {subscribed ? <CheckMarkIcon /> : "Just do it!"}
+            {subscribed ?
+            <>
+              <CheckMarkIcon />
+              <Text>You're on the list</Text>
+            </>
+            :
+            "Just do it!"}
           </Button>
           {error && <Error dangerouslySetInnerHTML={{ __html: error }} />}
         </Form>
@@ -105,14 +111,11 @@ const Heading = styled(Headings.h4)`
   color: ${p => p.theme.colors.white};
 `;
 
-const Text = styled.p`
-  margin: 0 auto 24px;
-  color: ${p => p.theme.colors.secondary};
+const Text = styled.span`
+  margin-left: 16px
+  font-size: 16px;
+  color: ${p => p.theme.colors.white};
   line-height: 1.75;
-
-  ${mediaqueries.tablet`
-    margin: 0 auto 25px;
-  `}
 `;
 
 const Form = styled.form<{ hasError: string }>`
