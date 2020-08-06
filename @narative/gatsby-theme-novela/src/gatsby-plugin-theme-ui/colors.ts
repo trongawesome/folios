@@ -12,6 +12,7 @@ export default {
   black: "#0A0A0A",
   backgroundModal: "rgba(209, 232, 235, 0.98)",
   header: "rgba(255, 255, 255, 0.7)",
+  headerLine: "#0A0A0A",
   // accent: "#3A5C21",
   accent: "#4379FB",
   hover: "rgba(0, 0, 0, 0.07)",
@@ -37,6 +38,7 @@ export default {
       background: "#111216",
       backgroundModal: "rgba(17, 18, 22, 0.95)",
       header: "rgba(0, 0, 0, 0.8)",
+      headerLine: "rgba(255,255,255,0.24)",
       hover: "rgba(255, 255, 255, 0.07)",
       gradient:
       "linear-gradient(180deg, #111216 0%, rgba(66, 81, 98, 0.36) 100%)",

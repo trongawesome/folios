@@ -60,11 +60,12 @@ const HeadingContainer = styled.div`
   `}
   `;
 
-const InfoText = styled.p`
+const InfoText = styled.h3`
   font-size: 22px;
   line-height: 36px;
   margin-top: 16px;
   font-family: ${p => p.theme.fonts.body};
+  font-weight: ${p => p.theme.fontsWeight.regular};
   color: ${p => p.theme.colors.secondary};
 `;
 
