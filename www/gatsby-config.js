@@ -11,7 +11,7 @@ const siteMetadata = {
     blogHeading: `Journal`,
     blogSubtitle: `Guides and resources on building your portfolio and UX case studies`,
     featuredArticlesHeading: `Staff Picks`,
-    featuredArticlesSubtitle: `The best design portfolios on the internet, handpicked by our editors`,
+    featuredArticlesSubtitle: `The best design portfolios on the internet, great visual, awesome case studies, handpicked by our editors`,
     maxWidth: 776,
   },
   social: [
