@@ -49,10 +49,10 @@ const plugins = [
   {
     resolve: `gatsby-plugin-manifest`,
     options: {
-      name: `Trong Nguyen's Desk`,
-      short_name: `Trong`,
+      name: `Parfolios`,
+      short_name: `Parfolios`,
       start_url: `/`,
-      background_color: `#D1E8EB`,
+      background_color: `#FFFFFF`,
       display: `standalone`,
       icon: `src/assets/favicon.png`,
       include_favicon: false,
@@ -61,7 +61,7 @@ const plugins = [
   {
     resolve: `gatsby-plugin-google-analytics`,
     options: {
-      trackingId: "UA-55380266-4",
+      trackingId: "UA-55380266-6'",
     },
   },
   {
