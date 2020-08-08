@@ -131,7 +131,7 @@ const NavContainer = styled.div`
     width: 100%; 
     display: block;
     height: 2px;
-    background: ${p => p.theme.colors.primary};
+    background: ${p => p.theme.colors.headerLine};
     bottom: 0;
   }
 `;

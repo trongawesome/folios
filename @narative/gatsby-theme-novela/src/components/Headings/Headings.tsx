@@ -27,24 +27,24 @@ const h1 = styled.h1`
 `;
 
 const h2 = styled.h2`
-  font-size:56px;
+  font-size:40px;
   line-height: 64px;
-  letter-spacing: -3px;
+  letter-spacing: -2px;
   ${commonStyles};
 
   ${mediaqueries.desktop`
-    font-size: 48px;
+    font-size: 40px;
   `};
 
   ${mediaqueries.tablet`
-    font-size: 48px;
+    font-size: 32px;
     line-height: 1.45;
   `};
 `;
 
 const h3 = styled.h3`
-  font-size:40px;
-  line-height: 48px;
+  font-size:32px;
+  line-height: 40px;
   letter-spacing: -2px;
   ${commonStyles};
 

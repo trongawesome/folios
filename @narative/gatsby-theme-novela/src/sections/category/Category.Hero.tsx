@@ -36,7 +36,7 @@ const CategoryHero: React.FC<IAuthor> = ({ category }) => {
         </NavLink>
         <Headings.h1>{category}</Headings.h1>
         <InfoText>
-            Here is a short description for ProductDesigners. They have many names, but truely the same.
+          Awesome and inspiring portfolio designs from {category}
         </InfoText>
       </HeadingContainer>
     </Section>
@@ -57,11 +57,12 @@ const HeadingContainer = styled.div`
   `}
   `;
 
-const InfoText = styled.p`
+const InfoText = styled.h3`
   font-size: 22px;
   line-height: 36px;
   margin-top: 16px;
   font-family: ${p => p.theme.fonts.body};
+  font-weight: ${p => p.theme.fontsWeight.regular};
   color: ${p => p.theme.colors.secondary};
 `;
 

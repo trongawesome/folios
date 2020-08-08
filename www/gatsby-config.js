@@ -11,7 +11,7 @@ const siteMetadata = {
     blogHeading: `Journal`,
     blogSubtitle: `Guides and resources on building your portfolio and UX case studies`,
     featuredArticlesHeading: `Staff Picks`,
-    featuredArticlesSubtitle: `The best design portfolios on the internet, handpicked by our editors`,
+    featuredArticlesSubtitle: `The best design portfolios on the internet, great visual, awesome case studies, handpicked by our editors`,
     maxWidth: 776,
   },
   social: [
@@ -68,7 +68,7 @@ const plugins = [
     resolve: "gatsby-plugin-mailchimp",
     options: {
       endpoint:
-        "https://medium.us16.list-manage.com/subscribe/post?u=bd56b6b313e273cdd466f5abc&amp;id=736a1779cd",
+        "https://gmail.us17.list-manage.com/subscribe/post?u=9104eef27bb18633c2f62b228&amp;id=a355a2bdaf",
     },
   },
 ];
