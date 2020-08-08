@@ -4,24 +4,24 @@
 - name: UX & Product Designer
   url: /categories/product-designer
   desc: Here is a short description for ProductDesigners. They have many names, but truely the same.
-- name: Creative Designer
-  url: /categories/creative-designer
-  desc: Here is a short description for ProductDesigners. They have many names, but truely the same.
+# - name: Creative Designer
+#   url: /categories/creative-designer
+#   desc: Here is a short description for ProductDesigners. They have many names, but truely the same.
 - name: Creative Developer
   url: /categories/creative-developer
   desc: Here is a short description for ProductDesigners. They have many names, but truely the same.
-- name: Illustrator
-  url: /categories/illustrator
-  desc: Here is a short description for ProductDesigners. They have many names, but truely the same.
-- name: Interaction Designer
-  url: /categories/interaction-designer
-  desc: Here is a short description for ProductDesigners. They have many names, but truely the same.
-- name: Brand Designer
-  url: /categories/brand-designer
-  desc: Here is a short description for ProductDesigners. They have many names, but truely the same.
-- name: Design Entrepreneur
-  url: /categories/design-entrepreneur
-  desc: Here is a short description for ProductDesigners. They have many names, but truely the same.
+# - name: Illustrator
+#   url: /categories/illustrator
+#   desc: Here is a short description for ProductDesigners. They have many names, but truely the same.
+# - name: Interaction Designer
+#   url: /categories/interaction-designer
+#   desc: Here is a short description for ProductDesigners. They have many names, but truely the same.
+# - name: Brand Designer
+#   url: /categories/brand-designer
+#   desc: Here is a short description for ProductDesigners. They have many names, but truely the same.
+# - name: Design Entrepreneur
+#   url: /categories/design-entrepreneur
+#   desc: Here is a short description for ProductDesigners. They have many names, but truely the same.
 - name: Design Agency
   url: /categories/design-agency
   desc: Here is a short description for ProductDesigners. They have many names, but truely the same.
