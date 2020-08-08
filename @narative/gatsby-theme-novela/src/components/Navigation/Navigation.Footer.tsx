@@ -58,13 +58,13 @@ const Footer: React.FC<{}> = () => {
             . Made in Singapore. Update daily.
           </FooterText>
           <FooterSpace>
-            <LinkExternal href="https://twitter.com/trongawesome" target="_blank" rel="noopener" > Follow on Twitter </LinkExternal>
+            <LinkExternal href="https://twitter.com/pafolios" target="_blank" rel="noopener" > Follow on Twitter </LinkExternal>
           </FooterSpace>
           <FooterSpace>
             <LinkExternal href="/rss.xml" target="_blank"> Portfolio of the Day RSS </LinkExternal>
           </FooterSpace>
           <FooterSpace>
-            <LinkExternal href="https://twitter.com/trongawesome" target="_blank" rel="noopener" > Submit your site </LinkExternal>
+            <LinkExternal href="https://twitter.com/pafolios" target="_blank" rel="noopener" > Submit your site </LinkExternal>
           </FooterSpace>
           <FooterNote>All screenshots © of their respective owners.</FooterNote>
         </FooterContainer>

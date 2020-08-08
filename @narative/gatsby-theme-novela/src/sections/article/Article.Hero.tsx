@@ -37,9 +37,9 @@ const ArticleHero: React.FC<ArticleHeroProps> = ({ article, authors }) => {
         <Excerpt>{article.excerpt}</Excerpt>
         <HeroSubtitle>Portfolio of the Day ・ {article.date}</HeroSubtitle>
         {article.font && <HeroSubtitle>Fonts: {article.font}</HeroSubtitle>}
-        <LinkButton href={article.siteLink + "?ref=folios"} target="_blank" rel="noopener">Visit site <Icons.ArrowExternal /> </LinkButton>
+        <LinkButton href={article.siteLink + "?ref=pafolios"} target="_blank" rel="noopener">Visit site <Icons.ArrowExternal /> </LinkButton>
       </Header>
-      <Link href={article.siteLink + "?ref=folios"} target="_blank" rel="noopener">
+      <Link href={article.siteLink + "?ref=pafolios"} target="_blank" rel="noopener">
         <HeroImage id="ArticleImage__Hero">
           {hasHeroImage ? (
             <Image src={article.hero.full} alt={article.title}/>

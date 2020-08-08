@@ -16,15 +16,8 @@ const siteMetadata = {
   },
   social: [
     {
-      url: `https://twitter.com/trongawesome`,
-    },
-    {
-      name: 'medium',
-      url: `https://medium.com/@trongawesome`,
-    },
-    {
-      name: 'instagram',
-      url: `https://www.instagram.com/trongawesome`,
+      name: `twitter`,
+      url: `https://twitter.com/pafolios`,
     },
   ],
 };
