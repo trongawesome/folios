@@ -5,6 +5,7 @@ module.exports = ({
   contentPosts = 'content/posts',
   contentPortfolios = 'content/portfolios',
   contentFolioCategories = 'content/folio-categories',
+  contentCaseStudies = 'content/case-studies',
   pathPrefix = '',
   sources: { local, contentful } = { local: true, contentful: false },
 }) => ({
@@ -201,6 +202,13 @@ module.exports = ({
       options: {
         path: contentFolioCategories,
         name: contentFolioCategories,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: contentCaseStudies,
+        name: contentCaseStudies,
       },
     },
     {
