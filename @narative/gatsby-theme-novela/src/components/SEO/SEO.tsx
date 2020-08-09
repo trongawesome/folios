@@ -150,7 +150,7 @@ const SEO: React.FC<HelmetProps> = ({
     <Helmet
       title={title || site.title}
       htmlAttributes={{ lang: 'en' }}
-      script={themeUIDarkModeWorkaroundScript}
+      // script={themeUIDarkModeWorkaroundScript}
       meta={metaTags}
     >
       <link rel="icon" type="image/png" href="/icon-72x72.png"></link>

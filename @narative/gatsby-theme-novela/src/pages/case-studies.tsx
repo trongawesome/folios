@@ -1,10 +1,11 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
+import styled from '@emotion/styled';
+import mediaqueries from '@styles/media';
 
 import Section from "@components/Section";
 import SEO from "@components/SEO";
 import Layout from "@components/Layout";
-import ArticlesGradient from "@components/ArticlesGradient";
 
 import PageHero from "../sections/others/Page.Hero";
 import CaseStudyCard from "../sections/articles/CaseStudy.Card";
@@ -22,6 +23,7 @@ const siteQuery = graphql`
         title
         desc
         url
+        type
         image {
           childImageSharp {
             fluid(maxWidth: 800, quality: 100) {
@@ -54,14 +56,14 @@ const siteQuery = graphql`
 const Page = ({ location }) => {
 
   const result = useStaticQuery(siteQuery);
-  const data = result.allCaseStudiesYaml;
+  const { edges } = result.allCaseStudiesYaml;
   const siteSEO = result.allSite.edges[0].node.siteMetadata;
 
   return (
     <Layout>
       <SEO
         pathname={location.pathname} 
-        title={siteSEO.hero.caseStudyHeading.replace(regex, '')}
+        title={siteSEO.hero.caseStudyHeading.replace(regex, '') + " - " + siteSEO.title}
         description={siteSEO.hero.caseStudySubtitle}
         image={seoImage}
       />
@@ -72,10 +74,27 @@ const Page = ({ location }) => {
         maxWidth={siteSEO.hero.maxWidth}
       />
       <Section narrow>
-        <CaseStudyCard data={data} actionTitle={actionTitle}/>
+        <List>
+          {edges.map((item, index) => (
+              <CaseStudyCard item={item} actionTitle={actionTitle} key={index}/>
+
+            ))
+          }
+        </List>
       </Section>
     </Layout>
   );
 };
 
 export default Page;
+
+const List = styled.div`
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 32px;
+
+  ${mediaqueries.phablet`
+    grid-template-columns: 1fr;
+  `}
+`;

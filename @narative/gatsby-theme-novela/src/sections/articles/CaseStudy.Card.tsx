@@ -1,157 +1,158 @@
 import React from 'react';
-import { graphql, useStaticQuery } from "gatsby";
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import mediaqueries from '@styles/media';
+import Icons from "@icons";
 
 import Headings from '@components/Headings';
 import Image from '@components/Image';
 
-const CaseStudyCard = ({data, actionTitle}) => {
+const CaseStudyCard = ({item, actionTitle}) => {
 
-  const { edges } = data;
+  // const { edges } = data;
  
   return (
-    <Wrap>
-      {edges.map((item, index) => (
-          <CardLink key={index} href={item.node.url} data-a11y="false" target="_blank">
-              <CardSingle>
-                <ImageContainer>
-                  <Image
-                    src={item.node.image.childImageSharp.fluid}
-                    alt={item.node.title}
-                    imgStyle={{ objectFit: 'cover', objectPosition: 'center' }}
-                  />
-                </ImageContainer>
-                <TextWrap>
-                  <Title>
-                    {item.node.title}
-                  </Title>
-                  <Desc>
-                    {item.node.desc}
-                  </Desc>
-                  <ButtonLink>{actionTitle}</ButtonLink>
-                  </TextWrap>
-              </CardSingle>
-          </CardLink>
-        ))
-      }
-    </Wrap>
+    <CardSingle>
+      <ImageContainer>
+        <Image
+          src={item.node.image.childImageSharp.fluid}
+          alt={item.node.title}
+          imgStyle={{ objectFit: 'cover', objectPosition: 'center top' }}
+        />
+      </ImageContainer>
+      <TextWrap>
+        <Type>{item.node.type}</Type>
+        <Title>
+          {item.node.title}
+        </Title>
+        <Desc>
+          {item.node.desc}
+        </Desc>
+        <LinkButton href={item.node.url + "?ref=pafolios"} data-a11y="false" target="_blank" rel="noopener">{actionTitle}<Icons.ArrowExternal />
+        </LinkButton>
+        </TextWrap>
+    </CardSingle>
   );
 };
 
 export default CaseStudyCard;
 
-const Wrap = styled.div`
-  position: relative;
-  margin-top: 80px;
+const limitToTwoLines = css`
+  text-overflow: ellipsis;
+  overflow-wrap: normal;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  white-space: normal;
+  overflow: hidden;
 `;
-
-const CardLink  = styled.a`
-  position: relative;
-  display: block;
-  width: 100%;
-`;
-
 
 const CardSingle = styled.div`
-  display: grid;
-  grid-gap: 28px;
-  grid-template-columns: 65% 35%;
-  z-index: 1;
   position: relative;
-  margin-bottom: 32px;
-  background: ${p => p.theme.colors.backgroundDark};
+  display: grid;
+  grid-template-columns: 192px 1fr;
+  // height: 260px;
+  column-gap: 24px;
+  // align-items: stretch;
+  background: ${p => p.theme.colors.card};
   transition: transform 0.3s var(--ease-out-quart);
-  
-  &:hover {
-    transform: scale(0.98);
-  }
+  box-shadow: ${p => p.theme.colors.softShadowBig};
   
   ${mediaqueries.desktop`
-    grid-template-columns: 60% 40%;
-  `}
-  
-  ${mediaqueries.tablet`
     grid-template-columns: 1fr;
+    // height: 460px;
+    align-items: start;
   `}
 
   `;
   
 const ImageContainer = styled.div`
   position: relative;
-  height: 400px;
+  height: 260px;
 
   & > div {
     height: 100%;
   }
 
-  ${mediaqueries.tablet`
-  height: 200px;
+  ${mediaqueries.desktop`
+    height: 220px;
   `}
 
 `;
 
 const TextWrap = styled.div`
-  padding-right: 56px;
-  padding-top: 32px;
   position: relative;
+  padding: 8px 24px 8px 0;
+  align-self: start;
+
+  ${mediaqueries.desktop`
+    padding: 16px 24px 32px;
+  `}
 
   ${mediaqueries.tablet`
-    padding-right: 16px;
-    padding-left: 16px;
-    padding-top: 0;
-    padding-bottom: 0;
+    
   `}
 `;
 
-const Title = styled(Headings.h2)`
+const Title = styled.h2`
   font-size: 32px;
+  line-height: 36px;
   font-family: ${p => p.theme.fonts.title};
   color: ${p => p.theme.colors.primary};
   transition: color 0.3s ease-in-out;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
+  ${limitToTwoLines}
 
   ${mediaqueries.desktop`
-    margin-bottom: 15px;
-  `}
-
-  ${mediaqueries.tablet`
-    font-size: 20px;
+    margin-bottom: 16px;
+    font-size: 24px;
+    line-height: 28px;
   `}
 `;
 
 const Desc = styled.p`
-  color: ${p => p.theme.colors.grey};
-  margin-bottom: 32px;
+  color: ${p => p.theme.colors.secondary};
+  margin-bottom: 16px;
+  ${limitToTwoLines}
+  -webkit-line-clamp: 3;
 
   ${mediaqueries.tablet`
-    font-size: 14px;
+    font-size: 18px;
   `}
 `;
 
-const ButtonLink = styled.div`
-  padding: 12px 16px;
-  box-sizing: border-box;
-  border: 1px solid ${p => p.theme.colors.secondary};
-  color: ${p => p.theme.colors.primary};
-  background-color: transparent;
+const Type = styled.p`
   font-size: 16px;
-  opacity: 1;
-  text-align: center;
-  transition: background-color 0.25s ease 0s;
-  display: inline-block;
-  
-  ${mediaqueries.phablet`
-    display: block;
-  `};
+  line-height: 24px;
+  color: ${p => p.theme.colors.grey};
+  margin-bottom: 4px;
 
-  ${mediaqueries.tablet`
-    display: none;
-  `}
+`;
+const LinkButton = styled.a`
+  position: relative;
+  font-size: 16px;
+  line-height: 32px;
+  // margin-top: 24px;
+  color: ${p => p.theme.colors.primary};
+  transition: color 0.25s var(--ease-in-out-quad);
+  display: inline-block;
+  box-shadow: inset 0px 0px 0px 1px ${p => p.theme.colors.secondary};
+  padding: 4px 16px;
+  transition: all 0.3s var(--ease-out-quad);
+  border-radius: 4px;
 
   &:hover {
-    background-color: ${p => p.theme.colors.secondary};
+    background-color: ${p => p.theme.colors.primary};
     color: ${p => p.theme.colors.background};
+    box-shadow: inset 0px 0px 0px 1px ${p => p.theme.colors.primary};
+  }
+
+  svg {
+    margin-left: 4px;  
+  }
+
+  &:hover svg path {
+    transition: all 0.3s var(--ease-out-quad);
+    fill: ${p => p.theme.colors.background};
   }
 `;

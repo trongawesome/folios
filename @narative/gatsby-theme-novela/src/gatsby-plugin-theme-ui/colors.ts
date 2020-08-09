@@ -29,6 +29,7 @@ export default {
   inputBackground: "rgba(0, 0, 0, 0.05)",
   textTitle: "#111111",
   softShadow: "0 20px 36px 0 rgba(233, 233, 233, 0.5)",
+  softShadowBig: "0px 8px 24px rgba(187, 188, 191, 0.6)",
   modes: {
     dark: {
       grey: "#73737D",
@@ -53,6 +54,7 @@ export default {
       inputBackground: "rgba(255, 255, 255, 0.07)",
       textTitle: "#fff",
       softShadow: "none",
+      softShadowBig: "none",
     },
   },
 };
