@@ -5,7 +5,8 @@ import { Link } from "gatsby";
 import Headings from '@components/Headings';
 import Section from "@components/Section";
 import Image, { ImagePlaceholder } from '@components/Image';
-import SocialLinks from "@components/SocialLinks";
+import LinkExternal from "@components/LinkExternal";
+
 
 import mediaqueries from '@styles/media';
 import { IAuthor } from "@types";
@@ -28,9 +29,10 @@ const AuthorsList: React.FC<AuthorProps> = ({ authors }) => {
             </ImageContainer>
             <Info>
               <Bio>{author.bio}</Bio>
-              <LinkInternal to={`/writing`} title={`All articles`}>
-                Visit my portfolio →
+              <LinkInternal to={`/journal`} title={`All articles`}>
+                Read other journal →
               </LinkInternal>
+              {/* <LinkExternal href="https://trongnguyen.co" target="_blank" rel="noopener" >Visit my portfolio →</LinkExternal> */}
             </Info>
           </AuthorWrap>
         ))}
