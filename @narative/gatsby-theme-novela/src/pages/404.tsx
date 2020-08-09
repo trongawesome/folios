@@ -21,24 +21,11 @@ const ArticlesPage: Template = ({ location, pageContext }) => {
           <Subheading>The link you clicked may be broken or the project hasn't been completed yet :D</Subheading>
         </ImageWrapper>
       </Section>
-      <ArticlesGradient />
     </Layout>
   );
 };
 
 export default ArticlesPage;
-
-const ArticlesGradient = styled.div`
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 590px;
-  z-index: 0;
-  pointer-events: none;
-  background: ${p => p.theme.colors.gradient};
-  transition: ${p => p.theme.colorModeTransition};
-`;
 
 const ImageWrapper = styled.div`
   position: relative;

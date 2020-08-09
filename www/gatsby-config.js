@@ -7,7 +7,7 @@ const siteMetadata = {
   description: `Awesome product and UX design portfolio and case study inspirations`,
   hero: {
     portfoliosHeading: `Portfolio of the Date`,
-    portfoliosSubtitle: `Awesome portfolios and case studies from Product, UI/UX, Creative Designers.`,
+    portfoliosSubtitle: `Awesome portfolios and case studies from Product, UI/UX, Creative Designers. Update daily.`,
     blogHeading: `Journal`,
     blogSubtitle: `Guides and resources on building your portfolio and UX case studies.`,
     featuredArticlesHeading: `Staff Picks`,
