@@ -12,6 +12,8 @@ const siteMetadata = {
     blogSubtitle: `Guides and resources on building your portfolio and UX case studies.`,
     featuredArticlesHeading: `Staff Picks`,
     featuredArticlesSubtitle: `The best design portfolios on the internet, great visual, awesome case studies, handpicked by our editors.`,
+    caseStudyHeading: `Design Case Studies`,
+    caseStudySubtitle: `To get you started, I've put together a compilation of some of my favorite design case studies.`,
     maxWidth: 776,
   },
   social: [

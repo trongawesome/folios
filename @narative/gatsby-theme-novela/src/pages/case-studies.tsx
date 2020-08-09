@@ -39,8 +39,8 @@ const siteQuery = graphql`
       node {
         siteMetadata {
           hero {
-            portfoliosHeading
-            portfoliosSubtitle
+            caseStudyHeading
+            caseStudySubtitle
             maxWidth
           }
           title
@@ -61,16 +61,16 @@ const Page = ({ location }) => {
     <Layout>
       <SEO
         pathname={location.pathname} 
-        title={data.totalCount + " " + siteSEO.hero.portfoliosHeading.replace(regex, '') + " 2020."}
-        description={siteSEO.hero.portfoliosSubtitle}
+        title={siteSEO.hero.caseStudyHeading.replace(regex, '')}
+        description={siteSEO.hero.caseStudySubtitle}
         image={seoImage}
       />
-{/* 
+
       <PageHero
-        heading={data.totalCount + " " + siteSEO.hero.portfoliosHeading + " 2020."}
-        subtitle={siteSEO.hero.portfoliosSubtitle}
+        heading={siteSEO.hero.caseStudyHeading}
+        subtitle={siteSEO.hero.caseStudySubtitle}
         maxWidth={siteSEO.hero.maxWidth}
-      /> */}
+      />
       <Section narrow>
         <CaseStudyCard data={data} actionTitle={actionTitle}/>
       </Section>
