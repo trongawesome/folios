@@ -88,8 +88,8 @@ const TextWrap = styled.div`
 `;
 
 const Title = styled.h2`
-  font-size: 32px;
-  line-height: 36px;
+  font-size:28px;
+  line-height: 32px;
   font-family: ${p => p.theme.fonts.title};
   color: ${p => p.theme.colors.primary};
   transition: color 0.3s ease-in-out;
@@ -112,10 +112,12 @@ const Desc = styled.p`
 `;
 
 const Type = styled.p`
-  font-size: 16px;
+  font-family: ${p => p.theme.fonts.body};
+  font-size: 14px;
   line-height: 24px;
   color: ${p => p.theme.colors.secondary};
   margin-bottom: 4px;
+  text-transform: uppercase;
 
 `;
 const LinkButton = styled.a`
