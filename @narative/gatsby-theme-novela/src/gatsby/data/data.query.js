@@ -102,46 +102,6 @@ module.exports.local = {
     }
   }`,
 
-  readings: `{
-    readings: allReading(
-      sort: { fields: [date, title], order: DESC }
-      limit: 1000
-    ) {
-      edges {
-        node {
-          id
-          slug
-          secret
-          title
-          author
-          date(formatString: "MMMM Do, YYYY")
-          dateForSEO: date
-          timeToRead
-          excerpt
-          subscription
-          body
-          hero {
-            full: childImageSharp {
-              fluid(maxWidth: 620, quality: 100) {
-                ${GatsbyFluid_withWebp}
-              }
-            }
-            narrow: childImageSharp {
-              fluid(maxWidth: 320, quality: 100) {
-                ${GatsbyFluid_withWebp}
-              }
-            }
-            seo: childImageSharp {
-              fixed(width: 1200, quality: 100) {
-                src
-              }
-            }
-          }
-        }
-      }
-    }
-  }`,
-
   authors: `{
     authors: allAuthor {
       edges {
