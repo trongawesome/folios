@@ -153,10 +153,6 @@ const List = styled.div`
 
 const Item = styled.div`
   position: relative;
-
-  @media (max-width: 540px) {
-    background: ${p => p.theme.colors.card};
-  }
 `;
 
 const ImageContainer = styled.div<{ narrow: boolean; gridLayout: string }>`
