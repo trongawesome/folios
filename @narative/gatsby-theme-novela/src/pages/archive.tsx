@@ -7,7 +7,6 @@ import { Link } from 'gatsby';
 import Section from "@components/Section";
 import SEO from "@components/SEO";
 import Layout from "@components/Layout";
-import ArticlesGradient from "@components/ArticlesGradient";
 import PageHero from "../sections/others";
 
 const seoImage = '/trongnguyen.co-seo-little-big-grid.jpg';
@@ -68,7 +67,6 @@ const Archive = ({ location }) => {
           ))}
         </Wrapper>
       </Section>
-      <ArticlesGradient />
     </Layout>
   );
 };
