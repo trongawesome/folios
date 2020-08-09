@@ -37,7 +37,7 @@ export default {
       accent: "#4379FB",
       background: "#111216",
       backgroundModal: "rgba(17, 18, 22, 0.95)",
-      header: "rgba(0, 0, 0, 0.8)",
+      header: "rgba(17, 18, 22, 0.8)",
       headerLine: "rgba(255,255,255,0.24)",
       hover: "rgba(255, 255, 255, 0.07)",
       gradient:

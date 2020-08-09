@@ -158,7 +158,7 @@ const LinkButton = styled.a`
 
   &:hover {
     background-color: ${p => p.theme.colors.primary};
-    color: ${p => p.theme.colors.white};
+    color: ${p => p.theme.colors.background};
     box-shadow: inset 0px 0px 0px 1px ${p => p.theme.colors.primary};
   }
 
@@ -168,7 +168,7 @@ const LinkButton = styled.a`
 
   &:hover svg path {
     transition: all 0.3s var(--ease-out-quad);
-    fill: ${p => p.theme.colors.white};
+    fill: ${p => p.theme.colors.background};
   }
 `;
 
