@@ -150,7 +150,7 @@ const NavLink = styled(Link)`
   margin-left: 40px;
 
   ${mediaqueries.phone`
-    margin-left: 24px;
+    margin-left: 16px;
   `}
 
   &:hover {

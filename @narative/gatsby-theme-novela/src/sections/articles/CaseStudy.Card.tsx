@@ -4,12 +4,9 @@ import { css } from '@emotion/core';
 import mediaqueries from '@styles/media';
 import Icons from "@icons";
 
-import Headings from '@components/Headings';
 import Image from '@components/Image';
 
 const CaseStudyCard = ({item, actionTitle}) => {
-
-  // const { edges } = data;
  
   return (
     <CardSingle>
@@ -21,13 +18,9 @@ const CaseStudyCard = ({item, actionTitle}) => {
         />
       </ImageContainer>
       <TextWrap>
-        <Type>{item.node.type}</Type>
-        <Title>
-          {item.node.title}
-        </Title>
-        <Desc>
-          {item.node.desc}
-        </Desc>
+        <Type> {item.node.type} </Type>
+        <Title> {item.node.title} </Title>
+        <Desc> {item.node.desc} </Desc>
         <LinkButton href={item.node.url + "?ref=pafolios"} data-a11y="false" target="_blank" rel="noopener">{actionTitle}<Icons.ArrowExternal />
         </LinkButton>
         </TextWrap>
@@ -113,18 +106,15 @@ const Title = styled.h2`
 const Desc = styled.p`
   color: ${p => p.theme.colors.secondary};
   margin-bottom: 16px;
+  font-size: 18px;
   ${limitToTwoLines}
   -webkit-line-clamp: 3;
-
-  ${mediaqueries.tablet`
-    font-size: 18px;
-  `}
 `;
 
 const Type = styled.p`
   font-size: 16px;
   line-height: 24px;
-  color: ${p => p.theme.colors.grey};
+  color: ${p => p.theme.colors.secondary};
   margin-bottom: 4px;
 
 `;

@@ -13,7 +13,7 @@ const siteMetadata = {
     featuredArticlesHeading: `Staff Picks`,
     featuredArticlesSubtitle: `The best design portfolios on the internet, great visual, awesome case studies, handpicked by our editors.`,
     caseStudyHeading: `Design Case Studies`,
-    caseStudySubtitle: `To get you started, I've put together a compilation of some of my favorite design case studies.`,
+    caseStudySubtitle: `Some of our favorite design case studies for your inspiration.`,
     maxWidth: 776,
   },
   social: [
