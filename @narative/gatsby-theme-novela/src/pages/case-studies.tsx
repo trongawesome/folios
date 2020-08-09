@@ -33,7 +33,6 @@ const siteQuery = graphql`
         }
       }
     }
-    totalCount
   }
 
   allSite {
