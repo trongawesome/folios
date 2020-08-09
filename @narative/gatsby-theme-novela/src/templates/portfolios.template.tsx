@@ -18,7 +18,7 @@ const siteQuery = graphql`
       edges {
         node {
           siteMetadata {
-            name
+            title
             description
             hero {
               blogHeading
@@ -43,7 +43,7 @@ const PortfoliosPage: Template = ({ location, pageContext }) => {
     <Layout>
       <SEO
         pathname={location.pathname}
-        title={site.hero.blogHeading + " - " + site.name}
+        title={site.hero.blogHeading + " - " + site.title}
         description={site.hero.blogSubtitle}
       />
       <PortfoliosHero authors={authors} />
