@@ -33,7 +33,7 @@ export default {
     dark: {
       grey: "#73737D",
       primary: "#fff",
-      secondary: "#fff",
+      secondary: "rgba(255,255,255,0.8)",
       accent: "#4379FB",
       background: "#111216",
       backgroundModal: "rgba(17, 18, 22, 0.95)",
