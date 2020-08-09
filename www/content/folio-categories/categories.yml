@@ -16,9 +16,9 @@
 # - name: Interaction Designer
 #   url: /categories/interaction-designer
 #   desc: Here is a short description for ProductDesigners. They have many names, but truely the same.
-# - name: Brand Designer
-#   url: /categories/brand-designer
-#   desc: Here is a short description for ProductDesigners. They have many names, but truely the same.
+- name: Brand Designer
+  url: /categories/brand-designer
+  desc: Here is a short description for ProductDesigners. They have many names, but truely the same.
 # - name: Design Entrepreneur
 #   url: /categories/design-entrepreneur
 #   desc: Here is a short description for ProductDesigners. They have many names, but truely the same.
