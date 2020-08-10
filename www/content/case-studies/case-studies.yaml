@@ -1,17 +1,36 @@
+- title: The evolution of HEY
+  image: ./images/case-study-5.jpg
+  desc: Learn how Hey.com was built, from idea to launch.
+  type: Product, Behind the scene
+  url: https://m.signalvnoise.com/the-evolution-of-hey/
+
+- title: The making of Bloggi
+  image: ./images/case-study-6.jpg
+  desc: A full story of how Hernán built Bloggi. An inspiring story for you to write about your side project.
+  type: Product, Behind the scene
+  url: https://blog.bloggi.co/the-making-of-bloggi
+
 - title: Uber - Perfecting the Pickup
   image: ./images/case-study-1.jpg
   desc: Simon shared the whole process when redesigning Uber Rider. A greate example on creating a case study.
   type: Product, Process, Redesign
-  url: https://www.figma.com/community/file/857332868558500566
+  url: http://simonpan.com/work/uber/
   
 - title: Building SoundCloud
   image: ./images/case-study-3.jpg
   desc: An in-depth retrospective on building SoundCloud from Michael Nino.
-  type: Product, Brand
-  url: https://www.figma.com/community/file/857042825430121164
+  type: Product, Process
+  url: http://michaelevensen.com
 
 - title: Apple Music Case Study
   image: ./images/case-study-2.jpg
   desc: Jason Yuan got rejected by Apple Music. So he spent 3 months to redesign it.
   type: Product, Redesign
-  url: https://www.figma.com/community/file/812143143597260055
+  url: https://medium.com/startup-grind/i-got-rejected-by-apple-music-so-i-redesigned-it-b7e2e4dc64bf
+
+- title: Lonely Planet
+  image: ./images/case-study-4.jpg
+  desc: This case study from Ueno is agreat example on how to write and design a case study for a web project.
+  type: Web, UI Design
+  url: https://ueno.co/work/lonely-planet/
+
