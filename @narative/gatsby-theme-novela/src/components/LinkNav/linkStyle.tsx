@@ -1,6 +1,7 @@
+import { css } from "@emotion/core";
 import styled from "@emotion/styled";
 
-const LinkExternal = styled.a`
+export const linkStyle  = p => css`
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
@@ -17,13 +18,13 @@ const LinkExternal = styled.a`
     height: 2px;
     left: 50%;
     position: absolute;
-    background: ${p => p.theme.colors.accent};
+    background: ${p.theme.colors.accent};
     transition: width 0.25s ease 0s, left 0.25s ease 0s;
     width: 0;
   }
 
   &:hover {
-    color: ${p => p.theme.colors.accent};
+    color: ${p.theme.colors.accent};
 
     &::after {
       width: 100%; 
@@ -40,11 +41,9 @@ const LinkExternal = styled.a`
       height: 2px;
       left: calc(50% - 10px);
       position: absolute;
-      background: ${p => p.theme.colors.accent};
+      background: ${p.theme.colors.accent};
       transition: width 0.25s ease 0s, left 0.25s ease 0s;
       width: 20px;
     }
   }
 `;
-
-export default LinkExternal;

@@ -3,10 +3,10 @@ import styled from "@emotion/styled";
 import { graphql, useStaticQuery } from "gatsby";
 
 import Section from "@components/Section";
-import SocialLinks from "@components/SocialLinks";
+
 import mediaqueries from "@styles/media";
 import Subscription from "@components/Subscription";
-import LinkExternal from "@components/LinkExternal";
+import { LinkExternal, LinkInternal } from "@components/LinkNav";
 
 const siteQuery = graphql`
   {
@@ -57,6 +57,9 @@ const Footer: React.FC<{}> = () => {
             <LinkExternal href="https://trongnguyen.co" target="_blank" rel="noopener" >Trong Nguyen</LinkExternal>
             . Made in Singapore. Update daily.
           </FooterText>
+          <HideDesktop>
+            <LinkInternal to="/about" data-a11y="false" > About </LinkInternal>
+          </HideDesktop>
           <FooterSpace>
             <LinkExternal href="https://twitter.com/pafolios" target="_blank" rel="noopener" > Follow on Twitter </LinkExternal>
           </FooterSpace>
@@ -121,6 +124,15 @@ const FooterText = styled.div`
 
 const FooterSpace = styled.div`
   margin-bottom: 4px;
+`;
+
+const HideDesktop = styled.div`
+  margin-bottom: 4px;
+  display: none;
+
+  ${mediaqueries.phablet`
+    display: inline-block;
+  `}
 `;
 
 const FooterNote = styled.div`
