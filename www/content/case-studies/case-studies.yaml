@@ -1,101 +1,17 @@
-- title: Apple Widgets UI Kit
-  image: ./images/figma-tips-apple-widget.jpg
-  desc: Duplicate this UI kit to kick start your designs and prototypes when you work on Apple Widgets for iOS 14
-  type: Product, Brand
+- title: Uber - Perfecting the Pickup
+  image: ./images/case-study-1.jpg
+  desc: Simon shared the whole process when redesigning Uber Rider. A greate example on creating a case study.
+  type: Product, Process, Redesign
   url: https://www.figma.com/community/file/857332868558500566
   
-- title: ADG Components
-  image: ./images/figma-tips-tlassian-comp.jpg
-  desc: Atlassian's component pack. This includes all of our molecular components - small pieces of our foundations library all merged together to create useful, reusable components. 
+- title: Building SoundCloud
+  image: ./images/case-study-3.jpg
+  desc: An in-depth retrospective on building SoundCloud from Michael Nino.
   type: Product, Brand
   url: https://www.figma.com/community/file/857042825430121164
 
-- title: 9 Smart Animate Examples
-  image: ./images/figma-tips-smart-animate.jpg
-  desc: Nine different examples of how to put smart animate to use.
-  type: Product, Brand
+- title: Apple Music Case Study
+  image: ./images/case-study-2.jpg
+  desc: Jason Yuan got rejected by Apple Music. So he spent 3 months to redesign it.
+  type: Product, Redesign
   url: https://www.figma.com/community/file/812143143597260055
-
-- title: Monument Valley
-  image: ./images/figma-tips-monument.jpg
-  desc: Have you ever thought that you can build Monument Valley inside Figma? This file is incredible.
-  type: Product, Brand
-  url: https://www.figma.com/community/file/843899381761366385
-
-- title: Record player
-  image: ./images/figma-tips-record.jpg
-  desc: Vector Illustration of a record player and some toggles. A great example of color blending in Figma.
-  type: Product, Brand
-  url: https://www.figma.com/community/file/810277954790146273
-
-- title: iOS/iPadOS 13 Design UI Kit 
-  image: ./images/figma-tips-ios-kit.jpg
-  desc: These resources help you design apps that match the iOS design language. Icon and glyph production files are preconfigured to automate asset production using Figma.
-  type: Product, Brand
-  url: https://www.figma.com/community/file/768365747273056340
-
-- title: Material Design 2.0 Theming kit
-  image: ./images/figma-tips-material.jpg
-  desc: The best Material Design kit ever. Too famous to be introduced.
-  type: Product, Brand
-  url: https://www.figma.com/file/8dbmFxPJdkh6FLxwSyCRiC/Material-Design-Theme-Kit/duplicate?node-id=0%3A1
-
-- title: Interface Input Kit
-  image: ./images/figma-tips-input-kit.jpg
-  desc: Don’t spend time to rebuild the same types of inputs (buttons, radios, checkboxes, switches, etc.) when working on a new project. Instead, use this awesome collection to share.
-  type: Product, Brand
-  url: https://www.figma.com/community/file/831737395628127231
-
-- title: Low-fidelity wireframing kit for Figma
-  image: ./images/figma-tips-lowfi-wireframe.jpg
-  desc: Speed up your workflow with this wireframe kit. If you’re at an early stage of your project, this kit is for you.
-  type: Product, Brand
-  url: https://www.figma.com/resources/assets/wireframe-kit/
-
-- title: Uber Base Gallery
-  image: ./images/figma-tips-uber-base.jpg
-  desc: Uber's Base design system was created to promote a centralized library of reusable UI components for Designers and Engineers.
-  type: Product, Brand
-  url: https://www.figma.com/community/file/805195278314519508
-  
-- title: Feather Icons for Figma
-  image: ./images/figma-tips-feather.jpg
-  desc: Simply beautiful open source icons.
-  type: Product, Brand
-  url: https://www.figma.com/resources/assets/feather-icons/
-
-- title: iPhone 8 and iPhoneX device mockups
-  image: ./images/figma-tips-iphone8.jpg
-  desc: Create beautiful mockups your iPhone 8 or iPhone X designs with these high-quality device frames. 
-  type: Product, Brand
-  url: https://www.figma.com/resources/assets/iphone-mockups/
-
-- title: Microsoft VSCode
-  image: ./images/figma-tips-vscode.jpg
-  desc: Learn from the giant, Microsoft. A design toolkit for Visual Studio Code.
-  type: Product, Brand
-  url: https://www.figma.com/community/file/786632241522687494
-
-- title: Skeuomorph Mobile Banking
-  image: ./images/figma-tips-skeuomorph.jpg
-  desc: Beautiful little UI kit and style guides are full of multiple mobile banking screens for Figma, completely free. A good source for you to study the Skeuomorph style.
-  type: Product, Brand
-  url: https://www.figma.com/community/file/812413383162238236
-
-- title: iOS Browser UI Kit
-  image: ./images/figma-tips-browser-bar.jpg
-  desc:  Whenever you start a new mobile web design, you need browser bars in your design to make it "real". Andreas Storm created a full collection for browser on iOS. Safari and Chrome.
-  type: Product, Brand
-  url: https://www.figma.com/file/ZW0sbleWmP4aQsZ8OdweIJ/Skeuomorph-Small-Style-Guide?node-id=0%3A1
-
-- title: OSX Cursors
-  image: ./images/figma-tips-osx-cursors.jpg
-  desc: Realistic vector OS X Cursors to use them on our user flows and wireframes.
-  type: Product, Brand
-  url: https://www.figma.com/file/KlaYtm6niCZRSahECyf3At/GUI-OSX-Cursors?node-id=0%3A1
-
-- title: Paaatterns!
-  image: ./images/figma-tips-patttern.jpg
-  desc: 22 free crafted patterns for all vector formats.
-  type: Product, Brand
-  url: https://products.ls.graphics/paaatterns/

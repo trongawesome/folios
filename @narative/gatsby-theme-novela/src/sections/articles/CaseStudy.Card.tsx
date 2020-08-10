@@ -61,7 +61,7 @@ const CardSingle = styled.div`
   
 const ImageContainer = styled.div`
   position: relative;
-  height: 260px;
+  height: 280px;
 
   & > div {
     height: 100%;
@@ -112,9 +112,12 @@ const Desc = styled.p`
 `;
 
 const Type = styled.p`
-  font-family: ${p => p.theme.fonts.body};
+  font-family: ${p => p.theme.fonts.title};
+  font-weight: ${p => p.theme.fontsWeight.bold};
+
   font-size: 14px;
   line-height: 24px;
+  margin-top: 8px;
   color: ${p => p.theme.colors.secondary};
   margin-bottom: 4px;
   text-transform: uppercase;
