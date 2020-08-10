@@ -162,7 +162,7 @@ const NavLink = styled(Link)`
   }
   
   &.active {
-    color: ${p => p.theme.colors.primary};
+    color: ${p => p.theme.colors.accent};
   }
 `;
 

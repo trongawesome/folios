@@ -10,8 +10,8 @@ import Layout from "@components/Layout";
 import PageHero from "../sections/others/Page.Hero";
 import CaseStudyCard from "../sections/articles/CaseStudy.Card";
 
-const seoImage = '/preview-figma-files.jpg';
-const actionTitle = 'View this file';
+const seoImage = '/preview-case-studies.jpg';
+const actionTitle = 'Read case study';
 
 const regex = /(<([^>]+)>)/ig; //remove html tag
 
