@@ -94,15 +94,17 @@ const NavigationHeader: React.FC<{}> = () => {
             <NavLink to={`/`} title={`All portfolios`} activeClassName="active" >
               Portfolios
             </NavLink>
-            <NavLink to={`//case-studies`} title={`Case studies`} activeClassName="active" >
+            <NavLink to={`/case-studies`} title={`Case studies`} activeClassName="active" >
               Case studies
             </NavLink>
             <NavLink to={`/journal`} title={`Journal`} activeClassName="active" >
               Journal
             </NavLink>
-            <NavLink to={`/about`} title={`About`} activeClassName="active" >
-              About
-            </NavLink>
+            <HideOnMobile>
+              <NavLink to={`/about`} title={`About`} activeClassName="active" >
+                About
+              </NavLink>
+            </HideOnMobile>
             <DarkModeToggle />
           </NavControls>
         </NavContainer>
@@ -147,10 +149,11 @@ const NavLink = styled(Link)`
   transition: color 0.25s var(--ease-in-out-quad);
   display: inline-block;
   position: relative;
-  margin-left: 40px;
+  margin-left: 32px;
 
-  ${mediaqueries.phone`
+  ${mediaqueries.phablet`
     margin-left: 16px;
+    line-height: 14px;
   `}
 
   &:hover {
@@ -227,10 +230,10 @@ const IconWrapper = styled.button<{ isDark: boolean }>`
     border-radius: 5px;
   }
 
-  ${mediaqueries.tablet`
+  ${mediaqueries.phablet`
     display: inline-flex;
     transform: scale(0.708);
-    margin-left: 16px;
+    margin-left: 4px;
 
 
     &:hover {
@@ -329,6 +332,12 @@ const BackArrowIconContainer = styled.div`
   }
 
   ${mediaqueries.desktop_medium`
+    display: none;
+  `}
+`;
+
+const HideOnMobile = styled.div`
+  ${mediaqueries.phablet`
     display: none;
   `}
 `;

@@ -2,10 +2,8 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { Link } from "gatsby";
 
-import Headings from '@components/Headings';
 import Section from "@components/Section";
-import Image, { ImagePlaceholder } from '@components/Image';
-import LinkExternal from "@components/LinkExternal";
+import Image from '@components/Image';
 
 
 import mediaqueries from '@styles/media';
@@ -32,7 +30,6 @@ const AuthorsList: React.FC<AuthorProps> = ({ authors }) => {
               <LinkInternal to={`/journal`} title={`All articles`}>
                 Read other journal →
               </LinkInternal>
-              {/* <LinkExternal href="https://trongnguyen.co" target="_blank" rel="noopener" >Visit my portfolio →</LinkExternal> */}
             </Info>
           </AuthorWrap>
         ))}

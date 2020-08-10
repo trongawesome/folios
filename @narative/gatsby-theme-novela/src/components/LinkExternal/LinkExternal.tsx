@@ -1,6 +1,4 @@
 import styled from "@emotion/styled";
-import mediaqueries from "@styles/media";
-
 
 const LinkExternal = styled.a`
   font-family: inherit;
