@@ -29,6 +29,7 @@ import ArrowExternal from './ui/ArrowExternal.Icon';
 
 // SVG
 import NotFound from './svg/NotFound';
+import StaffPicks from './svg/StaffPicks';
 
 
 export default {
@@ -59,4 +60,5 @@ export default {
   ArrowExternal,
 
   NotFound,
+  StaffPicks,
 };

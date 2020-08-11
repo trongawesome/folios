@@ -2,8 +2,8 @@ import React, { useContext, useEffect } from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { Link } from 'gatsby';
+import Icons from "@icons";
 
-import Headings from '@components/Headings';
 import Image, { ImagePlaceholder } from '@components/Image';
 
 import mediaqueries from '@styles/media';
@@ -77,6 +77,7 @@ const ListItem: React.FC<ArticlesListItemProps> = ({ article, narrow }) => {
 
   return (
     <ArticleLink to={article.slug} data-a11y="false">
+      { article.featured && <Badge> <Icons.StaffPicks /> </Badge> }
       <Item>
         <ImageContainer narrow={narrow} gridLayout={gridLayout}>
           {hasHeroImage ? <Image src={imageSource}  alt={article.title} imgStyle={{ objectFit: 'cover', objectPosition: 'center top' }} /> : <ImagePlaceholder />}
@@ -154,6 +155,23 @@ const List = styled.div`
 const Item = styled.div`
   position: relative;
 `;
+
+const Badge = styled.div`
+    position: absolute;
+    top: 0;
+    right: 16px;
+    z-index: 1;
+    transition: transform 0.33s var(--ease-out-quart);
+
+    box-shadow: 0px 32px 64px rgba(0, 0, 0, 0.06), 0px 16px 32px rgba(0, 0, 0, 0.06), 0px 8px 16px rgba(0, 0, 0, 0.06), 0px 4px 4px rgba(0, 0, 0, 0.06), 0px 2px 2px rgba(0, 0, 0, 0.06);
+    
+    ${mediaqueries.phablet`
+      transform: scale(0.8);
+      top: -8px;
+      right: 4px;
+    `}
+`;
+
 
 const ImageContainer = styled.div<{ narrow: boolean; gridLayout: string }>`
   position: relative;
@@ -255,7 +273,7 @@ const ArticleLink = styled(Link)`
   transition: transform 0.33s var(--ease-out-quart);
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 
-  &:hover ${ImageContainer}, &:focus ${ImageContainer} {
+  &:hover ${ImageContainer}, &:focus ${ImageContainer}, &:hover ${Badge} {
     &::after {
       opacity: 1;
     }
