@@ -3,8 +3,8 @@ require("dotenv").config();
 const siteMetadata = {
   title: `Pafolios`,
   name: `Awesome design portfolios and case studies`,
-  siteUrl: `https://pafolios.com`,
-  description: `Awesome product and UX design portfolio and case study inspirations`,
+  siteUrl: `https://www.pafolios.com`,
+  description: `Awesome portfolios and case studies from Product, UI/UX, Creative Designers. Learn and improve your design skills with real-world examples.`,
   hero: {
     portfoliosHeading: `Portfolio of the Date`,
     portfoliosSubtitle: `Awesome portfolios and case studies from Product, UI/UX, Creative Designers. Update daily.`,
