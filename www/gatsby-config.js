@@ -42,6 +42,13 @@ const plugins = [
     },
   },
   {
+    resolve: `gatsby-plugin-google-analytics`,
+    options: {
+      trackingId: "UA-55380266-6",
+      head: true,
+    },
+  },
+  {
     resolve: `gatsby-plugin-manifest`,
     options: {
       name: `Parfolios`,
@@ -51,12 +58,6 @@ const plugins = [
       display: `standalone`,
       icon: `src/assets/favicon.png`,
       include_favicon: false,
-    },
-  },
-  {
-    resolve: `gatsby-plugin-google-analytics`,
-    options: {
-      trackingId: "UA-55380266-6",
     },
   },
   {
