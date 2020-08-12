@@ -69,6 +69,11 @@ const Footer: React.FC<{}> = () => {
           <FooterSpace>
             <LinkExternal href="https://twitter.com/pafolios" target="_blank" rel="noopener" > Submit your site </LinkExternal>
           </FooterSpace>
+          <FooterNote>
+            Search isn't available, yet. In the mean time, view a list of&nbsp;
+            <LinkInternal to="/all-sites" data-a11y="false" > all portfolios </LinkInternal>
+            .
+          </FooterNote>
           <FooterNote>All screenshots © of their respective owners.</FooterNote>
         </FooterContainer>
       </Section>
@@ -120,6 +125,10 @@ const FooterText = styled.div`
     margin: 64px auto 24px;
     text-align: center;
   `}
+
+  a {
+    box-shadow: inset 0 -2px 0 ${p => p.theme.colors.secondary}
+  }
 `;
 
 const FooterSpace = styled.div`
@@ -141,4 +150,9 @@ const FooterNote = styled.div`
   color: ${p => p.theme.colors.grey};
   opacity: .7;
   margin-top: 8px;
+  
+  a {
+    box-shadow: inset 0 -2px 0 ${p => p.theme.colors.grey}
+  }
+
 `;
