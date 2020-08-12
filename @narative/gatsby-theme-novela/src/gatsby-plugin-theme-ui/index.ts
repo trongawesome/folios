@@ -29,7 +29,7 @@ const colorModeTransition =
   'background 0.25s var(--ease-in-out-quad), color 0.25s var(--ease-in-out-quad)';
 
 export default merge({
-  initialColorMode: 'dark',
+  initialColorMode: 'light',
   useCustomProperties: true,
   colorModeTransition,
   colors,
