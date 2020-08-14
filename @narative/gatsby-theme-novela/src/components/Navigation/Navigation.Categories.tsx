@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { Link, graphql, useStaticQuery } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
 
-import mediaqueries from '@styles/media';
 import CategoryItem from './Category.Item'
 
 const siteQuery = graphql`
