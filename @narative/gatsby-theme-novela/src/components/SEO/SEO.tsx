@@ -105,7 +105,7 @@ const SEO: React.FC<HelmetProps> = ({
     },
     {
       name: 'theme-color',
-      content: '#FFFFFF',
+      content: '#F8F0EA',
     },
     {
       name: 'apple-mobile-web-app-status-bar-style',

@@ -54,7 +54,7 @@ const plugins = [
       name: `Parfolios`,
       short_name: `Parfolios`,
       start_url: `/`,
-      background_color: `#FFFFFF`,
+      background_color: `#F8F0EA`,
       display: `standalone`,
       icon: `src/assets/favicon.png`,
       include_favicon: false,
