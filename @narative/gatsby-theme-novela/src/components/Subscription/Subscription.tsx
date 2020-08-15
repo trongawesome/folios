@@ -169,7 +169,7 @@ const Button = styled.button<{ hasError: string; subscribed: boolean }>`
   align-items: center;
   justify-content: center;
   padding: 8px 0;
-  border-radius: 28px;
+  border-radius: 4px;
   border: 1px solid
     ${p => p.theme.colors.accent};
   color: ${p => p.theme.colors.white};
