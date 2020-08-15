@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import styled from '@emotion/styled';
-import { Link } from 'gatsby';
 
 import Section from '@components/Section';
 import Headings from "@components/Headings";
+import { LinkInternal } from "@components/LinkNav";
 import mediaqueries from '@styles/media';
 import { IAuthor } from '@types';
 
@@ -66,20 +66,14 @@ const InfoText = styled.h3`
   color: ${p => p.theme.colors.secondary};
 `;
 
-const NavLink = styled(Link)`
+const NavLink = styled(LinkInternal)`
   font-weight: ${p => p.theme.fontsWeight.bold};
   font-family: ${p => p.theme.fonts.title};
   font-size: 32px;
   line-height: 48px;
   color: ${p => p.theme.colors.grey};
   margin-bottom: 16px;
-  border-bottom: solid 2px ${p => p.theme.colors.grey};
-  transition: all 0.25s var(--ease-in-out-quad);
   display: inline-block;
-
-  &:hover {
-    color: ${p => p.theme.colors.accent};
-    border-color: ${p => p.theme.colors.accent};
-  }
+  box-shadow: inset 0 -2px 0 ${p => p.theme.colors.grey}
 
 `;

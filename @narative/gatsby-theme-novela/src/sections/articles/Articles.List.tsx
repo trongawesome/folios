@@ -159,11 +159,11 @@ const Item = styled.div`
 const Badge = styled.div`
     position: absolute;
     top: 0;
-    right: 16px;
+    right: 0;
     z-index: 1;
     transition: transform 0.33s var(--ease-out-quart);
 
-    box-shadow: 0px 32px 64px rgba(0, 0, 0, 0.06), 0px 16px 32px rgba(0, 0, 0, 0.06), 0px 8px 16px rgba(0, 0, 0, 0.06), 0px 4px 4px rgba(0, 0, 0, 0.06), 0px 2px 2px rgba(0, 0, 0, 0.06);
+    // box-shadow: 0px 32px 64px rgba(0, 0, 0, 0.06), 0px 16px 32px rgba(0, 0, 0, 0.06), 0px 8px 16px rgba(0, 0, 0, 0.06), 0px 4px 4px rgba(0, 0, 0, 0.06), 0px 2px 2px rgba(0, 0, 0, 0.06);
     
     ${mediaqueries.phablet`
       transform: scale(0.8);

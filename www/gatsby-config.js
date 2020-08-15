@@ -10,7 +10,7 @@ const siteMetadata = {
     portfoliosSubtitle: `Awesome portfolios and case studies from Product, UI/UX, Creative Designers. Update daily.`,
     blogHeading: `Journal`,
     blogSubtitle: `Guides and resources on building your portfolio and UX case studies.`,
-    featuredArticlesHeading: `Staff Picks`,
+    featuredArticlesHeading: `We Choice`,
     featuredArticlesSubtitle: `The best design portfolios on the internet, great visual, awesome case studies, handpicked by our editors.`,
     caseStudyHeading: `Design Case Studies`,
     caseStudySubtitle: `Learn and improve your product skills with real-world examples.`,
