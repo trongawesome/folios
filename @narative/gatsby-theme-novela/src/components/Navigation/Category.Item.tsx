@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { LinkExternal } from "@components/LinkNav";
+import { LinkInternal } from "@components/LinkNav";
 
 import mediaqueries from '@styles/media';
 
@@ -8,9 +8,9 @@ const CategoryItem = ({category}) => {
 
   return (
     <LinkWrap>
-      <LinkExternal to={category.node.url} title={category.node.name} data-a11y="false">
+      <LinkInternal to={category.node.url} title={category.node.name} data-a11y="false">
         {category.node.name}
-      </LinkExternal>
+      </LinkInternal>
     </LinkWrap>
   );
 };
