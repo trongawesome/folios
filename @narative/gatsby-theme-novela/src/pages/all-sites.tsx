@@ -118,7 +118,7 @@ const Background = styled.div`
 
 const Heading = styled.h2`
   font-size: 48vw;
-  color: ${p => p.theme.colors.accent};
+  color: ${p => p.theme.colors.primary};
   font-family: ${p => p.theme.fonts.body};
   transform: rotate(-7deg) translateX(-6vw) translateY(35vh);
   letter-spacing: -53px;

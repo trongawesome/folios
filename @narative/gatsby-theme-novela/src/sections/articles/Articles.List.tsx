@@ -177,7 +177,9 @@ const ImageContainer = styled.div<{ narrow: boolean; gridLayout: string }>`
   position: relative;
   height: 528px;
   margin-bottom: 8px;
-  transition: all 0.3s var(--ease-out-quad);
+  transition: all 0.25s var(--ease-out-quad);
+  border: 4px solid ${p => p.theme.colors.card};
+  box-shadow: ${p => p.theme.colors.smallShadow};
 
   & > div {
     height: 100%;
@@ -190,11 +192,11 @@ const ImageContainer = styled.div<{ narrow: boolean; gridLayout: string }>`
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: calc(100% + 4px);
     opacity: 0;
-    transition: all 0.3s var(--ease-out-quad);
-    box-shadow: 0 30px 40px -20px rgba(0, 0, 0, 0.12),
-      0 30px 30px -30px rgba(0, 0, 0, 0.32);
+    transition: all 0.25s var(--ease-out-quad);
+    box-shadow: 0 30px 40px -20px rgba(119, 90, 67, 0.18),
+      0 30px 30px -30px rgba(119, 90, 67, 0.4);
   }
 
   ${mediaqueries.tablet`
