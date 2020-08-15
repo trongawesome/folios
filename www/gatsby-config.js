@@ -51,8 +51,8 @@ const plugins = [
   {
     resolve: `gatsby-plugin-manifest`,
     options: {
-      name: `Parfolios`,
-      short_name: `Parfolios`,
+      name: `Pafolios`,
+      short_name: `Pafolios`,
       start_url: `/`,
       background_color: `#F8F0EA`,
       display: `standalone`,
