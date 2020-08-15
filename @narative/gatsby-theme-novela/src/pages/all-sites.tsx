@@ -60,16 +60,6 @@ const Archive = ({ location }) => {
         maxWidth={siteSEO.hero.maxWidth}
       />
       <Section narrow>
-        {/* <Wrapper>
-          {result.allArticle.edges.map((item, index) => (
-            <ArticlesItem to={item.node.slug} data-a11y="false" key={index}>
-
-              <Date>{(totalCount - index) + "."}</Date>
-              <Date>{item.node.date}</Date>
-              <Title>{item.node.title}</Title>
-            </ArticlesItem>
-          ))}
-        </Wrapper> */}
         <List reversed="reversed">
           {result.allArticle.edges.map((item, index) => (
               <Item key={index}>
@@ -129,47 +119,4 @@ const Heading = styled.h2`
     letter-spacing: -28px;
     transform: rotate(-12deg) translateX(-144px) translateY(calc(100% - -141px));
   `}
-`;
-
-const ArticlesItem = styled(Link)`
-  z-index: 1;
-  position: relative;
-  display: grid;
-  // grid-template-columns: 160px 1fr;
-  // grid-template-columns: 1fr;
-  column-gap: 16px;
-  margin-bottom: 24px;
-
-  ${mediaqueries.tablet`
-    grid-template-columns: 1fr;
-    margin-bottom: 56px;
-  `};
-`;
-
-const Date = styled.div`
-  font-size: 16px;
-  color: ${p => p.theme.colors.secondary};
-  margin-bottom: 4px;
-  padding-top: 3px;
-`;
-
-const Title = styled.h2`
-  font-size: 20px;
-  color: ${p => p.theme.colors.secondary};
-  font-family: ${p => p.theme.fonts.title};
-  font-weight: ${p => p.theme.fontsWeight.bold};
-
-  &:hover {
-    color: ${p => p.theme.colors.accent};
-  }
-
-  ${mediaqueries.tablet`
-    font-size: 28px;
-    padding-top: 8px;
-  `};
-
-`;
-
-const Wrapper = styled.div`
-  margin-bottom: 240px;
 `;
