@@ -44,16 +44,12 @@ const CardSingle = styled.div`
   position: relative;
   display: grid;
   grid-template-columns: 192px 1fr;
-  // height: 260px;
   column-gap: 24px;
-  // align-items: stretch;
   background: ${p => p.theme.colors.card};
   transition: transform 0.3s var(--ease-out-quart);
-  box-shadow: ${p => p.theme.colors.softShadowBig};
   
   ${mediaqueries.desktop`
     grid-template-columns: 1fr;
-    // height: 460px;
     align-items: start;
   `}
 

@@ -142,9 +142,10 @@ const HeroImage = styled.div`
   z-index: 1;
   max-width: 944px;
   overflow: hidden;
-  margin: 0 auto;
-  background-color: white;
-  padding: 16px 0;
+  margin: 16px auto;
+  // padding: 16px 0;
+  border: 8px solid ${p => p.theme.colors.card};
+  // box-shadow: ${p => p.theme.colors.smallShadow};
   
   ${mediaqueries.phablet`
     margin: 0 auto;
