@@ -6,7 +6,7 @@ const siteMetadata = {
   siteUrl: `https://www.pafolios.com`,
   description: `Awesome portfolios and case studies from Product, UI/UX, Creative Designers. Learn and improve your design skills with real-world examples.`,
   hero: {
-    portfoliosHeading: `Portfolio of the Date`,
+    portfoliosHeading: `Portfolio inspirations`,
     portfoliosSubtitle: `Awesome portfolios and case studies from Product, UI/UX, Creative Designers. Update daily.`,
     blogHeading: `Journal`,
     blogSubtitle: `Guides and resources on building your portfolio and UX case studies.`,
