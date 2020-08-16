@@ -30,13 +30,13 @@ const CategoryHero: React.FC<IAuthor> = ({ category }) => {
 
   return (
     <Section narrow id="Articles__Hero">
-      <HeadingContainer style={{ maxWidth: `${hero.maxWidth}px` }}>
+      <HeadingContainer>
         <NavLink to={`/`} title={`All portfolios `} activeClassName="active" >
           All portfolios 
         </NavLink>
-        <Headings.h1>{category}</Headings.h1>
+        <Headings.h1>{category + " Porfolios"}</Headings.h1>
         <InfoText>
-          Awesome and inspiring portfolio designs from {category}
+          Awesome and inspiring portfolio designs for {category}
         </InfoText>
       </HeadingContainer>
     </Section>
