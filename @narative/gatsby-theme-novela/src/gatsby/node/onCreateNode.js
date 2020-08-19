@@ -62,7 +62,7 @@ module.exports = ({ node, actions, getNode, createNodeId }, themeOptions) => {
     const fieldData = {
       ...node,
       authorsPage: themeOptions.authorsPage || false,
-      slug: generateSlug(basePath, 'authors', slug),
+      slug: generateSlug(basePath, 'types', slug),
     };
 
     createNode({

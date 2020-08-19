@@ -38,7 +38,7 @@ const ArticleHero: React.FC<ArticleHeroProps> = ({ article, authors }) => {
         <HeroSubtitle>Portfolio of the Day ・ {article.date}</HeroSubtitle>
         {article.font && <HeroSubtitle>Fonts: {article.font}</HeroSubtitle>}
         {authors.map((author, index) => (
-            <HeroSubtitle key={index}>{author.name}</HeroSubtitle>
+            <HeroSubtitle key={index}>{author.name + author.slug}</HeroSubtitle>
         ))}
         <LinkButton href={article.siteLink + "?ref=pafolios"} target="_blank" rel="noopener">Visit site <Icons.ArrowExternal /> </LinkButton>
       </Header>
