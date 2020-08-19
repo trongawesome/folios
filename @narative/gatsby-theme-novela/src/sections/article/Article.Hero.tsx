@@ -121,7 +121,7 @@ const DesignerType = styled.p`
 
 const Excerpt = styled.h3`
   font-size: 18px;
-  line-height: 32px;
+  line-height: 28px;
   letter-spacing: 0;
   font-family: ${p => p.theme.fonts.body};
   color: ${p => p.theme.colors.secondary};
