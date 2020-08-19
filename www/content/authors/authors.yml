@@ -1,16 +1,44 @@
-- name: Trong Nguyen
+- name: UX & Product Designer
   bio: |
-    Hi, I'm Trong, a Vietnamese product designer living in Singapore. I started this project because I noticed that all designers need to have a portfolio to get a job. I hope this site is useful for you to find inspirations and build an awesome portfolios.
+    Here is a short description for ProductDesigners. They have many names, but truely the same.
   avatar: ./avatars/trong-nguyen.jpg
-  featured: true
-  social:
-    - url: https://twitter.com/trongtnt92
-    - url: https://medium.com/@trongtnt92
+  slug: product-designer
+  featured: false
+- name: Creative Designer
+  bio: |
+    Here is a short description for ProductDesigners. They have many names, but truely the same.
+  avatar: ./avatars/trong-nguyen.jpg
+  slug: creative-designer
+  featured: false
+- name: Creative Developer
+  bio: |
+    Here is a short description for ProductDesigners. They have many names, but truely the same.
+  avatar: ./avatars/trong-nguyen.jpg
+  slug: product-designer
+  featured: false
+- name: Brand Designer
+  bio: |
+    Here is a short description for ProductDesigners. They have many names, but truely the same.
+  avatar: ./avatars/trong-nguyen.jpg
+  slug: brand-designer
+  featured: false
+- name: Design Agency
+  bio: |
+    Here is a short description for ProductDesigners. They have many names, but truely the same.
+  avatar: ./avatars/trong-nguyen.jpg
+  slug: esign-agency
+  featured: false
+- name: Writer
+  bio: |
+    Here is a short description for ProductDesigners. They have many names, but truely the same.
+  avatar: ./avatars/trong-nguyen.jpg
+  slug: writer
+  featured: false
 
-- name: Jolie Happy
+- name: Trong Nguyen
   bio: |
     I'm Jolie Happy. Jolie is cute, and Happy is happy.
   avatar: ./avatars/jolie-2.JPG
-  featured: true
+  featured: false
   social:
     - url: https://github.com
