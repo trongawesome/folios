@@ -25,8 +25,6 @@ const authorQuery = graphql`
 `;
 
 const CategoryHero: React.FC<IAuthor> = ({ category }) => {
-  const results = useStaticQuery(authorQuery);
-  const hero = results.site.edges[0].node.siteMetadata.hero;
 
   return (
     <Section narrow id="Articles__Hero">
@@ -34,9 +32,9 @@ const CategoryHero: React.FC<IAuthor> = ({ category }) => {
         <NavLink to={`/`} title={`All portfolios `} activeClassName="active" >
           All portfolios 
         </NavLink>
-        <Headings.h1>{category + " Porfolios"}</Headings.h1>
+        <Headings.h1>{category.name + " Porfolios"}</Headings.h1>
         <InfoText>
-          Awesome and inspiring portfolio designs for {category}
+          {category.bio}
         </InfoText>
       </HeadingContainer>
     </Section>

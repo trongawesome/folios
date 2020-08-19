@@ -13,7 +13,7 @@ const templatesDirectory = path.resolve(__dirname, '../../templates');
 const templates = {
   articles: path.resolve(templatesDirectory, 'articles.template.tsx'),
   article: path.resolve(templatesDirectory, 'article.template.tsx'),
-  author: path.resolve(templatesDirectory, 'author.template.tsx'),
+  author: path.resolve(templatesDirectory, 'category.template.tsx'),
   category: path.resolve(templatesDirectory, 'category.template.tsx'),
   portfolios: path.resolve(templatesDirectory, 'portfolios.template.tsx'),
   portfolio: path.resolve(templatesDirectory, 'portfolio.template.tsx'),
