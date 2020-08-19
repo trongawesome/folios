@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 
 import Headings from '@components/Headings';
 import Image, { ImagePlaceholder } from '@components/Image';
+import { LinkInternal } from "@components/LinkNav";
 import Icons from "@icons";
 
 import mediaqueries from '@styles/media';
@@ -22,24 +23,20 @@ const ArticleHero: React.FC<ArticleHeroProps> = ({ article, authors }) => {
   return (
     <Hero>
       <Header>
-        {/* <DesignerType>
-          {article.categories.join(', ')}
-          {article.categories.map((category, index) => (
+        <DesignerType>
+          {authors.map((author, index) => (
             <span>
-              <a href="">{category}</a>
-              {index + 1 <  article.categories.length ? (
-                <span>, </span>
+              <LinkInternal to={author.slug} key={index}>{author.name}</LinkInternal>
+              {index + 1 < authors.length ? (
+                <span> ・ </span>
               ) : ('')}
             </span>
-          ))} 
-        </DesignerType> */}
+          ))}
+        </DesignerType>
         <HeroHeading>{article.title}</HeroHeading>
         <Excerpt>{article.excerpt}</Excerpt>
         <HeroSubtitle>Portfolio of the Day ・ {article.date}</HeroSubtitle>
         {article.font && <HeroSubtitle>Fonts: {article.font}</HeroSubtitle>}
-        {authors.map((author, index) => (
-            <HeroSubtitle key={index}>{author.name + author.slug}</HeroSubtitle>
-        ))}
         <LinkButton href={article.siteLink + "?ref=pafolios"} target="_blank" rel="noopener">Visit site <Icons.ArrowExternal /> </LinkButton>
       </Header>
       <Link href={article.siteLink + "?ref=pafolios"} target="_blank" rel="noopener">
@@ -110,11 +107,16 @@ const HeroHeading = styled(Headings.h1)`
 
 const DesignerType = styled.p`
   letter-spacing: 0;
-  font-size: 32px;
-  line-height: 48px;
+  font-size: 18px;
+  line-height: 32px;
   color: ${p => p.theme.colors.secondary};
   font-weight: ${p => p.theme.fontsWeight.regular};
-
+  font-family: ${p => p.theme.fonts.body};
+  margin-bottom: 8px;
+  
+  a {
+    box-shadow: inset 0 -2px 0 ${p => p.theme.colors.grey};
+  }
 `;
 
 const Excerpt = styled.h3`

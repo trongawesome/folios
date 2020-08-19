@@ -8,37 +8,40 @@
   bio: |
     Here is a short description for ProductDesigners. They have many names, but truely the same.
   avatar: ./avatars/trong-nguyen.jpg
-  slug: creative-designer
   featured: false
 - name: Creative Developer
   bio: |
     Here is a short description for ProductDesigners. They have many names, but truely the same.
   avatar: ./avatars/trong-nguyen.jpg
-  slug: creative-developer
   featured: false
 - name: Brand Designer
   bio: |
     Here is a short description for ProductDesigners. They have many names, but truely the same.
   avatar: ./avatars/trong-nguyen.jpg
-  slug: brand-designer
   featured: false
 - name: Design Agency
   bio: |
     Here is a short description for ProductDesigners. They have many names, but truely the same.
   avatar: ./avatars/trong-nguyen.jpg
-  slug: design-agency
   featured: false
 - name: Writer
   bio: |
     Here is a short description for ProductDesigners. They have many names, but truely the same.
   avatar: ./avatars/trong-nguyen.jpg
-  slug: writer
+  featured: false
+- name: Illustrator
+  bio: |
+    Here is a short description for ProductDesigners. They have many names, but truely the same.
+  avatar: ./avatars/trong-nguyen.jpg
+  featured: false
+- name: Interaction Designer
+  bio: |
+    Here is a short description for ProductDesigners. They have many names, but truely the same.
+  avatar: ./avatars/trong-nguyen.jpg
   featured: false
 
 - name: Trong Nguyen
   bio: |
-    I'm Jolie Happy. Jolie is cute, and Happy is happy.
-  avatar: ./avatars/jolie-2.JPG
-  featured: false
-  social:
-    - url: https://github.com
+    Here is a short description for ProductDesigners. They have many names, but truely the same.
+  avatar: ./avatars/trong-nguyen.jpg
+  featured: true

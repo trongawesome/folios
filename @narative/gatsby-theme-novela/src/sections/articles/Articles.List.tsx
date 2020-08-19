@@ -92,7 +92,7 @@ const ListItem: React.FC<ArticlesListItemProps> = ({ article, narrow }) => {
             </MetaData>
           </RowTitle>
           <Excerpt>
-            {article.categories.join(', ')}
+            {article.author}
           </Excerpt>
         </div>
       </Item>
