@@ -6,11 +6,11 @@ import CategoryItem from './Category.Item'
 
 const siteQuery = graphql`
 {
-  allCategoriesYaml {
+  allAuthor(limit: 6) {
     edges {
       node {
         name
-        url
+        slug
       }
     }
   }
@@ -19,13 +19,14 @@ const siteQuery = graphql`
 
 const NavCategory = ({ }) => {
   
-  const result = useStaticQuery(siteQuery).allCategoriesYaml.edges;
+  const result = useStaticQuery(siteQuery).allAuthor.edges;
 
   return (
     <NavContainer>
       <NavControls>
+        <CategoryItem name="We Choice ★" slug="/staff-picks" />
         {result.map((category, index) => (
-          <CategoryItem category={category} key={index} />
+          <CategoryItem name={category.node.name} slug={category.node.slug} key={index} />
         ))}
       </NavControls>
     </NavContainer>
