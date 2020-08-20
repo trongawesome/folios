@@ -107,12 +107,13 @@ const HeroHeading = styled(Headings.h1)`
 
 const DesignerType = styled.p`
   letter-spacing: 0;
-  font-size: 18px;
-  line-height: 32px;
+  font-size: 14px;
+  line-height: 24px;
   color: ${p => p.theme.colors.secondary};
   font-weight: ${p => p.theme.fontsWeight.regular};
-  font-family: ${p => p.theme.fonts.body};
-  margin-bottom: 8px;
+  font-family: ${p => p.theme.fonts.title};
+  text-transform: uppercase;
+  margin-bottom: 16px;
   
   a {
     box-shadow: inset 0 -2px 0 ${p => p.theme.colors.grey};
