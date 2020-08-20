@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.15](https://github.com/tantrongtt/folios/compare/www@1.2.14...www@1.2.15) (2020-08-20)
+
+**Note:** Version bump only for package www
+
+
+
+
+
 ## [1.2.14](https://github.com/tantrongtt/folios/compare/www@1.2.13...www@1.2.14) (2020-08-18)
 
 **Note:** Version bump only for package www
