@@ -8,22 +8,6 @@ import { LinkInternal } from "@components/LinkNav";
 import mediaqueries from '@styles/media';
 import { IAuthor } from '@types';
 
-const authorQuery = graphql`
-  {
-    site: allSite {
-      edges {
-        node {
-          siteMetadata {
-            hero {
-              maxWidth
-            }
-          }
-        }
-      }
-    }
-  }
-`;
-
 const CategoryHero: React.FC<IAuthor> = ({ category }) => {
 
   return (
