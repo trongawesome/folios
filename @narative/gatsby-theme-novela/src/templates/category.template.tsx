@@ -37,7 +37,7 @@ const CategoryPage: Template = ({ location, pageContext }) => {
   
     return (
       <Layout>
-        <SEO pathname={location.pathname} title={"Awesome Portfolios from " + author + " - " + title} />
+        <SEO pathname={location.pathname} title={"Awesome portfolio inspirations for " + author.name + " - " + title} />
         <CategoryHero category={author} />
         <Section narrow>
           <ArticlesList articles={articles} />
