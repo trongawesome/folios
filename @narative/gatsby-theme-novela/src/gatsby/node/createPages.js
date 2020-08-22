@@ -59,7 +59,7 @@ module.exports = async ({ actions: { createPage }, graphql }, themeOptions) => {
     // categoryPath = '/categories',
     portfolioPath = '/journal',
     featuredArticlesPath = '/staff-picks',
-    pageLength = 24,
+    pageLength = 18,
     sources = {},
     mailchimp = '',
   } = themeOptions;
