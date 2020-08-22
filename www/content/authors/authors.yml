@@ -9,17 +9,17 @@
     Here is a short description for ProductDesigners. They have many names, but truely the same.
   avatar: ./avatars/trong-nguyen.jpg
   featured: false
-- name: Creative Developer
-  bio: |
-    Here is a short description for ProductDesigners. They have many names, but truely the same.
-  avatar: ./avatars/trong-nguyen.jpg
-  featured: false
 - name: Brand Designer
   bio: |
     Here is a short description for ProductDesigners. They have many names, but truely the same.
   avatar: ./avatars/trong-nguyen.jpg
   featured: false
 - name: Design Agency
+  bio: |
+    Here is a short description for ProductDesigners. They have many names, but truely the same.
+  avatar: ./avatars/trong-nguyen.jpg
+  featured: false
+- name: Creative Developer
   bio: |
     Here is a short description for ProductDesigners. They have many names, but truely the same.
   avatar: ./avatars/trong-nguyen.jpg
