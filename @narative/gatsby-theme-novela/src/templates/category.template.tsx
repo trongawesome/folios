@@ -19,6 +19,9 @@ const siteQuery = graphql`
         node {
           siteMetadata {
             title
+            hero {
+              maxWidth
+            }
           }
         }
       }
@@ -31,6 +34,7 @@ const CategoryPage: Template = ({ location, pageContext }) => {
 
     const results = useStaticQuery(siteQuery);
     const title = results.allSite.edges[0].node.siteMetadata.title;
+    const maxWidth = results.allSite.edges[0].node.siteMetadata.hero.maxWidth;
     
     const author = pageContext.additionalContext.author;
     const articles = pageContext.group;
@@ -38,7 +42,7 @@ const CategoryPage: Template = ({ location, pageContext }) => {
     return (
       <Layout>
         <SEO pathname={location.pathname} title={"Awesome portfolio inspirations for " + author.name + " - " + title} />
-        <CategoryHero category={author} />
+        <CategoryHero category={author} maxWidth={maxWidth}/>
         <Section narrow>
           <ArticlesList articles={articles} />
           <ArticlesPaginator show={pageContext.pageCount > 1}>

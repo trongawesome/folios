@@ -7,15 +7,15 @@ import { LinkInternal } from "@components/LinkNav";
 import mediaqueries from '@styles/media';
 import { IAuthor } from '@types';
 
-const CategoryHero: React.FC<IAuthor> = ({ category }) => {
+const CategoryHero: React.FC<IAuthor> = ({ category, maxWidth }) => {
 
   return (
     <Section narrow id="Articles__Hero">
-      <HeadingContainer>
+      <HeadingContainer style={{ maxWidth: `${maxWidth}px` }}>
         <NavLink to={`/`} title={`All portfolios `} activeClassName="active" >
           All portfolios 
         </NavLink>
-        <Headings.h1>{category.name + " Porfolios"}</Headings.h1>
+        <Headings.h1>{category.name}</Headings.h1>
         <InfoText>
           {category.bio}
         </InfoText>

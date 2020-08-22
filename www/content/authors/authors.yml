@@ -1,47 +1,47 @@
 - name: UX & Product Designer
   bio: |
-    Here is a short description for ProductDesigners. They have many names, but truely the same.
+    UI/UX designers, web designer, app Designer,… They have many different names, but things they do are the same.
   avatar: ./avatars/trong-nguyen.jpg
   slug: product-designer
   featured: false
 - name: Creative Designer
   bio: |
-    Here is a short description for ProductDesigners. They have many names, but truely the same.
+    Or graphic designers, they are visual communicators, to inspire, inform, or captivate people through images, words, or graphics.
   avatar: ./avatars/trong-nguyen.jpg
   featured: false
 - name: Brand Designer
   bio: |
-    Here is a short description for ProductDesigners. They have many names, but truely the same.
+    People who make a unique visual impression for products or services
   avatar: ./avatars/trong-nguyen.jpg
   featured: false
 - name: Design Agency
   bio: |
-    Here is a short description for ProductDesigners. They have many names, but truely the same.
+    A place where lots of people make magic by design.
   avatar: ./avatars/trong-nguyen.jpg
   featured: false
 - name: Creative Developer
   bio: |
-    Here is a short description for ProductDesigners. They have many names, but truely the same.
+    An excellent combination of a designer and a developer. They develop beauties for the internet.
   avatar: ./avatars/trong-nguyen.jpg
   featured: false
 - name: Writer
   bio: |
-    Here is a short description for ProductDesigners. They have many names, but truely the same.
+    Writing is designing. Writers are a type of designer.
   avatar: ./avatars/trong-nguyen.jpg
   featured: false
 - name: Illustrator
   bio: |
-    Here is a short description for ProductDesigners. They have many names, but truely the same.
+    Another awesome type of designer.
   avatar: ./avatars/trong-nguyen.jpg
   featured: false
 - name: Interaction Designer
   bio: |
-    Here is a short description for ProductDesigners. They have many names, but truely the same.
+    Another awesome type of designer.
   avatar: ./avatars/trong-nguyen.jpg
   featured: false
 
 - name: Trong Nguyen
   bio: |
-    Here is a short description for ProductDesigners. They have many names, but truely the same.
+    Another awesome type of designer.
   avatar: ./avatars/trong-nguyen.jpg
   featured: true
