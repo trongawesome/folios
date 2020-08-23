@@ -33,7 +33,7 @@ const plugins = [
       contentPortfolios: "content/portfolios",
       rootPath: "/",
       basePath: "/",
-      authorsPage: false,
+      authorsPage: true,
       mailchimp: true,
       sources: {
         local: true,

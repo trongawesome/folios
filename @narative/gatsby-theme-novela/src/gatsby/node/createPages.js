@@ -13,8 +13,7 @@ const templatesDirectory = path.resolve(__dirname, '../../templates');
 const templates = {
   articles: path.resolve(templatesDirectory, 'articles.template.tsx'),
   article: path.resolve(templatesDirectory, 'article.template.tsx'),
-  author: path.resolve(templatesDirectory, 'author.template.tsx'),
-  category: path.resolve(templatesDirectory, 'category.template.tsx'),
+  author: path.resolve(templatesDirectory, 'category.template.tsx'),
   portfolios: path.resolve(templatesDirectory, 'portfolios.template.tsx'),
   portfolio: path.resolve(templatesDirectory, 'portfolio.template.tsx'),
   featuredArticles: path.resolve(templatesDirectory, 'featuredArticles.template.tsx'),
@@ -55,9 +54,9 @@ module.exports = async ({ actions: { createPage }, graphql }, themeOptions) => {
   const {
     rootPath,
     basePath = '/',
-    authorsPath = '/authors',
+    authorsPath = '/types',
     authorsPage = true,
-    categoryPath = '/categories',
+    // categoryPath = '/categories',
     portfolioPath = '/journal',
     featuredArticlesPath = '/staff-picks',
     pageLength = 18,
@@ -175,17 +174,17 @@ module.exports = async ({ actions: { createPage }, graphql }, themeOptions) => {
   `);
   }
 
-  const categories = articles.reduce((acc, article) => {
-    return [...acc, ...article.categories];
-  }, []);
+  // const categories = articles.reduce((acc, article) => {
+  //   return [...acc, ...article.categories];
+  // }, []);
 
-  const uniqueCategories = [...new Set(categories)];
+  // const uniqueCategories = [...new Set(categories)];
 
-  if (uniqueCategories.length === 0 || uniqueCategories.length === 0) {
-    throw new Error(`
-    You must have at least one Category to create category page.
-  `);
-  }
+  // if (uniqueCategories.length === 0 || uniqueCategories.length === 0) {
+  //   throw new Error(`
+  //   You must have at least one Category to create category page.
+  // `);
+  // }
 
   /**
    * Once we've queried all our data sources and normalized them to the same structure
@@ -405,38 +404,38 @@ module.exports = async ({ actions: { createPage }, graphql }, themeOptions) => {
    *  /category/gatsby
    * /category/gatsby/2
    */
-  log('Creating', 'category pages');
-  uniqueCategories.forEach(category => {
-    let allArticlesOfTheCategory;
-    try {
-      allArticlesOfTheCategory = articles.filter(article =>
-        article.categories.includes(category),
-      );
-    } catch (error) {
-      throw new Error(`
-        We could not find the Articles for: "${category}".
-        Double check the categories field is specified in your post and the name
-        matches a specified category.
-        Category name: ${category}
-        ${error}
-      `);
-    }
-    const path = slugify(category, categoryPath);
+  // log('Creating', 'category pages');
+  // uniqueCategories.forEach(category => {
+  //   let allArticlesOfTheCategory;
+  //   try {
+  //     allArticlesOfTheCategory = articles.filter(article =>
+  //       article.categories.includes(category),
+  //     );
+  //   } catch (error) {
+  //     throw new Error(`
+  //       We could not find the Articles for: "${category}".
+  //       Double check the categories field is specified in your post and the name
+  //       matches a specified category.
+  //       Category name: ${category}
+  //       ${error}
+  //     `);
+  //   }
+  //   const path = slugify(category, categoryPath);
 
-    createPaginatedPages({
-      edges: allArticlesOfTheCategory,
-      pathPrefix: path,
-      createPage,
-      pageLength,
-      pageTemplate: templates.category,
-      buildPath: buildPaginatedPath,
-      context: {
-        category,
-        originalPath: path,
-        skip: pageLength,
-        limit: pageLength,
-      },
-    });
-  });
+  //   createPaginatedPages({
+  //     edges: allArticlesOfTheCategory,
+  //     pathPrefix: path,
+  //     createPage,
+  //     pageLength,
+  //     pageTemplate: templates.category,
+  //     buildPath: buildPaginatedPath,
+  //     context: {
+  //       category,
+  //       originalPath: path,
+  //       skip: pageLength,
+  //       limit: pageLength,
+  //     },
+  //   });
+  // });
 
 };

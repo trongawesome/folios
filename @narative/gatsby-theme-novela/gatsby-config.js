@@ -70,7 +70,7 @@ module.exports = ({
                       url: site.siteMetadata.siteUrl + edge.node.slug,
                       guid: site.siteMetadata.siteUrl + edge.node.slug,
                       // custom_elements: [{ "content:encoded": edge.node.body }],
-                      author: edge.node.author,
+                      // author: edge.node.author,
                     };
                   });
               } else if (!local && contentful) {
@@ -84,7 +84,7 @@ module.exports = ({
                       url: site.siteMetadata.siteUrl + edge.node.slug,
                       guid: site.siteMetadata.siteUrl + edge.node.slug,
                       // custom_elements: [{ "content:encoded": edge.node.body }],
-                      author: edge.node.author,
+                      // author: edge.node.author,
                     };
                   });
               } else {
@@ -99,7 +99,7 @@ module.exports = ({
                       url: site.siteMetadata.siteUrl + edge.node.slug,
                       guid: site.siteMetadata.siteUrl + edge.node.slug,
                       // custom_elements: [{ "content:encoded": edge.node.body }],
-                      author: edge.node.author,
+                      // author: edge.node.author,
                     };
                   });
               }

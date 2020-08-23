@@ -10,6 +10,8 @@ import Paginator from '@components/Navigation/Navigation.Paginator';
 import ArticlesList from "../sections/articles/Articles.List";
 import CategoryHero from "../sections/category/Category.Hero";
 
+import { Template } from "@types";
+
 const siteQuery = graphql`
   {
     allSite {
@@ -17,24 +19,30 @@ const siteQuery = graphql`
         node {
           siteMetadata {
             title
+            hero {
+              maxWidth
+            }
           }
         }
       }
     }
   }
 `;
-
-function CategoryPage({ location, pageContext }) {
-    const { group: articles, category } = pageContext;
-    const authors = pageContext.additionalContext.authors;
+const CategoryPage: Template = ({ location, pageContext }) => {
+    // const { group: articles, category } = pageContext;
+    // const authors = pageContext.additionalContext.authors;
 
     const results = useStaticQuery(siteQuery);
     const title = results.allSite.edges[0].node.siteMetadata.title;
+    const maxWidth = results.allSite.edges[0].node.siteMetadata.hero.maxWidth;
+    
+    const author = pageContext.additionalContext.author;
+    const articles = pageContext.group;
   
     return (
       <Layout>
-        <SEO pathname={location.pathname} title={"Awesome Portfolios from " + category + " - " + title} />
-        <CategoryHero category={category} />
+        <SEO pathname={location.pathname} title={"Awesome portfolio inspirations for " + author.name + " - " + title} />
+        <CategoryHero category={author} maxWidth={maxWidth}/>
         <Section narrow>
           <ArticlesList articles={articles} />
           <ArticlesPaginator show={pageContext.pageCount > 1}>

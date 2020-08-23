@@ -1,5 +1,4 @@
-import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
+import React from 'react'
 import styled from '@emotion/styled';
 
 import Section from '@components/Section';
@@ -8,35 +7,17 @@ import { LinkInternal } from "@components/LinkNav";
 import mediaqueries from '@styles/media';
 import { IAuthor } from '@types';
 
-const authorQuery = graphql`
-  {
-    site: allSite {
-      edges {
-        node {
-          siteMetadata {
-            hero {
-              maxWidth
-            }
-          }
-        }
-      }
-    }
-  }
-`;
-
-const CategoryHero: React.FC<IAuthor> = ({ category }) => {
-  const results = useStaticQuery(authorQuery);
-  const hero = results.site.edges[0].node.siteMetadata.hero;
+const CategoryHero: React.FC<IAuthor> = ({ category, maxWidth }) => {
 
   return (
     <Section narrow id="Articles__Hero">
-      <HeadingContainer>
+      <HeadingContainer style={{ maxWidth: `${maxWidth}px` }}>
         <NavLink to={`/`} title={`All portfolios `} activeClassName="active" >
           All portfolios 
         </NavLink>
-        <Headings.h1>{category + " Porfolios"}</Headings.h1>
+        <Headings.h1>{category.name}</Headings.h1>
         <InfoText>
-          Awesome and inspiring portfolio designs for {category}
+          {category.bio}
         </InfoText>
       </HeadingContainer>
     </Section>

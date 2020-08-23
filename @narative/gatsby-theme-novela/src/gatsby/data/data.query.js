@@ -25,7 +25,6 @@ module.exports.local = {
           secret
           title
           author
-          categories
           date(formatString: "MMM DD, YYYY")
           dateForSEO: date
           timeToRead
@@ -111,23 +110,10 @@ module.exports.local = {
           id
           name
           featured
-          social {
-            url
-          }
           slug
           avatar {
             small: childImageSharp {
               fluid(maxWidth: 50, quality: 100) {
-                ${GatsbyFluid_withWebp}
-              }
-            }
-            medium: childImageSharp {
-              fluid(maxWidth: 100, quality: 100) {
-                ${GatsbyFluid_withWebp}
-              }
-            }
-            large: childImageSharp {
-              fluid(maxWidth: 328, quality: 100) {
                 ${GatsbyFluid_withWebp}
               }
             }

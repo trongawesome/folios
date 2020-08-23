@@ -4,12 +4,12 @@ import { LinkInternal } from "@components/LinkNav";
 
 import mediaqueries from '@styles/media';
 
-const CategoryItem = ({category}) => {
+const CategoryItem = ({name, slug}) => {
 
   return (
     <LinkWrap>
-      <LinkInternal to={category.node.url} title={category.node.name} data-a11y="false">
-        {category.node.name}
+      <LinkInternal to={slug} title={name} data-a11y="false">
+        {name}
       </LinkInternal>
     </LinkWrap>
   );
