@@ -117,6 +117,11 @@ module.exports.local = {
                 ${GatsbyFluid_withWebp}
               }
             }
+            large: childImageSharp {
+              fluid(maxWidth: 328, quality: 100) {
+                ${GatsbyFluid_withWebp}
+              }
+            }
           }
         }
       }
