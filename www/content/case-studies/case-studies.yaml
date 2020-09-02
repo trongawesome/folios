@@ -1,8 +1,32 @@
+- title: Freshalian Pasta - UX Writing Case Study
+  image: ./images/case-study-11.jpg
+  desc: Discover how words shape User Experience and how to find them
+  type: UX Writing
+  url: https://www.behance.net/gallery/101888299/Freshalian-Pasta-UX-Writing-Case-Study?mc_cid=7c9a770f13&mc_eid=04fc60fa8e
+
+- title: Designing Facebook Collage
+  image: ./images/case-study-10.jpg
+  desc: Christophe shared an inspiring process on how his team created Facebook Collage
+  type: Product, Behind the scene
+  url: https://medium.com/facebook-design/designing-facebook-collage-304436764ca8
+
+- title: Designing the UI of Google Translate
+  image: ./images/case-study-8.jpg
+  desc: The design story behind making Google Translate
+  type: Product, Behind the scene
+  url: https://medium.com/google-design/a-fish-in-your-ear-134deed70268
+
+- title: Pathrise Resources
+  image: ./images/case-study-9.jpg
+  desc: Very detailed case study on how to increase user engagement and retention
+  type: User research, User retention
+  url: https://www.imanijoy.design/projects/pathrise-resources/start
+
 - title: 8 tactics tested on 300M users
   image: ./images/case-study-7.jpg
   desc: Learn how Duolongo gets people to come back.
   type: Product, User retention
-  url: https://m.signalvnoise.com/the-evolution-of-hey/
+  url: https://growth.design/case-studies/duolingo-user-retention/
 
 - title: The evolution of HEY
   image: ./images/case-study-5.jpg
