@@ -79,10 +79,10 @@ const Archive = ({ location }) => {
 export default Archive;
 
 const List = styled.ol`
-  font-size:20px;
+  font-size: 20px;
   color: ${p => p.theme.colors.secondary};
   font-family: ${p => p.theme.fonts.body};
-  margin-left: 48px;
+  margin-left: 64px;
   z-index: 1;
   position: relative;
 `;
@@ -109,10 +109,10 @@ const Background = styled.div`
 const Heading = styled.h2`
   font-size: 48vw;
   color: ${p => p.theme.colors.primary};
-  font-family: ${p => p.theme.fonts.body};
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   transform: rotate(-7deg) translateX(-6vw) translateY(35vh);
   letter-spacing: -53px;
-  font-weight: ${p => p.theme.fontsWeight.bold};
+  font-weight: 700;
 
   ${mediaqueries.tablet`
     font-size: 285px;
