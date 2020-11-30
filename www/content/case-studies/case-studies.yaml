@@ -1,3 +1,15 @@
+- title: Box Annotations
+  image: ./images/case-study-13.jpg
+  desc: Very clear and easy to read case study with video explains how it works, and great visual.
+  type: Product, Behind the scene
+  url: https://www.aileen.co/tumblr
+
+- title: Tumblr Queue V2
+  image: ./images/case-study-12.jpg
+  desc: Aileen, an intern shared the story of her internship project at Tumblr. Great visuals and ease of reading make it a great case study!
+  type: Behind the scene
+  url: https://www.aileen.co/tumblr
+
 - title: Freshalian Pasta - UX Writing Case Study
   image: ./images/case-study-11.jpg
   desc: Discover how words shape User Experience and how to find them
