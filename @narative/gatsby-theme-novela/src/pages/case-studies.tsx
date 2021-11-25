@@ -26,7 +26,7 @@ const siteQuery = graphql`
         type
         image {
           childImageSharp {
-            fluid(maxWidth: 200, quality: 100) {
+            fluid(maxWidth: 200, quality: 95, base64Width: 1) {
               ...GatsbyImageSharpFluid
             }
           }
