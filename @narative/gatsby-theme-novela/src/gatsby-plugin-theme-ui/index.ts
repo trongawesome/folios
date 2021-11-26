@@ -1,4 +1,5 @@
 import merge from 'lodash/merge';
+import { css } from '@emotion/core';
 
 import colors from './colors';
 import tags from './tags';
@@ -28,10 +29,20 @@ const fontsWeight = {
 const colorModeTransition =
   'background 0.25s var(--ease-in-out-quad), color 0.25s var(--ease-in-out-quad)';
 
+const textGradient = p => css`
+  color: transparent;
+  -webkit-text-fill-color: transparent; 
+  -webkit-background-clip: text;
+  background-size: 100%;
+  background-image: ${p.theme.colors.accentGradient};
+  background-color: ${p.theme.colors.accent};
+`;
+
 export default merge({
   initialColorMode: 'light',
   useCustomProperties: true,
   colorModeTransition,
+  textGradient,
   colors,
   fonts,
   fontsWeight,

@@ -16,7 +16,7 @@ const commonStyles = p => css`
 
 const h1 = styled.h1`
   font-size: 72px;
-  line-height: 72px;
+  line-height: 88px;
   letter-spacing: -3px;
   ${commonStyles};
 

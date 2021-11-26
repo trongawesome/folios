@@ -14,6 +14,7 @@ export default {
   headerLine: "#092630",
   // accent: "#3A5C21",
   accent: "#F01727",
+  accentGradient: "linear-gradient(135deg, #A5A5A5 0%, #191919 100%)",
   hover: "rgba(0, 0, 0, 0.07)",
   gradient: "linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%)",
   gradientImage: "linear-gradient(180deg, rgba(209, 232, 235, 0) 0%, rgba(209, 232, 235, 0.95) 71.88%, #D1E8EB 100%)",

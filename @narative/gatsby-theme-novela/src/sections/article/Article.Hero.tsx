@@ -119,6 +119,8 @@ const HeroHeading = styled(Headings.h1)`
   margin-bottom: 16px;
   // color: rgba(37, 37, 37, 0.9);
   mix-blend-mode: difference;
+  ${p => p.theme.textGradient};
+
 
   ${mediaqueries.tablet`
     margin-bottom: 16px;
@@ -149,11 +151,15 @@ const Excerpt = styled.h3`
   opacity: .8;
   margin-bottom: 16px;
   font-weight: normal;
+  ${p => p.theme.textGradient};
+
 `;
 
 const HeroSubtitle = styled(Headings.h5)`
   text-align: center;
   color: ${p => p.theme.colors.primary};
+  ${p => p.theme.textGradient};
+
 
   ${mediaqueries.phablet`
     font-size: 18px;
