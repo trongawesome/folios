@@ -20,8 +20,14 @@ const ArticleHero: React.FC<ArticleHeroProps> = ({ article, authors }) => {
     Object.keys(article.hero.full).length !== 0 &&
     article.hero.full.constructor === Object;
 
+  console.log(article.hero.full);
+
   return (
-    <Hero>
+    <Hero style={{
+        backgroundImage: `url(${article.hero.full.base64})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+      }}>
       <Header>
         <DesignerType>
           {authors.map((author, index) => (
@@ -34,9 +40,9 @@ const ArticleHero: React.FC<ArticleHeroProps> = ({ article, authors }) => {
           ))}
         </DesignerType>
         <HeroHeading>{article.title}</HeroHeading>
-        <Excerpt>{article.excerpt}</Excerpt>
-        <HeroSubtitle>Portfolio of the Day ・ {article.date}</HeroSubtitle>
+        <HeroSubtitle>Portfolio of the Day – {article.date}</HeroSubtitle>
         {article.font && <HeroSubtitle>Fonts: {article.font}</HeroSubtitle>}
+        <Excerpt>{article.excerpt}</Excerpt>
         <LinkButton href={article.siteLink + "?ref=pafolios"} target="_blank" rel="noopener">Visit site <Icons.ArrowExternal /> </LinkButton>
       </Header>
       <Link href={article.siteLink + "?ref=pafolios"} target="_blank" rel="noopener">
@@ -55,6 +61,13 @@ const ArticleHero: React.FC<ArticleHeroProps> = ({ article, authors }) => {
 export default ArticleHero;
 
 const Hero = styled.div`
+  padding-bottom: 160px;
+  margin-bottom: -160px;
+
+  ${mediaqueries.tablet`
+    margin-bottom: -120px;
+  `}
+
   ${p => mediaqueries.phablet`
     &::after {
       content: "";
@@ -74,31 +87,38 @@ const Hero = styled.div`
 const Header = styled.header`
   position: relative;
   z-index: 10;
-  margin: 160px auto 56px;
+  margin: 0 auto 56px;
+  padding-top: 160px;
   max-width: 749px;
   text-align: center;
 
   ${mediaqueries.desktop`
-    margin: 140px auto 70px;
+    margin: 0 auto 70px;
+    padding-top: 140px;
   `}
 
   ${mediaqueries.tablet`
-    margin: 100px auto 70px;
+    margin: 0 auto 70px;
+    padding-top: 100px;
     max-width: 480px;
   `}
 
   ${mediaqueries.phablet`
-    margin: 128px auto 64px;
+    margin: 0 auto 64px;
+    padding-top: 128px;
     padding: 0 16px;
   `}
 
   @media screen and (max-height: 700px) {
-    margin: 100px auto 48px;
+    margin: 0 auto 48px;
+    padding-top: 100px;
   }
 `;
 
 const HeroHeading = styled(Headings.h1)`
   margin-bottom: 16px;
+  // color: rgba(37, 37, 37, 0.9);
+  mix-blend-mode: difference;
 
   ${mediaqueries.tablet`
     margin-bottom: 16px;
@@ -109,7 +129,7 @@ const DesignerType = styled.p`
   letter-spacing: 0;
   font-size: 14px;
   line-height: 24px;
-  color: ${p => p.theme.colors.secondary};
+  color: ${p => p.theme.colors.primary};
   font-weight: ${p => p.theme.fontsWeight.regular};
   font-family: ${p => p.theme.fonts.title};
   text-transform: uppercase;
@@ -125,14 +145,15 @@ const Excerpt = styled.h3`
   line-height: 28px;
   letter-spacing: 0;
   font-family: ${p => p.theme.fonts.body};
-  color: ${p => p.theme.colors.secondary};
+  color: ${p => p.theme.colors.primary};
+  opacity: .8;
   margin-bottom: 16px;
   font-weight: normal;
 `;
 
 const HeroSubtitle = styled(Headings.h5)`
   text-align: center;
-  color: ${p => p.theme.colors.secondary};
+  color: ${p => p.theme.colors.primary};
 
   ${mediaqueries.phablet`
     font-size: 18px;

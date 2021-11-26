@@ -105,7 +105,7 @@ const NavigationHeader: React.FC<{}> = () => {
                 About
               </NavLink>
             </HideOnMobile>
-            <DarkModeToggle />
+            {/* <DarkModeToggle /> */}
           </NavControls>
         </NavContainer>
       </Section>
@@ -118,9 +118,9 @@ export default NavigationHeader;
 const Container = styled.div`
   width: 100%;
   position: fixed;
-  background-color: ${p => p.theme.colors.header};
+  // background-color: ${p => p.theme.colors.header};
   top: 0;
-  backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: blur(24px);
   z-index: 1000;
 `;
 
@@ -150,6 +150,7 @@ const NavLink = styled(Link)`
   display: inline-block;
   position: relative;
   margin-left: 32px;
+  mix-blend-mode: difference;
 
   ${mediaqueries.phablet`
     font-size: 14px;

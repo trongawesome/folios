@@ -78,10 +78,10 @@ const Article: Template = ({ pageContext, location }) => {
     <Layout>
       <ArticleSEO article={article} authors={authors} location={location} />
       <ArticleHero article={article} authors={authors} />
-      <ArticleBody ref={contentSectionRef}>
+      {/* <ArticleBody ref={contentSectionRef}>
         <MDXRenderer content={article.body}>
         </MDXRenderer>
-      </ArticleBody>
+      </ArticleBody> */}
     </Layout>
   );
 };
@@ -90,7 +90,7 @@ export default Article;
 
 const ArticleBody = styled.article`
   position: relative;
-  padding: 56px 0 35px;
+  padding: 56px 0 0;
   transition: background 0.2s linear;
   
   ${mediaqueries.tablet`
