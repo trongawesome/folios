@@ -11,11 +11,11 @@ import { IImg } from "@types";
  */
 const StyledGatsbyImag = styled(GatsbyImg)`
   & > img {
-    filter: blur(15px);
-    top: -10% !important;
-    left: -10% !important;
-    width: 120% !important;
-    height: 120% !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
   }
 `;
 
