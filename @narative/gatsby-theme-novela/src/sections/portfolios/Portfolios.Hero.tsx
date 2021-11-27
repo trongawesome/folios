@@ -9,6 +9,7 @@ import mediaqueries from '@styles/media';
 import { IAuthor } from '@types';
 
 import { GridLayoutContext } from '../articles/Articles.List.Context';
+import PageHero from "../others/Page.Hero";
 
 const authorQuery = graphql`
   {
@@ -45,58 +46,12 @@ const PortfoliosHero: React.FC<IAuthor> = ({ authors }) => {
   }
 
   return (
-    <Section narrow id="Portfolios__Hero">
-      <HeadingContainer style={{ maxWidth: `${hero.maxWidth}px` }}>
-        <Headings.h1 dangerouslySetInnerHTML={{ __html: hero.blogHeading }} />
-        <InfoText>
-          {hero.blogSubtitle}
-        </InfoText>
-      </HeadingContainer>
-    </Section>
+    <PageHero
+      heading={hero.blogHeading}
+      subtitle={hero.blogSubtitle}
+      maxWidth={hero.maxWidth}
+    />
   );
 };
 
 export default PortfoliosHero;
-
-const HeadingContainer = styled.div`
-  margin: 176px 0 112px;
-  
-  ${mediaqueries.desktop`
-    width: 80%;
-  `}
-  
-  ${mediaqueries.tablet`
-    width: 100%;
-  `}
-`;
-
-const InfoText = styled.div`
-  font-size: 20px;
-  margin-top: 16px;
-  line-height: 1.5;
-  font-family: ${p => p.theme.fonts.body};
-  color: ${p => p.theme.colors.secondary};
-
-  p {
-    margin-top: 8px;
-    ${mediaqueries.phablet`
-      margin-top: 16px;
-    `}
-  }
-`;
-
-const linkCSS = p => css`
-  color: ${p.theme.colors.secondary};
-    border-bottom: 1px solid ${p.theme.colors.secondary};
-    margin-left: 6px;
-    
-    &:hover,
-    &:focus {
-      color: ${p.theme.colors.accent};
-      border-bottom-color: ${p.theme.colors.accent};
-    }
-`;
-
-const InternalLink = styled(Link)`
-  ${linkCSS};
-`;

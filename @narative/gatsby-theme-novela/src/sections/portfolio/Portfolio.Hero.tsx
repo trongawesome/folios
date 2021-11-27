@@ -73,10 +73,10 @@ const Header = styled.header`
 `;
 
 const HeroHeading = styled(Headings.h1)`
-  font-family: ${p => p.theme.fonts.title};
   margin-bottom: 16px;
   text-align: center;
-  font-weight: ${p => p.theme.fontsWeight.bold};
+  ${p => p.theme.textGradient};
+  
 
   ${mediaqueries.tablet`
     margin-bottom: 20px;

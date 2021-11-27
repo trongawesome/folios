@@ -16,7 +16,7 @@ const PageHero: React.FC<HeroProps> = ({ heading, subtitle, maxWidth }) => {
   return (
     <Section narrow>
       <HeadingContainer style={{ maxWidth: `${maxWidth}px` }}>
-        <Headings.h1 dangerouslySetInnerHTML={{ __html: heading }} />
+        <HeroHeading dangerouslySetInnerHTML={{ __html: heading }} />
         <InfoText>
           {subtitle}
         </InfoText>
@@ -38,6 +38,11 @@ const HeadingContainer = styled.div`
     width: 100%;
   `}
 `;
+
+const HeroHeading = styled(Headings.h1)`
+  ${p => p.theme.textGradient};
+`;
+
 
 const InfoText = styled.div`
   font-size: 20px;

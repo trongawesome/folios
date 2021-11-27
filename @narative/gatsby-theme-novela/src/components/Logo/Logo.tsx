@@ -41,7 +41,7 @@ const LogoContainer = styled.div`
   svg {
     // vertical-align: baseline;
     path {
-        fill: ${p => p.theme.colors.primary};
+        fill: ${p => p.theme.colors.accent};
     }
   }
 

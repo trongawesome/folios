@@ -15,7 +15,7 @@ const CategoryHero: React.FC<IAuthor> = ({ category, maxWidth }) => {
         <NavLink to={`/`} title={`All portfolios `} activeClassName="active" >
           All portfolios 
         </NavLink>
-        <Headings.h1>{category.name}</Headings.h1>
+        <HeroHeading>{category.name}</HeroHeading>
         <InfoText>
           {category.bio}
         </InfoText>
@@ -37,6 +37,10 @@ const HeadingContainer = styled.div`
   width: 100%;
   `}
   `;
+
+const HeroHeading = styled(Headings.h1)`
+  ${p => p.theme.textGradient};
+`;
 
 const InfoText = styled.h3`
   font-size: 22px;

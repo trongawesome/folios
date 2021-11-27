@@ -41,7 +41,7 @@ const ArticlesHero: React.FC<IAuthor> = ({ authors }) => {
     <Section narrow id="Articles__Hero">
       <HeadingContainer>
         <TextWrap style={{ maxWidth: `${hero.maxWidth}px` }}>
-          <Headings.h1 dangerouslySetInnerHTML={{ __html: hero.portfoliosHeading }} />
+          <HeroHeading dangerouslySetInnerHTML={{ __html: hero.portfoliosHeading }} />
           <InfoText>
             {hero.portfoliosSubtitle}
           </InfoText>
@@ -56,6 +56,10 @@ export default ArticlesHero;
 
 const TextWrap = styled.div`
 
+`;
+
+const HeroHeading = styled(Headings.h1)`
+  ${p => p.theme.textGradient};
 `;
 
 const HeadingContainer = styled.div`
