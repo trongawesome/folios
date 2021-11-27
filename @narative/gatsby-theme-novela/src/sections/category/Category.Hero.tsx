@@ -55,6 +55,6 @@ const NavLink = styled(LinkInternal)`
   color: ${p => p.theme.colors.grey};
   margin-bottom: 16px;
   display: inline-block;
-  box-shadow: inset 0 -2px 0 ${p => p.theme.colors.grey}
+  box-shadow: inset 0 -2px 0 ${p => p.theme.colors.horizontalRule}
 
 `;

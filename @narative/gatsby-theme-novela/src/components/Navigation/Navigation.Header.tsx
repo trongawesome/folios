@@ -150,7 +150,6 @@ const NavLink = styled(Link)`
   display: inline-block;
   position: relative;
   margin-left: 32px;
-  mix-blend-mode: difference;
 
   ${mediaqueries.phablet`
     font-size: 14px;

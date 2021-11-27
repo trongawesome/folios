@@ -34,13 +34,13 @@ const ArticleHero: React.FC<ArticleHeroProps> = ({ article, authors }) => {
             <span>
               <LinkInternal to={author.slug} key={index}>{author.name}</LinkInternal>
               {index + 1 < authors.length ? (
-                <span> ・ </span>
+                <span> &nbsp; / &nbsp; </span>
               ) : ('')}
             </span>
           ))}
         </DesignerType>
         <HeroHeading>{article.title}</HeroHeading>
-        <HeroSubtitle>Portfolio of the Day – {article.date}</HeroSubtitle>
+        <HeroSubtitle>Portfolio of the Day — {article.date}</HeroSubtitle>
         {article.font && <HeroSubtitle>Fonts: {article.font}</HeroSubtitle>}
         <Excerpt>{article.excerpt}</Excerpt>
         <LinkButton href={article.siteLink + "?ref=pafolios"} target="_blank" rel="noopener">Visit site <Icons.ArrowExternal /> </LinkButton>
@@ -117,10 +117,9 @@ const Header = styled.header`
 
 const HeroHeading = styled(Headings.h1)`
   margin-bottom: 16px;
-  // color: rgba(37, 37, 37, 0.9);
-  mix-blend-mode: difference;
   ${p => p.theme.textGradient};
-
+  display: inline-block;
+  padding-right: 2px;
 
   ${mediaqueries.tablet`
     margin-bottom: 16px;
@@ -129,16 +128,17 @@ const HeroHeading = styled(Headings.h1)`
 
 const DesignerType = styled.p`
   letter-spacing: 0;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 24px;
-  color: ${p => p.theme.colors.primary};
+  color: ${p => p.theme.colors.grey};
   font-weight: ${p => p.theme.fontsWeight.regular};
   font-family: ${p => p.theme.fonts.title};
   text-transform: uppercase;
   margin-bottom: 16px;
+  opacity: .8;
   
   a {
-    box-shadow: inset 0 -2px 0 ${p => p.theme.colors.grey};
+    box-shadow: inset 0 -2px 0 ${p => p.theme.colors.horizontalRule};
   }
 `;
 
@@ -147,18 +147,16 @@ const Excerpt = styled.h3`
   line-height: 28px;
   letter-spacing: 0;
   font-family: ${p => p.theme.fonts.body};
-  color: ${p => p.theme.colors.primary};
+  color: ${p => p.theme.colors.grey};
   opacity: .8;
-  margin-bottom: 16px;
+  margin-top: 16px;
   font-weight: normal;
-  ${p => p.theme.textGradient};
 
 `;
 
 const HeroSubtitle = styled(Headings.h5)`
   text-align: center;
-  color: ${p => p.theme.colors.primary};
-  ${p => p.theme.textGradient};
+  color: ${p => p.theme.colors.grey};
 
 
   ${mediaqueries.phablet`
@@ -183,27 +181,27 @@ const LinkButton = styled.a`
   font-size: 16px;
   line-height: 32px;
   margin-top: 24px;
-  color: ${p => p.theme.colors.primary};
-  transition: color 0.25s var(--ease-in-out-quad);
+  transition: opacity 0.25s var(--ease-in-out-quad);
   display: inline-block;
-  box-shadow: inset 0px 0px 0px 1px ${p => p.theme.colors.secondary};
   padding: 4px 16px;
   transition: all 0.3s var(--ease-out-quad);
   border-radius: 4px;
 
+  background-color: ${p => p.theme.colors.primary};
+  color: ${p => p.theme.colors.background};
+  box-shadow: inset 0px 0px 0px 1px ${p => p.theme.colors.primary};
+
   &:hover {
-    background-color: ${p => p.theme.colors.primary};
-    color: ${p => p.theme.colors.background};
-    box-shadow: inset 0px 0px 0px 1px ${p => p.theme.colors.primary};
+    opacity: .7;
   }
 
   svg {
     margin-left: 4px;  
   }
 
-  &:hover svg path {
+  svg path {
     transition: all 0.3s var(--ease-out-quad);
-    fill: ${p => p.theme.colors.background};
+    fill: ${p => p.theme.colors.background} !important;
   }
 `;
 

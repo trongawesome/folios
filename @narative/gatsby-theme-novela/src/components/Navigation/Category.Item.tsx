@@ -27,7 +27,7 @@ const LinkWrap = styled.span`
     margin-right: 24px;
     margin-bottom: 16px;
     display: inline-block;
-    box-shadow: inset 0 -2px 0 ${p => p.theme.colors.grey};
+    box-shadow: inset 0 -2px 0 ${p => p.theme.colors.horizontalRule};
     
     ${mediaqueries.tablet`
       margin-right: 16px;
