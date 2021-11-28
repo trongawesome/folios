@@ -171,9 +171,8 @@ const HeroImage = styled.div`
   z-index: 1;
   width: 100%;
   overflow: hidden;
-  border: 4px solid ${p => p.theme.colors.card};
-  // box-shadow: 0px 2px 6px rgba(119, 90, 67, 0.15);
-  box-shadow: ${p => p.theme.colors.softShadow};
+  // border: 4px solid ${p => p.theme.colors.card};
+  // box-shadow: ${p => p.theme.colors.softShadow};
 `;
 
 const LinkButton = styled.a`
