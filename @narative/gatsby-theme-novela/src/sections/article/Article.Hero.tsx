@@ -67,21 +67,6 @@ const Hero = styled.div`
   ${mediaqueries.tablet`
     margin-bottom: -120px;
   `}
-
-  ${p => mediaqueries.phablet`
-    &::after {
-      content: "";
-      width: 100%;
-      height: 10px;
-      background: ${p.theme.colors.background};
-      position: absolute;
-      left: 0;
-      top: 10px;
-      border-top-left-radius: 25px;
-      border-top-right-radius: 25px;
-      transition: ${p.theme.colorModeTransition};
-    }
-  `}
 `;
 
 const Header = styled.header`
@@ -99,14 +84,13 @@ const Header = styled.header`
 
   ${mediaqueries.tablet`
     margin: 0 auto 70px;
-    padding-top: 100px;
+    padding-top: 200px;
     max-width: 480px;
   `}
 
   ${mediaqueries.phablet`
     margin: 0 auto 64px;
-    padding-top: 128px;
-    padding: 0 16px;
+    padding-top: 180px;
   `}
 
   @media screen and (max-height: 700px) {

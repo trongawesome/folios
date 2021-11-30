@@ -123,22 +123,22 @@ const Container = styled.div`
   position: relative;
   z-index: 1000;
   margin-bottom: -112px;
+
+  ${mediaqueries.tablet`
+    margin-bottom: -140px;
+  `}
+
 `;
 
 const NavContainer = styled.div`
-  // position: relative;
-  // display: grid;
-  // grid-template-columns: 1fr 80px 1fr;
-  // grid-gap: 32px;
-  padding: 16px 0;
-
   display: grid;
   grid-template-columns: 1fr 80px 1fr;
   grid-template-rows: 0 1fr;
-  grid-column-gap: 24px;
+  // grid-column-gap: 24px;
   grid-row-gap: 0px;
+  padding: 16px 0;
 
-  ${mediaqueries.desktop_medium`
+  ${mediaqueries.tablet`
     grid-template-columns: 1fr 0 1fr;
     grid-template-rows: 80px 1fr;
   `}
@@ -173,12 +173,12 @@ const NavLink = styled(Link)`
 const LogoLink = styled(Link)<{ back: string }>`
   align-items: center;
   left: ${p => (p.back === "true" ? "-54px" : 0)};
+  padding: 0 16px;
 
   grid-area: 2 / 2 / 3 / 3;
   justify-self: center;
 
-  ${mediaqueries.desktop_medium`
-    left: 0;
+  ${mediaqueries.tablet`
     grid-area: 1 / 1 / 2 / 4;
   `}
 
@@ -200,12 +200,13 @@ const NavControlsLeft = styled.div`
   display: flex;
   align-items: center;
   justify-self: end;
-
   grid-area: 2 / 1 / 3 / 2;
+  margin-right: 24px;
 
-  ${mediaqueries.phablet`
-    right: -5px;
+  ${mediaqueries.tablet`
+    margin-right: 8px;
   `}
+
 `;
 
 const NavControlsRight = styled.div`
@@ -213,11 +214,11 @@ const NavControlsRight = styled.div`
   display: flex;
   align-items: center;
   justify-self: start;
-
   grid-area: 2 / 3 / 3 / 4;
+  margin-left: 24px;
 
-  ${mediaqueries.phablet`
-    right: -5px;
+  ${mediaqueries.tablet`
+    margin-left: 8px;
   `}
 
   & a:first-child {

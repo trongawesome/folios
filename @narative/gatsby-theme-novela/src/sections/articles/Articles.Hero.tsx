@@ -69,10 +69,6 @@ const HeroHeading = styled(Headings.h1)`
 const HeadingContainer = styled.div`
   margin: 200px 0 112px;
   
-  ${mediaqueries.desktop`
-    width: 80%;
-  `}
-  
   ${mediaqueries.tablet`
     width: 100%;
   `}
