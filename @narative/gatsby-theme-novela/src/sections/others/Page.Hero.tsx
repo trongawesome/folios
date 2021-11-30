@@ -28,7 +28,7 @@ const PageHero: React.FC<HeroProps> = ({ heading, subtitle, maxWidth }) => {
 export default PageHero;
 
 const HeadingContainer = styled.div`
-  margin: 176px 0 112px;
+  margin: 200px auto 112px auto;
   
   ${mediaqueries.desktop`
     width: 80%;
@@ -41,6 +41,7 @@ const HeadingContainer = styled.div`
 
 const HeroHeading = styled(Headings.h1)`
   ${p => p.theme.textGradient};
+  text-align: center;
 `;
 
 
@@ -50,6 +51,7 @@ const InfoText = styled.div`
   line-height: 1.5;
   font-family: ${p => p.theme.fonts.body};
   color: ${p => p.theme.colors.secondary};
+  text-align: center;
 
   p {
     margin-top: 8px;

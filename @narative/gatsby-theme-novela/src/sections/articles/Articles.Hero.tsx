@@ -46,7 +46,9 @@ const ArticlesHero: React.FC<IAuthor> = ({ authors }) => {
             {hero.portfoliosSubtitle}
           </InfoText>
         </TextWrap>
-        <NavCategory/>
+        <NavCategoryWrap>
+          <NavCategory/>
+        </NavCategoryWrap>
       </HeadingContainer>
     </Section>
   );
@@ -55,15 +57,17 @@ const ArticlesHero: React.FC<IAuthor> = ({ authors }) => {
 export default ArticlesHero;
 
 const TextWrap = styled.div`
-
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 const HeroHeading = styled(Headings.h1)`
   ${p => p.theme.textGradient};
+  text-align: center;
 `;
 
 const HeadingContainer = styled.div`
-  margin: 176px 0 112px;
+  margin: 200px 0 112px;
   
   ${mediaqueries.desktop`
     width: 80%;
@@ -80,16 +84,11 @@ const InfoText = styled.p`
   margin-top: 16px;
   font-family: ${p => p.theme.fonts.body};
   color: ${p => p.theme.colors.secondary};
+  text-align: center;
+
 `;
 
-const Anchor = styled(Link)`
-  color: ${p => p.theme.colors.secondary};
-  border-bottom: 1px solid ${p => p.theme.colors.secondary};
-  margin-left: 6px;
-
-  &:hover,
-  &:focus {
-    color: ${p => p.theme.colors.accent};
-    border-bottom-color: ${p => p.theme.colors.accent};
-  }
+const NavCategoryWrap = styled.div`
+  margin-left: auto;
+  margin-right: auto;
 `;

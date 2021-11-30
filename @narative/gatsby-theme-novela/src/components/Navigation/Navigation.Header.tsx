@@ -75,6 +75,16 @@ const NavigationHeader: React.FC<{}> = () => {
     <Container>
       <Section narrow>
         <NavContainer>
+
+          <NavControlsLeft>
+            <NavLink to={`/`} title={`All portfolios`} activeClassName="active" >
+              Portfolios
+            </NavLink>
+            <NavLink to={`/case-studies`} title={`Case studies`} activeClassName="active" >
+              Case studies
+            </NavLink>
+          </NavControlsLeft>
+
           <LogoLink
             to={rootPath || basePath}
             data-a11y="false"
@@ -90,23 +100,16 @@ const NavigationHeader: React.FC<{}> = () => {
             <Logo fill={fill} />
             <Hidden>Navigate back to the homepage</Hidden>
           </LogoLink>
-          <NavControls>
-            <NavLink to={`/`} title={`All portfolios`} activeClassName="active" >
-              Portfolios
-            </NavLink>
-            <NavLink to={`/case-studies`} title={`Case studies`} activeClassName="active" >
-              Case studies
-            </NavLink>
+
+          <NavControlsRight>
             <NavLink to={`/journal`} title={`Journal`} activeClassName="active" >
               Journal
             </NavLink>
-            <HideOnMobile>
-              <NavLink to={`/about`} title={`About`} activeClassName="active" >
-                About
-              </NavLink>
-            </HideOnMobile>
+            <NavLink to={`/about`} title={`About`} activeClassName="active" >
+              About
+            </NavLink>
             {/* <DarkModeToggle /> */}
-          </NavControls>
+          </NavControlsRight>
         </NavContainer>
       </Section>
     </Container>
@@ -117,28 +120,18 @@ export default NavigationHeader;
 
 const Container = styled.div`
   width: 100%;
-  position: fixed;
-  // background-color: ${p => p.theme.colors.header};
-  top: 0;
-  backdrop-filter: blur(24px);
+  position: relative;
   z-index: 1000;
+  margin-bottom: -112px;
 `;
 
 const NavContainer = styled.div`
   position: relative;
+  display: grid;
+  grid-template-columns: 1fr 80px 1fr;
+  grid-gap: 32px;
   padding: 16px 0;
-  display: flex;
-  justify-content: space-between;
   
-  &::before {
-    content: "";
-    position: absolute;
-    width: 100%; 
-    display: block;
-    height: 2px;
-    background: ${p => p.theme.colors.accentGradient};
-    bottom: 0;
-  }
 `;
 
 const NavLink = styled(Link)`
@@ -189,14 +182,30 @@ const LogoLink = styled(Link)<{ back: string }>`
   }
 `;
 
-const NavControls = styled.div`
+const NavControlsLeft = styled.div`
   position: relative;
   display: flex;
   align-items: center;
+  justify-self: end;
 
   ${mediaqueries.phablet`
     right: -5px;
   `}
+`;
+
+const NavControlsRight = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-self: start;
+
+  ${mediaqueries.phablet`
+    right: -5px;
+  `}
+
+  & a:first-child {
+    margin-left: 0;
+  }
 `;
 
 const ButtonExit = styled.button`

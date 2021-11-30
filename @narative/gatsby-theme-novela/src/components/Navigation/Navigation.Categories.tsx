@@ -38,11 +38,9 @@ export default NavCategory;
 const NavContainer = styled.div`
   position: relative;
   z-index: 100;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
   margin-bottom: 40px;
   padding-top: 16px;
+  text-align: center;
 `;
 
 const NavControls = styled.div`

@@ -88,7 +88,7 @@ const Header = styled.header`
   position: relative;
   z-index: 10;
   margin: 0 auto 56px;
-  padding-top: 160px;
+  padding-top: 200px;
   max-width: 749px;
   text-align: center;
 

@@ -62,7 +62,7 @@ const Header = styled.header`
   z-index: 10;
   max-width: 740px;
   padding: 0 20px;
-  margin-top: 176px;
+  margin-top: 200px;
   margin-left: auto;
   margin-right: auto;
 

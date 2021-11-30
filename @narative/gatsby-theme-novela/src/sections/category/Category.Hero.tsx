@@ -12,9 +12,9 @@ const CategoryHero: React.FC<IAuthor> = ({ category, maxWidth }) => {
   return (
     <Section narrow id="Articles__Hero">
       <HeadingContainer style={{ maxWidth: `${maxWidth}px` }}>
-        <NavLink to={`/`} title={`All portfolios `} activeClassName="active" >
+        {/* <NavLink to={`/`} title={`All portfolios `} activeClassName="active" >
           All portfolios 
-        </NavLink>
+        </NavLink> */}
         <HeroHeading>{category.name}</HeroHeading>
         <InfoText>
           {category.bio}
@@ -27,19 +27,20 @@ const CategoryHero: React.FC<IAuthor> = ({ category, maxWidth }) => {
 export default CategoryHero;
 
 const HeadingContainer = styled.div`
-  margin: 176px 0 112px;
+  margin: 200px auto 112px auto;
   
   ${mediaqueries.desktop`
-  width: 80%;
+    width: 80%;
   `}
   
   ${mediaqueries.tablet`
-  width: 100%;
+    width: 100%;
   `}
-  `;
+`;
 
 const HeroHeading = styled(Headings.h1)`
   ${p => p.theme.textGradient};
+  text-align: center;
 `;
 
 const InfoText = styled.h3`
@@ -49,6 +50,7 @@ const InfoText = styled.h3`
   font-family: ${p => p.theme.fonts.body};
   font-weight: ${p => p.theme.fontsWeight.regular};
   color: ${p => p.theme.colors.secondary};
+  text-align: center;
 `;
 
 const NavLink = styled(LinkInternal)`
@@ -57,7 +59,7 @@ const NavLink = styled(LinkInternal)`
   font-size: 32px;
   line-height: 48px;
   color: ${p => p.theme.colors.grey};
-  margin-bottom: 16px;
+  margin: 0 auto 16px auto;
   display: inline-block;
   box-shadow: inset 0 -2px 0 ${p => p.theme.colors.horizontalRule}
 
