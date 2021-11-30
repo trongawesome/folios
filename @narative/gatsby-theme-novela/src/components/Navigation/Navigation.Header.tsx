@@ -126,11 +126,22 @@ const Container = styled.div`
 `;
 
 const NavContainer = styled.div`
-  position: relative;
+  // position: relative;
+  // display: grid;
+  // grid-template-columns: 1fr 80px 1fr;
+  // grid-gap: 32px;
+  padding: 16px 0;
+
   display: grid;
   grid-template-columns: 1fr 80px 1fr;
-  grid-gap: 32px;
-  padding: 16px 0;
+  grid-template-rows: 0 1fr;
+  grid-column-gap: 24px;
+  grid-row-gap: 0px;
+
+  ${mediaqueries.desktop_medium`
+    grid-template-columns: 1fr 0 1fr;
+    grid-template-rows: 80px 1fr;
+  `}
   
 `;
 
@@ -160,13 +171,15 @@ const NavLink = styled(Link)`
 `;
 
 const LogoLink = styled(Link)<{ back: string }>`
-  position: relative;
-  display: flex;
   align-items: center;
   left: ${p => (p.back === "true" ? "-54px" : 0)};
 
+  grid-area: 2 / 2 / 3 / 3;
+  justify-self: center;
+
   ${mediaqueries.desktop_medium`
-    left: 0
+    left: 0;
+    grid-area: 1 / 1 / 2 / 4;
   `}
 
   &[data-a11y="true"]:focus::after {
@@ -188,6 +201,8 @@ const NavControlsLeft = styled.div`
   align-items: center;
   justify-self: end;
 
+  grid-area: 2 / 1 / 3 / 2;
+
   ${mediaqueries.phablet`
     right: -5px;
   `}
@@ -198,6 +213,8 @@ const NavControlsRight = styled.div`
   display: flex;
   align-items: center;
   justify-self: start;
+
+  grid-area: 2 / 3 / 3 / 4;
 
   ${mediaqueries.phablet`
     right: -5px;

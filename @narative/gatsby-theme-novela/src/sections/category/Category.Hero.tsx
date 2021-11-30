@@ -12,9 +12,7 @@ const CategoryHero: React.FC<IAuthor> = ({ category, maxWidth }) => {
   return (
     <Section narrow id="Articles__Hero">
       <HeadingContainer style={{ maxWidth: `${maxWidth}px` }}>
-        {/* <NavLink to={`/`} title={`All portfolios `} activeClassName="active" >
-          All portfolios 
-        </NavLink> */}
+        <SubHeading>Awesome portfolio inspirations for </SubHeading>
         <HeroHeading>{category.name}</HeroHeading>
         <InfoText>
           {category.bio}
@@ -36,6 +34,11 @@ const HeadingContainer = styled.div`
   ${mediaqueries.tablet`
     width: 100%;
   `}
+`;
+
+const SubHeading = styled(Headings.h3)`
+  ${p => p.theme.textGradient};
+  text-align: center;
 `;
 
 const HeroHeading = styled(Headings.h1)`

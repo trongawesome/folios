@@ -42,7 +42,7 @@ const ArticleHero: React.FC<ArticleHeroProps> = ({ article, authors }) => {
         <HeroHeading>{article.title}</HeroHeading>
         <HeroSubtitle>Portfolio of the Day — {article.date}</HeroSubtitle>
         {article.font && <HeroSubtitle>Fonts: {article.font}</HeroSubtitle>}
-        <Excerpt>{article.excerpt}</Excerpt>
+        {/* <Excerpt>{article.excerpt}</Excerpt> */}
         <LinkButton href={article.siteLink + "?ref=pafolios"} target="_blank" rel="noopener">Visit site <Icons.ArrowExternal /> </LinkButton>
       </Header>
       <Link href={article.siteLink + "?ref=pafolios"} target="_blank" rel="noopener">
