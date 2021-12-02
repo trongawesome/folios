@@ -6,3 +6,4 @@ Creative Developer
 Writer
 Illustrator
 Interaction Designer
+Photographer
