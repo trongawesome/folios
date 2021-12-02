@@ -63,7 +63,7 @@ const Archive = ({ location }) => {
         <List reversed="reversed">
           {result.allArticle.edges.map((item, index) => (
               <Item key={index}>
-                {item.node.date + " — "} 
+                {item.node.date + " — "}
                 <LinkInternal to={item.node.slug} data-a11y="false">{item.node.title}</LinkInternal>
               </Item>
             ))}
@@ -78,8 +78,8 @@ const Archive = ({ location }) => {
 
 export default Archive;
 
-const List = styled.ol`
-  font-size: 20px;
+const List = styled.div`
+  font-size: 22px;
   color: ${p => p.theme.colors.secondary};
   font-family: ${p => p.theme.fonts.body};
   margin-left: 64px;
@@ -87,12 +87,14 @@ const List = styled.ol`
   position: relative;
 `;
 
-const Item = styled.li`
+const Item = styled.div`
   padding: 12px 0;
 
   a {
     color: ${p => p.theme.colors.primary};
-    box-shadow: inset 0 -2px 0 ${p => p.theme.colors.track}
+    box-shadow: inset 0 -2px 0 ${p => p.theme.colors.track};
+    font-family: ${p => p.theme.fonts.title};
+    font-weight: ${p => p.theme.fontsWeight.bold};
   }
 `;
 
