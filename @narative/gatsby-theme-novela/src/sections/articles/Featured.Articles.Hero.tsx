@@ -34,10 +34,7 @@ const FeaturedArticlesHero: React.FC<IAuthor> = ({ }) => {
   return (
     <Section narrow id="Articles__Hero">
       <HeadingContainer style={{ maxWidth: `${hero.maxWidth}px` }}>
-        <NavLink to={`/`} title={`All portfolios `} activeClassName="active" >
-          All portfolios 
-        </NavLink>
-        <Headings.h1 dangerouslySetInnerHTML={{ __html: hero.featuredArticlesHeading }} />
+        <SubHeading dangerouslySetInnerHTML={{ __html: hero.featuredArticlesHeading }} />
         <InfoText>
           {hero.featuredArticlesSubtitle}
         </InfoText>
@@ -49,7 +46,7 @@ const FeaturedArticlesHero: React.FC<IAuthor> = ({ }) => {
 export default FeaturedArticlesHero;
 
 const HeadingContainer = styled.div`
-  margin: 176px 0 112px;
+  margin: 200px auto 112px auto;
   
   ${mediaqueries.desktop`
     width: 80%;
@@ -60,6 +57,11 @@ const HeadingContainer = styled.div`
   `}
   `;
 
+const SubHeading = styled(Headings.h1)`
+  ${p => p.theme.textGradient};
+  text-align: center;
+`;
+
 const InfoText = styled.h3`
   font-size: 22px;
   line-height: 36px;
@@ -67,6 +69,8 @@ const InfoText = styled.h3`
   font-family: ${p => p.theme.fonts.body};
   font-weight: ${p => p.theme.fontsWeight.regular};
   color: ${p => p.theme.colors.secondary};
+  text-align: center;
+
 `;
 
 const NavLink = styled(Link)`
