@@ -42,12 +42,12 @@ const ArticlesPage: Template = ({ location, pageContext }) => {
         title={site.title + " - " + site.name}
       />
       <ArticlesHero authors={authors} />
-      <Section narrow>
+      <div>
         <ArticlesList articles={articles} />
         <ArticlesPaginator show={pageContext.pageCount > 1}>
           <Paginator {...pageContext} />
         </ArticlesPaginator>
-      </Section>
+      </div>
     </Layout>
   );
 };

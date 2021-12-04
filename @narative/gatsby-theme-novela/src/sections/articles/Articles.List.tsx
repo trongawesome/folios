@@ -82,7 +82,7 @@ const ListItem: React.FC<ArticlesListItemProps> = ({ article, narrow }) => {
         <ImageContainer narrow={narrow} gridLayout={gridLayout}>
           {hasHeroImage ? <Image src={imageSource}  alt={article.title} imgStyle={{ objectFit: 'cover', objectPosition: 'center top' }} /> : <ImagePlaceholder />}
         </ImageContainer>
-        <div>
+        <TextWrap>
           <RowTitle>
             <Title dark hasOverflow={hasOverflow} gridLayout={gridLayout}>
               {article.title}
@@ -94,7 +94,7 @@ const ListItem: React.FC<ArticlesListItemProps> = ({ article, narrow }) => {
           <Excerpt>
             {article.author}
           </Excerpt>
-        </div>
+        </TextWrap>
       </Item>
     </ArticleLink>
   );
@@ -123,6 +123,15 @@ const showDetails = css`
 const ArticlesListContainer = styled.div<{ alwaysShowAllDetails?: boolean }>`
   transition: opacity 0.25s;
   ${p => p.alwaysShowAllDetails && showDetails}
+
+  max-width: 1296px;
+  padding: 0 48px;
+  margin: 0 auto;
+
+  ${mediaqueries.tablet`
+    padding: 0;
+  `}
+
 `;
 
 
@@ -143,8 +152,8 @@ const List = styled.div`
   `}
 
   ${mediaqueries.phablet`
-    grid-template-columns: 1fr 1fr;
-    column-gap: 8px;
+    grid-template-columns: 1fr;
+    // column-gap: 8px;
 
     &:not(:last-child) {
       margin-bottom: 0;
@@ -204,12 +213,14 @@ const ImageContainer = styled.div<{ narrow: boolean; gridLayout: string }>`
   ${mediaqueries.phablet`
     overflow: hidden;
     margin-bottom: 0;
-    height:320px;
+    height:480px;
   `}
+`;
 
-  ${mediaqueries.phone`
-    height: 240px;
-  `}
+const TextWrap = styled.div`
+  ${mediaqueries.tablet`
+      padding: 0 16px;
+    `}
 `;
 
 const RowTitle = styled.div`
