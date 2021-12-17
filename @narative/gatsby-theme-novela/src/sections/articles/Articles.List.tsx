@@ -186,7 +186,7 @@ const ImageContainer = styled.div<{ narrow: boolean; gridLayout: string }>`
   margin-bottom: 8px;
   transition: all 0.25s var(--ease-out-quad);
   border: 4px solid ${p => p.theme.colors.card};
-  box-shadow: ${p => p.theme.colors.smallShadow};
+  // box-shadow: ${p => p.theme.colors.smallShadow};
 
   & > div {
     height: 100%;
@@ -213,7 +213,7 @@ const ImageContainer = styled.div<{ narrow: boolean; gridLayout: string }>`
   ${mediaqueries.phablet`
     overflow: hidden;
     margin-bottom: 0;
-    height:480px;
+    height: 600px;
   `}
 `;
 
@@ -246,7 +246,9 @@ const Title = styled.h2`
   ${limitToOneLines};
 
   ${mediaqueries.phablet`
-    font-size: 14px;
+    font-size: 22px;
+    line-height: 28px;
+
   `}
 
 `;
