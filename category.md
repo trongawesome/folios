@@ -7,3 +7,4 @@ Writer
 Illustrator
 Interaction Designer
 Photographer
+Artist
