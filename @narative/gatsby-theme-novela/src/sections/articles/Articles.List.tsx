@@ -5,6 +5,8 @@ import { Link } from 'gatsby';
 import Icons from "@icons";
 
 import Image, { ImagePlaceholder } from '@components/Image';
+import Headings from '@components/Headings';
+import Section from '@components/Section';
 
 import mediaqueries from '@styles/media';
 import { IArticle } from '@types';
@@ -79,22 +81,17 @@ const ListItem: React.FC<ArticlesListItemProps> = ({ article, narrow }) => {
     <ArticleLink to={article.slug} data-a11y="false">
       { article.featured && <Badge> <Icons.StaffPicks /> </Badge> }
       <Item>
+        <RowTitle>
+          <Title hasOverflow={hasOverflow} gridLayout={gridLayout}>
+            {article.date}
+          </Title>
+          <MetaData>
+            {article.title} — {article.author}
+          </MetaData>
+        </RowTitle>
         <ImageContainer narrow={narrow} gridLayout={gridLayout}>
           {hasHeroImage ? <Image src={imageSource}  alt={article.title} imgStyle={{ objectFit: 'cover', objectPosition: 'center top' }} /> : <ImagePlaceholder />}
         </ImageContainer>
-        <TextWrap>
-          <RowTitle>
-            <Title dark hasOverflow={hasOverflow} gridLayout={gridLayout}>
-              {article.title}
-            </Title>
-            <MetaData>
-              {article.date}
-            </MetaData>
-          </RowTitle>
-          <Excerpt>
-            {article.author}
-          </Excerpt>
-        </TextWrap>
       </Item>
     </ArticleLink>
   );
@@ -120,13 +117,8 @@ const showDetails = css`
   }
 `;
 
-const ArticlesListContainer = styled.div<{ alwaysShowAllDetails?: boolean }>`
+const ArticlesListContainer = styled(Section)`
   transition: opacity 0.25s;
-  ${p => p.alwaysShowAllDetails && showDetails}
-
-  max-width: 1296px;
-  padding: 0 48px;
-  margin: 0 auto;
 
   ${mediaqueries.tablet`
     padding: 0;
@@ -138,10 +130,10 @@ const ArticlesListContainer = styled.div<{ alwaysShowAllDetails?: boolean }>`
 const List = styled.div`
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: 2;
-  column-gap: 32px;
-  row-gap: 40px;
+  column-gap: 64px;
+  row-gap: 160px;
   
   &:not(:last-child) {
     margin-bottom: 75px;
@@ -151,9 +143,8 @@ const List = styled.div`
     grid-template-columns: 1fr 1fr;
   `}
 
-  ${mediaqueries.phablet`
+  ${mediaqueries.tablet`
     grid-template-columns: 1fr;
-    // column-gap: 8px;
 
     &:not(:last-child) {
       margin-bottom: 0;
@@ -182,11 +173,10 @@ const Badge = styled.div`
 
 const ImageContainer = styled.div<{ narrow: boolean; gridLayout: string }>`
   position: relative;
-  height: 528px;
+  height: 800px;
   margin-bottom: 8px;
   transition: all 0.25s var(--ease-out-quad);
-  border: 4px solid ${p => p.theme.colors.card};
-  // box-shadow: ${p => p.theme.colors.smallShadow};
+  // border: 4px solid ${p => p.theme.colors.card};
 
   & > div {
     height: 100%;
@@ -207,71 +197,47 @@ const ImageContainer = styled.div<{ narrow: boolean; gridLayout: string }>`
   }
 
   ${mediaqueries.tablet`
-    height: 480px;
-  `}
-  
-  ${mediaqueries.phablet`
+    height: 700px;
     overflow: hidden;
     margin-bottom: 0;
-    height: 600px;
   `}
-`;
 
-const TextWrap = styled.div`
-  ${mediaqueries.tablet`
-      padding: 0 16px;
-    `}
 `;
 
 const RowTitle = styled.div`
   position: relative;
   display: grid;
-  grid-template-columns: 70% 30%;
+  grid-template-columns: 1fr;
   align-items: start;
-  justify-content: space-between;  
+  justify-content: space-between;
+  margin-bottom: 24px;
 
-  ${mediaqueries.phablet`
+  ${mediaqueries.tablet`
     grid-template-columns: 1fr;
-    margin-top: 8px;
+    padding: 0 16px;
   `}
 `;
 
-const Title = styled.h2`
-  font-size: 18px;
-  line-height: 24px;
+const Title = styled(Headings.h2)`
+  font-size: 56px;
+  line-height: 64px;
   font-family: ${p => p.theme.fonts.title};
-  letter-spacing: 0;
+  letter-spacing: -2px;
   transition: color 0.3s ease-in-out;
   color: ${p => p.theme.colors.primary};
+  margin-bottom: 8px;
   ${limitToOneLines};
 
-  ${mediaqueries.phablet`
-    font-size: 22px;
-    line-height: 28px;
-
+  ${mediaqueries.tablet`
+    font-size: 52px;
+    line-height: 60px;
   `}
 
 `;
 
-const Excerpt = styled.p`
+const MetaData = styled(Headings.h6)`
+  color: ${p => p.theme.colors.primary};
   ${limitToOneLines};
-  font-size: 14px;
-  line-height: 24px;
-  color: ${p => p.theme.colors.secondary};
-`;
-
-const MetaData = styled.div`
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 24px;
-  color: ${p => p.theme.colors.grey};
-  text-align: right;
-  ${limitToOneLines};
-
-  ${mediaqueries.phablet`
-    max-width: 100%;
-    text-align: left;
-  `}
 `;
 
 const ArticleLink = styled(Link)`
@@ -286,12 +252,12 @@ const ArticleLink = styled(Link)`
   transition: transform 0.33s var(--ease-out-quart);
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 
-  &:hover ${ImageContainer}, &:focus ${ImageContainer}, &:hover ${Badge} {
-    &::after {
-      opacity: 1;
-    }
-    transform: translateY(-1px);
-  }
+  // &:hover ${ImageContainer}, &:focus ${ImageContainer}, &:hover ${Badge} {
+  //   &::after {
+  //     opacity: 1;
+  //   }
+  //   transform: translateY(-1px);
+  // }
 
   &:hover h2,
   &:focus h2 {

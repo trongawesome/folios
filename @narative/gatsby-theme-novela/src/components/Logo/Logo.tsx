@@ -9,8 +9,8 @@ const Logo: Icon = ({ fill = "white" }) => {
   return (
     <LogoContainer>
       <svg
-        width="80"
-        height="80" 
+        width="64"
+        height="64" 
         viewBox="0 0 80 80"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -46,8 +46,8 @@ const Logo: Icon = ({ fill = "white" }) => {
 export default Logo;
 
 const LogoContainer = styled.div`
-  
+  background-color: ${p => p.theme.colors.elevated};
+  border-radius: 50%;
   filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.15));
-
 
 `;

@@ -4,7 +4,7 @@ import mediaqueries from "@styles/media";
 
 const Section = styled.section<{ narrow?: boolean }>`
   width: 100%;
-  max-width: 1296px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 48px;
 

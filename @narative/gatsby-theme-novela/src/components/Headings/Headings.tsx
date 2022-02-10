@@ -15,26 +15,23 @@ const commonStyles = p => css`
 `;
 
 const h1 = styled.h1`
-  font-size: 72px;
-  line-height: 88px;
-  letter-spacing: -3px;
+  font-size: 80px;
+  line-height: 96px;
+  letter-spacing: -5px;
   ${commonStyles};
 
   ${mediaqueries.desktop`
     font-size: 56px;
     line-height: 1.2;
+    letter-spacing: -3px;
   `};
 `;
 
 const h2 = styled.h2`
-  font-size:40px;
+  font-size: 56px;
   line-height: 64px;
-  letter-spacing: -2px;
+  letter-spacing: -3px;
   ${commonStyles};
-
-  ${mediaqueries.desktop`
-    font-size: 40px;
-  `};
 
   ${mediaqueries.tablet`
     font-size: 32px;
@@ -78,8 +75,9 @@ const h5 = styled.h5`
 `;
 
 const h6 = styled.h6`
-  font-size: 22px;
-  line-height: 36px;
+  font-size: 20px;
+  line-height: 24px;
+  // letter-spacing: -0.2;
   ${commonStyles};
 
   ${mediaqueries.phablet`

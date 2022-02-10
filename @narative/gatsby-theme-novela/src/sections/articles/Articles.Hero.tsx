@@ -62,7 +62,7 @@ const TextWrap = styled.div`
 `;
 
 const HeroHeading = styled(Headings.h1)`
-  ${p => p.theme.textGradient};
+  // ${p => p.theme.textGradient};
   text-align: center;
 `;
 

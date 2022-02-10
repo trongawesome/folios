@@ -19,6 +19,7 @@ const siteQuery = graphql`
     edges {
       node {
         title
+        author
         date(formatString: "DD MMM YYYY")
         slug
       }
@@ -64,7 +65,7 @@ const Archive = ({ location }) => {
           {result.allArticle.edges.map((item, index) => (
               <Item key={index}>
                 {item.node.date + " — "}
-                <LinkInternal to={item.node.slug} data-a11y="false">{item.node.title}</LinkInternal>
+                <LinkInternal to={item.node.slug} data-a11y="false">{item.node.title} - {item.node.author}</LinkInternal>
               </Item>
             ))}
         </List>

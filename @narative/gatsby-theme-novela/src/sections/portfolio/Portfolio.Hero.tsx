@@ -75,7 +75,7 @@ const Header = styled.header`
 const HeroHeading = styled(Headings.h1)`
   margin-bottom: 16px;
   text-align: center;
-  ${p => p.theme.textGradient};
+  // ${p => p.theme.textGradient};
   
 
   ${mediaqueries.tablet`

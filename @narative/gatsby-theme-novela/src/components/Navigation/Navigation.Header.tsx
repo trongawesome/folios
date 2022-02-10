@@ -108,7 +108,7 @@ const NavigationHeader: React.FC<{}> = () => {
             <NavLink to={`/about`} title={`About`} activeClassName="active" >
               About
             </NavLink>
-            {/* <DarkModeToggle /> */}
+            <DarkModeToggle />
           </NavControlsRight>
         </NavContainer>
       </Section>
@@ -134,13 +134,16 @@ const NavContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 80px 1fr;
   grid-template-rows: 0 1fr;
-  // grid-column-gap: 24px;
   grid-row-gap: 0px;
-  padding: 16px 0;
+  width: fit-content;
+  margin: 24px auto;
+  // background-color: ${p => p.theme.colors.elevated};
+  border-radius: 80px;
 
   ${mediaqueries.tablet`
     grid-template-columns: 1fr 0 1fr;
     grid-template-rows: 80px 1fr;
+    background-color: transparent;
   `}
   
 `;
@@ -148,14 +151,15 @@ const NavContainer = styled.div`
 const NavLink = styled(Link)`
   font-weight: ${p => p.theme.fontsWeight.bold};
   font-family: ${p => p.theme.fonts.title};
-  font-size: 16px;
-  color: ${p => p.theme.colors.grey};
+  font-size: 18px;
+  color: ${p => p.theme.colors.secondary};
   transition: color 0.25s var(--ease-in-out-quad);
   display: inline-block;
   position: relative;
   margin-left: 32px;
 
-  ${mediaqueries.phablet`
+  ${mediaqueries.tablet`
+    // color: ${p => p.theme.colors.primary};
     font-size: 14px;
     line-height: 14px;
     margin-left: 16px;
@@ -224,10 +228,6 @@ const NavControlsRight = styled.div`
   & a:first-child {
     margin-left: 0;
   }
-`;
-
-const ButtonExit = styled.button`
-  margin-left: 10px;
 `;
 
 const IconWrapper = styled.button<{ isDark: boolean }>`

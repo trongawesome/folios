@@ -51,27 +51,27 @@ const seoQuery = graphql`
   }
 `;
 
-// const themeUIDarkModeWorkaroundScript = [
-//   {
-//     type: 'text/javascript',
-//     innerHTML: `
-// (function() {
-//   function setMode(mode) {
-//     try {
-//       localStorage.setItem('theme-ui-color-mode', mode)
-//     } catch (e) {}
-//   }
-//   try {
-//     if (localStorage.getItem('theme-ui-color-mode')) return
-//     var darkQuery = window.matchMedia('(prefers-color-scheme: dark)')
-//     darkQuery.addListener(function(e) {
-//       setMode(e.matches ? 'dark' : 'light')
-//     })
-//     setMode(darkQuery.matches ? 'dark' : 'light')
-//   } catch (e) {}
-// })()`,
-//   },
-// ];
+const themeUIDarkModeWorkaroundScript = [
+  {
+    type: 'text/javascript',
+    innerHTML: `
+(function() {
+  function setMode(mode) {
+    try {
+      localStorage.setItem('theme-ui-color-mode', mode)
+    } catch (e) {}
+  }
+  try {
+    if (localStorage.getItem('theme-ui-color-mode')) return
+    var darkQuery = window.matchMedia('(prefers-color-scheme: dark)')
+    darkQuery.addListener(function(e) {
+      setMode(e.matches ? 'dark' : 'light')
+    })
+    setMode(darkQuery.matches ? 'dark' : 'light')
+  } catch (e) {}
+})()`,
+  },
+];
 
 const SEO: React.FC<HelmetProps> = ({
   title,
@@ -103,10 +103,10 @@ const SEO: React.FC<HelmetProps> = ({
       name: 'viewport',
       content: 'width=device-width, initial-scale=1',
     },
-    {
-      name: 'theme-color',
-      content: '#F8F0EA',
-    },
+    // {
+    //   name: 'theme-color',
+    //   content: '#FFFFFF',
+    // },
     {
       name: 'apple-mobile-web-app-status-bar-style',
       content: 'black-translucent',
@@ -150,7 +150,7 @@ const SEO: React.FC<HelmetProps> = ({
     <Helmet
       title={title || site.title}
       htmlAttributes={{ lang: 'en' }}
-      // script={themeUIDarkModeWorkaroundScript}
+      script={themeUIDarkModeWorkaroundScript}
       meta={metaTags}
     >
       <link rel="icon" type="image/png" href="/icon-72x72.png"></link>

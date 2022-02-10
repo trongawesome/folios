@@ -146,7 +146,6 @@ const ImageContainer = styled.div<{ narrow: boolean; gridLayout: string }>`
   position: relative;
   height: 360px;
   margin-bottom: 16px;
-  border: 4px solid ${p => p.theme.colors.card};
   transition: transform 0.3s var(--ease-out-quad),
     box-shadow 0.3s var(--ease-out-quad);
 

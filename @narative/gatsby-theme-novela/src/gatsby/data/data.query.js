@@ -25,7 +25,7 @@ module.exports.local = {
           secret
           title
           author
-          date(formatString: "MMM DD, YYYY")
+          date(formatString: "DD MMMYY’")
           dateForSEO: date
           timeToRead
           excerpt
@@ -41,7 +41,7 @@ module.exports.local = {
               }
             }
             narrow: childImageSharp {
-              fluid(maxWidth: 400, quality: 95, base64Width: 1) {
+              fluid(maxWidth: 640, quality: 95, base64Width: 1) {
                 ${GatsbyFluid_withWebp}
               }
             }

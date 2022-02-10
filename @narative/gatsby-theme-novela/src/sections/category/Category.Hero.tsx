@@ -37,12 +37,12 @@ const HeadingContainer = styled.div`
 `;
 
 const SubHeading = styled(Headings.h3)`
-  ${p => p.theme.textGradient};
+  // ${p => p.theme.textGradient};
   text-align: center;
 `;
 
 const HeroHeading = styled(Headings.h1)`
-  ${p => p.theme.textGradient};
+  // ${p => p.theme.textGradient};
   text-align: center;
 `;
 

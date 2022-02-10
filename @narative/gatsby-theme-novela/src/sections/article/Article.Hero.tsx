@@ -24,7 +24,7 @@ const ArticleHero: React.FC<ArticleHeroProps> = ({ article, authors }) => {
 
   return (
     <Hero style={{
-        backgroundImage: `url(${article.hero.full.base64})`,
+        // backgroundImage: `url(${article.hero.full.base64})`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
       }}>
@@ -101,7 +101,7 @@ const Header = styled.header`
 
 const HeroHeading = styled(Headings.h1)`
   margin-bottom: 16px;
-  ${p => p.theme.textGradient};
+  // ${p => p.theme.textGradient};
   display: inline-block;
   padding-right: 2px;
 
@@ -140,7 +140,7 @@ const Excerpt = styled.h3`
 
 const HeroSubtitle = styled(Headings.h5)`
   text-align: center;
-  color: ${p => p.theme.colors.grey};
+  // color: ${p => p.theme.colors.grey};
 
 
   ${mediaqueries.phablet`
