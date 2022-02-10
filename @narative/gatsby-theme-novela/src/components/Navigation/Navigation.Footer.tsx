@@ -84,7 +84,7 @@ const Footer: React.FC<{}> = () => {
 export default Footer;
 
 const Container = styled.div`
-  background-color: ${p => p.theme.colors.black};
+  background-color: ${p => p.theme.colors.primary};
   text-align: center;
   padding: 80px 0;
   margin-top: 160px;

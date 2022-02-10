@@ -3,7 +3,7 @@ import prism from "./prism";
 export default {
   prism,
   primary: "#111216",
-  secondary: "#394E56",
+  secondary: "#515151",
   grey: "#676767",
   greyLight: "#F3F3F3",
   // background: "#F8F0EA",
@@ -15,7 +15,7 @@ export default {
   header: "rgba(248, 240, 234, 0.8)",
   headerLine: "#092630",
   // accent: "#3A5C21",
-  accent: "#FFD300",
+  accent: "#F5B802",
   accentGradient: "linear-gradient(90deg, #FFB199, #FF0844)",
   hover: "rgba(0, 0, 0, 0.07)",
   gradient: "linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%)",

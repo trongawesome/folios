@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { Link } from 'gatsby';
 import { LinkInternal } from "@components/LinkNav";
 
 import mediaqueries from '@styles/media';
@@ -8,9 +9,9 @@ const CategoryItem = ({name, slug}) => {
 
   return (
     <LinkWrap>
-      <LinkInternal to={slug} title={name} data-a11y="false">
+      <CatLink to={slug} title={name} data-a11y="false">
         {name}
-      </LinkInternal>
+      </CatLink>
     </LinkWrap>
   );
 };
@@ -19,20 +20,31 @@ export default CategoryItem;
 
 const LinkWrap = styled.span`
   a {
-    font-size: 18px;
-    line-height: 40px;
-    color: ${p => p.theme.colors.secondary};
-    font-weight: ${p => p.theme.fontsWeight.bold};
-    font-family: ${p => p.theme.fonts.title};
-    margin-right: 24px;
-    margin-bottom: 16px;
-    display: inline-block;
-    box-shadow: inset 0 -2px 0 ${p => p.theme.colors.horizontalRule};
-    
-    ${mediaqueries.tablet`
-      margin-right: 16px;
-      margin-bottom: 8px;
-    `}
 
   }
 `; 
+
+const CatLink = styled(Link)`
+  font-size: 18px;
+  line-height: 40px;
+  color: ${p => p.theme.colors.secondary};
+  font-weight: ${p => p.theme.fontsWeight.bold};
+  font-family: ${p => p.theme.fonts.title};
+  margin-right: 12px;
+  margin-bottom: 12px;
+  display: inline-block;
+  padding: 0 20px;
+  background-color: ${p => p.theme.colors.card};
+  border-radius: 20px;
+  transition: background 0.25s var(--ease-in-out-quad);
+  
+  ${mediaqueries.tablet`
+    margin-right: 16px;
+    margin-bottom: 8px;
+  `}
+
+  &:hover {
+    background-color: ${p => p.theme.colors.accent};
+  }
+
+`;

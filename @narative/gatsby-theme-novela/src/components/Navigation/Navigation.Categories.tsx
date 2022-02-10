@@ -6,7 +6,7 @@ import CategoryItem from './Category.Item'
 
 const siteQuery = graphql`
 {
-  allAuthor(limit: 6) {
+  allAuthor(limit: 10) {
     edges {
       node {
         name

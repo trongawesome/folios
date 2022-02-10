@@ -170,9 +170,9 @@ const LinkButton = styled.a`
   transition: all 0.3s var(--ease-out-quad);
   border-radius: 4px;
 
-  background-color: ${p => p.theme.colors.primary};
+  background-color: ${p => p.theme.colors.accent};
   color: ${p => p.theme.colors.background};
-  box-shadow: inset 0px 0px 0px 1px ${p => p.theme.colors.primary};
+  box-shadow: inset 0px 0px 0px 1px ${p => p.theme.colors.accent};
 
   &:hover {
     opacity: .7;
