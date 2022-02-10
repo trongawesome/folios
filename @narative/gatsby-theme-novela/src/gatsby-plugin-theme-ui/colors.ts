@@ -10,7 +10,7 @@ export default {
   background: "#F0F0F4",
   white: "#FFFFFF",
   elevated: "#1F2026",
-  black: "#092630",
+  black: "#111216",
   backgroundModal: "rgba(209, 232, 235, 0.98)",
   header: "rgba(248, 240, 234, 0.8)",
   headerLine: "#092630",
