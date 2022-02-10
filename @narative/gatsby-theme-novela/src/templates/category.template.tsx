@@ -43,8 +43,8 @@ const CategoryPage: Template = ({ location, pageContext }) => {
       <Layout>
         <SEO pathname={location.pathname} title={"Awesome portfolio inspirations for " + author.name + " - " + title} />
         <CategoryHero category={author} maxWidth={maxWidth}/>
+        <ArticlesList articles={articles} />
         <Section narrow>
-          <ArticlesList articles={articles} />
           <ArticlesPaginator show={pageContext.pageCount > 1}>
             <Paginator {...pageContext} />
           </ArticlesPaginator>

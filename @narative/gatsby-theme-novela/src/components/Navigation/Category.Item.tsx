@@ -19,9 +19,7 @@ const CategoryItem = ({name, slug}) => {
 export default CategoryItem;
 
 const LinkWrap = styled.span`
-  a {
 
-  }
 `; 
 
 const CatLink = styled(Link)`
@@ -39,7 +37,7 @@ const CatLink = styled(Link)`
   transition: background 0.25s var(--ease-in-out-quad);
   
   ${mediaqueries.tablet`
-    margin-right: 16px;
+    margin-right: 8px;
     margin-bottom: 8px;
   `}
 

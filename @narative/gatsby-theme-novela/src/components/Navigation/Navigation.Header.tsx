@@ -151,7 +151,7 @@ const NavContainer = styled.div`
 const NavLink = styled(Link)`
   font-weight: ${p => p.theme.fontsWeight.bold};
   font-family: ${p => p.theme.fonts.title};
-  font-size: 18px !important;
+  font-size: 18px;
   color: ${p => p.theme.colors.secondary};
   transition: color 0.25s var(--ease-in-out-quad);
   display: inline-block;
@@ -159,9 +159,8 @@ const NavLink = styled(Link)`
   margin-left: 32px;
 
   ${mediaqueries.tablet`
-    // color: ${p => p.theme.colors.primary};
     font-size: 14px;
-    line-height: 14px;
+    line-height: 16px;
     margin-left: 16px;
   `}
 
