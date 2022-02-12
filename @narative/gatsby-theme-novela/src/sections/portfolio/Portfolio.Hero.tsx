@@ -143,9 +143,6 @@ const HeroImage = styled.div`
   max-width: 944px;
   overflow: hidden;
   margin: 16px auto;
-  // padding: 16px 0;
-  border: 8px solid ${p => p.theme.colors.card};
-  // box-shadow: ${p => p.theme.colors.smallShadow};
   
   ${mediaqueries.phablet`
     margin: 0 auto;

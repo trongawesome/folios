@@ -160,7 +160,7 @@ const ImageContainer = styled.div<{ narrow: boolean; gridLayout: string }>`
     top: 0;
     left: 0;
     width: 100%;
-    height: calc(100% + 4px);
+    height: 100%;
     opacity: 0;
     transition: all 0.3s var(--ease-out-quad);
     box-shadow: 0 30px 40px -20px rgba(119, 90, 67, 0.18),
