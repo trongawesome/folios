@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { Link } from 'gatsby';
+import { Link, graphql, useStaticQuery } from 'gatsby';
 import Icons from "@icons";
 
 import Image, { ImagePlaceholder } from '@components/Image';
@@ -11,52 +11,45 @@ import Section from '@components/Section';
 import mediaqueries from '@styles/media';
 import { IArticle } from '@types';
 
-import { GridLayoutContext } from './Articles.List.Context';
+
+const siteQuery = graphql`
+  {
+    allArticle {
+      totalCount
+    }
+  }
+`;
 
 interface ArticlesListProps {
   articles: IArticle[];
   alwaysShowAllDetails?: boolean;
+  currentPage: number;
 }
 
 interface ArticlesListItemProps {
   article: IArticle;
+  counter: number;
   narrow?: boolean;
 }
 
 const ArticlesList: React.FC<ArticlesListProps> = ({
   articles,
   alwaysShowAllDetails,
+  currentPage
 }) => {
   if (!articles) return null;
 
-  const hasOnlyOneArticle = articles.length === 1;
-  const { gridLayout = 'tiles', hasSetGridLayout, getGridLayout } = useContext(
-    GridLayoutContext,
-  );
-
-  /**
-   * We're taking the flat array of articles [{}, {}, {}...]
-   * and turning it into an array of pairs of articles [[{}, {}], [{}, {}], [{}, {}]...]
-   * This makes it simpler to create the grid we want
-   */
-  const articlePairs = articles.reduce((result, value, index, array) => {
-    if (index % 2 === 0) {
-      result.push(array.slice(index, index + 2));
-    }
-    return result;
-  }, []);
-
-  useEffect(() => getGridLayout(), []);
+  const result = useStaticQuery(siteQuery);
+  const totalCount = result.allArticle.totalCount;
+  const pageLength = 36;
+  const sumArticlesInPreviousPage = (currentPage - 1) * pageLength;
 
   return (
-    <ArticlesListContainer
-      style={{ opacity: hasSetGridLayout ? 1 : 0 }}
-      alwaysShowAllDetails={alwaysShowAllDetails}
-    >
+    <ArticlesListContainer>
       <List>
         {articles.map((ap, index) => {
           return (
-            <ListItem key={index} article={ap} />
+            <ListItem key={index} article={ap} counter={totalCount - index - sumArticlesInPreviousPage} />
           );
         })}
       </List>
@@ -66,11 +59,9 @@ const ArticlesList: React.FC<ArticlesListProps> = ({
 
 export default ArticlesList;
 
-const ListItem: React.FC<ArticlesListItemProps> = ({ article, narrow }) => {
+const ListItem: React.FC<ArticlesListItemProps> = ({ article, narrow, counter }) => {
   if (!article) return null;
 
-  const { gridLayout } = useContext(GridLayoutContext);
-  const hasOverflow = narrow && article.title.length > 35;
   const imageSource = article.hero.narrow;
   const hasHeroImage =
     imageSource &&
@@ -81,14 +72,14 @@ const ListItem: React.FC<ArticlesListItemProps> = ({ article, narrow }) => {
     <ArticleLink to={article.slug} data-a11y="false">
       <Item>
         <RowTitle>
-          <Title hasOverflow={hasOverflow} gridLayout={gridLayout}>
+          <Title>
             {article.date}
           </Title>
           <MetaData>
             {article.title} — {article.author}
           </MetaData>
         </RowTitle>
-        <ImageContainer narrow={narrow} gridLayout={gridLayout}>
+        <ImageContainer>
           { article.featured && <Badge> <Icons.StaffPicks /> </Badge> }
           
           {hasHeroImage ? <Image src={imageSource}  alt={article.title} imgStyle={{ objectFit: 'cover', objectPosition: 'center top' }} /> : <ImagePlaceholder />}
@@ -173,7 +164,7 @@ const Badge = styled.span`
 `;
 
 
-const ImageContainer = styled.div<{ narrow: boolean; gridLayout: string }>`
+const ImageContainer = styled.div`
   position: relative;
   height: 800px;
   margin-bottom: 8px;
