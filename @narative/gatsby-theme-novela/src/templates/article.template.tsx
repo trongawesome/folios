@@ -5,13 +5,15 @@ import { graphql, useStaticQuery } from "gatsby";
 
 import Layout from "@components/Layout";
 import MDXRenderer from "@components/MDX";
-import Section from "@components/Section";
+import Headings from '@components/Headings';
 
 import mediaqueries from "@styles/media";
 import { debounce } from "@utils";
 
 import ArticleHero from "../sections/article/Article.Hero";
 import ArticleSEO from "../sections/article/Article.SEO";
+import ArticleRelated from "../sections/article/Article.Related";
+
 
 import { Template } from "@types";
 
@@ -82,61 +84,41 @@ const Article: Template = ({ pageContext, location }) => {
         <MDXRenderer content={article.body}>
         </MDXRenderer>
       </ArticleBody> */}
+
+      {next.length > 0 && (
+        <NextArticle>
+          <FooterNext>Similar to {article.title}</FooterNext>
+          <ArticleRelated articles={next} />
+        </NextArticle>
+      )}
+
     </Layout>
   );
 };
 
 export default Article;
 
-const ArticleBody = styled.article`
-  position: relative;
-  padding: 56px 0 0;
-  transition: background 0.2s linear;
-  
+const NextArticle = styled.div`
+  max-width: 1296px;
+  padding: 0 48px;
+  margin: 128px auto;
+
   ${mediaqueries.tablet`
     padding: 0;
   `}
 
 `;
 
-const NextArticle = styled(Section)`
-  display: block;
-`;
-
-const FooterNext = styled.h3`
+const FooterNext = styled(Headings.h5)`
   position: relative;
   opacity: 0.25;
-  margin-bottom: 56px;
-  font-weight: 400;
+  margin-bottom: 40px;
+  padding-bottom: 8px;
   color: ${p => p.theme.colors.primary};
+  border-bottom: solid 2px ${p => p.theme.colors.primary};
 
   ${mediaqueries.tablet`
-    margin-bottom: 60px;
+    padding-left: 16px;
   `}
-
-  &::after {
-    content: '';
-    position: absolute;
-    background: ${p => p.theme.colors.grey};
-    width: ${(910 / 1140) * 100}%;
-    height: 1px;
-    right: 0;
-    top: 11px;
-
-    ${mediaqueries.tablet`
-      width: ${(600 / 1140) * 100}%;
-    `}
-
-    ${mediaqueries.phablet`
-      width: ${(400 / 1140) * 100}%;
-    `}
-
-    ${mediaqueries.phone`
-      width: 90px
-    `}
-  }
 `;
 
-const FooterSpacer = styled.div`
-  margin-bottom: 65px;
-`;

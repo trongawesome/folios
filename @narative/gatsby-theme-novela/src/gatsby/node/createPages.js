@@ -256,9 +256,10 @@ module.exports = async ({ actions: { createPage }, graphql }, themeOptions) => {
      * We need a way to find the next artiles to suggest at the bottom of the articles page.
      * To accomplish this there is some special logic surrounding what to show next.
      */
-    let next = articlesThatArentSecret.slice(index + 1, index + 3);
+    
+    let next = articlesThatArentSecret.slice(index + 1, index + 9);
     // If it's the last item in the list, there will be no articles. So grab the first 2
-    if (next.length === 0) next = articlesThatArentSecret.slice(0, 2);
+    if (next.length === 0) next = articlesThatArentSecret.slice(0, 8);
     // If there's 1 item in the list, grab the first article
     if (next.length === 1 && articlesThatArentSecret.length !== 2)
       next = [...next, articlesThatArentSecret[0]];
