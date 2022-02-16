@@ -224,7 +224,7 @@ const NavControlsRight = styled.div`
     margin-left: 8px;
   `}
 
-  & a:first-child {
+  & a:first-of-type {
     margin-left: 0;
   }
 `;
