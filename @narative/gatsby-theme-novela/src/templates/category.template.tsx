@@ -39,7 +39,7 @@ const CategoryPage: Template = ({ location, pageContext }) => {
     const author = pageContext.additionalContext.author;
     const articles = pageContext.group;
     const roundLength = articles.length > 10 ? Math.round(articles.length / 10) * 10 : articles.length;
-    const roundLengthToSring = articles.length > 10 ? roundLength + "+" : roundLength;
+    const roundLengthToSring = articles.length > 10 ? roundLength * pageContext.pageCount + "+" : roundLength;
   
     return (
       <Layout>
