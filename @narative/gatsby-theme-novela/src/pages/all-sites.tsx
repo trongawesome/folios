@@ -51,13 +51,13 @@ const Archive = ({ location }) => {
     <Layout>
       <SEO
         pathname={location.pathname} 
-        title={"All portfolios on Pafolio - " + siteSEO.title}
+        title={result.allArticle.totalCount + " best design portfolios on Pafolio - " + siteSEO.title}
         description={siteSEO.description}
         image={seoImage}
       />
       <PageHero
-        heading="All portfolios on Pafolios"
-        subtitle={result.allArticle.totalCount + " awesome portfolios."}
+        heading={result.allArticle.totalCount + " best design portfolio examples"}
+        // subtitle={result.allArticle.totalCount + " best design portfolios"}
         maxWidth={siteSEO.hero.maxWidth}
       />
       <Section narrow>

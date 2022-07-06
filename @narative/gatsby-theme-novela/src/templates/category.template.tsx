@@ -38,11 +38,13 @@ const CategoryPage: Template = ({ location, pageContext }) => {
     
     const author = pageContext.additionalContext.author;
     const articles = pageContext.group;
+    const roundLength = articles.length > 10 ? Math.round(articles.length / 10) * 10 : articles.length;
+    const roundLengthToSring = articles.length > 10 ? roundLength + "+" : roundLength;
   
     return (
       <Layout>
-        <SEO pathname={location.pathname} title={"Awesome portfolio inspirations for " + author.name + " - " + title} />
-        <CategoryHero category={author} maxWidth={maxWidth}/>
+        <SEO pathname={location.pathname} title={roundLengthToSring + " best design portfolio examples for " + author.name + " - " + title} />
+        <CategoryHero category={author} maxWidth={maxWidth} counter={roundLengthToSring}/>
         <ArticlesList articles={articles} />
         <Section narrow>
           <ArticlesPaginator show={pageContext.pageCount > 1}>

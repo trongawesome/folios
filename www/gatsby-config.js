@@ -2,18 +2,18 @@ require("dotenv").config();
 
 const siteMetadata = {
   title: `Pafolios`,
-  name: `Awesome design portfolios and case studies`,
+  name: `Best design portfolio examples and case studies`,
   siteUrl: `https://www.pafolios.com`,
-  description: `Awesome portfolios and case studies from Product, UI/UX, Creative Designers. Learn and improve your design skills with real-world examples.`,
+  description: `Best design portfolio examples and case studies for Product, UI/UX, Creative Designers. Learn and improve your design skills with real-world examples.`,
   hero: {
     portfoliosHeading: `Portfolio of the Date`,
-    portfoliosSubtitle: `Awesome portfolios and case studies from Product, UI/UX, Creative Designers. Update daily.`,
+    portfoliosSubtitle: `Best design portfolio examples and case studies for Product, UI/UX, Creative Designers. Update daily.`,
     blogHeading: `Journal`,
     blogSubtitle: `Guides and resources on building your portfolio and UX case studies.`,
     featuredArticlesHeading: `We Choice`,
     featuredArticlesSubtitle: `The best design portfolios on the internet, great visual, awesome case studies, handpicked by our editors.`,
-    caseStudyHeading: `Design Case Studies`,
-    caseStudySubtitle: `Learn and improve your product skills with real-world examples.`,
+    caseStudyHeading: `product design case studies`,
+    caseStudySubtitle: `Learn and improve your product skills with real-world portfolio examples.`,
     maxWidth: 776,
   },
   social: [

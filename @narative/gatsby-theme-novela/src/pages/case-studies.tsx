@@ -33,6 +33,7 @@ const siteQuery = graphql`
         }
       }
     }
+    totalCount
   }
 
   allSite {
@@ -62,13 +63,13 @@ const Page = ({ location }) => {
     <Layout>
       <SEO
         pathname={location.pathname} 
-        title={siteSEO.hero.caseStudyHeading.replace(regex, '') + " - " + siteSEO.title}
+        title={result.allCaseStudiesYaml.totalCount + " best " + siteSEO.hero.caseStudyHeading.replace(regex, '') + " - " + siteSEO.title}
         description={siteSEO.hero.caseStudySubtitle}
         image={seoImage}
       />
 
       <PageHero
-        heading={siteSEO.hero.caseStudyHeading}
+        heading={result.allCaseStudiesYaml.totalCount + " best " + siteSEO.hero.caseStudyHeading}
         subtitle={siteSEO.hero.caseStudySubtitle}
         maxWidth={siteSEO.hero.maxWidth}
       />

@@ -7,12 +7,12 @@ import { LinkInternal } from "@components/LinkNav";
 import mediaqueries from '@styles/media';
 import { IAuthor } from '@types';
 
-const CategoryHero: React.FC<IAuthor> = ({ category, maxWidth }) => {
+const CategoryHero: React.FC<IAuthor> = ({ category, maxWidth, counter }) => {
 
   return (
     <Section narrow id="Articles__Hero">
       <HeadingContainer style={{ maxWidth: `${maxWidth}px` }}>
-        <SubHeading>Awesome portfolio inspirations for </SubHeading>
+        <SubHeading>{counter + " best design portfolio examples for"}</SubHeading>
         <HeroHeading>{category.name}</HeroHeading>
         <InfoText>
           {category.bio}
