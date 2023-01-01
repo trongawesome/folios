@@ -29,10 +29,10 @@ const ListItem: React.FC<ArticlesListItemProps> = ({ article, counter }) => {
         <Item>
           <RowTitle>
             <Title>
-              {article.date}
+              {article.title}
             </Title>
             <MetaData>
-              {article.title} — {article.author}
+              {article.author}
             </MetaData>
           </RowTitle>
           <ImageContainer>
