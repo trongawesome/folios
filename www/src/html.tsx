@@ -14,6 +14,10 @@ export default props => (
         dangerouslySetInnerHTML={{ __html: `document.domain = "http://www.pafolios.com"` }}
       />
       {props.headComponents}
+
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7215147017121179"
+     crossorigin="anonymous"></script>
+
     </head>
     <body {...props.bodyAttributes}>
       {props.preBodyComponents}
