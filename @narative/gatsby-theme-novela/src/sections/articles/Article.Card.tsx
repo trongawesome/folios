@@ -83,6 +83,9 @@ const ImageContainer = styled.div`
   height: 800px;
   margin-bottom: 8px;
   transition: all 0.25s var(--ease-out-quad);
+  border-radius: 12px;
+  border: 1px solid ${p => p.theme.colors.card};
+  overflow: hidden;
 
   & > div {
     height: 100%;
@@ -106,6 +109,8 @@ const ImageContainer = styled.div`
     height: 700px;
     overflow: hidden;
     margin-bottom: 0;
+    border-radius: 0;
+    border: 0;
   `}
 
 `;

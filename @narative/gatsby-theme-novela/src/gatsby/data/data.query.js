@@ -45,6 +45,11 @@ module.exports.local = {
                 ${GatsbyFluid_withWebp}
               }
             }
+            tiny: childImageSharp {
+              fixed(width: 400, quality: 80) {
+                src
+              }
+            }
             seo: childImageSharp {
               fixed(cropFocus: NORTH, height: 720, width: 1080, quality: 80) {
                 src

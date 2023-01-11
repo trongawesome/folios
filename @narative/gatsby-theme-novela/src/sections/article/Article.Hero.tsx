@@ -24,10 +24,27 @@ const ArticleHero: React.FC<ArticleHeroProps> = ({ article, authors }) => {
 
   return (
     <Hero style={{
-        // backgroundImage: `url(${article.hero.full.base64})`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
       }}>
+      
+      <HeroImageWrapper>
+        <Link href={article.siteLink + "?ref=pafolios"} target="_blank" rel="noopener">
+          <HeroImage id="ArticleImage__Hero">
+            {hasHeroImage ? (
+              <Image src={article.hero.full} alt={article.title}/>
+            ) : (
+              <ImagePlaceholder />
+            )}
+          </HeroImage>
+        </Link>
+        <HeroBackground style={{
+          backgroundImage: `url(${article.hero.tiny.src})`,
+        }}>
+
+        </HeroBackground>
+      </HeroImageWrapper>
+
       <Header>
         <DesignerType>
           {authors.map((author, index) => (
@@ -45,15 +62,6 @@ const ArticleHero: React.FC<ArticleHeroProps> = ({ article, authors }) => {
         {/* <Excerpt>{article.excerpt}</Excerpt> */}
         <LinkButton href={article.siteLink + "?ref=pafolios"} target="_blank" rel="noopener">Visit site <Icons.ArrowExternal /> </LinkButton>
       </Header>
-      <Link href={article.siteLink + "?ref=pafolios"} target="_blank" rel="noopener">
-        <HeroImage id="ArticleImage__Hero">
-          {hasHeroImage ? (
-            <Image src={article.hero.full} alt={article.title}/>
-          ) : (
-            <ImagePlaceholder />
-          )}
-        </HeroImage>
-      </Link>
     </Hero>
   );
 };
@@ -63,6 +71,11 @@ export default ArticleHero;
 const Hero = styled.div`
   padding-bottom: 160px;
   margin-bottom: -160px;
+  margin-top: 200px;
+  max-width: 1296px;
+  padding: 0 48px;
+  display: grid;
+  grid-template-columns: 65% 1fr;
 
   ${mediaqueries.tablet`
     margin-bottom: -120px;
@@ -155,8 +168,9 @@ const HeroImage = styled.div`
   z-index: 1;
   width: 100%;
   overflow: hidden;
-  // border: 4px solid ${p => p.theme.colors.card};
-  // box-shadow: ${p => p.theme.colors.softShadow};
+  border-radius: 12px;
+  border: 1px solid ${p => p.theme.colors.card};
+  box-shadow: ${p => p.theme.colors.softShadow};
 `;
 
 const LinkButton = styled.a`
@@ -197,4 +211,19 @@ const Link = styled.a`
   ${mediaqueries.tablet`
     padding: 0;
   `}
+`;
+
+const HeroImageWrapper = styled.div`
+  position: relative;
+
+`;
+
+const HeroBackground = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(60px);
+  opacity: .6;
 `;

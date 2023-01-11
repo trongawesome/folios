@@ -11,6 +11,28 @@ function normalizeHero(article) {
   let hero = {
     full: {},
     narrow: {},
+    tiny: {},
+    seo: {},
+  };
+
+  if (article.hero) {
+    hero = {
+      full: article.hero.full.fluid,
+      narrow: article.hero.narrow.fluid,
+      tiny: article.hero.tiny.fixed,
+      seo: article.hero.seo.fixed,
+    };
+  } else {
+    console.log('\u001B[33m', `Missing hero for "${article.title}"`);
+  }
+
+  return hero;
+}
+
+function normalizeHeroPortfolio(article) {
+  let hero = {
+    full: {},
+    narrow: {},
     seo: {},
   };
 
@@ -77,7 +99,7 @@ module.exports.local = {
   portfolios: ({ node: portfolio }) => {
     return {
       ...portfolio,
-      hero: normalizeHero(portfolio),
+      hero: normalizeHeroPortfolio(portfolio),
     };
   },
   readings: ({ node: reading }) => {
