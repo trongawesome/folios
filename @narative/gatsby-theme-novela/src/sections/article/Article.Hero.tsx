@@ -46,21 +46,23 @@ const ArticleHero: React.FC<ArticleHeroProps> = ({ article, authors }) => {
       </HeroImageWrapper>
 
       <Header>
-        <DesignerType>
-          {authors.map((author, index) => (
-            <span>
-              <LinkInternal to={author.slug} key={index}>{author.name}</LinkInternal>
-              {index + 1 < authors.length ? (
-                <span> &nbsp; / &nbsp; </span>
-              ) : ('')}
-            </span>
-          ))}
-        </DesignerType>
-        <HeroHeading>{article.title}</HeroHeading>
-        <HeroSubtitle>Portfolio of the Day — {article.date}</HeroSubtitle>
-        {article.font && <HeroSubtitle>Fonts: {article.font}</HeroSubtitle>}
-        {/* <Excerpt>{article.excerpt}</Excerpt> */}
-        <LinkButton href={article.siteLink + "?ref=pafolios"} target="_blank" rel="noopener">Visit site <Icons.ArrowExternal /> </LinkButton>
+        <HeaderWrapper>
+          <DesignerType>
+            {authors.map((author, index) => (
+              <span>
+                <LinkInternal to={author.slug} key={index}>{author.name}</LinkInternal>
+                {index + 1 < authors.length ? (
+                  <span> &nbsp; / &nbsp; </span>
+                ) : ('')}
+              </span>
+            ))}
+          </DesignerType>
+          <HeroHeading>{article.title}</HeroHeading>
+          <HeroSubtitle>Portfolio of the Day — {article.date}</HeroSubtitle>
+          {article.font && <HeroSubtitle>Fonts — {article.font}</HeroSubtitle>}
+          {/* <Excerpt>{article.excerpt}</Excerpt> */}
+          <LinkButton href={article.siteLink + "?ref=pafolios"} target="_blank" rel="noopener">Visit site <Icons.ArrowExternal /> </LinkButton>
+        </HeaderWrapper>
       </Header>
     </Hero>
   );
@@ -70,46 +72,30 @@ export default ArticleHero;
 
 const Hero = styled.div`
   padding-bottom: 160px;
-  margin-bottom: -160px;
-  margin-top: 200px;
+  margin: 200px auto 0 auto;
   max-width: 1296px;
   padding: 0 48px;
   display: grid;
-  grid-template-columns: 65% 1fr;
+  grid-template-columns: 65% auto;
+  column-gap: 64px;
 
   ${mediaqueries.tablet`
-    margin-bottom: -120px;
+    grid-template-columns: 1fr;
+    padding: 0 16px;
+
   `}
 `;
 
 const Header = styled.header`
   position: relative;
   z-index: 10;
-  margin: 0 auto 56px;
-  padding-top: 200px;
-  max-width: 749px;
-  text-align: center;
+  margin: 0;
+  padding-top: 24px;
+`;
 
-  ${mediaqueries.desktop`
-    margin: 0 auto 70px;
-    padding-top: 140px;
-  `}
-
-  ${mediaqueries.tablet`
-    margin: 0 auto 70px;
-    padding-top: 200px;
-    max-width: 480px;
-  `}
-
-  ${mediaqueries.phablet`
-    margin: 0 auto 64px;
-    padding-top: 180px;
-  `}
-
-  @media screen and (max-height: 700px) {
-    margin: 0 auto 48px;
-    padding-top: 100px;
-  }
+const HeaderWrapper = styled.div`
+  position: sticky;
+  top: 24px;
 `;
 
 const HeroHeading = styled(Headings.h1)`
@@ -152,9 +138,7 @@ const Excerpt = styled.h3`
 `;
 
 const HeroSubtitle = styled(Headings.h5)`
-  text-align: center;
   // color: ${p => p.theme.colors.grey};
-
 
   ${mediaqueries.phablet`
     font-size: 18px;
@@ -206,8 +190,6 @@ const Link = styled.a`
   position: relative;
   display: block;
   margin: 0 auto;
-  max-width: 1296px;
-  padding: 0 48px;
   ${mediaqueries.tablet`
     padding: 0;
   `}
