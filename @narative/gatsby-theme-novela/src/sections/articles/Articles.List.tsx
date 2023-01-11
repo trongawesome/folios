@@ -48,7 +48,7 @@ const ArticlesList: React.FC<ArticlesListProps> = ({
     <ArticlesListContainer>
       <List>
         {articles.map((ap, index) => {
-          return ( index === 2 ?
+          return ( (index === 3 || index === 9  || index === 19) ?
             <AdBlockVertical />
             :
             <ListItem key={index} article={ap} counter={totalCount - index - sumArticlesInPreviousPage} />
