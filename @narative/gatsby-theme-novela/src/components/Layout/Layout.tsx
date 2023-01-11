@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Global } from '@emotion/core';
 import styled from '@emotion/styled';
 import { useColorMode } from 'theme-ui';
@@ -16,6 +16,7 @@ import { globalStyles } from '@styles';
  */
 const Layout: React.FC<{}> = ({ children }) => {
   const [colorMode] = useColorMode();
+  const scrolled = useRef(null)
 
   useEffect(() => {
     parent.postMessage({ theme: colorMode }, '*');
