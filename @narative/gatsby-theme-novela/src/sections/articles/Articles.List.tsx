@@ -48,7 +48,7 @@ const ArticlesList: React.FC<ArticlesListProps> = ({
     <ArticlesListContainer>
       <List>
         {articles.map((ap, index) => {
-          return ( (index === 33) ?
+          return ( ( index === 3 || index === 9 || index === 19) ?
             <AdsBlockCard />
             :
             <ListItem key={index} article={ap} counter={totalCount - index - sumArticlesInPreviousPage} />
@@ -86,7 +86,7 @@ const List = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 2;
-  column-gap: 64px;
+  column-gap: 56px;
   row-gap: 160px;
   
   &:not(:last-child) {
@@ -100,6 +100,7 @@ const List = styled.div`
 
   ${mediaqueries.tablet`
     grid-template-columns: 1fr;
+    row-gap: 80px;
 
     &:not(:last-child) {
       margin-bottom: 0;

@@ -47,7 +47,7 @@ const AdsWrapper = styled.div`
     // grid-column: span 2;
 
     ${mediaqueries.tablet`
-
+        border-radius: 0;
     `}
 
     & .adsbygoogle {
