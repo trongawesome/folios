@@ -9,6 +9,7 @@ import mediaqueries from '@styles/media';
 import { IArticle } from '@types';
 
 import ListItem from './Article.Card';
+import AdBlockVertical from '../../components/Ads/AdsBlockVertical';
 
 
 const siteQuery = graphql`
@@ -47,7 +48,9 @@ const ArticlesList: React.FC<ArticlesListProps> = ({
     <ArticlesListContainer>
       <List>
         {articles.map((ap, index) => {
-          return (
+          return ( index === 2 ?
+            <AdBlockVertical />
+            :
             <ListItem key={index} article={ap} counter={totalCount - index - sumArticlesInPreviousPage} />
           );
         })}

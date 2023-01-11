@@ -4,14 +4,13 @@ import styled from '@emotion/styled';
 
 const AdBlockVertical = () => (
     <AdWrapper>
-
-    <AdSense.Google
-        client="ca-pub-7215147017121179"
-        slot="8900982984"
-        style={{ display: 'block' }}
-        format="auto"
-        responsive="true"
-        />
+        <AdSense.Google
+            client="ca-pub-7215147017121179"
+            slot="8900982984"
+            style={{ display: 'block' }}
+            format="auto"
+            responsive="true"
+            />
     </AdWrapper>
 )
 
