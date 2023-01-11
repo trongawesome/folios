@@ -147,8 +147,8 @@ const Title = styled(Headings.h2)`
 `;
 
 const MetaData = styled(Headings.h6)`
-color: ${p => p.theme.colors.primary};
-${limitToOneLines};
+  color: ${p => p.theme.colors.primary};
+  ${limitToOneLines};
 `;
 
 const ArticleLink = styled(Link)`

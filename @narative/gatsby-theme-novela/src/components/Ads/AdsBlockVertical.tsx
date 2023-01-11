@@ -2,7 +2,7 @@ import React from 'react'
 import AdSense from 'react-adsense'
 import styled from '@emotion/styled';
 
-const AdBlockVertical = () => (
+const AdsBlockVertical = () => (
     <AdWrapper>
         <AdSense.Google
             client="ca-pub-7215147017121179"
@@ -14,7 +14,7 @@ const AdBlockVertical = () => (
     </AdWrapper>
 )
 
-export default AdBlockVertical
+export default AdsBlockVertical
 
 const AdWrapper = styled.div`
     margin-top: 40px;

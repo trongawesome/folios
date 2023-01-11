@@ -9,7 +9,7 @@ import Icons from "@icons";
 import mediaqueries from '@styles/media';
 import { IArticle, IAuthor } from '@types';
 
-import AdBlockVertical from '../../components/Ads/AdsBlockVertical';
+import { AdsBlockVertical } from '@components/Ads';
 
 interface ArticleHeroProps {
   article: IArticle;
@@ -66,7 +66,7 @@ const ArticleHero: React.FC<ArticleHeroProps> = ({ article, authors }) => {
           <LinkButton href={article.siteLink + "?ref=pafolios"} target="_blank" rel="noopener">Visit site <Icons.ArrowExternal /> </LinkButton>
         </HeaderWrapper>
         
-        <AdBlockVertical/>
+        <AdsBlockVertical/>
       
       </Header>
     </Hero>
