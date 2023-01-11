@@ -19,6 +19,7 @@ export default AdBlockVertical
 
 const AdWrapper = styled.div`
     margin-top: 40px;
-    background-color: ${p => p.theme.colors.inputBackground};
+    border-radius: 8px;
+    background-color: ${p => p.theme.colors.card};
 `;
 
