@@ -9,6 +9,8 @@ import Icons from "@icons";
 import mediaqueries from '@styles/media';
 import { IArticle, IAuthor } from '@types';
 
+import AdBlockVertical from '../../components/Ads/AdsBlockVertical';
+
 interface ArticleHeroProps {
   article: IArticle;
   authors: IAuthor[];
@@ -29,7 +31,7 @@ const ArticleHero: React.FC<ArticleHeroProps> = ({ article, authors }) => {
       }}>
       
       <HeroImageWrapper>
-        <Link href={article.siteLink + "?ref=pafolios"} target="_blank" rel="noopener">
+        <Link>
           <HeroImage id="ArticleImage__Hero">
             {hasHeroImage ? (
               <Image src={article.hero.full} alt={article.title}/>
@@ -63,6 +65,9 @@ const ArticleHero: React.FC<ArticleHeroProps> = ({ article, authors }) => {
           {/* <Excerpt>{article.excerpt}</Excerpt> */}
           <LinkButton href={article.siteLink + "?ref=pafolios"} target="_blank" rel="noopener">Visit site <Icons.ArrowExternal /> </LinkButton>
         </HeaderWrapper>
+        
+        <AdBlockVertical/>
+      
       </Header>
     </Hero>
   );
@@ -94,8 +99,8 @@ const Header = styled.header`
 `;
 
 const HeaderWrapper = styled.div`
-  position: sticky;
-  top: 24px;
+  // position: sticky;
+  // top: 24px;
 `;
 
 const HeroHeading = styled(Headings.h1)`
@@ -186,7 +191,7 @@ const LinkButton = styled.a`
   }
 `;
 
-const Link = styled.a`
+const Link = styled.div`
   position: relative;
   display: block;
   margin: 0 auto;
