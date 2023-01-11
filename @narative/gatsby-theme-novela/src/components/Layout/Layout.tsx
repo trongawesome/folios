@@ -21,6 +21,27 @@ const Layout: React.FC<{}> = ({ children }) => {
     parent.postMessage({ theme: colorMode }, '*');
   }, [colorMode]);
 
+  // Google Adsense
+  useEffect(() => {
+    const headID = document.getElementsByTagName('head')[0]
+
+    document.addEventListener('scroll', function (e) {
+        if (!scrolled.current) {
+            scrolled.current = true
+
+            // Google Ads
+            const gaScript = document.createElement('script')
+            gaScript.async = true
+            gaScript.crossorigin = 'anonymous'
+            gaScript['data-ad-client'] = 'ca-pub-7215147017121179'
+            gaScript.src =
+                'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
+            gaScript.type = 'text/javascript'
+            headID.appendChild(gaScript)
+        }
+    })
+  }, [])
+
   return (
     <ArticlesContextProvider>
       <Container>
