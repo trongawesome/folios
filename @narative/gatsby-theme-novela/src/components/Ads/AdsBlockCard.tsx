@@ -22,26 +22,37 @@ const AdsBlockCard = () => (
                 format="auto"
                 responsive="true"
                 />
+
+            <AdSense.Google
+                client="ca-pub-7215147017121179"
+                slot="8900982984"
+                style={{ display: 'block' }}
+                format="auto"
+                responsive="true"
+                />
         </AdsWrapper>
     </AdsContainer>
 )
 
 export default AdsBlockCard
 
+const AdsContainer = styled.div`
+
+`;
+
 const AdsWrapper = styled.div`
     border-radius: 12px;
     background-color: ${p => p.theme.colors.card};
     min-height: 250px;
     // grid-column: span 2;
-    // height: 800px;
 
-    // ${mediaqueries.tablet`
-    //     height: 700px;
-    // `}
-`;
+    ${mediaqueries.tablet`
 
-const AdsContainer = styled.div`
+    `}
 
+    & .adsbygoogle {
+        margin-bottom: 2px;
+    }
 `;
 
 const RowTitle = styled.div`

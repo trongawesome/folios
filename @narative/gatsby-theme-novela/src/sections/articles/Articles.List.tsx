@@ -95,6 +95,7 @@ const List = styled.div`
   
   ${mediaqueries.desktop`
     grid-template-columns: 1fr 1fr;
+    column-gap: 32px;
   `}
 
   ${mediaqueries.tablet`
