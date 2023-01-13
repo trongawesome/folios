@@ -22,8 +22,11 @@ const RelatedArticle: React.FC<ArticlesNextProps> = ({ articles }) => {
   return (
     <List>
         {articles.map((ap, index) => {
-          return ( ( index === 1 ) ?
-            <AdsBlockCard />
+          return ( ( index === 1 || index === 6 ) ?
+            <>
+              <AdsBlockCard />
+              <ListItem key={index} article={ap} />
+            </>
             :
             <ListItem key={index} article={ap} />
           );

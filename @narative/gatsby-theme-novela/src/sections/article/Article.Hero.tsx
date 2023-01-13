@@ -48,25 +48,27 @@ const ArticleHero: React.FC<ArticleHeroProps> = ({ article, authors }) => {
       </HeroImageWrapper>
 
       <Header>
-        <HeaderWrapper>
-          <DesignerType>
-            {authors.map((author, index) => (
-              <span>
-                <LinkInternal to={author.slug} key={index}>{author.name}</LinkInternal>
-                {index + 1 < authors.length ? (
-                  <span> &nbsp; / &nbsp; </span>
-                ) : ('')}
-              </span>
-            ))}
-          </DesignerType>
-          <HeroHeading>{article.title}</HeroHeading>
-          <HeroSubtitle>Portfolio of the Day — {article.date}</HeroSubtitle>
-          {article.font && <HeroSubtitle>Fonts — {article.font}</HeroSubtitle>}
-          {/* <Excerpt>{article.excerpt}</Excerpt> */}
-          <LinkButton href={article.siteLink + "?ref=pafolios"} target="_blank" rel="noopener">Visit site <Icons.ArrowExternal /> </LinkButton>
-        </HeaderWrapper>
-        
-        <AdsBlockVertical/>
+        <HeaderInner>
+          <HeaderWrapper>
+            <DesignerType>
+              {authors.map((author, index) => (
+                <span>
+                  <LinkInternal to={author.slug} key={index}>{author.name}</LinkInternal>
+                  {index + 1 < authors.length ? (
+                    <span> &nbsp; / &nbsp; </span>
+                  ) : ('')}
+                </span>
+              ))}
+            </DesignerType>
+            <HeroHeading>{article.title}</HeroHeading>
+            <HeroSubtitle>Portfolio of the Day — {article.date}</HeroSubtitle>
+            {article.font && <HeroSubtitle>Fonts — {article.font}</HeroSubtitle>}
+            {/* <Excerpt>{article.excerpt}</Excerpt> */}
+            <LinkButton href={article.siteLink + "?ref=pafolios"} target="_blank" rel="noopener">Visit site <Icons.ArrowExternal /> </LinkButton>
+          </HeaderWrapper>
+          
+          <AdsBlockVertical/>
+        </HeaderInner>
       
       </Header>
     </Hero>
@@ -101,6 +103,15 @@ const Header = styled.header`
 const HeaderWrapper = styled.div`
   // position: sticky;
   // top: 24px;
+`;
+
+const HeaderInner = styled.div`
+  position: sticky;
+  top: 24px;
+
+  ${mediaqueries.tablet`
+    position: relative;
+  `}
 `;
 
 const HeroHeading = styled(Headings.h1)`
