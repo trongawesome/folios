@@ -7,6 +7,7 @@ import mediaqueries from "@styles/media";
 import { IArticle } from "@types";
 
 import ListItem from '../articles/Article.Card';
+import { AdsBlockCard } from '@components/Ads';
 
 
 interface ArticlesNextProps {
@@ -21,7 +22,9 @@ const RelatedArticle: React.FC<ArticlesNextProps> = ({ articles }) => {
   return (
     <List>
         {articles.map((ap, index) => {
-          return (
+          return ( ( index === 1 ) ?
+            <AdsBlockCard />
+            :
             <ListItem key={index} article={ap} />
           );
         })}
