@@ -42,6 +42,14 @@ const plugins = [
     },
   },
   {
+    resolve: `gatsby-plugin-gtag`,
+    options: {
+      trackingId: `G-YTNX8NJP8C`,
+      head: true,
+      anonymize: true,
+    },
+  },
+  {
     resolve: `gatsby-plugin-google-analytics`,
     options: {
       trackingId: "UA-55380266-6",
