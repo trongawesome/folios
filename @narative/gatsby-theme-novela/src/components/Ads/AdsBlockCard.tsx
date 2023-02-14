@@ -22,14 +22,6 @@ const AdsBlockCard = () => (
                 format="auto"
                 responsive="true"
                 />
-
-            <AdSense.Google
-                client="ca-pub-7215147017121179"
-                slot="8900982984"
-                style={{ display: 'block' }}
-                format="auto"
-                responsive="true"
-                />
         </AdsWrapper>
     </AdsContainer>
 )
