@@ -170,6 +170,7 @@ const HeroImage = styled.div`
   overflow: hidden;
   border-radius: 12px;
   border: 1px solid ${p => p.theme.colors.card};
+  background-color: ${p => p.theme.colors.card};
   box-shadow: ${p => p.theme.colors.softShadow};
 `;
 
