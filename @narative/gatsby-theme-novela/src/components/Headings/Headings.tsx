@@ -77,7 +77,7 @@ const h5 = styled.h5`
 const h6 = styled.h6`
   font-size: 20px;
   line-height: 24px;
-  // letter-spacing: -0.2;
+  font-weight: ${p => p.theme.fontsWeight.regular} !important;
   ${commonStyles};
 
   ${mediaqueries.phablet`

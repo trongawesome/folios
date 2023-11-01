@@ -38,7 +38,7 @@ export default {
       grey: "#73737D",
       primary: "#fff",
       secondary: "rgba(255,255,255,0.8)",
-      accent: "#FFD300",
+      accent: "#EDAA18",
       background: "#111216",
       black: "#111216",
       backgroundModal: "rgba(17, 18, 22, 0.95)",

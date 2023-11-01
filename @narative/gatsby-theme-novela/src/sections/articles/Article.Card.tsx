@@ -130,8 +130,8 @@ const RowTitle = styled.div`
   `;
 
 const Title = styled(Headings.h2)`
-  font-size: 56px;
-  line-height: 64px;
+  font-size: 44px;
+  line-height: 56px;
   font-family: ${p => p.theme.fonts.title};
   letter-spacing: -2px;
   transition: color 0.3s ease-in-out;
@@ -147,7 +147,9 @@ const Title = styled(Headings.h2)`
 `;
 
 const MetaData = styled(Headings.h6)`
-  color: ${p => p.theme.colors.primary};
+  color: ${p => p.theme.colors.secondary};
+  font-family: ${p => p.theme.fonts.body};
+  font-size: 16px;
   ${limitToOneLines};
 `;
 

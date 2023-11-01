@@ -2,7 +2,7 @@ require("dotenv").config();
 
 const siteMetadata = {
   title: `Pafolios`,
-  name: `Best design portfolio examples and case studies`,
+  name: `Best design portfolio examples and case studies in 2023`,
   siteUrl: `https://pafolios.com`,
   description: `Best design portfolio examples and case studies for Product, UI/UX, Creative Designers. Learn and improve your design skills with real-world examples.`,
   hero: {
@@ -12,7 +12,7 @@ const siteMetadata = {
     blogSubtitle: `Guides and resources on building your portfolio and UX case studies.`,
     featuredArticlesHeading: `We Choice`,
     featuredArticlesSubtitle: `The best design portfolios on the internet, great visual, awesome case studies, handpicked by our editors.`,
-    caseStudyHeading: `product design case studies`,
+    caseStudyHeading: `product design case studies 2023`,
     caseStudySubtitle: `Learn and improve your product skills with real-world portfolio examples.`,
     maxWidth: 776,
   },
