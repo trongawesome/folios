@@ -15,9 +15,9 @@ const commonStyles = p => css`
 `;
 
 const h1 = styled.h1`
-  font-size: 80px;
-  line-height: 96px;
-  letter-spacing: -5px;
+  font-size: 72px;
+  line-height: 88px;
+  letter-spacing: -3px;
   ${commonStyles};
 
   ${mediaqueries.desktop`
