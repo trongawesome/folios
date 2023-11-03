@@ -115,8 +115,9 @@ const HeaderInner = styled.div`
 `;
 
 const HeroHeading = styled(Headings.h1)`
+  font-size: 56px;
+  line-height: 80px;
   margin-bottom: 16px;
-  // ${p => p.theme.textGradient};
   display: inline-block;
   padding-right: 2px;
 

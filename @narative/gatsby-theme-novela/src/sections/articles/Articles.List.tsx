@@ -90,7 +90,7 @@ const List = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 2;
   column-gap: 48px;
-  row-gap: 160px;
+  row-gap: 120px;
   
   &:not(:last-child) {
     margin-bottom: 75px;

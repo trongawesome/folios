@@ -22,10 +22,10 @@ const RelatedArticle: React.FC<ArticlesNextProps> = ({ articles }) => {
   return (
     <List>
         {articles.map((ap, index) => {
-          return ( ( index === 1 || index === 6 ) ?
+          return ( ( index === 1 ) ?
             <>
-              <AdsBlockCard />
               <ListItem key={index} article={ap} />
+              <AdsBlockCard />
             </>
             :
             <ListItem key={index} article={ap} />
@@ -41,10 +41,10 @@ export default RelatedArticle;
 const List = styled.div`
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 2;
-  column-gap: 64px;
-  row-gap: 160px;
+  column-gap: 48px;
+  row-gap: 120px;
   
   &:not(:last-child) {
     margin-bottom: 75px;
@@ -52,6 +52,7 @@ const List = styled.div`
   
   ${mediaqueries.desktop`
     grid-template-columns: 1fr 1fr;
+    column-gap: 32px;
   `}
 
   ${mediaqueries.tablet`
