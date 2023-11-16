@@ -67,7 +67,7 @@ const Footer: React.FC<{}> = () => {
             <LinkExternal href="/rss.xml" target="_blank"> Portfolio of the Day RSS </LinkExternal>
           </FooterSpace>
           <FooterSpace>
-            <LinkExternal href="https://twitter.com/pafolios" target="_blank" rel="noopener" > Submit your site </LinkExternal>
+            <LinkExternal href="mailto:hi@pafolios.com" target="_blank" rel="noopener" > Submit your site: hi@pafolios.com </LinkExternal>
           </FooterSpace>
           <FooterNote>
             Search isn't available, yet. In the mean time, view a list of&nbsp;
