@@ -115,14 +115,16 @@ const HeaderInner = styled.div`
 `;
 
 const HeroHeading = styled(Headings.h1)`
-  font-size: 56px;
-  line-height: 80px;
+  font-size: 52px;
+  line-height: 56px;
   margin-bottom: 16px;
   display: inline-block;
   padding-right: 2px;
 
   ${mediaqueries.tablet`
     margin-bottom: 16px;
+    font-size: 46px;
+    line-height: 1.1;
   `}
 `;
 
