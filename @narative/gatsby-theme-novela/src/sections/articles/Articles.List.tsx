@@ -9,7 +9,9 @@ import mediaqueries from '@styles/media';
 import { IArticle } from '@types';
 
 import ListItem from './Article.Card';
-import { AdsBlockCard } from '@components/Ads';
+// import { AdsBlockCard } from '@components/Ads';
+import PartnersList from '@components/PartnersList';
+
 
 
 const siteQuery = graphql`
@@ -48,10 +50,10 @@ const ArticlesList: React.FC<ArticlesListProps> = ({
     <ArticlesListContainer>
       <List>
         {articles.map((ap, index) => {
-          return ( ( index === 4 || index === 9 || index === 17 || index === 28 || index === 36) ?
+          return ( ( index === 2 || index === 9 || index === 17 || index === 28 || index === 36) ?
               <>
                 <ListItem key={index} article={ap} counter={totalCount - index - sumArticlesInPreviousPage} />
-                <AdsBlockCard />
+                <PartnersList />
               </>
             :
             <ListItem key={index} article={ap} counter={totalCount - index - sumArticlesInPreviousPage} />

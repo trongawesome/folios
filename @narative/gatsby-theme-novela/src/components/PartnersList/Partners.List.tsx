@@ -1,12 +1,12 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 import mediaqueries from '@styles/media';
+import { Link } from 'gatsby';
 
 import Image, { ImagePlaceholder } from '@components/Image';
-import Section from "@components/Section";
-import SEO from "@components/SEO";
-import Layout from "@components/Layout";
+import Headings from '@components/Headings';
 
 const siteQuery = graphql`
 {
@@ -16,7 +16,13 @@ const siteQuery = graphql`
         title
         desc
         url
-        image
+        image {
+          childImageSharp {
+            fluid(maxWidth: 400, quality: 90) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }
@@ -34,47 +40,71 @@ const siteQuery = graphql`
 }
 `;
 
-const Page = ({ location }) => {
+const Partners = ({ location }) => {
 
   const result = useStaticQuery(siteQuery);
   const { edges } = result.allPartnersYaml;
+  const sectionTitle = result.allSite.edges[0].node.siteMetadata.hero.partnersHeading;
 
   return (
-    <div>
-      {edges.map((item, index) => (
-          <div key={index}>
-            <Title>
-              {item.node.title}
-            </Title>
-            <ImageContainer>
-              <Image 
-                src={item.node.image} 
-                alt={item.node.title}
-                imgStyle={{ objectFit: 'cover', objectPosition: 'center top' }} />
-            </ImageContainer>
-          </div>
-        ))
-      }
-    </div>
+    <PartnersWrap>
+      <Title>
+        {sectionTitle}
+      </Title>
+      <PartnersList>
+        {edges.map((item, index) => (
+            <ListItem to={item.node.url} data-a11y="false" key={index}>
+              <MetaData>
+                {item.node.title} — {item.node.desc}
+              </MetaData>
+              <ImageContainer>
+                <Image 
+                  src={item.node.image.childImageSharp.fluid} 
+                  alt={item.node.title}
+                  imgStyle={{ objectFit: 'cover', objectPosition: 'center top' }} />
+              </ImageContainer>
+            </ListItem>
+          ))
+        }
+      </PartnersList>
+    </PartnersWrap>
   );
 };
 
-export default Page;
+export default Partners;
 
-const List = styled.div`
+const limitToOneLines = css`
+  text-overflow: ellipsis;
+  overflow-wrap: normal;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  white-space: normal;
+  overflow: hidden;
+`;
+
+const PartnersWrap = styled.div`
+  grid-column: 1/span 3;
+`;
+
+const PartnersList = styled.div`
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 32px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 48px;
 
   ${mediaqueries.phablet`
     grid-template-columns: 1fr;
   `}
 `;
 
+const ListItem = styled(Link)`
+
+`;
+
+
 const ImageContainer = styled.div`
   position: relative;
-  height: 800px;
   margin-bottom: 8px;
   transition: all 0.25s var(--ease-out-quad);
   border-radius: 12px;
@@ -100,7 +130,6 @@ const ImageContainer = styled.div`
   }
 
   ${mediaqueries.tablet`
-    height: 700px;
     overflow: hidden;
     margin-bottom: 0;
     border-radius: 0;
@@ -108,18 +137,25 @@ const ImageContainer = styled.div`
   `}
 `;
 
-const Title = styled.h2`
-  font-size:28px;
-  line-height: 32px;
+const Title = styled(Headings.h2)`
+  font-size: 44px;
+  line-height: 56px;
   font-family: ${p => p.theme.fonts.title};
-  color: ${p => p.theme.colors.primary};
+  letter-spacing: -1px;
   transition: color 0.3s ease-in-out;
-  margin-bottom: 8px;
-  // ${limitToTwoLines}
+  color: ${p => p.theme.colors.primary};
+  margin-bottom: 32px;
 
-  ${mediaqueries.desktop`
-    margin-bottom: 16px;
-    font-size: 24px;
-    line-height: 28px;
+  ${mediaqueries.tablet`
+    font-size: 52px;
+    line-height: 60px;
   `}
+`;
+
+const MetaData = styled(Headings.h6)`
+  color: ${p => p.theme.colors.secondary};
+  font-family: ${p => p.theme.fonts.body};
+  font-size: 16px;
+  margin-bottom: 24px;
+  ${limitToOneLines};
 `;

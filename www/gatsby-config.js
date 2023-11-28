@@ -14,6 +14,7 @@ const siteMetadata = {
     featuredArticlesSubtitle: `The best design portfolios on the internet, great visual, awesome case studies, handpicked by our editors.`,
     caseStudyHeading: `product design case studies 2023`,
     caseStudySubtitle: `Learn and improve your product skills with real-world portfolio examples.`,
+    partnersHeading: `Resources to Build Your Portfolios`,
     maxWidth: 776,
   },
   social: [
