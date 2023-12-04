@@ -8,3 +8,4 @@ Illustrator
 Interaction Designer
 Photographer
 Artist
+Design Intern
