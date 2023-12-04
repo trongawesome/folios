@@ -1,11 +1,13 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
+import { OutboundLink } from 'gatsby-plugin-gtag'
+
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import mediaqueries from '@styles/media';
 import { Link } from 'gatsby';
 
-import Image, { ImagePlaceholder } from '@components/Image';
+import Image from '@components/Image';
 import Headings from '@components/Headings';
 
 const siteQuery = graphql`
@@ -53,7 +55,7 @@ const Partners = ({ location }) => {
       </Title>
       <PartnersList>
         {edges.map((item, index) => (
-            <ListItem to={item.node.url} data-a11y="false" key={index}>
+            <OutboundLink href={item.node.url} data-a11y="false" alt={item.node.title} key={index}>
               <MetaData>
                 {item.node.title} — {item.node.desc}
               </MetaData>
@@ -63,7 +65,7 @@ const Partners = ({ location }) => {
                   alt={item.node.title}
                   imgStyle={{ objectFit: 'cover', objectPosition: 'center top' }} />
               </ImageContainer>
-            </ListItem>
+            </OutboundLink>
           ))
         }
       </PartnersList>
@@ -90,7 +92,7 @@ const PartnersWrap = styled.div`
 const PartnersList = styled.div`
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr  1fr;
   grid-gap: 48px;
 
   ${mediaqueries.desktop`
