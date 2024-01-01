@@ -86,7 +86,7 @@ const limitToOneLines = css`
 `;
 
 const PartnersWrap = styled.div`
-  grid-column: 1/span 3;
+  grid-column: 1/span last;
 `;
 
 const PartnersList = styled.div`
@@ -95,8 +95,17 @@ const PartnersList = styled.div`
   grid-template-columns: 1fr 1fr  1fr;
   grid-gap: 48px;
 
+  ${mediaqueries.desktop`
+    grid-gap: 32px;
+  `}
+
+  ${mediaqueries.tablet`
+    grid-gap: 16px;
+  `}
+
   ${mediaqueries.phablet`
     grid-template-columns: 1fr;
+    row-gap: 36px;
   `}
 `;
 
@@ -149,9 +158,14 @@ const Title = styled(Headings.h2)`
   margin-bottom: 32px;
 
   ${mediaqueries.tablet`
-    font-size: 52px;
-    line-height: 60px;
+    font-size: 38px;
+    line-height: 48px;
   `}
+
+  ${mediaqueries.tablet`
+    padding: 0 16px;
+  `}
+
 `;
 
 const MetaData = styled(Headings.h6)`
@@ -160,4 +174,9 @@ const MetaData = styled(Headings.h6)`
   font-size: 16px;
   margin-bottom: 24px;
   ${limitToOneLines};
+  
+  ${mediaqueries.tablet`
+    padding: 0 16px;
+    font-size: 16px;
+  `}
 `;

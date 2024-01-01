@@ -140,8 +140,8 @@ const Title = styled(Headings.h2)`
   ${limitToOneLines};
 
   ${mediaqueries.tablet`
-    font-size: 52px;
-    line-height: 60px;
+    font-size: 38px;
+    line-height: 48px;
   `}
 
 `;
