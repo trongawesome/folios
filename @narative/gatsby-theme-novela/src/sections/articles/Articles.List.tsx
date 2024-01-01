@@ -9,7 +9,7 @@ import mediaqueries from '@styles/media';
 import { IArticle } from '@types';
 
 import ListItem from './Article.Card';
-// import { AdsBlockCard } from '@components/Ads';
+import { AdsBlockCard } from '@components/Ads';
 import PartnersList from '@components/PartnersList';
 
 
@@ -49,16 +49,20 @@ const ArticlesList: React.FC<ArticlesListProps> = ({
   return (
     <ArticlesListContainer>
       <List>
-        {articles.map((ap, index) => {
-          return ( ( index === 1) ?
-              <>
-                <ListItem key={index} article={ap} counter={totalCount - index - sumArticlesInPreviousPage} />
-                <PartnersList />
-              </>
-            :
+        {articles.map((ap, index) => (
+          ( index === 1)
+          ? <>
             <ListItem key={index} article={ap} counter={totalCount - index - sumArticlesInPreviousPage} />
-          );
-        })}
+            <AdsBlockCard />
+            <PartnersList />
+          </>
+          : ( index === 9 || index === 17 || index === 28 || index === 36 )
+            ? <>
+              <ListItem key={index} article={ap} counter={totalCount - index - sumArticlesInPreviousPage} />
+              <AdsBlockCard />
+            </>
+            : <ListItem key={index} article={ap} counter={totalCount - index - sumArticlesInPreviousPage} />
+        ))}
       </List>
     </ArticlesListContainer>
   );
@@ -89,9 +93,9 @@ const ArticlesListContainer = styled(Section)`
 const List = styled.div`
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 1fr [last];
+  grid-template-columns: 1fr 1fr 1fr [last];
   grid-template-rows: 2;
-  column-gap: 48px;
+  column-gap: 32px;
   row-gap: 120px;
   
   &:not(:last-child) {
@@ -99,8 +103,8 @@ const List = styled.div`
   }
   
   ${mediaqueries.desktop`
-    grid-template-columns: 1fr 1fr [last];
-    column-gap: 32px;
+    grid-template-columns: 1fr 1fr 1fr [last];
+    column-gap: 24px;
   `}
 
   ${mediaqueries.tablet`

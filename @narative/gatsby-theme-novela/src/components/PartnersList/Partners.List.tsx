@@ -93,10 +93,10 @@ const PartnersList = styled.div`
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr  1fr;
-  grid-gap: 48px;
+  grid-gap: 32px;
 
   ${mediaqueries.desktop`
-    grid-gap: 32px;
+    grid-gap: 24px;
   `}
 
   ${mediaqueries.tablet`
