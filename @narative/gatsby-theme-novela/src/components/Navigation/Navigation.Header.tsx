@@ -5,6 +5,7 @@ import { useColorMode } from "theme-ui";
 
 import Section from "@components/Section";
 import Logo from "@components/Logo";
+import { LinkExternal } from "@components/LinkNav";
 
 import Icons from "@icons";
 import mediaqueries from "@styles/media";
@@ -102,12 +103,12 @@ const NavigationHeader: React.FC<{}> = () => {
           </LogoLink>
 
           <NavControlsRight>
-            <NavLink to={`/journal`} title={`Journal`} activeClassName="active" >
-              Journal
-            </NavLink>
             <NavLink to={`/about`} title={`About`} activeClassName="active" >
               About
             </NavLink>
+            <LinkBold>
+              <LinkExternal href="https://tally.so/r/wgGd0K" target="_blank" rel="noopener" > Submit </LinkExternal>
+            </LinkBold>
             <DarkModeToggle />
           </NavControlsRight>
         </NavContainer>
@@ -168,6 +169,31 @@ const NavLink = styled(Link)`
     color: ${p => p.theme.colors.accent};
   }
   
+  &.active {
+    color: ${p => p.theme.colors.accent};
+  }
+`;
+
+const LinkBold = styled.span`
+  font-weight: ${p => p.theme.fontsWeight.bold};
+  font-family: ${p => p.theme.fonts.title};
+  font-size: 18px;
+  color: ${p => p.theme.colors.secondary};
+  transition: color 0.25s var(--ease-in-out-quad);
+  display: inline-block;
+  position: relative;
+  margin-left: 32px;
+
+  ${mediaqueries.tablet`
+    font-size: 14px;
+    line-height: 16px;
+    margin-left: 16px;
+  `}
+
+  &:hover {
+    color: ${p => p.theme.colors.accent};
+  }
+
   &.active {
     color: ${p => p.theme.colors.accent};
   }
