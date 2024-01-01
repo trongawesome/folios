@@ -50,7 +50,7 @@ const ArticlesList: React.FC<ArticlesListProps> = ({
     <ArticlesListContainer>
       <List>
         {articles.map((ap, index) => {
-          return ( ( index === 1) ?
+          return ( ( index === 2 || index === 9 || index === 17 || index === 28 || index === 36) ?
               <>
                 <ListItem key={index} article={ap} counter={totalCount - index - sumArticlesInPreviousPage} />
                 <PartnersList />
@@ -89,7 +89,7 @@ const ArticlesListContainer = styled(Section)`
 const List = styled.div`
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 1fr [last];
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 2;
   column-gap: 48px;
   row-gap: 120px;
@@ -99,12 +99,12 @@ const List = styled.div`
   }
   
   ${mediaqueries.desktop`
-    grid-template-columns: 1fr 1fr [last];
+    grid-template-columns: 1fr 1fr;
     column-gap: 32px;
   `}
 
   ${mediaqueries.tablet`
-    grid-template-columns: 1fr [last];
+    grid-template-columns: 1fr;
     row-gap: 80px;
 
     &:not(:last-child) {
