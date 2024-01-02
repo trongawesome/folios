@@ -5,7 +5,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import Section from "@components/Section";
 
 import mediaqueries from "@styles/media";
-import Subscription from "@components/Subscription";
+import { Subscription } from "@components/Subscription";
 import { LinkExternal, LinkInternal } from "@components/LinkNav";
 
 const siteQuery = graphql`

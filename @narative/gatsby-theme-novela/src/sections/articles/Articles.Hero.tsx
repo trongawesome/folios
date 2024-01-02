@@ -5,6 +5,7 @@ import { Link } from 'gatsby';
 
 import Section from '@components/Section';
 import Headings from "@components/Headings";
+import { SubscriptionBox } from "@components/Subscription";
 import mediaqueries from '@styles/media';
 import { IAuthor } from '@types';
 
@@ -45,6 +46,7 @@ const ArticlesHero: React.FC<IAuthor> = ({ authors }) => {
           <InfoText>
             {hero.portfoliosSubtitle}
           </InfoText>
+          <SubscriptionBox />
         </TextWrap>
         <NavCategoryWrap>
           <NavCategory/>
@@ -87,4 +89,5 @@ const InfoText = styled.p`
 const NavCategoryWrap = styled.div`
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: -84px;
 `;
