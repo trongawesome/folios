@@ -78,7 +78,7 @@ export default SubscriptionBox;
 const Content = styled.div`
   width: 100%;
   margin-top: 16px;
-  margin-bottom: 80px;
+  margin-bottom: 88px;
 `;
 
 const Text = styled.span`

@@ -8,22 +8,16 @@ import mediaqueries from '@styles/media';
 const CategoryItem = ({name, slug}) => {
 
   return (
-    <LinkWrap>
-      <CatLink to={slug} title={name} data-a11y="false">
-        {name}
-      </CatLink>
-    </LinkWrap>
+    <CatLink to={slug} title={name} data-a11y="false">
+      {name}
+    </CatLink>
   );
 };
 
 export default CategoryItem;
 
-const LinkWrap = styled.span`
-
-`; 
-
 const CatLink = styled(Link)`
-  font-size: 18px;
+  font-size: 16px;
   line-height: 40px;
   color: ${p => p.theme.colors.secondary};
   font-weight: ${p => p.theme.fontsWeight.bold};
