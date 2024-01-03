@@ -174,7 +174,6 @@ const Button = styled.button<{ hasError: string; subscribed: boolean }>`
         top: 0;
         left: 0;
         border: none;
-        border: 1px solid ${p.theme.colors.accent};
         &:hover {
         color: initial;
         background: initial;
