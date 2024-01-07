@@ -143,7 +143,7 @@ const Button = styled.button<{ hasError: string; subscribed: boolean }>`
     border: 1px solid
         ${p => (p.hasError ? p.theme.colors.error : p.theme.colors.primary)};
     border-radius: 32px;
-    color: ${p => (p.hasError ? p.theme.colors.error : p.theme.colors.white)};
+    color: ${p => (p.hasError ? p.theme.colors.error : p.theme.colors.card)};
     background: ${p => (p.subscribed ? p.theme.colors.accent : p.theme.colors.primary)};
     font-family: ${p => p.theme.fonts.title};
     font-weight: ${p => p.theme.fontsWeight.bold};
