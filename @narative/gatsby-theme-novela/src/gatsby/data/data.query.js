@@ -4,8 +4,6 @@
 
 const GatsbyFluid_withWebp = `
   aspectRatio
-  src
-  srcSet
   srcWebp
   srcSetWebp
   sizes
@@ -35,12 +33,12 @@ module.exports.local = {
           body
           hero {
             full: childImageSharp {
-              fluid(maxWidth: 1200, quality: 95, base64Width: 1) {
+              fluid(sizes: "(max-width: 540) 100vw, 65vw", quality: 95, srcSetBreakpoints: [800]) {
                 ${GatsbyFluid_withWebp}
               }
             }
             narrow: childImageSharp {
-              fluid(maxWidth: 640, quality: 95, base64Width: 1) {
+              fluid(sizes: "(max-width: 540px) 100vw, 400px", quality: 95, srcSetBreakpoints: [400, 800]) {
                 ${GatsbyFluid_withWebp}
               }
             }
@@ -80,12 +78,12 @@ module.exports.local = {
           body
           hero {
             full: childImageSharp {
-              fluid(maxWidth: 1200, quality: 95, base64Width: 1) {
+              fluid(maxWidth: 1200, quality: 95) {
                 ${GatsbyFluid_withWebp}
               }
             }
             narrow: childImageSharp {
-              fluid(maxWidth: 457, quality: 95, base64Width: 1) {
+              fluid(maxWidth: 457, quality: 95) {
                 ${GatsbyFluid_withWebp}
               }
             }
@@ -112,12 +110,12 @@ module.exports.local = {
           slug
           avatar {
             small: childImageSharp {
-              fluid(maxWidth: 50, quality: 100, base64Width: 1) {
+              fluid(maxWidth: 50, quality: 100) {
                 ${GatsbyFluid_withWebp}
               }
             }
             large: childImageSharp {
-              fluid(maxWidth: 328, quality: 100, base64Width: 1) {
+              fluid(maxWidth: 328, quality: 100) {
                 ${GatsbyFluid_withWebp}
               }
             }
