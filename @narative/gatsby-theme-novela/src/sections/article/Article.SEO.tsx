@@ -53,7 +53,7 @@ const ArticleSEO: React.FC<ArticleSEOProps> = ({
       "@type": "WebPage",
       "@id": "${siteUrl + location.pathname}"
     },
-    "headline": "${article.title}",
+    "headline": "${article.title + article.author}",
     "image": "${siteUrl + article.hero.seo.src}",
     "datePublished": "${article.dateForSEO}",
     "dateModified": "${article.dateForSEO}",
@@ -82,7 +82,7 @@ const ArticleSEO: React.FC<ArticleSEOProps> = ({
 
   return (
     <SEO
-      title={article.title + " - " + title}
+      title={article.title + " — " + article.author + " - " + title}
       description={article.excerpt}
       image={article.hero.seo.src}
       timeToRead={article.timeToRead}

@@ -39,7 +39,7 @@ const ArticlesPage: Template = ({ location, pageContext }) => {
     <Layout>
       <SEO 
         pathname={location.pathname}
-        title={site.title + " - " + site.name}
+        title={site.name}
       />
       <ArticlesHero authors={authors} />
       <ArticlesList articles={articles} currentPage={pageContext.index}/>
