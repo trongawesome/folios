@@ -30,6 +30,34 @@ const ArticleHero: React.FC<ArticleHeroProps> = ({ article, authors }) => {
         backgroundSize: 'cover',
       }}>
       
+      <Header>
+        <HeaderInner>
+          <HeaderWrapper>
+            <DesignerType>
+              <DecoStar>
+                ✦&nbsp;
+              </DecoStar>
+              {authors.map((author, index) => (
+                <span>
+                  <LinkInternal to={author.slug} key={index}>{author.name}</LinkInternal>
+                  {index + 1 < authors.length ? (
+                    <span> &nbsp; / &nbsp; </span>
+                  ) : ('')}
+                </span>
+              ))}
+              <DecoStar>
+                &nbsp;✦
+              </DecoStar>
+            </DesignerType>
+            <HeroHeading>{article.title}</HeroHeading>
+            <HeroSubtitle>Portfolio of the Day — {article.date}</HeroSubtitle>
+            {article.font && <HeroSubtitle>Fonts — {article.font}</HeroSubtitle>}
+            {/* <Excerpt>{article.excerpt}</Excerpt> */}
+            <LinkButton href={article.siteLink + "?ref=pafolios"} target="_blank" rel="noopener">Visit site <Icons.ArrowExternal /> </LinkButton>
+          </HeaderWrapper>
+        </HeaderInner>
+      </Header>
+
       <HeroImageWrapper>
         <Link>
           <HeroImage id="ArticleImage__Hero">
@@ -47,30 +75,6 @@ const ArticleHero: React.FC<ArticleHeroProps> = ({ article, authors }) => {
         </HeroBackground>
       </HeroImageWrapper>
 
-      <Header>
-        <HeaderInner>
-          <HeaderWrapper>
-            <DesignerType>
-              {authors.map((author, index) => (
-                <span>
-                  <LinkInternal to={author.slug} key={index}>{author.name}</LinkInternal>
-                  {index + 1 < authors.length ? (
-                    <span> &nbsp; / &nbsp; </span>
-                  ) : ('')}
-                </span>
-              ))}
-            </DesignerType>
-            <HeroHeading>{article.title}</HeroHeading>
-            <HeroSubtitle>Portfolio of the Day — {article.date}</HeroSubtitle>
-            {article.font && <HeroSubtitle>Fonts — {article.font}</HeroSubtitle>}
-            {/* <Excerpt>{article.excerpt}</Excerpt> */}
-            <LinkButton href={article.siteLink + "?ref=pafolios"} target="_blank" rel="noopener">Visit site <Icons.ArrowExternal /> </LinkButton>
-          </HeaderWrapper>
-          
-          <AdsBlockVertical/>
-        </HeaderInner>
-      
-      </Header>
     </Hero>
   );
 };
@@ -83,7 +87,7 @@ const Hero = styled.div`
   max-width: 1296px;
   padding: 0 48px;
   display: grid;
-  grid-template-columns: 65% auto;
+  grid-template-columns: 1fr;
   column-gap: 64px;
 
   ${mediaqueries.tablet`
@@ -97,12 +101,14 @@ const Header = styled.header`
   position: relative;
   z-index: 10;
   margin: 0;
-  padding-top: 24px;
+  margin-bottom: 32px;
 `;
 
 const HeaderWrapper = styled.div`
-  // position: sticky;
-  // top: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
 `;
 
 const HeaderInner = styled.div`
@@ -180,13 +186,14 @@ const HeroImage = styled.div`
 const LinkButton = styled.a`
   position: relative;
   font-size: 16px;
-  line-height: 32px;
+  line-height: 40px;
   margin-top: 24px;
   transition: opacity 0.25s var(--ease-in-out-quad);
-  display: inline-block;
+  place-self: center;
   padding: 4px 16px;
   transition: all 0.3s var(--ease-out-quad);
-  border-radius: 4px;
+  border-radius: 24px;
+  font-weight: ${p => p.theme.fontsWeight.bold};
 
   background-color: ${p => p.theme.colors.accent};
   color: ${p => p.theme.colors.background};
@@ -219,6 +226,10 @@ const HeroImageWrapper = styled.div`
   position: relative;
 
 `;
+
+const DecoStar = styled.span `
+  padding: 0 8px;
+`
 
 const HeroBackground = styled.div`
   position: absolute;
