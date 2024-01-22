@@ -149,13 +149,14 @@ const ImageContainer = styled.div`
 `;
 
 const Title = styled(Headings.h2)`
-  font-size: 44px;
-  line-height: 56px;
+  font-size: 36px;
+  line-height: 48px;
   font-family: ${p => p.theme.fonts.title};
   letter-spacing: -1px;
   transition: color 0.3s ease-in-out;
   color: ${p => p.theme.colors.primary};
-  margin-bottom: 32px;
+  margin-bottom: 16px;
+  word-break: break-all;
 
   ${mediaqueries.tablet`
     font-size: 38px;
