@@ -9,4 +9,5 @@ Illustrator
 Interaction Designer
 Photographer
 Artist
+UX Researcher
 Design Intern
