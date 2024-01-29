@@ -28,7 +28,7 @@ const CatLink = styled(Link)`
   padding: 0 20px;
   background-color: ${p => p.theme.colors.card};
   border-radius: 20px;
-  transition: background 0.25s var(--ease-in-out-quad);
+  transition: all .3s var(--bounce);
   
   ${mediaqueries.tablet`
     margin-right: 8px;
@@ -36,7 +36,8 @@ const CatLink = styled(Link)`
   `}
 
   &:hover {
-    background-color: ${p => p.theme.colors.accent};
+    box-shadow: 0 0 0 1px ${p => p.theme.colors.primary}, 0 4px 0 0 ${p => p.theme.colors.primary};
+    transform: translateY(-4px);
   }
 
 `;

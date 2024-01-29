@@ -182,18 +182,18 @@ const LinkButton = styled.a`
   font-size: 16px;
   line-height: 32px;
   margin-top: 24px;
-  transition: opacity 0.25s var(--ease-in-out-quad);
   display: inline-block;
-  padding: 4px 16px;
-  transition: all 0.3s var(--ease-out-quad);
-  border-radius: 4px;
-
+  padding: 8px 20px;
+  border-radius: 24px;
   background-color: ${p => p.theme.colors.accent};
-  color: ${p => p.theme.colors.background};
-  box-shadow: inset 0px 0px 0px 1px ${p => p.theme.colors.accent};
+  color: ${p => p.theme.colors.black};
+
+  transition: all .3s var(--bounce);
+  box-shadow: 0 0 0 1px ${p => p.theme.colors.primary};
 
   &:hover {
-    opacity: .7;
+    box-shadow: 0 0 0 1px ${p => p.theme.colors.primary}, 0 5px 0 0 ${p => p.theme.colors.primary};
+    transform: translateY(-5px);
   }
 
   svg {
@@ -202,7 +202,7 @@ const LinkButton = styled.a`
 
   svg path {
     transition: all 0.3s var(--ease-out-quad);
-    fill: ${p => p.theme.colors.background} !important;
+    fill: ${p => p.theme.colors.black} !important;
   }
 `;
 
