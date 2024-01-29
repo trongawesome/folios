@@ -82,10 +82,10 @@ const ImageContainer = styled.div`
   position: relative;
   height: 800px;
   margin-bottom: 8px;
-  transition: all 0.25s var(--ease-out-quad);
   border-radius: 12px;
-  border: 1px solid ${p => p.theme.colors.card};
+  box-shadow: 0 0 0 1px ${p => p.theme.colors.card};
   overflow: hidden;
+  transition: all .3s var(--bounce);
 
   & > div {
     height: 100%;
@@ -181,6 +181,11 @@ const ArticleLink = styled(Link)`
     border: 3px solid ${p => p.theme.colors.accent};
     background: rgba(255, 255, 255, 0.01);
     border-radius: 5px;
+  }
+
+  &:hover ${ImageContainer} {
+    box-shadow: 0 0 0 1px ${p => p.theme.colors.primary}, 0 6px 0 -2px ${p => p.theme.colors.primary};
+    transform: translateY(-6px);
   }
 
   ${mediaqueries.phablet`

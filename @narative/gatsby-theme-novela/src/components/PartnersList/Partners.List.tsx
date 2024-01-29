@@ -117,9 +117,9 @@ const ListItem = styled(Link)`
 const ImageContainer = styled.div`
   position: relative;
   margin-bottom: 8px;
-  transition: all 0.25s var(--ease-out-quad);
+  transition: all .3s var(--bounce);
   border-radius: 12px;
-  border: 1px solid ${p => p.theme.colors.card};
+  box-shadow: 0 0 0 1px ${p => p.theme.colors.card};
   overflow: hidden;
 
   & > div {
@@ -138,6 +138,11 @@ const ImageContainer = styled.div`
     transition: all 0.25s var(--ease-out-quad);
     box-shadow: 0 30px 40px -20px rgba(119, 90, 67, 0.18),
       0 30px 30px -30px rgba(119, 90, 67, 0.4);
+  }
+
+  &:hover {
+    box-shadow: 0 0 0 1px ${p => p.theme.colors.primary}, 0 6px 0 -2px ${p => p.theme.colors.primary};
+    transform: translateY(-6px);
   }
 
   ${mediaqueries.tablet`
