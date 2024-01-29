@@ -189,7 +189,7 @@ const LinkButton = styled.a`
   color: ${p => p.theme.colors.black};
 
   transition: all .3s var(--bounce);
-  box-shadow: 0 0 0 1px ${p => p.theme.colors.primary};
+  // box-shadow: 0 0 0 1px ${p => p.theme.colors.primary};
 
   &:hover {
     box-shadow: 0 0 0 1px ${p => p.theme.colors.primary}, 0 5px 0 0 ${p => p.theme.colors.primary};
