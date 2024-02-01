@@ -152,4 +152,29 @@ export const globalStyles = css`
     text-transform: uppercase;
     color: #3A5C21;
   }
+
+  // custom button
+  .button.button-prim {
+    osition: relative;
+    font-size: 18px;
+    line-height: 32px;
+    margin-top: 24px;
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 24px;
+    background-color: var(--theme-ui-colors-accent, #F5B802);
+    color: var(--theme-ui-colors-black, #111216);
+    transition: all .3s var(--bounce);
+    font-weight: 700;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .button.button-prim:hover {
+    box-shadow: 0 0 0 1px var(--theme-ui-colors-primary, #111216),0 5px 0 0 var(--theme-ui-colors-primary, #111216);
+    transform: translateY(-5px);
+    color: var(--theme-ui-colors-black, #111216) !important;
+  }
 `;

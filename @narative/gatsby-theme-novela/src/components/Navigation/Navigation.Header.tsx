@@ -106,9 +106,12 @@ const NavigationHeader: React.FC<{}> = () => {
             <NavLink to={`/about`} title={`About`} activeClassName="active" >
               About
             </NavLink>
-            <LinkBold>
+            <NavLink to={`/submit`} title={`Submit`} activeClassName="active" >
+              Submit
+            </NavLink>
+            {/* <LinkBold>
               <LinkExternal href="https://tally.so/r/wgGd0K" target="_blank" rel="noopener" > Submit </LinkExternal>
-            </LinkBold>
+            </LinkBold> */}
             <DarkModeToggle />
           </NavControlsRight>
         </NavContainer>
