@@ -1,9 +1,9 @@
 UX & Product Designer
 Creative Designer
+Creative Developer
 Brand Designer
 Design Agency
 Design Subscription
-Creative Developer
 Writer
 Illustrator
 Interaction Designer
