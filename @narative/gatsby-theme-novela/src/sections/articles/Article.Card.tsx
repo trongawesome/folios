@@ -80,7 +80,7 @@ const Badge = styled.span`
 
 const ImageContainer = styled.div`
   position: relative;
-  height: 800px;
+  height: 640px;
   margin-bottom: 8px;
   border-radius: 12px;
   box-shadow: 0 0 0 1px ${p => p.theme.colors.card};
@@ -106,7 +106,7 @@ const ImageContainer = styled.div`
   }
 
   ${mediaqueries.tablet`
-    height: 700px;
+    height: 600px;
     overflow: hidden;
     margin-bottom: 0;
     border-radius: 0;
@@ -141,8 +141,8 @@ const Title = styled(Headings.h2)`
   ${limitToOneLines};
 
   ${mediaqueries.tablet`
-    font-size: 38px;
-    line-height: 48px;
+    font-size: 32px;
+    line-height: 40px;
   `}
 
 `;
