@@ -12,4 +12,3 @@ Photographer
 Artist
 UX Researcher
 Design Intern
-No-code Developer
