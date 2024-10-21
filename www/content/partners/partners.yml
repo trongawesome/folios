@@ -1,19 +1,19 @@
 - title: Framer
   image: ./images/framer.jpg
   desc: Free no-code portfolios templates
-  url: https://www.framer.com/templates/category/portfolio/?via=pafolios
+  url: https://www.framer.com/marketplace/templates/category/portfolio/?via=pafolios
 
 - title: Themex
   image: ./images/themex.jpg
   desc: Minimal Portfolio Ghost Themes
   url: https://themex.studio/kyoto/?via=pafolios
 
-# - title: iconist
-#   image: ./images/iconist.jpg
-#   desc: Top notch icons
-#   url: https://iconists.co/central?aff=wp9Xz
-
 - title: Product Design Portfolio Final Final
   image: ./images/pd-portfolio.jpg
   desc: Book
   url: https://checkout.fedor.design/?ref=pafolios
+
+# - title: iconist
+#   image: ./images/iconist.jpg
+#   desc: Top notch icons
+#   url: https://iconists.co/central?aff=wp9Xz
