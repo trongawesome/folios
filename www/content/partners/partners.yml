@@ -3,15 +3,20 @@
   desc: Free no-code portfolios templates
   url: https://www.framer.com/marketplace/templates/category/portfolio/?via=pafolios
 
-- title: Themex
-  image: ./images/themex.jpg
+- title: Kyoto
+  image: ./images/themex-kyoto.jpg
   desc: Minimal Portfolio Ghost Themes
   url: https://themex.studio/kyoto/?via=pafolios
 
-- title: Product Design Portfolio Final Final
-  image: ./images/pd-portfolio.jpg
-  desc: Book
-  url: https://checkout.fedor.design/?ref=pafolios
+- title: Braun
+  image: ./images/themex-braun.jpg
+  desc: Sleek Portfolio Ghost Themes
+  url: https://themex.studio/braun/?via=pafolios
+
+# - title: Product Design Portfolio Final Final
+#   image: ./images/pd-portfolio.jpg
+#   desc: Book
+#   url: https://checkout.fedor.design/?ref=pafolios
 
 # - title: iconist
 #   image: ./images/iconist.jpg
