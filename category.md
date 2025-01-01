@@ -12,3 +12,10 @@ Photographer
 Artist
 UX Researcher
 Design Intern
+
+---
+
+run script (remember to change date range)
+node create-posts.js
+
+---
