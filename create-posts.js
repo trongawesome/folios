@@ -58,6 +58,6 @@ const updatePosts = (startDate, endDate) => {
 };
 
 // Update posts for November 2024
-updatePosts('2024-11-01', '2024-11-30');
+updatePosts('2024-12-01', '2024-12-30');
 
 console.log('Done updating posts!'); 
